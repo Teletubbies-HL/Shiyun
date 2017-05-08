@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Images/Home/shiyunlogo.ico" type="image/x-icon" /><!--icon-->
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/HeadFoot.css" rel="stylesheet" />
+    @RenderSection("style", required: false)
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="bignav" style="display: block;">
+            <div class="container1">
+                <div class="bignav_left bignav_same">
+                    <ul>
+                        <li style="margin-left: 0px;"><a href="@Url.Action("Login","UserInfo")"><span class="iconfont" aria-hidden="true">&#xe62b;</span></a></li>
+                        <li><a href="javascript:void(0)">诗</a></li>
+                        <li><a href="javascript:void(0)">词</a></li>
+                        <li style="margin-right: 30px;"><a href="javascript:void(0)">纪录片</a></li>
+                    </ul>
+                </div>
+                <div class="bignav_center">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Images/Home/shiyunlogo.png" width="70" height="70" /></a>
+                </div>
+                <div class="bignav_right bignav_same">
+                    <ul>
+                        <li style="margin-left: 30px;" class="bignav_right_li1"><a href="javascript:void(0)">挑战</a></li>
+                        <li><a href="@Url.Action("Index","Mall")">商城</a></li>
+                        <li><a href="@Url.Action("Index","LunTan")">论坛</a></li>
+                        <li style="margin-right: 0px;"><a href="javascript:void(0)" class="nav_search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="smallnav" style="display: none;">
+            <div class="container">
+                <div class="smallnav_logo">
+                    <a><img src="~/Images/Home/shiyunlogo.png" width="40" height="40" /></a>
+                </div>
+                <button type="button" class="open open1">-</button>
+                <button type="button" class="open open2" style="display: none;">×</button>
+                <ul style="display: none;">
+                    <li style="margin-top: 10px;"><a href="javascript:void(0)">登陆/注册</a></li>
+                    <li><a href="javascript:void(0)">诗</a></li>
+                    <li><a href="javascript:void(0)">词</a></li>
+                    <li><a href="javascript:void(0)">纪录片</a></li>
+                    <li><a href="javascript:void(0)">挑战</a></li>
+                    <li><a href="javascript:void(0)">商城</a></li>
+                    <li><a href="javascript:void(0)">论坛</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 搜索 -->
+    <div class="search" style="display: none;">
+        <button type="button" class="close">×</button>
+        <form>
+            <input type="search" class="input_search" value="" placeholder="请输入搜索内容...." required />
+            <button type="submit" class="btn btn_search">搜索</button>
+        </form>
+    </div>
+    @RenderBody()
+    <!--回到顶部-->
+    <div id="toTop"><img src="~/Images/Home/totop.png" /></div>
+    <!--底部-->
+    <footer>
+        <div class="container">
+            <div class="col-md-4 col-sm-6 col-xs-12 col-md-push-4">
+                <article class="footlogo">
+                    <img src="~/Images/Home/bottom_logo_2.png" class="word" />
+                    <img src="~/Images/Home/bottom_logo_1.png" class="moon">
+                </article>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col-md-pull-4">
+                <article class="footleft">
+                    <div class="foot_part1 foot_part">
+                        <ul>
+                            <li class="foot_part_title">网站功能</li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">诗词阅览</a></li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">答题挑战</a></li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">论坛原创</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot_part2 foot_part">
+                        <ul>
+                            <li class="foot_part_title">成长之路</li>
+                            <li class="foot_part_choose"><a href="http://219.229.243.64/Gbuilding/">古建网</a></li>
+                            <li class="foot_part_choose"><a href="http://219.229.243.64/Association/">+社团</a></li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">鞠友</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <article class="footright">
+                    <div class="foot_part1 foot_part">
+                        <ul>
+                            <li class="foot_part_title">友情链接</li>
+                            <li class="foot_part_choose"><a href="http://www.jxnu.edu.cn/">江西师大</a></li>
+                            <li class="foot_part_choose"><a href="http://www.gushiwen.org/">古诗词网</a></li>
+                            <li class="foot_part_choose"><a href="http://www.zhsc.net/">中华诗词</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot_part2 foot_part">
+                        <ul>
+                            <li class="foot_part_title">关于我们</li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">免责声明</a></li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">联系我们</a></li>
+                            <li class="foot_part_choose"><a href="javascript:void(0)">意见反馈</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="contactus">
+            <span class="p">关注我们：</span>
+            <a href="javascript:void(0)"><span class="iconfont weixin">&#xe6bb;</span></a>
+            <a href="javascript:void(0)"><span class="iconfont weibo">&#xe6c0;</span></a>
+            <a href="javascript:void(0)"><span class="iconfont tenxun">&#xe6b9;</span></a>
+            <a href="javascript:void(0)"><span class="iconfont qqkongjian">&#xe693;</span></a>
+        </div>
+        <div class="foot-bottom">
+            <ul>
+                <li>管理员信箱：1561259920@qq.com</li>
+                <li>地址：江西省南昌市瑶湖江西师范大学</li>
+                <li><a class="foot-bottom-3" href="javascript:void(0)">后台入口</a></li>
+                <li>指导老师：曾雅琳</li>
+                <li><br />版权所有&nbsp;&copy;江西师范大学软件学院</li>
+            </ul>
+
+        </div>
+    </footer><!--底部部分 结束-->
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/JS/HeadFoot.js"></script>
+@RenderSection("scripts", required: false)
+</body>
+</html>

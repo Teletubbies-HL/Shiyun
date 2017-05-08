@@ -1,0 +1,149 @@
+﻿@*@model  Models.Post*@
+@model Shiyun.Models.LuntanIndex
+@{
+    ViewBag.Title = "PostSend";
+}
+@section style{
+    <link href="~/Content/css/PostSend.css" rel="stylesheet"/>
+<style>
+    
+</style>
+
+}
+
+
+
+<div class="Tribune-choose">
+    <div class="cotenter">
+        <ul>
+            <li><a href="/LunTan/Index" style="text-decoration: none;" class="cssButton">首页</a></li>
+            @foreach (var fenlei in Model.FenLei)
+            {
+                <li><a class="cssButton" href="javascript:void(0)">@fenlei.LunTanName</a></li>
+            }
+        </ul>
+    </div>
+</div>
+
+<section>
+    @*@using (Html.BeginForm("PostSend", "LunTan", FormMethod.Post, new { @class = "PostSendForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Post_id)
+        <div class="title">
+            @Html.EditorFor(model => model.PostTitle, new {htmlAttributes = new {@class = "form-control csstxtTitle", id = "txtTitle", placeholder = "请输入标题", style = "height: 40px; width: 500px;"}})
+            @Html.DropDownList("LunTan_id", null, htmlAttributes: new { @class = "cssDropDownList1" })
+        </div>
+        <div class="zhengwen">
+            @Html.TextAreaFor(model => model.PostDetails, htmlAttributes:   new {@class = "form-control csszhengwen", id = "txtDetails", style = "height: 400px; width: 900px;"})
+        </div>
+        <div class="fabiao">
+            <input type="submit" id="Button2" value="存为草稿" class="cssbtn1" name="save" readonly="readonly"/>      
+            <input type="submit" id="Button1" value="发表帖子" class="cssbtn2" name="post" readonly="readonly"/>
+
+        </div>
+    }*@
+
+    @using (Html.BeginForm("PostSend", "LunTan", FormMethod.Post, new { @class = "PostSendForm", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+            <div class="title">
+                @Html.EditorFor(model => model.Post.PostTitle, new { htmlAttributes= new {@class = "form-control csstxtTitle", id = "txtTitle", placeholder = "请输入标题", style = "height: 40px; width: 500px;"}     })
+                @Html.ValidationMessageFor(model => model.Post.PostTitle, "", new {@class = "text-danger"})
+
+                @Html.DropDownListFor(model => model.Post.LunTan_id,Model.List1,null, htmlAttributes: new { @class = "cssDropDownList1" })
+                <input class="hidden1" type="hidden" value="@ViewBag.LunTan_id"/>
+                @Html.ValidationMessageFor(model => model.Post.LunTan_id, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="zhengwen">               
+                <a href="javascript:void(0)" class="file_a" style="display: none;">
+                     <input type="file" name="luntanmp3" value="luntanmp3" class="file_a_a"/><div class="file_a_b">请上传mp3文件</div>
+                </a>
+                @Html.TextAreaFor(model => model.Post.PostDetails, htmlAttributes: new {@class = "form-control csszhengwen", id = "txtDetails", style = "height: 400px; width: 900px;"})
+                @Html.ValidationMessageFor(model => model.Post.PostDetails, "", new {@class = "text-danger"})
+            </div>
+
+            <div class="fabiao">
+                <input type="submit" id="Button2" value="存为草稿" class="cssbtn1" name="savee" readonly="readonly" /> 
+                <input type="submit" id="Button1" value="发表帖子" class="cssbtn2" name="postt" readonly="readonly"/>
+            </div>
+        </div>
+    }
+    @*<div class="title">
+        <asp:TextBox ID="txtTitle" runat="server" Height="40px" Width="500px" placeholder="请输入标题" CssClass="csstxtTitle"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTitle" ErrorMessage="标题不能为空" ForeColor="#DD3B44"></asp:RequiredFieldValidator>
+
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="KTribuneName" DataValueField="KTribune_id" CssClass="cssDropDownList1"></asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GBuildingConnectionString %>" SelectCommand="SELECT * FROM [KTribune]"></asp:SqlDataSource>
+    </div>
+    <div class="zhengwen">
+        <ckeditor:ckeditorcontrol ID="txtDetails" runat="server" BasePath="../ckeditor/" DefaultLanguage="zh-cn" Width="900px" Height="400px"></ckeditor:ckeditorcontrol>
+    </div>
+    <div class="fabiao">
+        <asp:Button ID="Button2" runat="server" Text="存为草稿" CssClass="cssbtn1" OnClick="Button2_Click"/>
+        <asp:Button ID="Button1" runat="server" Text="发表帖子" CssClass="cssbtn2" OnClick="Button1_Click"/>
+
+    </div>*@
+    
+</section>
+
+
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+            $(".Tribune-choose .cotenter ul").children(":eq(1)").children().attr("href", '@Url.Action("YuanChuang", "LunTan", new { luntanId = 1 })');
+            $(".Tribune-choose .cotenter ul").children(":eq(2)").children().attr("href", "/LunTan/YuanChuang");
+            $(".Tribune-choose .cotenter ul").children(":eq(3)").children().attr("href", "/LunTan/YuanChuang");
+        });
+        $(function() {
+            var hidden = $(".hidden1").val();
+            $(".cssDropDownList1").get(0).selectedIndex = hidden - 1 ;
+
+
+            if ($(".cssDropDownList1").get(0).selectedIndex == 1) {
+                $(".file_a").css("display", "block");
+            } else {
+                $(".file_a").css("display", "none");
+            }
+
+
+            $(".cssDropDownList1").change( function () {
+                if ($(".cssDropDownList1").get(0).selectedIndex == 1) {
+                    $(".file_a").css("display", "block");
+                } else {
+                    $(".file_a").css("display", "none");
+                }
+            });
+
+
+
+        });
+        $(function() {
+            $(".file_a_a").on("change", function () {
+                var fileFlag = false;
+                $(".file_a_a").each(function () {
+                    if ($(this).val() != "") {
+                        fileFlag = true;
+                        $(".file_a_b").html("文件已选择");
+                        $(".file_a_b").css("color", "#000");
+                        $(".file_a").css("text-indent", "2em");
+                    }
+                });
+                if (!fileFlag) {
+                    $(".file_a").css("text-indent", "1em");
+                    $(".file_a_b").css("color", "#808080");
+                     $(".file_a_b").html("请上传文件");
+                }
+            });
+
+
+            });
+
+
+
+    </script>
+}

@@ -1,0 +1,123 @@
+﻿@model Models.UserInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>诗韵-注册</title>
+    <link rel="shortcut icon" href="~/Images/Home/shiyunlogo.ico" type="image/x-icon" /><!--icon-->
+    <link href="~/Content/css/Register.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div>
+        <header>
+            <div class="content1">
+                <div class="headerbar">
+                    <a id="hlkLogo" href="@Url.Action("Index","Home")">
+                        <img id="imgLogo" src="~/Images/Home/shiyunlogo.png" style="width: 70px;height: 70px" />
+                    </a>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="text2">
+                <img id="textimg2" src="~/Images/RegisterLogin/dlzc2.png" />
+            </div>
+            <div class="text1">
+                <img id="textimg1" src="~/Images/RegisterLogin/dlzc1.png" />
+            </div>
+            <div class="content">
+                <div class="content_bg">
+                    @{Html.EnableClientValidation();}
+                    @using (Html.BeginForm("Register", "UserInfo", FormMethod.Post, new { @id = "mainform" }))
+                    {
+                        <div class="formheader">
+                            @Html.ActionLink("用户登录", "Login", "UserInfo", null, new { @id = "hlkNormalLogin", style = "color:#E5E5E5;" })&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                            @*@Html.ActionLink("用户注册", "Index", "Register", null, new { @id = "hlkNormalRegister", style = "color: #32A5E7" })*@
+                            <label id="hlkNormalRegister" style="color: #32A5E7">用户注册</label>
+                        </div>
+
+                            <div class="normalInput normaluser">
+                                @Html.EditorFor(model => model.Users_id, new { htmlAttributes = new { @class = "form-control", id = "txtUser", PlaceHolder = "用户名", style = " height:46px;width:80%" } })
+                                <label id="Label1" class="usertip"></label>
+                            </div>
+
+
+                            <div class="normalInput normalpassword">
+                                @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control", @id = "txtPassword", type = "password", PlaceHolder = "密码", style = " height:46px;width:80%;float:left;" } })
+                                <span class="iconfont showpassword" style="display: none;font-size: 40px;">&#xe80b;</span>
+                                <span class="iconfont hidepassword" style="display: block;font-size: 40px;">&#xe6a2;</span>
+                                <div class="passtip"></div>
+                            </div>
+                            <div class="normalInput normalrepassword">
+                                @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control", @id = "txtRePassword", type = "password", PlaceHolder = "确认密码", style = " height:46px;width:80%;" } })
+                                <div class="repasstip"></div>
+                            </div>
+                            <div class="normalInput normalmail">
+                                @Html.EditorFor(model => model.UserMail, new { htmlAttributes = new { @class = "form-control", @id = "txtMail", PlaceHolder = "安全邮箱", style = " height:46px;width:80%;" } })
+                                <div class="mailtip"></div>
+                            </div>
+                            <div class="checkField">
+                                <span class="iconfont chebox-before" style="font-size: 20px; color: rgba(218, 218, 218, 0.9)">&#xe68e;</span>
+                                <span class="iconfont chebox-after" style="font-size: 20px; color: rgba(44, 180, 229, 1)">&#xe707;</span>
+                                @Html.CheckBox("a", false, new { @id = "ckbAgree" })
+                                <span class="chebox" style="font-size: 15px; line-height: 30px; color: #7f7f7f;">我已阅读并接受</span>
+                                @Html.ActionLink("《服务协议条款》", "", "", null, new { @id = "HyperLink1", style = "line-height: 30px; color: rgba(50, 165, 231, 1); text-decoration: none;" })
+
+                            </div>
+                            <input type="submit" id="btnRegister" value="注册" class="btn btn-default cssbtnRegister" style="background-color: #32A5E7; font-size: 14px; font-family: 'Microsoft Yahei ,Arial,Helvetica,sans-serif'; color: #ffffff; height: 46px; width: 300px;" />
+                            <div class="tip">
+                                <div class="tip1">
+                                    @*<asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>*@
+                                    <label id="Label1"></label>
+                                </div>
+                                <div class="jiao"></div>
+                            </div>
+                    }
+                    <br />
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/JS/Register.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+            $(function() {
+                $("#txtUser").blur(function() {
+                    //$.ajax({
+                    //    url: "/Register/Pipei",
+                    //    type: post,
+                    //    data: { id: $("#txtUser").val },
+                    //    success: function(msg) {
+                    //        $("#mainform .usertip").text(msg);
+                    //        $("#mainform .normaluser").css({
+                    //            border: "1px solid red"
+                    //        });
+                    //    }
+                    //});
+                });
+            });
+            $(function () {
+                $(".text1").css("padding-left", "221px");
+                $(".text1").fadeIn(2000);
+                $(".text1").css("margin", "40px 0px 0px 0px");
+                setTimeout(function () {
+                    $(".text2").fadeIn(2000);
+                    $(".text1").css("padding-left", "0px");
+                    $(".text2").css("margin", "88px 0px 0px 0px");
+                }, 2000);
+
+            });
+    </script>
+</body>
+</html>

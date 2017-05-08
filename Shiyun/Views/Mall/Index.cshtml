@@ -1,0 +1,398 @@
+﻿@model Shiyun.Models.MallViewModels
+@{
+    ViewBag.Title = "诗韵—商城";
+}
+@section style
+    {
+    <link href="~/Content/css/Mall.css" rel="stylesheet" />
+}
+<section>
+    <div class="imgListcontent">
+        <!--图片轮播部分-->
+        <ul class="imgList" style="display: block;">
+            <!--图片框-->
+            <li>
+                <a href=javascript:void(0)>
+                    <img id="imgList1" src="~/images/mall/1.jpg" style="height: 630px; width: 100%; background: rgba(215, 210, 210, 0.3) url(../../Images/Mall/1.jpg) no-repeat center; " />
+                </a>
+            </li><!--设置背景颜色兼容-->
+            <li>
+                <a href="javascript:void(0)">
+                    <img id="imgList2" src="~/images/mall/2.jpg" style="height: 630px; width: 100%; background: rgba(255, 255, 255, 1) url(../../Images/Mall/2.jpg) no-repeat center;" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <img id="imgList3" src="~/images/mall/3.jpg" style="height: 630px; width: 100%; background: rgba(255, 255, 255, 1) url(../../Images/Mall/3.jpg) no-repeat center;" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <img id="imgList4" src="~/images/mall/4.jpg" style="height: 630px; width: 100%; background: rgba(255, 255, 255, 1) url(../../Images/Mall/4.jpg) no-repeat center;" />
+                </a>
+            </li>
+        </ul>
+        <ul class="scroll">
+            <!--左右切换-->
+            <li><a class="prev">previous</a></li>
+            <li><a class="next">next</a></li>
+        </ul>
+        <ol id="bannerCtrl" class="nav paging">
+            <!-- banner滚动-->
+            <li><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li><a>4</a></li>
+            <!-- <li><a>2</a></li>-->
+        </ol>
+        <div id="select" class="sel">
+            <ol style="margin-top: 130px;">
+                <li id="li11" class="li1" style="margin-top: 20px;">
+                    <div class="li1-1" id="idli1-1">
+                        <a href="javascript:void(0)"><img class="shudhimg" src="~/Images/Mall/shu.png" /></a>
+                    </div>
+                </li>
+                <li id="li12" class="li1">
+                    <div class="li1-1" id="idli1-2">
+                        <a href="javascript:void(0)"><img class="shudhimg" src="~/Images/Mall/bi.png" /></a>
+                    </div>
+                </li>
+                <li id="li13" class="li1">
+                    <div class="li1-1" id="idli1-3">
+                        <a href="javascript:void(0)"><img class="shudhimg" src="~/Images/Mall/mo.png" /></a>
+                    </div>
+                </li>
+                <li id="li14" class="li1">
+                    <div class="li1-1" id="idli1-4">
+                        <a href="javascript:void(0)"><img class="shudhimg" src="~/Images/Mall/zhi.png" /></a>
+                    </div>
+                </li>
+                <li id="li15" class="li1" style="margin-bottom: 20px;">
+                    <div class="li1-1" id="idli1-5">
+                        <a href="javascript:void(0)"><img class="shudhimg" src="~/Images/Mall/yan.png" /></a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div><!--图片轮播部分 结束-->
+    <div id="idshowbox1" class="showbox" style="position: relative;">
+        <div id="gmoxin" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
+            <a href="javascript:void(0)"><span><i class="iconfont">&#xe692;</i>书</span></a>
+            <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe60f;</i>诗集</span></a>
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe696;</i>词集</span></a>
+            </div>
+        </div>
+    </div>
+    <div id="idshowbox2" class="showbox">
+        <div id="gjiajv" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
+            <a href="javascript:void(0)"><span><i class="iconfont">&#xe62e;</i>笔</span></a>
+            <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+            </div>
+        </div>
+    </div>
+    <div id="idshowbox3" class="showbox">
+        <div id="gfushi" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
+            <a href="javascript:void(0)"><span><i class="iconfont">&#xe6c3;</i>墨</span></a>
+            <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+            </div>
+        </div>
+    </div>
+    <div id="idshowbox4" class="showbox">
+        <div id="gzhuangshi" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
+            <a href="javascript:void(0)"><span><i class="iconfont">&#xe66f;</i>纸</span></a>
+            <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+            </div>
+        </div>
+    </div>
+    <div id="idshowbox5" class="showbox">
+        <div id="gdingzhi" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
+            <a href="javascript:void(0)"><span><i class="iconfont" style="font-size: 33px;">&#xe6d1;</i>砚</span></a>
+            <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="topcenter">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="box1">
+                    <div class="fourblock">
+                        <div class="block1">
+                            <a href="javascript:void(0)"><i class="iconfont">&#xe66c;</i></a>
+                            <span>个人中心</span>
+                        </div>
+                        <div class="block2">
+                            <a href="javascript:void(0)"><i class="iconfont">&#xe648;</i></a>
+                            <span>我的资料</span>
+                        </div>
+                        <div class="block3">
+                            <a href="@Url.Action("Shopcar","Mall")"><i class="iconfont">&#xe640;</i></a>
+                            <span>购物车</span>
+                        </div>
+                        <div class="block4">
+                            <a href="javascript:void(0)"><i class="iconfont">&#xe688;</i></a>
+                            <span>我的订单</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="showbottom1">
+                    @foreach (var good in Model.Goodses1)
+                    {
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                            <img id="showbottomimg1" class="showbottom-Img" src="~/Images/Mall/901.jpg" />
+                            <span class="showbottom1-Title">@good.GoodsName</span>
+                            <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
+                            <span class="showbottom1-Price">¥  @good.Price</span>
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="showbottom1">
+                    @foreach (var good in Model.Goodses2)
+                    {
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                            <img id="showbottomimg2" class="showbottom-Img" src="~/Images/Mall/902.jpg" />
+                            <span class="showbottom1-Title">@good.GoodsName</span>
+                            <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
+                            <span class="showbottom1-Price">¥  @good.Price</span>
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="showbottom1">
+                    @foreach (var good in Model.Goodses3)
+                    {
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                            <img id="showbottomimg3" class="showbottom-Img" src="~/Images/Mall/903.jpg" />
+                            <span class="showbottom1-Title">@good.GoodsName</span>
+                            <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
+                            <span class="showbottom1-Price">¥  @good.Price</span>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="head_hot_goods_wrap">
+    <div id="head_hot_goods_title">
+        <span class="title_span">热品推荐</span>
+        <div id="head_hot_goods_change">
+            <span id="head_hot_goods_prave"><</span>
+            <span id="head_hot_goods_next">></span>
+        </div>
+    </div>
+    <div id="head_hot_goods_content">
+        <ul>
+            @foreach (var good in Model.Goodstop10)
+            {
+                <li>
+                    <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                        <img id="hotimg" class="liimg" src='..@good.GoodsImage' />
+                        <span class="hot-Title">@good.GoodsName</span>
+                        <span class="hot-Jianjie">@good.GoodsJianjie</span>
+                        <span class="hot-Price">¥  @good.Price</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+
+<div class="centerlist">
+    <div class="listimg1">
+        <a id="clist1" class="panel-2" href="/Mall/GoodsDetail/18">
+            <img id="Image1" class="liimg" src="~/Images/Mall/clist1.jpg" />
+        </a>
+    </div>
+    <div class="ltit">
+        <p1>书</p1>
+    </div>
+    <div class="moxinlist">
+
+        @foreach (var good in Model.Goodses1)
+        {
+            <div class="mx1">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
+                </a>
+            </div>
+        }
+
+        @foreach (var good in Model.Goodskind5top9)
+        {
+            <div class="mx2">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
+                    <span class="mx2-Title">@good.GoodsName</span>
+                    <span class="mx2-Jianjie">@good.GoodsJianjie</span>
+                    <span class="mx2-Price">¥  @good.Price</span>
+                </a>
+            </div>
+        }
+
+    </div>
+    <div class="listimg2">
+        <a id="hylistimg2" class="panel-2" href="/Mall/GoodsDetail/4">
+            <img id="Image2" class="liimg" src="~/Images/Mall/clist2.jpg" />
+        </a>
+    </div>
+    <div class="ltit">
+        <p1>笔</p1>
+    </div>
+    <div class="moxinlist">
+
+        <div class="mx1">
+            @foreach (var good in Model.Goodses4)
+            {
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
+                </a>
+            }
+        </div>
+
+        @foreach (var good in Model.Goodskind1top9)
+        {
+            <div class="mx2">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
+                    <span class="mx2-Title">@good.GoodsName</span>
+                    <span class="mx2-Jianjie">@good.GoodsJianjie</span>
+                    <span class="mx2-Price">¥  @good.Price</span>
+                </a>
+            </div>
+        }
+
+    </div>
+
+    <div class="listimg2">
+        <a id="htlist3" class="panel-2" href="/Mall/GoodsDetail/6">
+            <img id="Image3" class="liimg" src="~/Images/Mall/clist3.jpg" />
+        </a>
+    </div>
+    <div class="ltit">
+        <p1>墨</p1>
+    </div>
+    <div class="moxinlist">
+        <div class="mx1">
+            @foreach (var good in Model.Goodses5)
+            {
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                    <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
+                </a>
+            }
+        </div>
+
+
+        @foreach (var good in Model.Goodskind2top9)
+        {
+            <div class="mx2">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                    <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
+                    <span class="mx2-Title">@good.GoodsName</span>
+                    <span class="mx2-Jianjie">@good.GoodsJianjie</span>
+                    <span class="mx2-Price">¥  @good.Price</span>
+                </a>
+            </div>
+        }
+    </div>
+
+    <div class="listimg2">
+        <a id="htlist4" class="panel-2" href="/Mall/GoodsDetail/7">
+            <img id="Image4" class="liimg" src="~/Images/Mall/clist4.jpg" />
+        </a>
+    </div>
+    <div class="ltit">
+        <p1>纸</p1>
+    </div>
+    <div class="moxinlist">
+        <div class="mx1">
+            @foreach (var good in Model.Goodses6)
+            {
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                    <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
+                </a>
+            }
+        </div>
+
+
+        @foreach (var good in Model.Goodskind3top9)
+        {
+            <div class="mx2">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                    <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
+                    <span class="mx2-Title">@good.GoodsName</span>
+                    <span class="mx2-Jianjie">@good.GoodsJianjie</span>
+                    <span class="mx2-Price">¥  @good.Price</span>
+                </a>
+            </div>
+        }
+    </div>
+
+    <div class="listimg2">
+        <a id="htlist5" class="panel-2" href="/Mall/GoodsDetail/17">
+            <img id="Image5" class="liimg" src="~/Images/Mall/clist5.jpg" />
+        </a>
+    </div>
+    <div class="ltit">
+        <p1>砚</p1>
+    </div>
+    <div class="moxinlist">
+        <div class="mx1">
+            @foreach (var good in Model.Goodses7)
+            {
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
+                </a>
+            }
+        </div>
+
+
+        @foreach (var good in Model.Goodskind4top9)
+            {
+            <div class="mx2">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
+                    <span class="mx2-Title">@good.GoodsName</span>
+                    <span class="mx2-Jianjie">@good.GoodsJianjie</span>
+                    <span class="mx2-Price">¥  @good.Price</span>
+                </a>
+            </div>
+        }
+    </div>
+
+    <div class="footfuwu">
+        <div class="b1">
+            <i class="iconfont">&#xe72e;</i>7天无理由退货
+        </div>
+        <div class="b2">
+            <i class="iconfont">&#xe730;</i>15天换货保障
+        </div>
+        <div class="b3">
+            <i class="iconfont">&#xe72f;</i>快递百城速达
+        </div>
+        <div class="b4">
+            <i class="iconfont" style="font-size: 40px; line-height: 24px;">&#xe71f;</i>全场满199元包邮
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <script src="~/Scripts/JS/Mall.js"></script>
+    <script src="~/Scripts/JS/slider.js"></script>
+}

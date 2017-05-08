@@ -1,0 +1,2604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ShiyunModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Author_id" />
+          </Key>
+          <Property Name="Author_id" Type="int" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Jieshao" Type="nvarchar(max)" />
+          <Property Name="Time_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Challenge">
+          <Key>
+            <PropertyRef Name="Timu_id" />
+          </Key>
+          <Property Name="Timu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Timu" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AnswerA" Type="nvarchar(max)" />
+          <Property Name="AnswerB" Type="nvarchar(max)" />
+          <Property Name="ChallengeK_id" Type="int" />
+        </EntityType>
+        <EntityType Name="ChallengeK">
+          <Key>
+            <PropertyRef Name="ChallengeK_id" />
+          </Key>
+          <Property Name="ChallengeK_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChallengeKName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ci">
+          <Key>
+            <PropertyRef Name="Ci_id" />
+          </Key>
+          <Property Name="Ci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CiContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CiFanyi" Type="nvarchar(max)" />
+          <Property Name="CiShangxi" Type="nvarchar(max)" />
+          <Property Name="Cibeijing" Type="nvarchar(max)" />
+          <Property Name="CiYuying" Type="nvarchar(max)" />
+          <Property Name="Author_id" Type="int" />
+          <Property Name="Time_id" Type="int" />
+          <Property Name="Cipai_id" Type="int" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CiComment">
+          <Key>
+            <PropertyRef Name="CiComment_id" />
+          </Key>
+          <Property Name="CiComment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ci_id" Type="int" Nullable="false" />
+          <Property Name="ComContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComTime" Type="datetime" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CiPai">
+          <Key>
+            <PropertyRef Name="CiPai_id" />
+          </Key>
+          <Property Name="CiPai_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CiPaiName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CiPaiJieshao" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CiReply">
+          <Key>
+            <PropertyRef Name="CiReply_id" />
+          </Key>
+          <Property Name="CiReply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CiComment_id" Type="int" Nullable="false" />
+          <Property Name="ReplyTime" Type="datetime" Nullable="false" />
+          <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Goods_id" />
+          </Key>
+          <Property Name="Goods_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GoodsImage" Type="nvarchar(max)" />
+          <Property Name="GoodsJianjie" Type="nvarchar(max)" />
+          <Property Name="GoodsDetails" Type="nvarchar(max)" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Count" Type="int" />
+          <Property Name="GoodsK_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GoodsK">
+          <Key>
+            <PropertyRef Name="GoodsK_id" />
+          </Key>
+          <Property Name="GoodsK_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GoodsKName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LunTan">
+          <Key>
+            <PropertyRef Name="LunTan_id" />
+          </Key>
+          <Property Name="LunTan_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LunTanName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Manager_id" />
+          </Key>
+          <Property Name="Manager_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManagerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ManagerPass" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageReply_id" />
+          </Key>
+          <Property Name="MessageReply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="MessageReplyContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime" Type="datetime" />
+          <Property Name="MessageReReply_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="host_id" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+          </Key>
+          <Property Name="Orders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="OrderTime" Type="datetime" Nullable="false" />
+          <Property Name="Sum" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrdersDetails">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+          </Key>
+          <Property Name="Orders_id" Type="int" Nullable="false" />
+          <Property Name="Goods_id" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Post_id" />
+          </Key>
+          <Property Name="Post_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="LunTan_id" Type="int" Nullable="false" />
+          <Property Name="PostDetails" Type="nvarchar(max)" />
+          <Property Name="PostImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostJianjie" Type="nvarchar" MaxLength="100" />
+          <Property Name="Post_top" Type="int" />
+          <Property Name="Post_recommend" Type="int" />
+          <Property Name="Post_draft" Type="int" />
+          <Property Name="Post_down" Type="int" />
+          <Property Name="Post_upvote" Type="int" />
+          <Property Name="Post_click" Type="int" />
+          <Property Name="Shi_id" Type="int" />
+          <Property Name="Ci_id" Type="int" />
+          <Property Name="Mp3_Url" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PostReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReplyContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime" Type="datetime" />
+          <Property Name="ReReply_id" Type="int" />
+          <Property Name="Post_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Shi">
+          <Key>
+            <PropertyRef Name="Shi_id" />
+          </Key>
+          <Property Name="Shi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShiContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShiFanyi" Type="nvarchar(max)" />
+          <Property Name="ShiShangxi" Type="nvarchar(max)" />
+          <Property Name="Shibeijing" Type="nvarchar(max)" />
+          <Property Name="ShiYuying" Type="nvarchar(max)" />
+          <Property Name="Author_id" Type="int" />
+          <Property Name="Time_id" Type="int" />
+          <Property Name="ShiType_id" Type="int" />
+          <Property Name="ShiImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ShiComment">
+          <Key>
+            <PropertyRef Name="ShiComment_id" />
+          </Key>
+          <Property Name="ShiComment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shi_id" Type="int" Nullable="false" />
+          <Property Name="ComContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComTime" Type="datetime" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShiReply">
+          <Key>
+            <PropertyRef Name="ShiReply_id" />
+          </Key>
+          <Property Name="ShiReply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiComment_id" Type="int" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReplyTime" Type="datetime" Nullable="false" />
+          <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShiType">
+          <Key>
+            <PropertyRef Name="ShiType_id" />
+          </Key>
+          <Property Name="ShiType_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ShiTypeJieshao" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ShopCar">
+          <Key>
+            <PropertyRef Name="ShopCar_id" />
+          </Key>
+          <Property Name="ShopCar_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Goods_id" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Price" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="note" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="flag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Time">
+          <Key>
+            <PropertyRef Name="Time_id" />
+          </Key>
+          <Property Name="Time_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TimeJieshao" Type="nvarchar(max)" />
+          <Property Name="TimeImage" Type="text" />
+        </EntityType>
+        <EntityType Name="UserDati">
+          <Key>
+            <PropertyRef Name="Dati_id" />
+          </Key>
+          <Property Name="Dati_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Timu_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGuanzhu">
+          <Key>
+            <PropertyRef Name="Guanzhu_id" />
+          </Key>
+          <Property Name="Guanzhu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserA" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserB" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Users_id" />
+          </Key>
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPass" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="11" />
+          <Property Name="UserMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="nchar" MaxLength="2" />
+          <Property Name="Addtime" Type="datetime" />
+          <Property Name="UserSign" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserImage" Type="text" />
+          <Property Name="SafeQues" Type="nvarchar" MaxLength="50" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Jingyan" Type="int" />
+          <Property Name="Jifen" Type="int" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="Video_id" />
+          </Key>
+          <Property Name="Video_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cover" Type="nvarchar(max)" />
+          <Property Name="VideoJishu" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="VideoURL" Type="nvarchar(max)" />
+          <Property Name="VideoK_id" Type="int" />
+        </EntityType>
+        <EntityType Name="VideoComment">
+          <Key>
+            <PropertyRef Name="VideoComment_id" />
+          </Key>
+          <Property Name="VideoComment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Video_id" Type="int" Nullable="false" />
+          <Property Name="ComContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComTime" Type="datetime" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VideoK">
+          <Key>
+            <PropertyRef Name="VideoK_id" />
+          </Key>
+          <Property Name="VideoK_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoKName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cover" Type="nvarchar(max)" />
+          <Property Name="VideoDetails" Type="nvarchar(max)" />
+          <Property Name="VideoJianjie" Type="nvarchar(max)" />
+          <Property Name="Source" Type="nvarchar(max)" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VideoReply">
+          <Key>
+            <PropertyRef Name="VideoReply_id" />
+          </Key>
+          <Property Name="VideoReply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="VideoComment_id" Type="int" Nullable="false" />
+          <Property Name="ReplyTim" Type="datetime" Nullable="false" />
+          <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_PostIndex”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_PostIndex">
+          <Key>
+            <PropertyRef Name="Post_id" />
+            <PropertyRef Name="LunTan_id" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="Post_id" Type="int" Nullable="false" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="LunTan_id" Type="int" Nullable="false" />
+          <Property Name="PostDetails" Type="nvarchar(max)" />
+          <Property Name="PostImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostJianjie" Type="nvarchar" MaxLength="100" />
+          <Property Name="Post_top" Type="int" />
+          <Property Name="Post_recommend" Type="int" />
+          <Property Name="Post_draft" Type="int" />
+          <Property Name="Post_down" Type="int" />
+          <Property Name="Post_upvote" Type="int" />
+          <Property Name="Post_click" Type="int" />
+          <Property Name="Shi_id" Type="int" />
+          <Property Name="Ci_id" Type="int" />
+          <Property Name="Mp3_Url" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage" Type="text" />
+          <Property Name="UserSign" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_ShopCar”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_ShopCar">
+          <Key>
+            <PropertyRef Name="Goods_id" />
+            <PropertyRef Name="GoodsName" />
+            <PropertyRef Name="ShopCar_id" />
+            <PropertyRef Name="Count" />
+            <PropertyRef Name="note" />
+            <PropertyRef Name="flag" />
+            <PropertyRef Name="Users_id" />
+          </Key>
+          <Property Name="Goods_id" Type="int" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GoodsImage" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ShopCar_id" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="note" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="flag" Type="int" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="11" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="FinalPrice" Type="decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Author_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="Time_id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="Time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Challenge_ChallengeK">
+          <End Role="ChallengeK" Type="Self.ChallengeK" Multiplicity="0..1" />
+          <End Role="Challenge" Type="Self.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChallengeK">
+              <PropertyRef Name="ChallengeK_id" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="ChallengeK_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ci_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Ci" Type="Self.Ci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Author_id" />
+            </Principal>
+            <Dependent Role="Ci">
+              <PropertyRef Name="Author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ci_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
+          <End Role="Ci" Type="Self.Ci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="Time_id" />
+            </Principal>
+            <Dependent Role="Ci">
+              <PropertyRef Name="Time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ci_Time1">
+          <End Role="CiPai" Type="Self.CiPai" Multiplicity="0..1" />
+          <End Role="Ci" Type="Self.Ci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiPai">
+              <PropertyRef Name="CiPai_id" />
+            </Principal>
+            <Dependent Role="Ci">
+              <PropertyRef Name="Cipai_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiComment_Ci">
+          <End Role="Ci" Type="Self.Ci" Multiplicity="1" />
+          <End Role="CiComment" Type="Self.CiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ci">
+              <PropertyRef Name="Ci_id" />
+            </Principal>
+            <Dependent Role="CiComment">
+              <PropertyRef Name="Ci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiComment_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="CiComment" Type="Self.CiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="CiComment">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReply_CiComment">
+          <End Role="CiComment" Type="Self.CiComment" Multiplicity="1" />
+          <End Role="CiReply" Type="Self.CiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiComment">
+              <PropertyRef Name="CiComment_id" />
+            </Principal>
+            <Dependent Role="CiReply">
+              <PropertyRef Name="CiComment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="CiReply" Type="Self.CiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="CiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_GoodsK">
+          <End Role="GoodsK" Type="Self.GoodsK" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsK">
+              <PropertyRef Name="GoodsK_id" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="GoodsK_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_Message">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserInfo1">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersDetails_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="OrdersDetails" Type="Self.OrdersDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Goods_id" />
+            </Principal>
+            <Dependent Role="OrdersDetails">
+              <PropertyRef Name="Goods_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_LunTan">
+          <End Role="LunTan" Type="Self.LunTan" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LunTan">
+              <PropertyRef Name="LunTan_id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="LunTan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostReply_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="PostReply" Type="Self.PostReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Post_id" />
+            </Principal>
+            <Dependent Role="PostReply">
+              <PropertyRef Name="Post_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostReply_PostReply">
+          <End Role="PostReply" Type="Self.PostReply" Multiplicity="0..1" />
+          <End Role="PostReply1" Type="Self.PostReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="PostReply1">
+              <PropertyRef Name="ReReply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="PostReply" Type="Self.PostReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="PostReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shi_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Shi" Type="Self.Shi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Author_id" />
+            </Principal>
+            <Dependent Role="Shi">
+              <PropertyRef Name="Author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shi_ShiType">
+          <End Role="ShiType" Type="Self.ShiType" Multiplicity="0..1" />
+          <End Role="Shi" Type="Self.Shi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiType">
+              <PropertyRef Name="ShiType_id" />
+            </Principal>
+            <Dependent Role="Shi">
+              <PropertyRef Name="ShiType_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shi_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
+          <End Role="Shi" Type="Self.Shi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="Time_id" />
+            </Principal>
+            <Dependent Role="Shi">
+              <PropertyRef Name="Time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiComment_Shi">
+          <End Role="Shi" Type="Self.Shi" Multiplicity="1" />
+          <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shi">
+              <PropertyRef Name="Shi_id" />
+            </Principal>
+            <Dependent Role="ShiComment">
+              <PropertyRef Name="Shi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiComment_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShiComment">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReply_ShiComment">
+          <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="1" />
+          <End Role="ShiReply" Type="Self.ShiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiComment">
+              <PropertyRef Name="ShiComment_id" />
+            </Principal>
+            <Dependent Role="ShiReply">
+              <PropertyRef Name="ShiComment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="ShiReply" Type="Self.ShiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopCar_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="ShopCar" Type="Self.ShopCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Goods_id" />
+            </Principal>
+            <Dependent Role="ShopCar">
+              <PropertyRef Name="Goods_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopCar_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="ShopCar" Type="Self.ShopCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShopCar">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDati_Challenge">
+          <End Role="Challenge" Type="Self.Challenge" Multiplicity="1" />
+          <End Role="UserDati" Type="Self.UserDati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Challenge">
+              <PropertyRef Name="Timu_id" />
+            </Principal>
+            <Dependent Role="UserDati">
+              <PropertyRef Name="Timu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDati_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserDati" Type="Self.UserDati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserDati">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGuanzhu_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserGuanzhu" Type="Self.UserGuanzhu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserGuanzhu">
+              <PropertyRef Name="UserA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGuanzhu_UserInfo1">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserGuanzhu" Type="Self.UserGuanzhu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserGuanzhu">
+              <PropertyRef Name="UserB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Video_VideoK">
+          <End Role="VideoK" Type="Self.VideoK" Multiplicity="0..1" />
+          <End Role="Video" Type="Self.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoK">
+              <PropertyRef Name="VideoK_id" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="VideoK_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoComment_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="VideoComment">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoComment_Video">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="Video_id" />
+            </Principal>
+            <Dependent Role="VideoComment">
+              <PropertyRef Name="Video_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="VideoReply" Type="Self.VideoReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="VideoReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoReply_VideoComment">
+          <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="1" />
+          <End Role="VideoReply" Type="Self.VideoReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoComment">
+              <PropertyRef Name="VideoComment_id" />
+            </Principal>
+            <Dependent Role="VideoReply">
+              <PropertyRef Name="VideoComment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ShopCar_Orders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Users_id" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserPhone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="ShiyunModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Challenge" EntityType="Self.Challenge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChallengeK" EntityType="Self.ChallengeK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ci" EntityType="Self.Ci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CiComment" EntityType="Self.CiComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CiPai" EntityType="Self.CiPai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CiReply" EntityType="Self.CiReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoodsK" EntityType="Self.GoodsK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LunTan" EntityType="Self.LunTan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersDetails" EntityType="Self.OrdersDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostReply" EntityType="Self.PostReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shi" EntityType="Self.Shi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShiComment" EntityType="Self.ShiComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShiReply" EntityType="Self.ShiReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShiType" EntityType="Self.ShiType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopCar" EntityType="Self.ShopCar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Time" EntityType="Self.Time" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDati" EntityType="Self.UserDati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGuanzhu" EntityType="Self.UserGuanzhu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoComment" EntityType="Self.VideoComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoK" EntityType="Self.VideoK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoReply" EntityType="Self.VideoReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_PostIndex].[Post_id] AS [Post_id], 
+    [View_PostIndex].[PostTitle] AS [PostTitle], 
+    [View_PostIndex].[AddTime] AS [AddTime], 
+    [View_PostIndex].[Users_id] AS [Users_id], 
+    [View_PostIndex].[LunTan_id] AS [LunTan_id], 
+    [View_PostIndex].[PostDetails] AS [PostDetails], 
+    [View_PostIndex].[PostImage] AS [PostImage], 
+    [View_PostIndex].[PostJianjie] AS [PostJianjie], 
+    [View_PostIndex].[Post_top] AS [Post_top], 
+    [View_PostIndex].[Post_recommend] AS [Post_recommend], 
+    [View_PostIndex].[Post_draft] AS [Post_draft], 
+    [View_PostIndex].[Post_down] AS [Post_down], 
+    [View_PostIndex].[Post_upvote] AS [Post_upvote], 
+    [View_PostIndex].[Post_click] AS [Post_click], 
+    [View_PostIndex].[Shi_id] AS [Shi_id], 
+    [View_PostIndex].[Ci_id] AS [Ci_id], 
+    [View_PostIndex].[Mp3_Url] AS [Mp3_Url], 
+    [View_PostIndex].[Expr1] AS [Expr1], 
+    [View_PostIndex].[UserName] AS [UserName], 
+    [View_PostIndex].[UserImage] AS [UserImage], 
+    [View_PostIndex].[UserSign] AS [UserSign]
+    FROM [dbo].[View_PostIndex] AS [View_PostIndex]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ShopCar].[Goods_id] AS [Goods_id], 
+    [View_ShopCar].[GoodsName] AS [GoodsName], 
+    [View_ShopCar].[GoodsImage] AS [GoodsImage], 
+    [View_ShopCar].[Price] AS [Price], 
+    [View_ShopCar].[ShopCar_id] AS [ShopCar_id], 
+    [View_ShopCar].[Count] AS [Count], 
+    [View_ShopCar].[note] AS [note], 
+    [View_ShopCar].[flag] AS [flag], 
+    [View_ShopCar].[Users_id] AS [Users_id], 
+    [View_ShopCar].[UserName] AS [UserName], 
+    [View_ShopCar].[UserPhone] AS [UserPhone], 
+    [View_ShopCar].[Address] AS [Address], 
+    [View_ShopCar].[FinalPrice] AS [FinalPrice]
+    FROM [dbo].[View_ShopCar] AS [View_ShopCar]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Challenge_ChallengeK" Association="Self.FK_Challenge_ChallengeK">
+            <End Role="ChallengeK" EntitySet="ChallengeK" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ci_Author" Association="Self.FK_Ci_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Ci" EntitySet="Ci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ci_Time" Association="Self.FK_Ci_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Ci" EntitySet="Ci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ci_Time1" Association="Self.FK_Ci_Time1">
+            <End Role="CiPai" EntitySet="CiPai" />
+            <End Role="Ci" EntitySet="Ci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiComment_Ci" Association="Self.FK_CiComment_Ci">
+            <End Role="Ci" EntitySet="Ci" />
+            <End Role="CiComment" EntitySet="CiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiComment_UserInfo" Association="Self.FK_CiComment_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="CiComment" EntitySet="CiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReply_CiComment" Association="Self.FK_CiReply_CiComment">
+            <End Role="CiComment" EntitySet="CiComment" />
+            <End Role="CiReply" EntitySet="CiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReply_UserInfo" Association="Self.FK_CiReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="CiReply" EntitySet="CiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_GoodsK" Association="Self.FK_Goods_GoodsK">
+            <End Role="GoodsK" EntitySet="GoodsK" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_Message" Association="Self.FK_Message_Message">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserInfo" Association="Self.FK_Message_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserInfo1" Association="Self.FK_Message_UserInfo1">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_UserInfo" Association="Self.FK_Orders_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersDetails_Goods" Association="Self.FK_OrdersDetails_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="OrdersDetails" EntitySet="OrdersDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_LunTan" Association="Self.FK_Post_LunTan">
+            <End Role="LunTan" EntitySet="LunTan" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_UserInfo" Association="Self.FK_Post_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostReply_Post" Association="Self.FK_PostReply_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostReply" EntitySet="PostReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostReply_PostReply" Association="Self.FK_PostReply_PostReply">
+            <End Role="PostReply" EntitySet="PostReply" />
+            <End Role="PostReply1" EntitySet="PostReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostReply_UserInfo" Association="Self.FK_PostReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="PostReply" EntitySet="PostReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shi_Author" Association="Self.FK_Shi_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Shi" EntitySet="Shi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shi_ShiType" Association="Self.FK_Shi_ShiType">
+            <End Role="ShiType" EntitySet="ShiType" />
+            <End Role="Shi" EntitySet="Shi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shi_Time" Association="Self.FK_Shi_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Shi" EntitySet="Shi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiComment_Shi" Association="Self.FK_ShiComment_Shi">
+            <End Role="Shi" EntitySet="Shi" />
+            <End Role="ShiComment" EntitySet="ShiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiComment_UserInfo" Association="Self.FK_ShiComment_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShiComment" EntitySet="ShiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReply_ShiComment" Association="Self.FK_ShiReply_ShiComment">
+            <End Role="ShiComment" EntitySet="ShiComment" />
+            <End Role="ShiReply" EntitySet="ShiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReply_UserInfo" Association="Self.FK_ShiReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShiReply" EntitySet="ShiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopCar_Goods" Association="Self.FK_ShopCar_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="ShopCar" EntitySet="ShopCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopCar_UserInfo" Association="Self.FK_ShopCar_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShopCar" EntitySet="ShopCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDati_Challenge" Association="Self.FK_UserDati_Challenge">
+            <End Role="Challenge" EntitySet="Challenge" />
+            <End Role="UserDati" EntitySet="UserDati" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDati_UserInfo" Association="Self.FK_UserDati_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserDati" EntitySet="UserDati" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGuanzhu_UserInfo" Association="Self.FK_UserGuanzhu_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserGuanzhu" EntitySet="UserGuanzhu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGuanzhu_UserInfo1" Association="Self.FK_UserGuanzhu_UserInfo1">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserGuanzhu" EntitySet="UserGuanzhu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Video_VideoK" Association="Self.FK_Video_VideoK">
+            <End Role="VideoK" EntitySet="VideoK" />
+            <End Role="Video" EntitySet="Video" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoComment_UserInfo" Association="Self.FK_VideoComment_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="VideoComment" EntitySet="VideoComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoComment_Video" Association="Self.FK_VideoComment_Video">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="VideoComment" EntitySet="VideoComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoReply_UserInfo" Association="Self.FK_VideoReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="VideoReply" EntitySet="VideoReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoReply_VideoComment" Association="Self.FK_VideoReply_VideoComment">
+            <End Role="VideoComment" EntitySet="VideoComment" />
+            <End Role="VideoReply" EntitySet="VideoReply" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShiyunModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Author_id" />
+          </Key>
+          <Property Name="Author_id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_id" Type="Int32" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_Author_Time" FromRole="Author" ToRole="Time" />
+          <NavigationProperty Name="Ci" Relationship="Self.FK_Ci_Author" FromRole="Author" ToRole="Ci" />
+          <NavigationProperty Name="Shi" Relationship="Self.FK_Shi_Author" FromRole="Author" ToRole="Shi" />
+        </EntityType>
+        <EntityType Name="Challenge">
+          <Key>
+            <PropertyRef Name="Timu_id" />
+          </Key>
+          <Property Name="Timu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Timu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AnswerA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChallengeK_id" Type="Int32" />
+          <NavigationProperty Name="ChallengeK" Relationship="Self.FK_Challenge_ChallengeK" FromRole="Challenge" ToRole="ChallengeK" />
+          <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_Challenge" FromRole="Challenge" ToRole="UserDati" />
+        </EntityType>
+        <EntityType Name="ChallengeK">
+          <Key>
+            <PropertyRef Name="ChallengeK_id" />
+          </Key>
+          <Property Name="ChallengeK_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChallengeKName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Challenge" Relationship="Self.FK_Challenge_ChallengeK" FromRole="ChallengeK" ToRole="Challenge" />
+        </EntityType>
+        <EntityType Name="Ci">
+          <Key>
+            <PropertyRef Name="Ci_id" />
+          </Key>
+          <Property Name="Ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiFanyi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiShangxi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cibeijing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiYuying" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Author_id" Type="Int32" />
+          <Property Name="Time_id" Type="Int32" />
+          <Property Name="Cipai_id" Type="Int32" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Ci_Author" FromRole="Ci" ToRole="Author" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_Ci_Time" FromRole="Ci" ToRole="Time" />
+          <NavigationProperty Name="CiPai" Relationship="Self.FK_Ci_Time1" FromRole="Ci" ToRole="CiPai" />
+          <NavigationProperty Name="CiComment" Relationship="Self.FK_CiComment_Ci" FromRole="Ci" ToRole="CiComment" />
+        </EntityType>
+        <EntityType Name="CiComment">
+          <Key>
+            <PropertyRef Name="CiComment_id" />
+          </Key>
+          <Property Name="CiComment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ci_id" Type="Int32" Nullable="false" />
+          <Property Name="ComContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ci" Relationship="Self.FK_CiComment_Ci" FromRole="CiComment" ToRole="Ci" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_CiComment_UserInfo" FromRole="CiComment" ToRole="UserInfo" />
+          <NavigationProperty Name="CiReply" Relationship="Self.FK_CiReply_CiComment" FromRole="CiComment" ToRole="CiReply" />
+        </EntityType>
+        <EntityType Name="CiPai">
+          <Key>
+            <PropertyRef Name="CiPai_id" />
+          </Key>
+          <Property Name="CiPai_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CiPaiName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiPaiJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ci" Relationship="Self.FK_Ci_Time1" FromRole="CiPai" ToRole="Ci" />
+        </EntityType>
+        <EntityType Name="CiReply">
+          <Key>
+            <PropertyRef Name="CiReply_id" />
+          </Key>
+          <Property Name="CiReply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiComment_id" Type="Int32" Nullable="false" />
+          <Property Name="ReplyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CiComment" Relationship="Self.FK_CiReply_CiComment" FromRole="CiReply" ToRole="CiComment" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_CiReply_UserInfo" FromRole="CiReply" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Goods_id" />
+          </Key>
+          <Property Name="Goods_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoodsImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsJianjie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="GoodsK_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GoodsK" Relationship="Self.FK_Goods_GoodsK" FromRole="Goods" ToRole="GoodsK" />
+          <NavigationProperty Name="OrdersDetails" Relationship="Self.FK_OrdersDetails_Goods" FromRole="Goods" ToRole="OrdersDetails" />
+          <NavigationProperty Name="ShopCar" Relationship="Self.FK_ShopCar_Goods" FromRole="Goods" ToRole="ShopCar" />
+        </EntityType>
+        <EntityType Name="GoodsK">
+          <Key>
+            <PropertyRef Name="GoodsK_id" />
+          </Key>
+          <Property Name="GoodsK_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoodsKName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_GoodsK" FromRole="GoodsK" ToRole="Goods" />
+        </EntityType>
+        <EntityType Name="LunTan">
+          <Key>
+            <PropertyRef Name="LunTan_id" />
+          </Key>
+          <Property Name="LunTan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LunTanName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_LunTan" FromRole="LunTan" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Manager_id" />
+          </Key>
+          <Property Name="Manager_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManagerName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManagerPass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageReply_id" />
+          </Key>
+          <Property Name="MessageReply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MessageReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+          <Property Name="MessageReReply_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="host_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_Message_Message" FromRole="Message" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="Self.FK_Message_UserInfo" FromRole="Message" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo2" Relationship="Self.FK_Message_UserInfo1" FromRole="Message" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+          </Key>
+          <Property Name="Orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sum" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_Orders_UserInfo" FromRole="Orders" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="OrdersDetails">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+          </Key>
+          <Property Name="Orders_id" Type="Int32" Nullable="false" />
+          <Property Name="Goods_id" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_OrdersDetails_Goods" FromRole="OrdersDetails" ToRole="Goods" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Post_id" />
+          </Key>
+          <Property Name="Post_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LunTan_id" Type="Int32" Nullable="false" />
+          <Property Name="PostDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostJianjie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Post_top" Type="Int32" />
+          <Property Name="Post_recommend" Type="Int32" />
+          <Property Name="Post_draft" Type="Int32" />
+          <Property Name="Post_down" Type="Int32" />
+          <Property Name="Post_upvote" Type="Int32" />
+          <Property Name="Post_click" Type="Int32" />
+          <Property Name="Shi_id" Type="Int32" />
+          <Property Name="Ci_id" Type="Int32" />
+          <Property Name="Mp3_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LunTan" Relationship="Self.FK_Post_LunTan" FromRole="Post" ToRole="LunTan" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_Post_UserInfo" FromRole="Post" ToRole="UserInfo" />
+          <NavigationProperty Name="PostReply" Relationship="Self.FK_PostReply_Post" FromRole="Post" ToRole="PostReply" />
+        </EntityType>
+        <EntityType Name="PostReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id" Type="Int32" />
+          <Property Name="Post_id" Type="Int32" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_PostReply_Post" FromRole="PostReply" ToRole="Post" />
+          <NavigationProperty Name="PostReply1" Relationship="Self.FK_PostReply_PostReply" FromRole="PostReply" ToRole="PostReply1" />
+          <NavigationProperty Name="PostReply2" Relationship="Self.FK_PostReply_PostReply" FromRole="PostReply1" ToRole="PostReply" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_PostReply_UserInfo" FromRole="PostReply" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="Shi">
+          <Key>
+            <PropertyRef Name="Shi_id" />
+          </Key>
+          <Property Name="Shi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiFanyi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShiShangxi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shibeijing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShiYuying" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Author_id" Type="Int32" />
+          <Property Name="Time_id" Type="Int32" />
+          <Property Name="ShiType_id" Type="Int32" />
+          <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Shi_Author" FromRole="Shi" ToRole="Author" />
+          <NavigationProperty Name="ShiType" Relationship="Self.FK_Shi_ShiType" FromRole="Shi" ToRole="ShiType" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_Shi_Time" FromRole="Shi" ToRole="Time" />
+          <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiComment_Shi" FromRole="Shi" ToRole="ShiComment" />
+        </EntityType>
+        <EntityType Name="ShiComment">
+          <Key>
+            <PropertyRef Name="ShiComment_id" />
+          </Key>
+          <Property Name="ShiComment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shi_id" Type="Int32" Nullable="false" />
+          <Property Name="ComContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Shi" Relationship="Self.FK_ShiComment_Shi" FromRole="ShiComment" ToRole="Shi" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_ShiComment_UserInfo" FromRole="ShiComment" ToRole="UserInfo" />
+          <NavigationProperty Name="ShiReply" Relationship="Self.FK_ShiReply_ShiComment" FromRole="ShiComment" ToRole="ShiReply" />
+        </EntityType>
+        <EntityType Name="ShiReply">
+          <Key>
+            <PropertyRef Name="ShiReply_id" />
+          </Key>
+          <Property Name="ShiReply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiComment_id" Type="Int32" Nullable="false" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReplyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiReply_ShiComment" FromRole="ShiReply" ToRole="ShiComment" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_ShiReply_UserInfo" FromRole="ShiReply" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="ShiType">
+          <Key>
+            <PropertyRef Name="ShiType_id" />
+          </Key>
+          <Property Name="ShiType_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiTypeJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Shi" Relationship="Self.FK_Shi_ShiType" FromRole="ShiType" ToRole="Shi" />
+        </EntityType>
+        <EntityType Name="ShopCar">
+          <Key>
+            <PropertyRef Name="ShopCar_id" />
+          </Key>
+          <Property Name="ShopCar_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Goods_id" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="flag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_ShopCar_Goods" FromRole="ShopCar" ToRole="Goods" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_ShopCar_UserInfo" FromRole="ShopCar" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="Time">
+          <Key>
+            <PropertyRef Name="Time_id" />
+          </Key>
+          <Property Name="Time_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TimeImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Author_Time" FromRole="Time" ToRole="Author" />
+          <NavigationProperty Name="Ci" Relationship="Self.FK_Ci_Time" FromRole="Time" ToRole="Ci" />
+          <NavigationProperty Name="Shi" Relationship="Self.FK_Shi_Time" FromRole="Time" ToRole="Shi" />
+        </EntityType>
+        <EntityType Name="UserDati">
+          <Key>
+            <PropertyRef Name="Dati_id" />
+          </Key>
+          <Property Name="Dati_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Timu_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Challenge" Relationship="Self.FK_UserDati_Challenge" FromRole="UserDati" ToRole="Challenge" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserDati_UserInfo" FromRole="UserDati" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserGuanzhu">
+          <Key>
+            <PropertyRef Name="Guanzhu_id" />
+          </Key>
+          <Property Name="Guanzhu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserB" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserGuanzhu_UserInfo" FromRole="UserGuanzhu" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="Self.FK_UserGuanzhu_UserInfo1" FromRole="UserGuanzhu" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Users_id" />
+          </Key>
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Addtime" Type="DateTime" Precision="3" />
+          <Property Name="UserSign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SafeQues" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jingyan" Type="Int32" />
+          <Property Name="Jifen" Type="Int32" />
+          <NavigationProperty Name="CiComment" Relationship="Self.FK_CiComment_UserInfo" FromRole="UserInfo" ToRole="CiComment" />
+          <NavigationProperty Name="CiReply" Relationship="Self.FK_CiReply_UserInfo" FromRole="UserInfo" ToRole="CiReply" />
+          <NavigationProperty Name="Message" Relationship="Self.FK_Message_Message" FromRole="UserInfo" ToRole="Message" />
+          <NavigationProperty Name="Message1" Relationship="Self.FK_Message_UserInfo" FromRole="UserInfo" ToRole="Message" />
+          <NavigationProperty Name="Message2" Relationship="Self.FK_Message_UserInfo1" FromRole="UserInfo" ToRole="Message" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_UserInfo" FromRole="UserInfo" ToRole="Orders" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_UserInfo" FromRole="UserInfo" ToRole="Post" />
+          <NavigationProperty Name="PostReply" Relationship="Self.FK_PostReply_UserInfo" FromRole="UserInfo" ToRole="PostReply" />
+          <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiComment_UserInfo" FromRole="UserInfo" ToRole="ShiComment" />
+          <NavigationProperty Name="ShiReply" Relationship="Self.FK_ShiReply_UserInfo" FromRole="UserInfo" ToRole="ShiReply" />
+          <NavigationProperty Name="ShopCar" Relationship="Self.FK_ShopCar_UserInfo" FromRole="UserInfo" ToRole="ShopCar" />
+          <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_UserInfo" FromRole="UserInfo" ToRole="UserDati" />
+          <NavigationProperty Name="UserGuanzhu" Relationship="Self.FK_UserGuanzhu_UserInfo" FromRole="UserInfo" ToRole="UserGuanzhu" />
+          <NavigationProperty Name="UserGuanzhu1" Relationship="Self.FK_UserGuanzhu_UserInfo1" FromRole="UserInfo" ToRole="UserGuanzhu" />
+          <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoComment_UserInfo" FromRole="UserInfo" ToRole="VideoComment" />
+          <NavigationProperty Name="VideoReply" Relationship="Self.FK_VideoReply_UserInfo" FromRole="UserInfo" ToRole="VideoReply" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="Video_id" />
+          </Key>
+          <Property Name="Video_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cover" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoJishu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="VideoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoK_id" Type="Int32" />
+          <NavigationProperty Name="VideoK" Relationship="Self.FK_Video_VideoK" FromRole="Video" ToRole="VideoK" />
+          <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoComment_Video" FromRole="Video" ToRole="VideoComment" />
+        </EntityType>
+        <EntityType Name="VideoComment">
+          <Key>
+            <PropertyRef Name="VideoComment_id" />
+          </Key>
+          <Property Name="VideoComment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video_id" Type="Int32" Nullable="false" />
+          <Property Name="ComContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_VideoComment_UserInfo" FromRole="VideoComment" ToRole="UserInfo" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_VideoComment_Video" FromRole="VideoComment" ToRole="Video" />
+          <NavigationProperty Name="VideoReply" Relationship="Self.FK_VideoReply_VideoComment" FromRole="VideoComment" ToRole="VideoReply" />
+        </EntityType>
+        <EntityType Name="VideoK">
+          <Key>
+            <PropertyRef Name="VideoK_id" />
+          </Key>
+          <Property Name="VideoK_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoKName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cover" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoJianjie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_Video_VideoK" FromRole="VideoK" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="VideoReply">
+          <Key>
+            <PropertyRef Name="VideoReply_id" />
+          </Key>
+          <Property Name="VideoReply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VideoComment_id" Type="Int32" Nullable="false" />
+          <Property Name="ReplyTim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_VideoReply_UserInfo" FromRole="VideoReply" ToRole="UserInfo" />
+          <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoReply_VideoComment" FromRole="VideoReply" ToRole="VideoComment" />
+        </EntityType>
+        <EntityType Name="View_PostIndex">
+          <Key>
+            <PropertyRef Name="Post_id" />
+            <PropertyRef Name="LunTan_id" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="Post_id" Type="Int32" Nullable="false" />
+          <Property Name="PostTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LunTan_id" Type="Int32" Nullable="false" />
+          <Property Name="PostDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostJianjie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Post_top" Type="Int32" />
+          <Property Name="Post_recommend" Type="Int32" />
+          <Property Name="Post_draft" Type="Int32" />
+          <Property Name="Post_down" Type="Int32" />
+          <Property Name="Post_upvote" Type="Int32" />
+          <Property Name="Post_click" Type="Int32" />
+          <Property Name="Shi_id" Type="Int32" />
+          <Property Name="Ci_id" Type="Int32" />
+          <Property Name="Mp3_Url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserSign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_ShopCar">
+          <Key>
+            <PropertyRef Name="Goods_id" />
+            <PropertyRef Name="GoodsName" />
+            <PropertyRef Name="ShopCar_id" />
+            <PropertyRef Name="Count" />
+            <PropertyRef Name="note" />
+            <PropertyRef Name="flag" />
+            <PropertyRef Name="Users_id" />
+          </Key>
+          <Property Name="Goods_id" Type="Int32" Nullable="false" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoodsImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ShopCar_id" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flag" Type="Int32" Nullable="false" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinalPrice" Type="Decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Author_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="Time_id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="Time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ci_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Ci" Type="Self.Ci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Author_id" />
+            </Principal>
+            <Dependent Role="Ci">
+              <PropertyRef Name="Author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shi_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Shi" Type="Self.Shi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Author_id" />
+            </Principal>
+            <Dependent Role="Shi">
+              <PropertyRef Name="Author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Challenge_ChallengeK">
+          <End Role="ChallengeK" Type="Self.ChallengeK" Multiplicity="0..1" />
+          <End Role="Challenge" Type="Self.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChallengeK">
+              <PropertyRef Name="ChallengeK_id" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="ChallengeK_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDati_Challenge">
+          <End Role="Challenge" Type="Self.Challenge" Multiplicity="1" />
+          <End Role="UserDati" Type="Self.UserDati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Challenge">
+              <PropertyRef Name="Timu_id" />
+            </Principal>
+            <Dependent Role="UserDati">
+              <PropertyRef Name="Timu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ci_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
+          <End Role="Ci" Type="Self.Ci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="Time_id" />
+            </Principal>
+            <Dependent Role="Ci">
+              <PropertyRef Name="Time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ci_Time1">
+          <End Role="CiPai" Type="Self.CiPai" Multiplicity="0..1" />
+          <End Role="Ci" Type="Self.Ci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiPai">
+              <PropertyRef Name="CiPai_id" />
+            </Principal>
+            <Dependent Role="Ci">
+              <PropertyRef Name="Cipai_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiComment_Ci">
+          <End Role="Ci" Type="Self.Ci" Multiplicity="1" />
+          <End Role="CiComment" Type="Self.CiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ci">
+              <PropertyRef Name="Ci_id" />
+            </Principal>
+            <Dependent Role="CiComment">
+              <PropertyRef Name="Ci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiComment_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="CiComment" Type="Self.CiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="CiComment">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReply_CiComment">
+          <End Role="CiComment" Type="Self.CiComment" Multiplicity="1" />
+          <End Role="CiReply" Type="Self.CiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiComment">
+              <PropertyRef Name="CiComment_id" />
+            </Principal>
+            <Dependent Role="CiReply">
+              <PropertyRef Name="CiComment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="CiReply" Type="Self.CiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="CiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_GoodsK">
+          <End Role="GoodsK" Type="Self.GoodsK" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsK">
+              <PropertyRef Name="GoodsK_id" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="GoodsK_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersDetails_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="OrdersDetails" Type="Self.OrdersDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Goods_id" />
+            </Principal>
+            <Dependent Role="OrdersDetails">
+              <PropertyRef Name="Goods_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopCar_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="ShopCar" Type="Self.ShopCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Goods_id" />
+            </Principal>
+            <Dependent Role="ShopCar">
+              <PropertyRef Name="Goods_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_LunTan">
+          <End Role="LunTan" Type="Self.LunTan" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LunTan">
+              <PropertyRef Name="LunTan_id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="LunTan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_Message">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserInfo1">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostReply_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="PostReply" Type="Self.PostReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Post_id" />
+            </Principal>
+            <Dependent Role="PostReply">
+              <PropertyRef Name="Post_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostReply_PostReply">
+          <End Role="PostReply" Type="Self.PostReply" Multiplicity="0..1" />
+          <End Role="PostReply1" Type="Self.PostReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="PostReply1">
+              <PropertyRef Name="ReReply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="PostReply" Type="Self.PostReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="PostReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shi_ShiType">
+          <End Role="ShiType" Type="Self.ShiType" Multiplicity="0..1" />
+          <End Role="Shi" Type="Self.Shi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiType">
+              <PropertyRef Name="ShiType_id" />
+            </Principal>
+            <Dependent Role="Shi">
+              <PropertyRef Name="ShiType_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shi_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
+          <End Role="Shi" Type="Self.Shi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="Time_id" />
+            </Principal>
+            <Dependent Role="Shi">
+              <PropertyRef Name="Time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiComment_Shi">
+          <End Role="Shi" Type="Self.Shi" Multiplicity="1" />
+          <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shi">
+              <PropertyRef Name="Shi_id" />
+            </Principal>
+            <Dependent Role="ShiComment">
+              <PropertyRef Name="Shi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiComment_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShiComment">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReply_ShiComment">
+          <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="1" />
+          <End Role="ShiReply" Type="Self.ShiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiComment">
+              <PropertyRef Name="ShiComment_id" />
+            </Principal>
+            <Dependent Role="ShiReply">
+              <PropertyRef Name="ShiComment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="ShiReply" Type="Self.ShiReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopCar_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="ShopCar" Type="Self.ShopCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShopCar">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDati_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserDati" Type="Self.UserDati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserDati">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGuanzhu_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserGuanzhu" Type="Self.UserGuanzhu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserGuanzhu">
+              <PropertyRef Name="UserA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGuanzhu_UserInfo1">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserGuanzhu" Type="Self.UserGuanzhu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserGuanzhu">
+              <PropertyRef Name="UserB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoComment_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="VideoComment">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="VideoReply" Type="Self.VideoReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="VideoReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Video_VideoK">
+          <End Role="VideoK" Type="Self.VideoK" Multiplicity="0..1" />
+          <End Role="Video" Type="Self.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoK">
+              <PropertyRef Name="VideoK_id" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="VideoK_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoComment_Video">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="Video_id" />
+            </Principal>
+            <Dependent Role="VideoComment">
+              <PropertyRef Name="Video_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoReply_VideoComment">
+          <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="1" />
+          <End Role="VideoReply" Type="Self.VideoReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoComment">
+              <PropertyRef Name="VideoComment_id" />
+            </Principal>
+            <Dependent Role="VideoReply">
+              <PropertyRef Name="VideoComment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShiyunEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Author" EntityType="Self.Author" />
+          <EntitySet Name="Challenge" EntityType="Self.Challenge" />
+          <EntitySet Name="ChallengeK" EntityType="Self.ChallengeK" />
+          <EntitySet Name="Ci" EntityType="Self.Ci" />
+          <EntitySet Name="CiComment" EntityType="Self.CiComment" />
+          <EntitySet Name="CiPai" EntityType="Self.CiPai" />
+          <EntitySet Name="CiReply" EntityType="Self.CiReply" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" />
+          <EntitySet Name="GoodsK" EntityType="Self.GoodsK" />
+          <EntitySet Name="LunTan" EntityType="Self.LunTan" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="OrdersDetails" EntityType="Self.OrdersDetails" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="PostReply" EntityType="Self.PostReply" />
+          <EntitySet Name="Shi" EntityType="Self.Shi" />
+          <EntitySet Name="ShiComment" EntityType="Self.ShiComment" />
+          <EntitySet Name="ShiReply" EntityType="Self.ShiReply" />
+          <EntitySet Name="ShiType" EntityType="Self.ShiType" />
+          <EntitySet Name="ShopCar" EntityType="Self.ShopCar" />
+          <EntitySet Name="Time" EntityType="Self.Time" />
+          <EntitySet Name="UserDati" EntityType="Self.UserDati" />
+          <EntitySet Name="UserGuanzhu" EntityType="Self.UserGuanzhu" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="Video" EntityType="Self.Video" />
+          <EntitySet Name="VideoComment" EntityType="Self.VideoComment" />
+          <EntitySet Name="VideoK" EntityType="Self.VideoK" />
+          <EntitySet Name="VideoReply" EntityType="Self.VideoReply" />
+          <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" />
+          <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" />
+          <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ci_Author" Association="Self.FK_Ci_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Ci" EntitySet="Ci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shi_Author" Association="Self.FK_Shi_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Shi" EntitySet="Shi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Challenge_ChallengeK" Association="Self.FK_Challenge_ChallengeK">
+            <End Role="ChallengeK" EntitySet="ChallengeK" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDati_Challenge" Association="Self.FK_UserDati_Challenge">
+            <End Role="Challenge" EntitySet="Challenge" />
+            <End Role="UserDati" EntitySet="UserDati" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ci_Time" Association="Self.FK_Ci_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Ci" EntitySet="Ci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ci_Time1" Association="Self.FK_Ci_Time1">
+            <End Role="CiPai" EntitySet="CiPai" />
+            <End Role="Ci" EntitySet="Ci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiComment_Ci" Association="Self.FK_CiComment_Ci">
+            <End Role="Ci" EntitySet="Ci" />
+            <End Role="CiComment" EntitySet="CiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiComment_UserInfo" Association="Self.FK_CiComment_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="CiComment" EntitySet="CiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReply_CiComment" Association="Self.FK_CiReply_CiComment">
+            <End Role="CiComment" EntitySet="CiComment" />
+            <End Role="CiReply" EntitySet="CiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReply_UserInfo" Association="Self.FK_CiReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="CiReply" EntitySet="CiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_GoodsK" Association="Self.FK_Goods_GoodsK">
+            <End Role="GoodsK" EntitySet="GoodsK" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersDetails_Goods" Association="Self.FK_OrdersDetails_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="OrdersDetails" EntitySet="OrdersDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopCar_Goods" Association="Self.FK_ShopCar_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="ShopCar" EntitySet="ShopCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_LunTan" Association="Self.FK_Post_LunTan">
+            <End Role="LunTan" EntitySet="LunTan" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_Message" Association="Self.FK_Message_Message">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserInfo" Association="Self.FK_Message_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserInfo1" Association="Self.FK_Message_UserInfo1">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_UserInfo" Association="Self.FK_Orders_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_UserInfo" Association="Self.FK_Post_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostReply_Post" Association="Self.FK_PostReply_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostReply" EntitySet="PostReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostReply_PostReply" Association="Self.FK_PostReply_PostReply">
+            <End Role="PostReply" EntitySet="PostReply" />
+            <End Role="PostReply1" EntitySet="PostReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostReply_UserInfo" Association="Self.FK_PostReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="PostReply" EntitySet="PostReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shi_ShiType" Association="Self.FK_Shi_ShiType">
+            <End Role="ShiType" EntitySet="ShiType" />
+            <End Role="Shi" EntitySet="Shi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shi_Time" Association="Self.FK_Shi_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Shi" EntitySet="Shi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiComment_Shi" Association="Self.FK_ShiComment_Shi">
+            <End Role="Shi" EntitySet="Shi" />
+            <End Role="ShiComment" EntitySet="ShiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiComment_UserInfo" Association="Self.FK_ShiComment_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShiComment" EntitySet="ShiComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReply_ShiComment" Association="Self.FK_ShiReply_ShiComment">
+            <End Role="ShiComment" EntitySet="ShiComment" />
+            <End Role="ShiReply" EntitySet="ShiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReply_UserInfo" Association="Self.FK_ShiReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShiReply" EntitySet="ShiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopCar_UserInfo" Association="Self.FK_ShopCar_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShopCar" EntitySet="ShopCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDati_UserInfo" Association="Self.FK_UserDati_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserDati" EntitySet="UserDati" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGuanzhu_UserInfo" Association="Self.FK_UserGuanzhu_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserGuanzhu" EntitySet="UserGuanzhu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGuanzhu_UserInfo1" Association="Self.FK_UserGuanzhu_UserInfo1">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserGuanzhu" EntitySet="UserGuanzhu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoComment_UserInfo" Association="Self.FK_VideoComment_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="VideoComment" EntitySet="VideoComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoReply_UserInfo" Association="Self.FK_VideoReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="VideoReply" EntitySet="VideoReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Video_VideoK" Association="Self.FK_Video_VideoK">
+            <End Role="VideoK" EntitySet="VideoK" />
+            <End Role="Video" EntitySet="Video" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoComment_Video" Association="Self.FK_VideoComment_Video">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="VideoComment" EntitySet="VideoComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoReply_VideoComment" Association="Self.FK_VideoReply_VideoComment">
+            <End Role="VideoComment" EntitySet="VideoComment" />
+            <End Role="VideoReply" EntitySet="VideoReply" />
+          </AssociationSet>
+          <FunctionImport Name="ShopCar_Orders">
+            <Parameter Name="Users_id" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserPhone" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="note" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShiyunModelStoreContainer" CdmEntityContainer="ShiyunEntities">
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="ShiyunModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Jieshao" ColumnName="Jieshao" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Challenge">
+            <EntityTypeMapping TypeName="ShiyunModel.Challenge">
+              <MappingFragment StoreEntitySet="Challenge">
+                <ScalarProperty Name="Timu_id" ColumnName="Timu_id" />
+                <ScalarProperty Name="Timu" ColumnName="Timu" />
+                <ScalarProperty Name="AnswerA" ColumnName="AnswerA" />
+                <ScalarProperty Name="AnswerB" ColumnName="AnswerB" />
+                <ScalarProperty Name="ChallengeK_id" ColumnName="ChallengeK_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChallengeK">
+            <EntityTypeMapping TypeName="ShiyunModel.ChallengeK">
+              <MappingFragment StoreEntitySet="ChallengeK">
+                <ScalarProperty Name="ChallengeK_id" ColumnName="ChallengeK_id" />
+                <ScalarProperty Name="ChallengeKName" ColumnName="ChallengeKName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ci">
+            <EntityTypeMapping TypeName="ShiyunModel.Ci">
+              <MappingFragment StoreEntitySet="Ci">
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
+                <ScalarProperty Name="CiContent" ColumnName="CiContent" />
+                <ScalarProperty Name="CiFanyi" ColumnName="CiFanyi" />
+                <ScalarProperty Name="CiShangxi" ColumnName="CiShangxi" />
+                <ScalarProperty Name="Cibeijing" ColumnName="Cibeijing" />
+                <ScalarProperty Name="CiYuying" ColumnName="CiYuying" />
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="Cipai_id" ColumnName="Cipai_id" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CiComment">
+            <EntityTypeMapping TypeName="ShiyunModel.CiComment">
+              <MappingFragment StoreEntitySet="CiComment">
+                <ScalarProperty Name="CiComment_id" ColumnName="CiComment_id" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="ComContent" ColumnName="ComContent" />
+                <ScalarProperty Name="ComTime" ColumnName="ComTime" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CiPai">
+            <EntityTypeMapping TypeName="ShiyunModel.CiPai">
+              <MappingFragment StoreEntitySet="CiPai">
+                <ScalarProperty Name="CiPai_id" ColumnName="CiPai_id" />
+                <ScalarProperty Name="CiPaiName" ColumnName="CiPaiName" />
+                <ScalarProperty Name="CiPaiJieshao" ColumnName="CiPaiJieshao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CiReply">
+            <EntityTypeMapping TypeName="ShiyunModel.CiReply">
+              <MappingFragment StoreEntitySet="CiReply">
+                <ScalarProperty Name="CiReply_id" ColumnName="CiReply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="CiComment_id" ColumnName="CiComment_id" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="ShiyunModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="Goods_id" ColumnName="Goods_id" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsImage" ColumnName="GoodsImage" />
+                <ScalarProperty Name="GoodsJianjie" ColumnName="GoodsJianjie" />
+                <ScalarProperty Name="GoodsDetails" ColumnName="GoodsDetails" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="GoodsK_id" ColumnName="GoodsK_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsK">
+            <EntityTypeMapping TypeName="ShiyunModel.GoodsK">
+              <MappingFragment StoreEntitySet="GoodsK">
+                <ScalarProperty Name="GoodsK_id" ColumnName="GoodsK_id" />
+                <ScalarProperty Name="GoodsKName" ColumnName="GoodsKName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LunTan">
+            <EntityTypeMapping TypeName="ShiyunModel.LunTan">
+              <MappingFragment StoreEntitySet="LunTan">
+                <ScalarProperty Name="LunTan_id" ColumnName="LunTan_id" />
+                <ScalarProperty Name="LunTanName" ColumnName="LunTanName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="ShiyunModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="Manager_id" ColumnName="Manager_id" />
+                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+                <ScalarProperty Name="ManagerPass" ColumnName="ManagerPass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="ShiyunModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageReply_id" ColumnName="MessageReply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="MessageReplyContent" ColumnName="MessageReplyContent" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="MessageReReply_id" ColumnName="MessageReReply_id" />
+                <ScalarProperty Name="host_id" ColumnName="host_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ShiyunModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="note" ColumnName="note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersDetails">
+            <EntityTypeMapping TypeName="ShiyunModel.OrdersDetails">
+              <MappingFragment StoreEntitySet="OrdersDetails">
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+                <ScalarProperty Name="Goods_id" ColumnName="Goods_id" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="note" ColumnName="note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="ShiyunModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="LunTan_id" ColumnName="LunTan_id" />
+                <ScalarProperty Name="PostDetails" ColumnName="PostDetails" />
+                <ScalarProperty Name="PostImage" ColumnName="PostImage" />
+                <ScalarProperty Name="PostJianjie" ColumnName="PostJianjie" />
+                <ScalarProperty Name="Post_top" ColumnName="Post_top" />
+                <ScalarProperty Name="Post_recommend" ColumnName="Post_recommend" />
+                <ScalarProperty Name="Post_draft" ColumnName="Post_draft" />
+                <ScalarProperty Name="Post_down" ColumnName="Post_down" />
+                <ScalarProperty Name="Post_upvote" ColumnName="Post_upvote" />
+                <ScalarProperty Name="Post_click" ColumnName="Post_click" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="Mp3_Url" ColumnName="Mp3_Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostReply">
+            <EntityTypeMapping TypeName="ShiyunModel.PostReply">
+              <MappingFragment StoreEntitySet="PostReply">
+                <ScalarProperty Name="Reply_id" ColumnName="Reply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shi">
+            <EntityTypeMapping TypeName="ShiyunModel.Shi">
+              <MappingFragment StoreEntitySet="Shi">
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ShiTitle" ColumnName="ShiTitle" />
+                <ScalarProperty Name="ShiContent" ColumnName="ShiContent" />
+                <ScalarProperty Name="ShiFanyi" ColumnName="ShiFanyi" />
+                <ScalarProperty Name="ShiShangxi" ColumnName="ShiShangxi" />
+                <ScalarProperty Name="Shibeijing" ColumnName="Shibeijing" />
+                <ScalarProperty Name="ShiYuying" ColumnName="ShiYuying" />
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="ShiType_id" ColumnName="ShiType_id" />
+                <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiComment">
+            <EntityTypeMapping TypeName="ShiyunModel.ShiComment">
+              <MappingFragment StoreEntitySet="ShiComment">
+                <ScalarProperty Name="ShiComment_id" ColumnName="ShiComment_id" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ComContent" ColumnName="ComContent" />
+                <ScalarProperty Name="ComTime" ColumnName="ComTime" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiReply">
+            <EntityTypeMapping TypeName="ShiyunModel.ShiReply">
+              <MappingFragment StoreEntitySet="ShiReply">
+                <ScalarProperty Name="ShiReply_id" ColumnName="ShiReply_id" />
+                <ScalarProperty Name="ShiComment_id" ColumnName="ShiComment_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiType">
+            <EntityTypeMapping TypeName="ShiyunModel.ShiType">
+              <MappingFragment StoreEntitySet="ShiType">
+                <ScalarProperty Name="ShiType_id" ColumnName="ShiType_id" />
+                <ScalarProperty Name="ShiTypeName" ColumnName="ShiTypeName" />
+                <ScalarProperty Name="ShiTypeJieshao" ColumnName="ShiTypeJieshao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopCar">
+            <EntityTypeMapping TypeName="ShiyunModel.ShopCar">
+              <MappingFragment StoreEntitySet="ShopCar">
+                <ScalarProperty Name="ShopCar_id" ColumnName="ShopCar_id" />
+                <ScalarProperty Name="Goods_id" ColumnName="Goods_id" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Time">
+            <EntityTypeMapping TypeName="ShiyunModel.Time">
+              <MappingFragment StoreEntitySet="Time">
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="TimeName" ColumnName="TimeName" />
+                <ScalarProperty Name="TimeJieshao" ColumnName="TimeJieshao" />
+                <ScalarProperty Name="TimeImage" ColumnName="TimeImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDati">
+            <EntityTypeMapping TypeName="ShiyunModel.UserDati">
+              <MappingFragment StoreEntitySet="UserDati">
+                <ScalarProperty Name="Dati_id" ColumnName="Dati_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="Timu_id" ColumnName="Timu_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGuanzhu">
+            <EntityTypeMapping TypeName="ShiyunModel.UserGuanzhu">
+              <MappingFragment StoreEntitySet="UserGuanzhu">
+                <ScalarProperty Name="Guanzhu_id" ColumnName="Guanzhu_id" />
+                <ScalarProperty Name="UserA" ColumnName="UserA" />
+                <ScalarProperty Name="UserB" ColumnName="UserB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="ShiyunModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Addtime" ColumnName="Addtime" />
+                <ScalarProperty Name="UserSign" ColumnName="UserSign" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="SafeQues" ColumnName="SafeQues" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Jingyan" ColumnName="Jingyan" />
+                <ScalarProperty Name="Jifen" ColumnName="Jifen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Video">
+            <EntityTypeMapping TypeName="ShiyunModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="Video_id" ColumnName="Video_id" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+                <ScalarProperty Name="VideoJishu" ColumnName="VideoJishu" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+                <ScalarProperty Name="VideoK_id" ColumnName="VideoK_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoComment">
+            <EntityTypeMapping TypeName="ShiyunModel.VideoComment">
+              <MappingFragment StoreEntitySet="VideoComment">
+                <ScalarProperty Name="VideoComment_id" ColumnName="VideoComment_id" />
+                <ScalarProperty Name="Video_id" ColumnName="Video_id" />
+                <ScalarProperty Name="ComContent" ColumnName="ComContent" />
+                <ScalarProperty Name="ComTime" ColumnName="ComTime" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoK">
+            <EntityTypeMapping TypeName="ShiyunModel.VideoK">
+              <MappingFragment StoreEntitySet="VideoK">
+                <ScalarProperty Name="VideoK_id" ColumnName="VideoK_id" />
+                <ScalarProperty Name="VideoKName" ColumnName="VideoKName" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+                <ScalarProperty Name="VideoDetails" ColumnName="VideoDetails" />
+                <ScalarProperty Name="VideoJianjie" ColumnName="VideoJianjie" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoReply">
+            <EntityTypeMapping TypeName="ShiyunModel.VideoReply">
+              <MappingFragment StoreEntitySet="VideoReply">
+                <ScalarProperty Name="VideoReply_id" ColumnName="VideoReply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="VideoComment_id" ColumnName="VideoComment_id" />
+                <ScalarProperty Name="ReplyTim" ColumnName="ReplyTim" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_PostIndex">
+            <EntityTypeMapping TypeName="ShiyunModel.View_PostIndex">
+              <MappingFragment StoreEntitySet="View_PostIndex">
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="LunTan_id" ColumnName="LunTan_id" />
+                <ScalarProperty Name="PostDetails" ColumnName="PostDetails" />
+                <ScalarProperty Name="PostImage" ColumnName="PostImage" />
+                <ScalarProperty Name="PostJianjie" ColumnName="PostJianjie" />
+                <ScalarProperty Name="Post_top" ColumnName="Post_top" />
+                <ScalarProperty Name="Post_recommend" ColumnName="Post_recommend" />
+                <ScalarProperty Name="Post_draft" ColumnName="Post_draft" />
+                <ScalarProperty Name="Post_down" ColumnName="Post_down" />
+                <ScalarProperty Name="Post_upvote" ColumnName="Post_upvote" />
+                <ScalarProperty Name="Post_click" ColumnName="Post_click" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="Mp3_Url" ColumnName="Mp3_Url" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="UserSign" ColumnName="UserSign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ShopCar">
+            <EntityTypeMapping TypeName="ShiyunModel.View_ShopCar">
+              <MappingFragment StoreEntitySet="View_ShopCar">
+                <ScalarProperty Name="Goods_id" ColumnName="Goods_id" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsImage" ColumnName="GoodsImage" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ShopCar_id" ColumnName="ShopCar_id" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ShopCar_Orders" FunctionName="ShiyunModel.Store.ShopCar_Orders" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,116 @@
+﻿@model Models.Goods
+
+@{
+    ViewBag.Title = "GoodsCreate";
+}
+<style type="text/css">
+    .content {
+        margin-bottom: 40px;
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+
+    .title_top {
+        margin-top: 20px;
+        background-color: #dd3b64;
+        padding: 5px;
+        border-radius: 2px;
+        background-position: -88px 0pt;
+        color: #FFFFFF;
+        width: 100%;
+    }
+
+    .div {
+        margin-top: 30px;
+    }
+    .aaa{
+        width:100%;
+        height:200px;
+
+    }
+</style>
+<link href="~/Manager/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Manager/js/jquery/jquery.min.js"></script>
+<script src="~/Manager/js/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/ueditor/ueditor.config.js"></script>
+<script src="~/ueditor/ueditor.all.js"></script>
+<script type="text/javascript">
+    var editorOption = {
+        initialFrameWidth: 784,
+        initialFrameHeight: 400
+    };
+    var editor = new baidu.editor.ui.Editor(editorOption);
+    editor.render('GoodsDetails');
+</script>
+
+    @using (Html.BeginForm("GoodsCreate", "Goods", FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <div class="title_top">
+                <p>商品添加</p>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+           
+                <p class="text-left">请输入商品名</p>
+                <p>
+                    @Html.EditorFor(model => model.GoodsName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GoodsName, "", new { @class = "text-danger" })
+                </p>
+
+                <p class="text-left">请选择商品类别</p>
+                <p>
+                    @Html.DropDownList("GoodsK_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.GoodsK_id, "", new { @class = "text-danger" })
+                </p>
+            
+            <p class="text-left">请选择上传的图片</p>
+            <p>
+               
+                <input type="file" name="GoodsImage" value="GoodsImage"/>
+              
+            </p>
+
+            <p class="text-left">请输入价格</p>
+            <p>
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </p>
+
+            <p class="text-left">请输入数量</p>
+            <p>
+                @Html.EditorFor(model => model.Count, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Count, "", new { @class = "text-danger" })
+            </p>
+
+
+            <p class="text-left">请输入简介</p>
+            <p>
+                @Html.EditorFor(model => model.GoodsJianjie, new { htmlAttributes = new { @class = "form-control aaa" } })
+                @Html.ValidationMessageFor(model => model.GoodsJianjie, "", new { @class = "text-danger " })
+                
+             
+            </p>
+
+            <p class="text-left">请输入详情</p>
+            <p>
+                
+                @Html.TextAreaFor(model => model.GoodsDetails)
+            </p>
+
+
+            <p class="text-center">
+                <input type="submit" value="添加" class="btn btn-default" style="width:60px;margin-right:1200px;" />
+            </p>
+          
+
+
+
+
+        </div>
+    }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

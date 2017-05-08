@@ -1,0 +1,11 @@
+﻿section{width:85%;height:100%;margin:15px auto;}
+.totalbox{width:100%;height:650px;margin:10px auto;background-color: rgba(220, 215, 214, 0.3);}
+.rightbox{width:60%;height:100%;float: right;display:inline-block;background-color: rgba(220, 215, 214, 1);}
+.leftbox{width:40%;height:100%;display:inline-block;}
+.leftbox .challengekname{margin:40px auto;width: 80%;height: 30px;font-size: 24px;}
+.leftbox .jdt{margin:0px auto;width: 80%;height: 35px;position: relative;}
+.leftbox .unit{float: left;position: relative;}
+.leftbox .jdt .line{background: #c8cdd2;height: 2px;position: absolute;}
+.leftbox .jdt .lastline{ width: 20px;float: left;position: relative;}
+.leftbox .jdt .number{top: -10px;position: relative;background: #fff;border: 1px solid #c8cdd2;color: #c8cdd2;width: 25px;height: 25px;border-radius: 20px;font-size: 17px;text-align: center;}
+.timu{ width: 80%;margin: 10px auto;font-size: 17px;}

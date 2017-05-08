@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+@bg_c:rgba(224, 216, 205,0.1);
+
+@ft_c:rgb(57, 33, 11);
+@ft_c_h:rgb(192,63,60);
+/*@ft_c:#2c3e50;
+@ft_c_h:#428bca;*/
+@ft_c_gray:rgb(128, 128, 128);
+.ft_tr(@timer: 0.2s){
+          transition: color @timer linear;
+          -webkit-transition:color @timer linear;
+          -moz-transition:color @timer linear;
+        }
+.tran_l(@way:height ,@timer:0.3s){
+    transition: @way @timer linear;
+    -webkit-transition:@way @timer linear;
+    -moz-transition:@way @timer linear;
+}

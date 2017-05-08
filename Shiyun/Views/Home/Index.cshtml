@@ -1,0 +1,458 @@
+﻿@{
+    ViewBag.Title = "诗韵-古诗词";
+}
+@section style{
+    <link href="~/Content/css/Homeindex.css" rel="stylesheet" />
+}
+<!-- 轮播 -->
+<div class="imgListcontent">
+    <!--图片轮播部分-->
+    <ul class="imgList" style="display:block;">
+        <!--图片框-->
+        <li>
+            <a href="javascript:void(0)" target="_blank">
+                <img src="~/Images/Home/a.png" id="imgList1" style="background:url(../Images/Home/lunbotu_tiaozhan.jpg) no-repeat center; " />
+            </a>
+        </li><!--设置背景颜色兼容-->
+        <li>
+            <a href="javascript:void(0)">
+                <img src="~/Images/Home/a.png" id="imgList2" style="background:url(../Images/Home/lunbotu_shigetangchao.jpg) no-repeat center; " />
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">
+                <img src="~/Images/Home/a.png" id="imgList3" style="background:url(../Images/Home/lunbotu_chunhuaqiuyue.jpg)  no-repeat center; " />
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">
+                <img src="~/Images/Home/a.png" id="imgList4" style="background:url(../Images/Home/lunbotu_liqingzhao.jpg) no-repeat center;" />
+            </a>
+        </li>
+    </ul>
+    <ul class="scroll">
+        <!--左右切换-->
+        <li><a class="prev">previous</a></li>
+        <li><a class="next ">next</a></li>
+    </ul>
+    <ol id="bannerCtrl" class="nav paging">
+        <!-- banner滚动-->
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>2</a></li>
+        <li><a>2</a></li>
+    </ol>
+</div><!--图片轮播部分 结束-->
+<!-- 诗词 -->
+<section class="kopa-area kopa-area-01">
+    <div class="container">
+        <div class="widget kopa-widget-features">
+            <header class="widget-header style-01">
+                <img src="~/Images/Home/icon-header-1.png" alt="">
+                <h3 class="widget-title">AwESOME Features</h3>
+                <h4>We offer Students for better Learning</h4>
+            </header>
+            <div class="widget-content module-features-01">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <article class="entry-item">
+                            <div class="custom">
+                                <div class="entry-thumb">
+                                    <div class="yuan">
+                                        <img src="~/Images/Home/2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="entry-content">
+                                    <h4 class="entry-title">
+                                        <a href="#">青玉案·元夕</a>
+                                    </h4>
+                                    <p>众里寻他千百度，蓦然回首，<br />那人却在，灯火阑珊处。</p>
+                                    <a href="#" class="button-01">查看详细</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <article class="entry-item">
+                            <div class="entry-thumb">
+                                <div class="yuan">
+                                    <img src="~/Images/Home/3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">
+                                    <a href="#">诗经.卫风.淇奥</a>
+                                </h4>
+                                <p>如切如磋，<br />如琢如磨。</p>
+                                <a href="#" class="button-01">查看详细</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <article class="entry-item">
+                            <div class="entry-thumb">
+                                <div class="yuan">
+                                    <img src="~/Images/Home/4.png" alt="">
+                                </div>
+                            </div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">
+                                    <a href="#">陶渊明</a>
+                                </h4>
+                                <p>户庭无尘杂，虚室有余闲。<br />久在樊笼里，复得返自然。</p>
+                                <a href="#" class="button-01">查看详细</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <article class="entry-item">
+                            <div class="entry-thumb">
+                                <img src="~/Images/Home/5.png" alt="">
+                            </div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">
+                                    <a href="#">辛弃疾</a>
+                                </h4>
+                                <p>明月别枝惊鹊，清风半夜鸣蝉。<br />稻花香里说丰年，听取蛙声一片。</p>
+                                <a href="#" class="button-01">查看详细</a>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--诗词部分 结束-->
+<!--排行-->
+<section class="Paihang">
+    <div class="container">
+        <div class="widget">
+            <div class="widget-content Paihang-content">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <article class="Paihang-item Paihang-item1">
+                        <ul>
+                            <li class="item-Title" style="text-align: center;">答题积分排行榜</li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>1&nbsp;</span>
+                                    <a href="javascript:void(0)">黄小捷</a>
+                                    <div class="jifen">积分：15</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"><img /></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>2&nbsp;</span>
+                                    <a href="javascript:void(0)">黄雷</a>
+                                    <div class="jifen">积分：15</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>3&nbsp;</span>
+                                    <a href="javascript:void(0)">胡喆昊</a>
+                                    <div class="jifen">积分：15</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>4&nbsp;</span>
+                                    <a href="javascript:void(0)">王小明</a>
+                                    <div class="jifen">积分：10</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>5&nbsp;</span>
+                                    <a href="javascript:void(0)">王大明</a>
+                                    <div class="jifen">积分：9</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>6&nbsp;</span>
+                                    <a href="javascript:void(0)">胡喆昊</a>
+                                    <div class="jifen">积分：15</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content1">
+                                <div class="Paihang_Name">
+                                    <span>7&nbsp;</span>
+                                    <a href="javascript:void(0)">王小明</a>
+                                    <div class="jifen">积分：10</div>
+                                </div>
+                                <div class="Paihang_Show">
+                                    <div class="touxiang">
+                                        <a href="javascript:void(0)"></a>
+                                    </div>
+                                    <div class="jieshao">
+                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-End">查看全部></li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <article class="Paihang-rukou">
+                        <div class="dati">
+                            <a><img /></a>
+                        </div>
+                        <div class="shiji">
+                            <a><img /></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <article class="Paihang-item Paihang-item2">
+                        <ul>
+                            <li class="item-Title" style="text-align: center;">原创诗集排行榜</li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>1&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>2&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>3&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>4&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>5&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>6&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-Content item-Content2">
+                                <div class="Paihang_Name">
+                                    <span>7&nbsp;</span>
+                                    <a href="javascript:void(0)">古诗</a>
+                                    <div class="jifen">黄小捷</div>
+                                </div>
+                                <div class="Paihang_Show Paihang_Show2">
+                                    <div class="cai">
+                                        <i class="iconfont">&#xe603;</i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="zan">
+                                        <i class="iconfont">&#xe7b4;</i>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="pinglun">
+                                        <i class="iconfont">&#xe667;</i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-End">查看全部></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--排行部分 结束-->
+
+@section scripts{
+    <script src="~/Scripts/slider.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        var headerSlider = new Slider($(".imgListcontent"), {
+            time: 3000,
+            delay: 400,
+            event: 'hover',
+            auto: true,
+            mode: 'fade',
+            controller: $('#bannerCtrl'),
+            activeControllerCls: 'active'
+        });
+        $(".imgListcontent .prev").click(function () {
+            headerSlider.prev();
+        });
+
+        $(".imgListcontent .next").click(function () {
+            headerSlider.next();
+        });
+    });
+    $(function () {
+        //排行前三颜色切换
+        $(".Paihang-item1 ul").children(":eq(1)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+        $(".Paihang-item1 ul").children(":eq(2)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+        $(".Paihang-item1 ul").children(":eq(3)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+       // for (var i = 0; i <= 3; i++) {
+       //    $(".Paihang-item1 ul").children(":eq(i)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+       //}
+        $(".Paihang-item1 ul").children(":eq(4)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(".Paihang-item1 ul").children(":eq(5)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(".Paihang-item1 ul").children(":eq(6)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(".Paihang-item1 ul").children(":eq(7)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+
+        $(".Paihang-item2 ul").children(":eq(1)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+        $(".Paihang-item2 ul").children(":eq(2)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+        $(".Paihang-item2 ul").children(":eq(3)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+        $(".Paihang-item2 ul").children(":eq(4)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(".Paihang-item2 ul").children(":eq(5)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(".Paihang-item2 ul").children(":eq(6)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(".Paihang-item2 ul").children(":eq(7)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+    });
+    </script>
+}

@@ -1,0 +1,156 @@
+﻿@model IQueryable<Models.View_ShopCar>
+@{
+    ViewBag.Title = "诗韵-购物车";
+}
+@section style
+{
+    <link href="~/Content/css/ShopCar.css" rel="stylesheet" />
+}
+@*@using (Html.BeginForm("Update", "Mall", FormMethod.Post))
+    {*@
+<section>
+
+    <div class="showshopcar">
+        <span1>购物车</span1>
+        <hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 20px; margin-bottom: 60px;"/>
+        <table class="table" style="width: 90%; margin: 0 auto; text-align: center;">
+            <tr style="text-align: center;">
+                <th style="width: 10%; margin: 0 auto; text-align: center;">
+                    <input type="checkbox" id="quanxuan" style="width: 30px; margin: 0 auto;"/>全选
+                </th>
+                <th style="width: 20%; margin: 0 auto; text-align: center;">
+                    @*@Html.DisplayName("商品图片")*@<label>商品图片</label>
+                </th>
+                <th style="width: 20%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("商品名称")
+                </th>
+                <th style="width: 10%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("商品价格")
+                </th>
+                <th style="width: 15%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("购买数量")
+                </th>
+                <th style="width: 10%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("小计")
+                </th>
+                <th style="width: 15%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("编辑")
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width: 10%; margin: 0 auto; line-height: 100px;">
+                        <input type="checkbox" name="subBox" style="width: 30px; margin: 0 auto;"/>
+                    </td>
+                    <td style="width: 20%; margin: 0 auto; line-height: 100px;">
+                        <img src="@item.GoodsImage" style="width: 100px; height: 100px"/>
+                    </td>
+                    <td style="width: 20%; margin: 0 auto; line-height: 100px;">
+                        @Html.DisplayFor(modelItem => item.GoodsName, new { @class = "goodsname"})
+                    </td>
+                    <td style="width: 10%; margin: 0 auto; line-height: 100px;">
+                        @*@Html.DisplayFor(modelItem => item.Price)*@
+                        <input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 100%;"/>
+                    </td>
+                    <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                        @Html.TextBoxFor(modelItem => item.Count, new {@class = "txtbox", @readonly = "readonly", style = "border: none;"})
+                    </td>
+                    <td style="width: 10%; margin: 0 auto; line-height: 100px;">
+                        @*@Html.DisplayFor(modelItem => item.FinalPrice, new { @class = "finalprice" })*@
+                        <input class="finalprice" readonly="readonly" value="@Convert.ToDouble(@item.FinalPrice)" type="text" style="text-align: center; width: 100%;"/>
+                    </td>
+                    <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                        <span class="edit" style="cursor: pointer;">编辑</span>
+                        @*<input class="update" style="display: none; cursor: pointer;" type="text" value="@item.Goods_id"/>*@
+                        @*<a id="@item.Goods_id" class="update" style="display: none; cursor: pointer;">更新</a>*@|
+                        @*@Html.ActionLink("更新", "Update", new {id = item.Goods_id}, new {@class = "update",style = "display:none;"})*@
+                        @Ajax.ActionLink("更新", "Update", new { id = item.Goods_id,count=item.Count }, null)
+                        @Ajax.ActionLink("删除", "Delete", new {id = item.Goods_id}, null)
+                    </td>
+                </tr>
+            }
+        </table>
+        <br/>
+        <div id="btnRpt" class="btn" style="height: 35px; width: 85px; color: white; background-color: #DD3B44; margin-left: 70px;">批量删除</div>
+
+        <br/>
+        <div class="koong">
+            <label id="Label1" class="kong" style="display: none;">抱歉，您的购物车为空，请尽情挑选商品</label>
+            <br/>
+        </div>
+        <div class="showprice">
+            <label id="lbl1">已选商品：</label>
+            <label id="lblnum">0</label><label>类</label>
+            <label id="lbl2">合计：</label>
+            <label id="lbltotprice">0</label><label>元</label>
+        </div>
+        <div class="gwcbutton">
+            <div id="qk" class="btn1" style="height: 30px; width: 85px; color: white; background-color: #DD3B44">清空购物车</div>
+            <div id="jsuan" class="btn2" style="height: 30px; width: 85px; color: white; background-color: #DD3B44">生成订单</div>
+        </div>
+    </div>
+    <input class="chuangzhi" style="display: none;" value="0"/>
+</section>
+@*}*@
+@section scripts
+{
+    <script type="text/javascript">
+        if ($(".price").val() == null) {
+            $(".table").hide();
+            $(".showprice").hide();
+            $(".gwcbutton").hide();
+            $(".btn").hide();
+            $(".kong").show();
+        }
+        $(function() {
+            $(".edit").click(function() {
+                $(this).hide();
+                $(this).parent().prev().prev().children().removeAttr("readonly");
+                $(this).parent().prev().prev().children().css("border", "1px solid #999");
+                $(this).next().show();
+            });
+            $(".update").click(function() {
+                $(this).hide();
+                $(this).parent().prev().prev().children().attr("readonly", "readonly");
+                $(this).parent().prev().prev().children().css("border", "none");
+                $(this).prev().show();
+                //$.ajax({
+                //    url: "/Mall/Update",
+                //    type: "post",
+                //    async: false,
+                //    data: { id: $(".update").attr("id"), count: $(".txtbox").val() },
+                //    success: function(data) {
+                //        alert(data);
+                //        var finalprice = $(".price").val() * $(".txtbox").val();
+                //        $(".chuangzhi").val(finalprice);
+                //    }
+                //});
+                //var chuangzhi = $(".chuangzhi").val();
+                //$(this).parent().prev().children().val(chuangzhi);
+            });
+
+        });
+
+        $(function() {
+            $("#quanxuan").click(function() {
+                var isChecked = $(this).prop("checked");
+                $("input[name='subBox']").prop("checked", isChecked);
+                var sumchoose = $("input[name='subBox']:checked").length;
+                $("#lblnum").text(sumchoose);
+            });
+            var $subBox = $("input[name='subBox']");
+            $subBox.click(function() {
+                $("#quanxuan").prop("checked", false);
+                var sumchoose = $("input[name='subBox']:checked").length;
+                $("#lblnum").text(sumchoose);
+
+                alert($(this).parent().next().next().next().next().next().children().val());
+            });
+        });
+
+    </script>
+}
+
+

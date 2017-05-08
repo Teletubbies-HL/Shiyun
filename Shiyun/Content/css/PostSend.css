@@ -1,0 +1,190 @@
+@charset "utf-8";
+/*@ft_c:#2c3e50;
+@ft_c_h:#428bca;*/
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+.bz {
+  box-sizing: content-box;
+}
+* {
+  line-height: 1;
+}
+.Tribune-choose {
+  width: 100%;
+  background: #dd3b44;
+  height: 40px;
+  margin-bottom: 25px;
+}
+.Tribune-choose .cotenter {
+  width: 78%;
+  height: 40px;
+  margin: 0 auto;
+  /*border:1px solid red;*/
+}
+.Tribune-choose .cotenter ul {
+  list-style-type: none;
+}
+.Tribune-choose .cotenter ul li {
+  display: inline;
+  line-height: 40px;
+  margin-left: 30px;
+  float: left;
+}
+.Tribune-choose .cotenter ul li .cssButton {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  padding: 0px 10px;
+  height: 40px;
+  display: inline-block;
+  text-decoration: none;
+}
+.Tribune-choose .cotenter ul li .cssButton:hover {
+  background: #fefaf9;
+  line-height: 40px;
+  color: #dd3b44;
+}
+.Tribune-choose {
+  width: 100%;
+  background: #dd3b44;
+  height: 40px;
+  margin-bottom: 25px;
+}
+.Tribune-choose .cotenter {
+  width: 78%;
+  height: 40px;
+  margin: 0 auto;
+  /*border:1px solid red;*/
+}
+.Tribune-choose .cotenter ul {
+  list-style-type: none;
+}
+.Tribune-choose .cotenter ul li {
+  display: inline;
+  line-height: 40px;
+  margin-left: 30px;
+  float: left;
+}
+.Tribune-choose .cotenter ul li .cssButton {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  padding: 0px 10px;
+  height: 40px;
+  display: inline-block;
+  text-decoration: none;
+}
+.Tribune-choose .cotenter ul li .cssButton:hover {
+  background: #fefaf9;
+  color: #dd3b44;
+}
+section {
+  width: 70%;
+  height: 1000px;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 4px #cecccc;
+  -webkit-box-shadow: 0 0 4px #cecccc;
+  overflow: hidden;
+}
+section .title {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+}
+section .title .csstxtTitle {
+  outline: none;
+  border: 1px solid #e6e6e6;
+  line-height: 40px;
+  font-size: 16px;
+  margin-left: 40px;
+  text-indent: 1em;
+  display: block;
+  float: left;
+}
+section .zhengwen {
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+section .zhengwen .csszhengwen {
+  outline: none;
+  border: 1px solid #e6e6e6;
+  line-height: 40px;
+  font-size: 16px;
+  text-indent: 1em;
+}
+section .title .cssDropDownList1 {
+  outline: none;
+  border: 1px solid #e6e6e6;
+  width: 100px;
+  height: 40px;
+  margin-left: 50px;
+}
+section .fabiao {
+  width: 100%;
+  margin-top: 20px;
+}
+section .fabiao .cssbtn1 {
+  outline: none;
+  background: #dd3b44;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  height: 36px;
+  width: 110px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 650px;
+}
+section .fabiao .cssbtn2 {
+  outline: none;
+  background: #dd3b44;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  height: 36px;
+  width: 110px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.file_a {
+  border: 1px solid #e6e6e6;
+  line-height: 30px;
+  font-size: 13px;
+  text-indent: 1em;
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  color: #808080;
+}
+.file_a:hover {
+  color: #000;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.file_a .file_a_b {
+  line-height: 30px;
+}
+.file_a_a {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 100px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}

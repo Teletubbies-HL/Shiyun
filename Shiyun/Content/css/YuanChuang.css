@@ -1,0 +1,285 @@
+@charset "utf-8";
+/*@ft_c:#2c3e50;
+@ft_c_h:#428bca;*/
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+.bz {
+  box-sizing: content-box;
+}
+* {
+  line-height: 1;
+}
+.Tribune-choose {
+  width: 100%;
+  background: #dd3b44;
+  height: 40px;
+  margin-bottom: 25px;
+}
+.Tribune-choose .cotenter {
+  width: 78%;
+  height: 40px;
+  margin: 0 auto;
+  /*border:1px solid red;*/
+}
+.Tribune-choose .cotenter ul {
+  list-style-type: none;
+}
+.Tribune-choose .cotenter ul li {
+  display: inline;
+  line-height: 40px;
+  margin-left: 30px;
+  float: left;
+}
+.Tribune-choose .cotenter ul li .cssButton {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  padding: 0px 10px;
+  height: 40px;
+  display: inline-block;
+  text-decoration: none;
+}
+.Tribune-choose .cotenter ul li .cssButton:hover {
+  background: #fefaf9;
+  line-height: 40px;
+  color: #dd3b44;
+}
+section {
+  width: 74%;
+  margin: 0px auto;
+  height: auto;
+  /*border:1px solid red;*/
+  position: relative;
+}
+section .rightbox {
+  width: 30%;
+  height: 800px;
+  /*border:1px solid green;*/
+  position: absolute;
+  right: 40px ;
+  top: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 4px #cecccc;
+  -webkit-box-shadow: 0 0 4px #cecccc;
+}
+section .leftbox {
+  width: 64%;
+  height: auto;
+  overflow: hidden;
+  margin-left: 20px;
+  /*border:1px solid red;*/
+}
+section .leftbox .leftbox1 {
+  width: 100%;
+  height: auto;
+  margin-top: -20px;
+}
+section .leftbox .leftbox1 .leftbox_1 {
+  box-sizing: content-box;
+  background-color: white;
+  border: 15px solid #fff;
+  height: auto;
+  width: 680px;
+  overflow: visible;
+  position: relative;
+  margin: 40px auto 0;
+  box-shadow: 0 0 4px #cecccc;
+  -webkit-box-shadow: 0 0 4px #cecccc;
+  overflow: hidden;
+}
+section .leftbox .leftbox1 .leftbox_1 .cssdltnowbankuai {
+  width: 100%;
+  border-bottom: 1px solid #E6E6E6;
+}
+section .leftbox .leftbox1 .leftbox_1 .nowbankuai {
+  display: inline-block;
+  font-size: 15px;
+  height: 60px;
+  line-height: 40px;
+  margin-left: 15px;
+}
+section .leftbox .leftbox1 .leftbox_1 .sendPost {
+  width: 100px;
+  height: 38px;
+  outline: none;
+  display: inline-block;
+  background: #32a5e7;
+  color: white;
+  border-radius: 3px;
+  float: right;
+  margin-right: 10px;
+  line-height: 38px;
+  text-align: center;
+  font-size: 14px;
+}
+section .leftbox .leftbox1 .leftbox_1 .cssdltzhiding1 {
+  width: 100%;
+}
+section .leftbox .leftbox1 .leftbox_1 .postbox {
+  width: 100%;
+  height: 60px;
+  /* border: 1px solid red; */
+  margin-top: 15px;
+  /* line-height: 70px; */
+  border-bottom: 1px solid #E6E6E6;
+  overflow: hidden;
+  position: relative;
+}
+section .leftbox .leftbox1 .leftbox_1 .postbox .user_image {
+  margin-left: 15px;
+  float: left;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  /*border:1px solid red;*/
+  border-radius: 21px;
+}
+section .leftbox .leftbox1 .leftbox_1 .postbox .hotpost_title {
+  /*border:1px solid red;*/
+  margin-left: 75px;
+}
+section .leftbox .leftbox1 .leftbox_1 .postbox .hotpost_title a {
+  color: #333;
+  font-size: 18px;
+  width: 530px;
+  display: block;
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: 13px;
+  left: 70px;
+}
+section .leftbox .leftbox1 .leftbox_1 .postbox .user_name {
+  display: inline-block;
+  font-size: 14px;
+  color: #999;
+  /*border:1px solid red;*/
+  margin: 10px 0px 0px 35px;
+  position: absolute;
+  top: -10px;
+  right: 20px;
+}
+section .leftbox .leftbox1 .leftbox_1 .postbox .addtime {
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  /*border:1px solid red;*/
+  margin: 10px 0px 0px 400px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+section .leftbox .leftbox1 .leftbox_1 .refresh {
+  height: 45px;
+  border: 1px solid red;
+  color: #333;
+  background: #f6fafd;
+  border: 1px solid #e1eaf1;
+  margin-top: 15px;
+}
+section .leftbox .leftbox1 .leftbox_1 .refresh .refresh_1 {
+  outline: none;
+  background: rgba(0, 0, 0, 0);
+  color: #444544;
+  line-height: 45px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+section .leftbox .leftbox1 .leftbox_1 .refresh .refresh_1:hover {
+  color: #dd3b44;
+  transition: color .2s linear;
+}
+section .leftbox .leftbox1 .leftbox_1 .button1 {
+  color: #000000;
+  font-weight: 700;
+  background: #f3f3f3;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 19px;
+}
+section .leftbox .leftbox1 .leftbox_1 .pages a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #333333;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  display: inline-block;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 19px;
+  background: #f3f3f3;
+}
+section .leftbox .leftbox1 .leftbox_1 .current {
+  color: white;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 19px;
+  background: #dd3b44;
+}
+section .leftbox .leftbox1 .leftbox_1 .aspNetDisabled {
+  color: #ababab;
+}
+section .rightbox .bankuai {
+  width: 90%;
+  height: auto;
+  /*border:1px solid red;*/
+  margin: 20px auto;
+  overflow: hidden;
+}
+section .rightbox .bankuai .bankuai_name {
+  display: inline-block;
+  float: left;
+  color: #dd3b44;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+section .rightbox .bankuai .todaypost {
+  display: inline-block;
+  float: right;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+section .rightbox .bankuai .banzhu {
+  display: block;
+  float: left;
+  font-size: 15px;
+  margin-bottom: 35px;
+  margin-top: 15px;
+  width: 100%;
+}
+section .rightbox .bankuai ul {
+  display: block;
+  width: 100%;
+}
+section .rightbox .bankuai ul li {
+  line-height: 30px;
+}
+section .rightbox .bankuai ul li a {
+  color: #dd3b44;
+  text-decoration: none;
+}
+section .rightbox .bankuai .cssright_image {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  display: block;
+}

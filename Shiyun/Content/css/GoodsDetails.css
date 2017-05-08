@@ -1,0 +1,25 @@
+﻿section{width:80%;margin:0 auto;}
+        /*.firstgoodname{display:block;font-size:18px;color:rgba(0, 0, 0,0.5);}*/
+        .firstblo{width:100%;height:570px;/*border:0.5px solid rgba(0, 0, 0,0.1);*/}
+        .showgoodimg{width:35%;height:450px;float:left; display:block;margin-top:50px;margin-left:50px;}
+        .goodimg{width:450px;height:450px;}
+        .rightblo{float:right;width:60%;}
+        .fuwulei{width:100%;height:150px;display:block;float:left;margin-left:10px;font-size:15px;color:rgba(0, 0, 0,0.5);}
+        .fuwulei span{display:block;margin-top:30px;margin-bottom:30px;}
+        .showtitle{width:100%;height:50px;float:left; display:block;margin-top:50px;margin-left:10px;font-size:26px;}
+        .showjianjie{width:100%;height:50px;float:left; display:block;margin-left:10px;font-size:18px;color:rgba(0, 0, 0,0.5);}
+        .showjiage{width:100%;height:50px;float:left; display:block;margin-left:10px;font-size:24px;color:#c03f3c;}
+        .showjiage span1{font-size:12px;color:rgba(0, 0, 0,0.5);}
+        .showkucun{width:100%;height:50px;float:left; display:block;margin-left:10px;font-size:15px;color:rgba(0, 0, 0,0.5);margin-top:10px;}
+        .gselect{margin-left:10px;display:block;float:left;width: 190px;}
+        .gselect .snum{display:inline-block;float:left;}
+        .gselect .snum span{display:inline-block;float:left;margin-top: 50px;font-size:15px;color:rgba(0, 0, 0,0.5);}
+        .gselect .snum .txtbox{display:inline-block;float:left;border:0.5px solid rgba(0, 0, 0,0.2);width:55px;height:40px;text-align:center;margin-top:40px;}
+        .gselect .snum .up{background-color:white;border:0.5px solid rgba(0, 0, 0,0.2);width:22px;height:18px;display:block;margin-top:40px;margin-left:10px;float:left;text-align: center;}
+        .gselect .snum .down{background-color:white;border:0.5px solid rgba(0, 0, 0,0.2);width:22px;height:18px;display:block;margin-top:65px;margin-left:-24px;float:left;text-align: center;}
+        .tbutton{margin-top:-52px;display:block;width:350px; float:left;margin-left:190px;}
+        .tbutton .btnjrgwc{margin-top:10px;margin-left:10px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;text-align: center;text-decoration: none;}
+        .tbutton .btnljgm{margin-top:10px;margin-left:50px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+        .secondblo{width:100%;margin-top:50px;display:block;}
+        .secondblo span{font-size:26px;margin-bottom:50px;margin-left:50px;}
+        .contents{display:block;}

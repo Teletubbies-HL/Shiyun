@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Models.Time>
+
+@{
+    ViewBag.Title = "TimeIndex";
+}
+
+<h2>TimeIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeJieshao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeJieshao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeImage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Time_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Time_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Time_id })
+        </td>
+    </tr>
+}
+
+</table>

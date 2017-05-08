@@ -1,0 +1,411 @@
+@charset "utf-8";
+/*@ft_c:#2c3e50;
+@ft_c_h:#428bca;*/
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+.bz {
+  box-sizing: content-box;
+}
+* {
+  line-height: 1;
+}
+.Tribune-choose {
+  width: 100%;
+  background: #dd3b44;
+  height: 40px;
+  margin-bottom: 25px;
+}
+.Tribune-choose .cotenter {
+  width: 78%;
+  height: 40px;
+  margin: 0 auto;
+  /*border:1px solid red;*/
+}
+.Tribune-choose .cotenter ul {
+  list-style-type: none;
+}
+.Tribune-choose .cotenter ul li {
+  display: inline;
+  line-height: 40px;
+  margin-left: 30px;
+  float: left;
+}
+.Tribune-choose .cotenter ul li .cssButton {
+  background: none;
+  line-height: 40px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  padding: 0px 10px;
+  height: 40px;
+  display: inline-block;
+  text-decoration: none;
+}
+.Tribune-choose .cotenter ul li .cssButton:hover {
+  background: #fefaf9;
+  line-height: 40px;
+  color: #dd3b44;
+}
+section {
+  width: 74%;
+  margin: 0px auto;
+  height: auto;
+  /*border:1px solid red;*/
+  position: relative;
+}
+section .rightbox {
+  width: 30%;
+  height: auto;
+  /*border:1px solid green;*/
+  position: absolute;
+  right: 40px ;
+  top: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 4px #cecccc;
+  -webkit-box-shadow: 0 0 4px #cecccc;
+}
+section .rightbox .rightbox_2 {
+  width: 90%;
+  margin: 0px auto;
+  /*border:1px solid green;*/
+}
+section .rightbox .rightbox_2 .paihang {
+  margin: 20px 0;
+  border-top: 3px solid #e2d537;
+}
+section .rightbox .rightbox_2 .paihang .paihang_title {
+  width: 100%;
+  text-align: center;
+  line-height: 45px;
+  font-size: 15px;
+  color: #333;
+  display: block;
+  font-weight: 700;
+}
+section .rightbox .rightbox_2 .paihang ul li {
+  display: block;
+  font-size: 14px;
+  line-height: 30px;
+  width: 100%;
+}
+section .rightbox .rightbox_2 .paihang ul li .paihang_span1 {
+  display: block;
+  float: left;
+  line-height: 30px;
+  color: #333;
+}
+section .rightbox .rightbox_2 .paihang ul li .paihang_span2 {
+  margin-left: 10px;
+  color: #333;
+}
+section .rightbox .rightbox_2 .paihang ul li .paihang_span2:hover {
+  color: #c03f3c;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+section .rightbox .rightbox_2 .paihang ul li .paihang_span3 {
+  display: block;
+  float: right;
+  color: #999;
+}
+section .rightbox .rightbox_2 .weibo {
+  margin: 20px 0;
+}
+section .rightbox .rightbox_2 .xinren {
+  margin: 20px 0;
+  border-top: 3px solid #00c3f5;
+}
+section .rightbox .rightbox_2 .xinren span {
+  width: 100%;
+  text-align: center;
+  line-height: 45px;
+  font-size: 15px;
+  color: #333;
+  display: block;
+  font-weight: 700;
+}
+section .rightbox .rightbox_2 .xinren ul li {
+  width: 80px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+  margin-left: 40px;
+}
+section .rightbox .rightbox_2 .xinren ul li a {
+  color: #333;
+  text-decoration: none;
+}
+section .rightbox .rightbox_2 .xinren ul li a:hover {
+  color: #c03f3c;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+section .rightbox .rightbox_2 .sheyin {
+  margin: 20px 0;
+  border-top: 3px solid #a54358;
+}
+section .rightbox .rightbox_2 .sheyin span {
+  width: 100%;
+  text-align: center;
+  line-height: 45px;
+  font-size: 15px;
+  color: #333;
+  display: block;
+  font-weight: 700;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent {
+  position: relative;
+  width: 94%;
+  margin-left: 3%;
+  height: 240px;
+  z-index: 10;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .imgList li {
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: absolute;
+  top: 0;
+  list-style: none;
+  overflow: hidden;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .imgList li .shadow {
+  position: absolute;
+  top: 160px;
+  left: -200px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 200px;
+  height: 40px;
+  transition: left 0.3s linear;
+  -webkit-transition: left 0.3s linear;
+  -moz-transition: left 0.3s linear;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .imgList li .shadow .shadow_name {
+  color: white;
+  font-size: 14px;
+  /*font-family: "Microsoft Yahei","微软雅黑";*/
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  width: 140px;
+  overflow: hidden;
+  margin-left: 20px;
+  line-height: 40px;
+  display: block;
+  float: left;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .imgList li .shadow .mp3 {
+  display: block;
+  float: right;
+  margin-right: 10px;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .imgList li .shadow .mp3 i {
+  font-size: 22px;
+  line-height: 40px;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .imgList a #imgList1,
+section .imgListcontent .imgList a #imgList2,
+section .imgListcontent .imgList a #imgList3,
+section .imgListcontent .imgList a #imgList4 {
+  width: 100%;
+  margin: 0;
+  cursor: default;
+  display: block;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .nav {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  /*距离下部分10px*/
+  text-align: center;
+  /*	border:1px solid #A85B5D;*/
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .nav li {
+  margin: 0 2px;
+  display: inline-block;
+  /*水平锁定*/
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .paging li a {
+  background: url(../../Images/Home/dot1.png) no-repeat;
+  background-position: 0 -18px;
+  display: block;
+  width: 22px;
+  height: 17px;
+  overflow: hidden;
+  cursor: pointer;
+  text-indent: -50em;
+}
+section .rightbox .rightbox_2 .sheyin .imgListcontent .paging li a.flex-active,
+section .rightbox .rightbox_2 .sheyin .imgListcontent .paging li.active a {
+  background-position: 0 3px;
+  margin: 3px 0px;
+}
+section .leftbox {
+  width: 64%;
+  height: auto;
+  overflow: hidden;
+  margin-left: 20px;
+  /*border:1px solid red;*/
+}
+section .leftbox .hotpost {
+  width: 100%;
+  height: 435px;
+  margin-top: 30px;
+}
+section .leftbox .hotpost .hotpost_1 {
+  box-sizing: content-box;
+  background-color: white;
+  border: 15px solid #fff;
+  height: 405px;
+  width: 680px;
+  overflow: visible;
+  position: relative;
+  margin: 40px auto 0;
+  box-shadow: 0 0 4px #cecccc;
+  -webkit-box-shadow: 0 0 4px #cecccc;
+  overflow: hidden;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_tittle {
+  font-size: 18px;
+  line-height: 50px;
+  color: #333;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+  display: block;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list {
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox .user_image {
+  float: left;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  /*border:1px solid red;*/
+  border-radius: 21px;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox .hotpost_title {
+  /*border:1px solid red;*/
+  margin-left: 75px;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox .hotpost_title a {
+  color: #333;
+  font-size: 15px;
+  width: 530px;
+  display: block;
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox .user_name {
+  display: inline-block;
+  font-size: 14px;
+  color: #999;
+  /*border:1px solid red;*/
+  margin: 10px 0px 0px 35px;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox .addtime {
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  /*border:1px solid red;*/
+  margin: 10px 0px 0px 400px;
+}
+section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox {
+  width: 100%;
+  height: auto;
+  /*border:1px solid red;*/
+  margin-bottom: 30px;
+}
+section .leftbox .cssdltzonghetaolun {
+  margin: 0px auto;
+}
+section .leftbox .zonghetaolun {
+  width: 100%;
+  height: 250px;
+  margin-top: 30px;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 {
+  box-sizing: content-box;
+  background-color: white;
+  border: 15px solid #fff;
+  height: 220px;
+  width: 680px;
+  overflow: visible;
+  position: relative;
+  margin: 40px auto 0;
+  box-shadow: 0 0 4px #cecccc;
+  -webkit-box-shadow: 0 0 4px #cecccc;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .leftimage {
+  width: 310px;
+  height: 220px;
+  /*border:1px solid red;*/
+  display: block;
+  float: left;
+  overflow: hidden;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .rightfenqu {
+  display: block;
+  float: left;
+  width: 85px;
+  height: 30px;
+  color: white;
+  line-height: 30px;
+  text-align-last: center;
+  font-size: 18px;
+  background-color: #dd3b44;
+  margin-left: 20px;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .cssrighttitle {
+  display: block;
+  float: left;
+  width: 340px;
+  color: #333333;
+  font-size: 17px;
+  margin-left: 20px;
+  margin: 13px 0 13px 20px;
+  font-weight: 700;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .cssrightusername {
+  display: inline-block;
+  float: left;
+  color: #777777;
+  font-size: 13px;
+  margin: 10px 0 13px 20px;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .cssrighttime {
+  display: inline-block;
+  float: left;
+  color: #777777;
+  font-size: 13px;
+  margin: 10px 0 13px 15px;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .yueduquanwen {
+  display: inline-block;
+  float: left;
+  color: #dd3b44;
+  font-size: 13px;
+  margin: 10px 0 13px 15px;
+}
+section .leftbox .zonghetaolun .zonghetaolun1 .rightdetails {
+  display: block;
+  float: left;
+  width: 350px;
+  height: 100px;
+  font-size: 14px;
+  color: #515151;
+  margin: 0px 0 13px 20px;
+  line-height: 20px;
+  overflow: hidden;
+  letter-spacing: 1px;
+  text-indent: 30px;
+}

@@ -1,0 +1,383 @@
+@charset "utf-8";
+/*@ft_c:#2c3e50;
+@ft_c_h:#428bca;*/
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+body {
+  background: url("../../Images/Home/background.png") rgba(224, 216, 205, 0.1) left top repeat;
+  box-sizing: content-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+/*图标库*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('../../iconfont/iconfont.eot');
+  src: url('../../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), url('../../iconfont/iconfont.woff') format('woff'), url('../../iconfont/iconfont.ttf') format('truetype'), url('../../iconfont/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*头部*/
+header {
+  position: relative;
+  top: 0px;
+}
+.bignav .container1 {
+  height: 90px;
+  display: block;
+  margin: 0 auto -10px;
+}
+.bignav .container1 .bignav_same {
+  width: 47%;
+  height: 90px;
+}
+.bignav .container1 .bignav_same ul li {
+  display: inline;
+  line-height: 90px;
+  margin: 0 30px;
+}
+.bignav .container1 .bignav_same ul li span {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  line-height: 37px;
+  display: inline-block;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  text-align: center;
+}
+.bignav .container1 .bignav_same ul li a {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #39210b;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+.bignav .container1 .bignav_same ul li a:hover {
+  color: #c03f3c;
+  text-decoration: none;
+}
+.bignav .container1 .bignav_left {
+  float: left;
+  display: inline;
+}
+.bignav .container1 .bignav_left ul {
+  float: right;
+  display: inline;
+}
+.bignav .container1 .bignav_center {
+  display: block;
+  width: 6%;
+  margin: 0 auto;
+  padding-top: 10px;
+  float: left;
+  display: inline;
+}
+.bignav .container1 .bignav_right {
+  float: right;
+  display: inline;
+}
+.bignav .container1 .bignav_right ul {
+  float: left;
+  display: inline;
+}
+.smallnav .container {
+  height: 50px;
+  display: block;
+  margin: 0 auto -10px;
+  position: relative;
+  transition: height 0.4s linear;
+}
+.smallnav .container .open {
+  border: 0px;
+  outline: none;
+  background-color: #c03f3c;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 21px;
+  opacity: 1;
+  padding: 0 0px 4px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  height: 30px;
+  width: 32px;
+  text-align: center;
+}
+.smallnav .container ul {
+  height: 150px;
+  position: absolute;
+  width: 95%;
+  margin-right: 10px;
+  right: 0px;
+}
+.smallnav .container ul li {
+  text-indent: 0.5em;
+  line-height: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.smallnav .container ul li a {
+  /*font-family: "Microsoft Yahei","微软雅黑";*/
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  color: #39210b;
+  font-weight: 700;
+}
+/*头部结束*/
+/*搜索*/
+.search {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.search .close {
+  background-color: #c03f3c;
+  border-color: #ffb600;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 21px;
+  opacity: 1;
+  padding: 0 0px 4px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  height: 30px;
+  width: 32px;
+  text-align: center;
+}
+.search input {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0);
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+  border: 0px;
+  margin: 0px auto;
+  margin-top: -51px;
+  padding-left: 30px;
+  padding-right: 30px;
+  outline: none;
+}
+.search .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 61px;
+  margin-left: -45px;
+  color: white;
+  padding: 10px 30px;
+  background-color: #4587d9;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+.search .btn:hover {
+  background-color: #c03f3c;
+}
+/*回到顶部*/
+#toTop {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 80px;
+  height: 80px;
+  display: none;
+  z-index: 200;
+}
+/*foot*/
+.footlogo {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.footlogo .moon {
+  width: 350px;
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -175px;
+  display: none;
+  z-index: 5;
+  transition: top 2s linear;
+  -webkit-transition: top 2s linear;
+  -moz-transition: top 2s linear;
+}
+.footlogo .word {
+  width: 350px;
+  display: block;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  margin-left: -175px;
+}
+.footleft,
+.footright {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  height: 200px;
+  width: 100%;
+  margin-top: 200px;
+}
+.footleft .foot_part,
+.footright .foot_part {
+  width: 50%;
+  height: 200px;
+  display: block;
+}
+.footleft .foot_part ul,
+.footright .foot_part ul {
+  margin: 50px auto 0px;
+  display: block;
+  width: 70px;
+}
+.footleft .foot_part ul li,
+.footright .foot_part ul li {
+  line-height: 27px;
+  text-align: center;
+  /*font-family: "Microsoft Yahei","微软雅黑";*/
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+.footleft .foot_part ul .foot_part_title,
+.footright .foot_part ul .foot_part_title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.footleft .foot_part ul .foot_part_choose,
+.footright .foot_part ul .foot_part_choose {
+  font-size: 14px;
+}
+.footleft .foot_part ul .foot_part_choose a,
+.footright .foot_part ul .foot_part_choose a {
+  color: #666;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+.footleft .foot_part ul .foot_part_choose a:hover,
+.footright .foot_part ul .foot_part_choose a:hover {
+  color: #c03f3c;
+}
+.footleft .foot_part1,
+.footright .foot_part1 {
+  float: left;
+  display: inline;
+}
+.footleft .foot_part2,
+.footright .foot_part2 {
+  float: right;
+  display: inline;
+}
+footer .contactus {
+  background-color: rgba(224, 216, 205, 0.1);
+  border-top: 1px solid #e0d8cd;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+footer .contactus a p {
+  font-size: 15px;
+}
+footer .contactus a span {
+  font-size: 26px;
+  margin-left: 10px;
+  color: #666666;
+}
+footer .contactus a .weixin:hover {
+  color: #6fc749;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+footer .contactus a .weibo:hover {
+  color: #ff0000;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+footer .contactus a .qqkongjian:hover {
+  color: #ffff00;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+footer .contactus a .tenxun:hover {
+  color: #3db1fa;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+footer .foot-bottom {
+  background-color: rgba(224, 216, 205, 0.1);
+}
+footer .foot-bottom ul {
+  width: 65%;
+  height: 70px;
+  margin: 0 auto;
+}
+footer .foot-bottom ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 20px;
+  color: #666;
+}
+footer .foot-bottom ul li a {
+  text-decoration: none;
+  color: #666;
+}
+footer .foot-bottom ul li .foot-bottom-3:hover {
+  color: #fe6a4d;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+footer .a1 {
+  height: 20px;
+  width: 100%;
+  background-size: auto 20px;
+}

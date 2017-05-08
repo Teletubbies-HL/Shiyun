@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Models.ShiType>
+
+@{
+    ViewBag.Title = "TypeIndex";
+}
+
+<h2>TypeIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShiTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShiTypeJieshao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShiTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShiTypeJieshao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShiType_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ShiType_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ShiType_id })
+        </td>
+    </tr>
+}
+
+</table>

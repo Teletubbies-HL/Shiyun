@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8086036-161F-41EF-9AC9-5A39B1376A0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthorManager.cs" />
+    <Compile Include="ChallengeKManager.cs" />
+    <Compile Include="ChallengeManager.cs" />
+    <Compile Include="CiCommentManager.cs" />
+    <Compile Include="CiManager.cs" />
+    <Compile Include="CiPaiManager.cs" />
+    <Compile Include="CiReplyManager.cs" />
+    <Compile Include="GoodsKManager.cs" />
+    <Compile Include="GoodsManager.cs" />
+    <Compile Include="LunTanManager.cs" />
+    <Compile Include="ManagerManager.cs" />
+    <Compile Include="MessageManager.cs" />
+    <Compile Include="OrdersDetailsManager.cs" />
+    <Compile Include="OrdersManager.cs" />
+    <Compile Include="PostManager.cs" />
+    <Compile Include="PostReplyManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShiCommentManager.cs" />
+    <Compile Include="ShiManager.cs" />
+    <Compile Include="ShiReplyManager.cs" />
+    <Compile Include="ShiTypeManager.cs" />
+    <Compile Include="ShopCarManager.cs" />
+    <Compile Include="TimeManager.cs" />
+    <Compile Include="UserDatiManager.cs" />
+    <Compile Include="UserGuanzhuManager.cs" />
+    <Compile Include="UserInfoManager.cs" />
+    <Compile Include="VideoCommentManager.cs" />
+    <Compile Include="VideoKManager.cs" />
+    <Compile Include="VideoManager.cs" />
+    <Compile Include="VideoReplyManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
+      <Project>{af04ca3b-6d0a-43d4-8560-beeeac1a8ab8}</Project>
+      <Name>DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{fda30c71-6b9b-4320-bce1-359fa92f0dab}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{504aaaf8-00ac-4c2f-882f-b3d44d5b8b0c}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{9193b52b-7a2f-4056-a5c1-e8b9b6ffa6ef}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

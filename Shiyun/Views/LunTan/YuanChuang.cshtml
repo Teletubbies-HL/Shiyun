@@ -1,0 +1,158 @@
+﻿@model Shiyun.Models.LuntanIndex
+@{
+    ViewBag.Title = "诗韵论坛-原创区";
+}
+@section style{
+<link href="~/Content/css/YuanChuang.css" rel="stylesheet" />
+}
+
+
+<div class="Tribune-choose">
+    <div class="cotenter">
+        <ul>
+            <li><a href="/LunTan/Index" style="text-decoration: none;" class="cssButton">首页</a></li>
+            @foreach (var fenlei in Model.FenLei)
+            {
+                <li><a class="cssButton" href="javascript:void(0)">@fenlei.LunTanName</a></li>
+            }
+        </ul>
+    </div>
+</div>
+<section>
+    <div class="leftbox">
+        <div class="leftbox1">
+            <div class="leftbox_1">
+                @*<asp:DataList ID="dltnowbankuai" runat="server" CssClass="cssdltnowbankuai">
+                    <ItemTemplate>*@
+                @foreach (var ltn in Model.LuntanName)
+                {
+                    <span class="nowbankuai">当前版块：@ltn.LunTanName</span>
+
+                    <a id="Button3" class="sendPost" href="@Url.Action("PostSend", "LunTan", new {luntanId = @ltn.LunTan_id})">发帖</a>
+                }
+                <a href="javascript:void(0)"></a>
+                @*<asp:DataList ID="dltzhiding1" runat="server" CssClass="">
+                    <ItemTemplate>*@
+                <div class="cssdltzhiding1">
+                    @foreach(var item in Model.YuanChuangZd)
+                    {
+                        <div class="postbox">
+                            <div class="user_image">
+                                <img class="imgcssUser" style="width: 100%; height: 100%;" src="@item.UserImage" />
+                            </div>
+                            <div class="hotpost_title">
+                                <a href="javascript:void(0)" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe69e;&nbsp;</span>@item.PostTitle</a>
+                            </div>
+                            <span class="user_name">@item.UserName</span>
+                            <span class="addtime">@item.AddTime</span>
+                        </div>
+                    }
+
+                    @*<div class="postbox">
+                        <div class="user_image">
+                            <img  class="imgcssUser" style="width: 100%; height: 100%;" src=""/>                         
+                        </div>
+                        <div class="hotpost_title">
+                            <a href="javascript:void(0)" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe644;&nbsp;</span><%#Eval("PostTitle") %></a>
+                        </div>
+                        <span class="user_name"><%#Eval("UserName") %></span>
+                        <span class="addtime">1996-05-22</span>
+                    </div>
+                    <div class="postbox">
+                        <div class="user_image">
+                            <img  class="imgcssUser" style="width: 100%; height: 100%;" src=""/>
+                        </div>
+                        <div class="hotpost_title">
+                            <a href="javascript:void(0)" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe644;&nbsp;</span><%#Eval("PostTitle") %></a>
+                        </div>
+                        <span class="user_name"><%#Eval("UserName") %></span>
+                        <span class="addtime">1996-05-22</span>
+                    </div>
+                    <div class="postbox">
+                        <div class="user_image">
+                            <img  class="imgcssUser" style="width: 100%; height: 100%;" src="" />
+                        </div>
+                        <div class="hotpost_title">
+                            <a href="javascript:void(0)" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe644;&nbsp;</span><%#Eval("PostTitle") %></a>
+                        </div>
+                        <span class="user_name"><%#Eval("UserName") %></span>
+                        <span class="addtime">1996-05-22</span>
+                    </div>*@
+                </div>
+
+                <div class="refresh">
+                    <div id="Button2" class="iconfont refresh_1">版块主题&nbsp;&#xe6a4;</div>
+                </div>
+                @foreach (var po in Model.AllPost)
+                {
+                    <div class="postbox">
+                        <div class="user_image">
+                            <img class="imgcssUser" style="width: 100%; height: 100%;" src="@po.UserImage" />
+                        </div>
+                        <div class="hotpost_title">
+                            <a href="javascript:void(0)" style="text-decoration: none; color: #333;">@po.PostTitle</a>
+                        </div>
+                        <span class="user_name">@po.UserName</span>
+                        <span class="addtime">@po.AddTime</span>
+                    </div>
+                }
+                @*<div class="postbox">
+                    <div class="user_image">
+                        <img class="imgcssUser" style="width: 100%; height: 100%;" src=""/>
+                    </div>
+                    <div class="hotpost_title">
+                        <a href="javascript:void(0)" style="text-decoration: none; color: #333;"><%#Eval("PostTitle") %></a>
+                    </div>
+                    <span class="user_name"><%#Eval("UserName") %></span>
+                    <span class="addtime">1992-02-21</span>
+                </div>
+                <div class="postbox">
+                    <div class="user_image">
+                        <img class="imgcssUser" style="width: 100%; height: 100%;" src=""/>
+                    </div>
+                    <div class="hotpost_title">
+                        <a href="javascript:void(0)" style="text-decoration: none; color: #333;"><%#Eval("PostTitle") %></a>
+                    </div>
+                    <span class="user_name"><%#Eval("UserName") %></span>
+                    <span class="addtime">1992-02-21</span>
+                </div>
+                <div class="postbox">
+                    <div class="user_image">
+                        <img class="imgcssUser" style="width: 100%; height: 100%;" src=""/>
+                    </div>
+                    <div class="hotpost_title">
+                        <a href="javascript:void(0)" style="text-decoration: none; color: #333;"><%#Eval("PostTitle") %></a>
+                    </div>
+                    <span class="user_name"><%#Eval("UserName") %></span>
+                    <span class="addtime">1992-02-21</span>
+                </div>*@
+               
+
+            </div>
+        </div>
+    </div>
+    <div class="rightbox">
+        <div class="bankuai">
+            <span class="bankuai_name">版块信息</span>
+            <hr style="width: 100%; height: 1px; border: none; border-top: 1px solid #E6E6E6; display: block;"/>
+            <span class="banzhu">版主：黄小捷</span>
+            <ul>
+                        <li><a href="javascript:void(0)">-【原创区版规】 </a></li>
+                        <li><a href="javascript:void(0)">-【<%#Eval("PostTitle") %>】 </a></li>
+
+            </ul>
+            @*<asp:Image ID="right_image" runat="server" CssClass="cssright_image" ImageUrl="~/images/post/建筑社区.jpg"/>*@
+            <img id="right_image" class="cssright_image" src="~/Images/LunTan/建筑社区.jpg"/>
+        </div>
+
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+            $(".Tribune-choose .cotenter ul").children(":eq(1)").children().attr("href", '@Url.Action("YuanChuang","LunTan",new { luntanId = 1})');
+            $(".Tribune-choose .cotenter ul").children(":eq(2)").children().attr("href", "/LunTan/YuanChuang");
+            $(".Tribune-choose .cotenter ul").children(":eq(3)").children().attr("href", "/LunTan/YuanChuang");
+        });
+   </script>
+}

@@ -1,0 +1,264 @@
+﻿@charset "utf-8";
+@import "z.less";
+@import "css3.less";
+@import "Common.less";
+@import "reset.less";
+body { 
+    background:url("../../Images/Home/background.png") @bg_c left top repeat;
+    box-sizing:content-box;
+}
+.reset();
+/*图标库*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('../../iconfont/iconfont.eot');
+  src: url('../../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../../iconfont/iconfont.woff') format('woff'),
+  url('../../iconfont/iconfont.ttf') format('truetype'),
+  url('../../iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*头部*/
+header{    .pos(r);
+    top:0px;}
+.bignav .container1{
+    height:90px;
+    .db();
+    margin:0 auto -10px;
+    
+    .bignav_same{      
+        width:47%;
+        height:90px;
+        ul li{
+            display:inline;
+            line-height:90px;
+            margin:0 30px;
+        }
+        ul li span{
+            .font-s20();
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            line-height: 37px;
+            display: inline-block;
+            border-radius: 20px;
+            -webkit-border-radius:20px;
+            -moz-border-radius:20px;
+            text-align: center;
+        }
+        ul li a {
+            .font-s18();
+            .font-w700();
+            letter-spacing: 1px;
+            color:@ft_c; 
+            .ft_tr();
+            &:hover{color:@ft_c_h; text-decoration:none;}}
+    }
+    .bignav_left{    
+        .fl();
+        ul{.fr();}         
+    }
+    .bignav_center{
+        .db();
+        width:6%;
+        margin:0 auto;
+        padding-top:10px;
+        .fl();
+    }
+    .bignav_right{
+        .fr();
+        ul{.fl();}
+    }
+}
+.smallnav .container{
+    height:50px;
+   
+    .db();
+    margin:0 auto -10px;
+    position:relative;
+    transition:height 0.4s linear;
+     .open{
+            border:0px;
+            outline:none;
+            background-color: @ft_c_h;          
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 21px;
+            opacity: 1;
+            padding: 0 0px 4px;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            height: 30px;
+            width: 32px;
+            text-align: center;
+            }
+     ul{
+         height:150px;
+         position:absolute;
+         width:95%;
+         margin-right:10px;
+         right:0px;
+         li{
+             text-indent:0.5em;
+             line-height:30px;
+             border-bottom:1px solid rgba(0,0,0,0.1);
+             a{
+                 .font-fm();
+                 color:@ft_c;
+                 .font-w700;
+             }
+         }
+     }
+}
+/*头部结束*/
+/*搜索*/
+.search{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index:100;
+    background-color:rgba(0, 0, 0, 0.8);
+    .close{
+            background-color: @ft_c_h;
+            border-color: #ffb600;
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 21px;
+            opacity: 1;
+            padding: 0 0px 4px;
+            position: fixed;
+            right: 15px;
+            top: 15px;
+            height: 30px;
+            width: 32px;
+            text-align: center;
+    }
+
+    input{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        color: #fff;
+        background: rgba(0, 0, 0, 0);
+        font-size: 40px;
+        font-weight: 300;
+        text-align: center;
+        border: 0px;
+        margin: 0px auto;
+        margin-top: -51px;
+        padding-left: 30px;
+        padding-right: 30px;
+        outline: none;
+     }
+    .btn{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 61px;
+        margin-left: -45px;
+        color:white;
+        padding: 10px 30px;
+        background-color:rgb(69, 135, 217);
+        -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        &:hover{
+            background-color:@ft_c_h;
+        }
+    }
+
+}
+/*回到顶部*/
+ #toTop{ position:fixed; bottom:0px;right:0px;width:80px;height:80px; display:none; z-index:200;}
+ /*foot*/
+.footlogo{  
+    @h:400px;
+    @w:350px;
+    height:@h;
+    overflow:hidden;
+    .pos(r);
+    .moon{
+        width:@w;
+        .db();
+        .pos(a);
+        top:100px;
+        left:50%;
+        margin-left: -175px;  
+        display:none;
+        z-index:5;
+        .tran_l(top,2s);
+    }
+    .word{
+        width:@w;
+        .db();
+        .pos(a);
+        z-index:10;
+        left:50%;
+        margin-left: -175px;  
+    }
+}
+.footleft,.footright{
+    @h:200px;
+    border-top:1px solid rgba(0, 0, 0, 0.2);
+    height:@h;
+    width:100%;
+    margin-top: @h;
+    .foot_part{
+        width:50%;
+        height:@h;
+        .db();
+        ul{margin:50px auto 0px;.db();width:70px;}
+        ul li{ line-height:27px;text-align:center;.font-fm();}
+        ul .foot_part_title{
+            .font-s15();
+            .font-w700();
+            margin-bottom:10px;
+        }
+        ul .foot_part_choose{
+            .font-s14();
+            a{color:#666;.ft_tr(); &:hover{color:@ft_c_h;}}
+        }
+    }
+    .foot_part1{ .fl();}
+    .foot_part2{ .fr();}
+}
+footer .contactus{
+        background-color:@bg_c;
+        border-top:1px solid rgba(224, 216, 205,1);
+        height:55px;
+        line-height:55px;
+        text-align:center;
+        a{
+                p{font-size:15px;}
+                span{font-size:26px;margin-left:10px;color:#666}
+                .weixin:hover{color:rgb(111, 199, 73); .ft_tr(0.3s);}
+                .weibo:hover{color:rgb(255, 0, 0); .ft_tr(0.3s);}
+                .qqkongjian:hover{color:rgb(255, 255, 0); .ft_tr(0.3s);}
+                .tenxun:hover{color:rgb(61, 177, 250); .ft_tr(0.3s);}
+            }
+        }
+footer .foot-bottom{
+        background-color:@bg_c;
+        ul{
+                width:65%;
+                height:70px;
+                margin:0 auto;
+                li{
+                        list-style:none;display:inline-block;margin-right:20px;color:#666;
+                        a{text-decoration:none; color:#666;}
+                        .foot-bottom-3:hover{color:rgb(254, 106, 77);.ft_tr();}
+                    }
+        }
+}
+footer .a1{ height:20px; width:100%;background-size:auto 20px; }
