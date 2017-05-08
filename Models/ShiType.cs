@@ -23,6 +23,7 @@ namespace Models
         public int ShiType_id { get; set; }
         public string ShiTypeName { get; set; }
         public string ShiTypeJieshao { get; set; }
+        public string ShiTypeImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shi> Shi { get; set; }

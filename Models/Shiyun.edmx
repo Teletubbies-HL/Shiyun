@@ -23,7 +23,16 @@
           <Property Name="Timu" Type="nvarchar(max)" Nullable="false" />
           <Property Name="AnswerA" Type="nvarchar(max)" />
           <Property Name="AnswerB" Type="nvarchar(max)" />
-          <Property Name="ChallengeK_id" Type="int" />
+          <Property Name="ChallengeK_id" Type="int" Nullable="false" />
+          <Property Name="C1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="C2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="C3" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="C4" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="C5" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C6" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C7" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C8" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C9" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ChallengeK">
           <Key>
@@ -65,6 +74,7 @@
           <Property Name="CiPai_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CiPaiName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="CiPaiJieshao" Type="nvarchar(max)" />
+          <Property Name="CiPaiImage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CiReply">
           <Key>
@@ -225,6 +235,7 @@
           <Property Name="ShiType_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ShiTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="ShiTypeJieshao" Type="nvarchar(max)" />
+          <Property Name="ShiTypeImage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ShopCar">
           <Key>
@@ -396,7 +407,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Challenge_ChallengeK">
-          <End Role="ChallengeK" Type="Self.ChallengeK" Multiplicity="0..1" />
+          <End Role="ChallengeK" Type="Self.ChallengeK" Multiplicity="1" />
           <End Role="Challenge" Type="Self.Challenge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChallengeK">
@@ -1097,7 +1108,16 @@
           <Property Name="Timu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AnswerA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AnswerB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ChallengeK_id" Type="Int32" />
+          <Property Name="ChallengeK_id" Type="Int32" Nullable="false" />
+          <Property Name="C1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ChallengeK" Relationship="Self.FK_Challenge_ChallengeK" FromRole="Challenge" ToRole="ChallengeK" />
           <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_Challenge" FromRole="Challenge" ToRole="UserDati" />
         </EntityType>
@@ -1149,6 +1169,7 @@
           <Property Name="CiPai_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CiPaiName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CiPaiJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiPaiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ci" Relationship="Self.FK_Ci_Time1" FromRole="CiPai" ToRole="Ci" />
         </EntityType>
         <EntityType Name="CiReply">
@@ -1338,6 +1359,7 @@
           <Property Name="ShiType_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShiTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ShiTypeJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShiTypeImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Shi" Relationship="Self.FK_Shi_ShiType" FromRole="ShiType" ToRole="Shi" />
         </EntityType>
         <EntityType Name="ShopCar">
@@ -1563,7 +1585,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Challenge_ChallengeK">
-          <End Role="ChallengeK" Type="Self.ChallengeK" Multiplicity="0..1" />
+          <End Role="ChallengeK" Type="Self.ChallengeK" Multiplicity="1" />
           <End Role="Challenge" Type="Self.Challenge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChallengeK">
@@ -2199,6 +2221,15 @@
                 <ScalarProperty Name="AnswerA" ColumnName="AnswerA" />
                 <ScalarProperty Name="AnswerB" ColumnName="AnswerB" />
                 <ScalarProperty Name="ChallengeK_id" ColumnName="ChallengeK_id" />
+                <ScalarProperty Name="C1" ColumnName="C1" />
+                <ScalarProperty Name="C2" ColumnName="C2" />
+                <ScalarProperty Name="C3" ColumnName="C3" />
+                <ScalarProperty Name="C4" ColumnName="C4" />
+                <ScalarProperty Name="C5" ColumnName="C5" />
+                <ScalarProperty Name="C6" ColumnName="C6" />
+                <ScalarProperty Name="C7" ColumnName="C7" />
+                <ScalarProperty Name="C8" ColumnName="C8" />
+                <ScalarProperty Name="C9" ColumnName="C9" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2244,6 +2275,7 @@
                 <ScalarProperty Name="CiPai_id" ColumnName="CiPai_id" />
                 <ScalarProperty Name="CiPaiName" ColumnName="CiPaiName" />
                 <ScalarProperty Name="CiPaiJieshao" ColumnName="CiPaiJieshao" />
+                <ScalarProperty Name="CiPaiImage" ColumnName="CiPaiImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2418,6 +2450,7 @@
                 <ScalarProperty Name="ShiType_id" ColumnName="ShiType_id" />
                 <ScalarProperty Name="ShiTypeName" ColumnName="ShiTypeName" />
                 <ScalarProperty Name="ShiTypeJieshao" ColumnName="ShiTypeJieshao" />
+                <ScalarProperty Name="ShiTypeImage" ColumnName="ShiTypeImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
