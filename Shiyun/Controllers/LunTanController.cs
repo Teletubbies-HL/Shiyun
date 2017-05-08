@@ -34,6 +34,7 @@ namespace Shiyun.Controllers
             luntanIndex.AllPost = ltm.GetAllPost(luntanId); //原创所有帖子          
             return View(luntanIndex);
         }
+
         public ActionResult PostSend(int luntanId)
         {
             LuntanIndex luntanIndex = new LuntanIndex();
