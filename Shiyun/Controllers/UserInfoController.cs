@@ -28,7 +28,7 @@ namespace Shiyun.Controllers
             if (ModelState.IsValid)
             {
                 userinfomanager.AddUserInfo(userInfo);
-                return RedirectToAction("Index", "Home");
+                return Content("<script>;alert('注册成功!');window.history.go(-2);window.location.reload();</script>");
             }
             else
             {
@@ -64,7 +64,7 @@ namespace Shiyun.Controllers
                 {
                     //保存到Session HttpContext.
                     Session["Users_id"] = Users_id;
-                    return Content("<script>;alert('登录成功!返回首页!');window.location.href='/Home/Index'</script>");
+                    return Content("<script>;alert('登录成功!');window.history.go(-2);window.location.reload();</script>");
 
                 }
                 else
