@@ -59,7 +59,7 @@ section {
 }
 section .rightbox {
   width: 30%;
-  height: 800px;
+  /*height:800px;*/
   /*border:1px solid green;*/
   position: absolute;
   right: 40px ;
@@ -242,15 +242,19 @@ section .rightbox .bankuai {
   width: 90%;
   height: auto;
   /*border:1px solid red;*/
-  margin: 20px auto;
+  margin: 5px auto 20px;
   overflow: hidden;
 }
 section .rightbox .bankuai .bankuai_name {
   display: inline-block;
   float: left;
-  color: #dd3b44;
-  font-size: 18px;
+  /*color:rgb(221, 59, 68);*/
+  font-size: 15px;
+  color: #333;
+  font-weight: 700;
   margin-bottom: 25px;
+  width: 100%;
+  text-align: center;
 }
 section .rightbox .bankuai .todaypost {
   display: inline-block;
@@ -282,4 +286,44 @@ section .rightbox .bankuai .cssright_image {
   height: 100%;
   margin-top: 20px;
   display: block;
+}
+.paihang {
+  margin: 20px 0;
+  border-top: 3px solid #e2d537;
+}
+.paihang .paihang_title {
+  width: 100%;
+  text-align: center;
+  line-height: 45px;
+  font-size: 15px;
+  color: #333;
+  display: block;
+  font-weight: 700;
+}
+.paihang ul li {
+  display: block;
+  font-size: 14px;
+  line-height: 30px;
+  width: 100%;
+}
+.paihang ul li .paihang_span1 {
+  display: block;
+  float: left;
+  line-height: 30px;
+  color: #333;
+}
+.paihang ul li .paihang_span2 {
+  margin-left: 10px;
+  color: #333;
+}
+.paihang ul li .paihang_span2:hover {
+  color: #c03f3c;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+.paihang ul li .paihang_span3 {
+  display: block;
+  float: right;
+  color: #999;
 }
