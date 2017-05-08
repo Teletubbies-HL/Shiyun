@@ -8,8 +8,10 @@
 }
 <section>
     <div class="totalbox">
-        <div class="leftbox">
-            <div class="challengekname">题目类型</div>
+        <div class="leftbox">@*1-3点字成诗；4-7选择题；8-10填字接句*@
+            <div class="challengekname" id="challengekname1">点字成诗</div>
+            <div class="challengekname" id="challengekname2" style="display: none;">选择题</div>
+            <div class="challengekname" id="challengekname3" style="display: none;">填字接句</div>
             <div class="jdt">
                 <div class="unit" id="unit1">
                     <div class="line" style="background-color: #4cd964; width: 35px;"></div>
@@ -56,9 +58,31 @@
                 </div>
                 <div class="line lastline" style="width: 35px;"></div>
             </div>
-            <div class="timu">这是题目这是题目这是题目这是题目</div>
+            <div class="timu" id="timu1">请从右侧九个字中识别一句诗词</div>
+            <div class="timu" id="timu2" style="display: none;">请从右侧四个选项中选择一个正确答案</div>
+            <div class="timu" id="timu3" style="display: none;">请将右侧诗词中缺失句子补全</div>
         </div>
-        <div class="rightbox" id="rightbox1"></div>
+        <div class="rightbox" id="rightbox1">
+            <div class="jggbox">
+                <div class="jggline" style="margin-top: 80px;">
+                    <div class="jiugongge"></div>
+                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                </div>
+                <div class="jggline" style="margin-top: 20px;">
+                    <div class="jiugongge"></div>
+                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                </div>
+                <div class="jggline" style="margin-top: 20px;">
+                    <div class="jiugongge"></div>
+                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                </div>
+            </div>
+            <div class="useranswer"></div>
+            <div class="tijiaobutton">提 交</div>
+        </div>
         <div class="rightbox" id="rightbox2" style="display: none;"></div>
         <div class="rightbox" id="rightbox3" style="display: none;"></div>
         <div class="rightbox" id="rightbox4" style="display: none;"></div>
@@ -73,7 +97,29 @@
 
 @section scripts
 {
+    <script type="text/javascript">
+
+        $(function() {
+            var hidden = $(".hidden1").val();
+            $(".cssDropDownList1").get(0).selectedIndex = hidden - 1;
+
+
+            if ($(".cssDropDownList1").get(0).selectedIndex == 1) {
+                $(".file_a").css("display", "block");
+            } else {
+                $(".file_a").css("display", "none");
+            }
+
+
+            $(".cssDropDownList1").change(function() {
+                if ($(".cssDropDownList1").get(0).selectedIndex == 1) {
+                    $(".file_a").css("display", "block");
+                } else {
+                    $(".file_a").css("display", "none");
+                }
+            });
+        });
+    
+    </script>
 
 }
-
-
