@@ -86,12 +86,20 @@
         <p class="text-left" >请选择诗集类别</p>
         <p>
             <table>
+             <tr>
+                <td>作者</td>
+                 <td> &nbsp;</td>
+                <td>年代</td>
+                 <td> &nbsp;</td>
+                <td>类型</td>
+             </tr>
             <tr>
-                <td style="width:30%;">
+                <td style="width:10%;">
                     @Html.DropDownList("Author_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.Author_id, "", new { @class = "text-danger"})
                 </td>
-                <td style="width:30%;">
+                <td>&nbsp;</td>
+                <td style="width:10%;">
                     @Html.DropDownList("Time_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.Time_id, "", new { @class = "text-danger"})
                 </td>
@@ -100,7 +108,8 @@
                     @Html.DropDownList("ShiType_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.ShiType_id, "", new { @class = "text-danger"})
                 </td>*@
-                <td style="width:30%;">
+                <td>&nbsp;</td>
+                <td style="width:80%;">
 
                     <input id="IsNeverExpired" name="IsNeverExpired" type="checkbox" value="true" />
                     @*@Html.DropDownList("ShiType_id", null, htmlAttributes: new { @class = "form-control"})*@

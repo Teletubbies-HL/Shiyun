@@ -169,13 +169,32 @@ namespace Shiyun.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult TypeCreate([Bind(Include = "ShiType_id,ShiTypeName,ShiTypeJieshao")]ShiType shitype)
+        public ActionResult TypeCreate([Bind(Include = "ShiType_id,ShiTypeName,ShiTypeJieshao,ShiTypeImage")]ShiType shitype)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    shitypemanager.AddShiType(shitype);
+            //    return RedirectToAction("TypeIndex");
+            //}                                
+            //return View("TypeCreate", shitype);
+            try
             {
+                HttpPostedFileBase shitypeimage = Request.Files["ShiTypeImage"];
+
+                string filePath = shitypeimage.FileName;
+                string filename = filePath.Substring(filePath.LastIndexOf("\\") + 1);
+                string serverpath = Server.MapPath(@"\Images\ShiType\") + filename;
+                string relativepath = @"/Images/ShiType/" + filename;
+                shitypeimage.SaveAs(serverpath);
+                shitype.ShiTypeImage = relativepath;
                 shitypemanager.AddShiType(shitype);
+                db.SaveChanges();
                 return RedirectToAction("TypeIndex");
-            }                                
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
             return View("TypeCreate", shitype);
         }
         #endregion    
@@ -218,12 +237,30 @@ namespace Shiyun.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult CiPaiCreate([Bind(Include = "CiPai_id,CiPaiName,CiPaiJieshao")]CiPai cipai)
+        public ActionResult CiPaiCreate([Bind(Include = "CiPai_id,CiPaiName,CiPaiJieshao，CiPaiImage")]CiPai cipai)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    cipaimanager.AddCiPai(cipai);
+            //    return RedirectToAction("CiPaiIndex");
+            //}
+            try
             {
+                HttpPostedFileBase cipaiimage = Request.Files["CiPaiImage"];
+
+                string filePath = cipaiimage.FileName;
+                string filename = filePath.Substring(filePath.LastIndexOf("\\") + 1);
+                string serverpath = Server.MapPath(@"\Images\CiPai\") + filename;
+                string relativepath = @"/Images/CiPai/" + filename;
+                cipaiimage.SaveAs(serverpath);
+                cipai.CiPaiImage = relativepath;
                 cipaimanager.AddCiPai(cipai);
+                db.SaveChanges();
                 return RedirectToAction("CiPaiIndex");
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
             }
             return View("CiPaiCreate", cipai);
         }

@@ -1,7 +1,340 @@
 ﻿@model Shiyun.Models.ShiViewModels
 @{
-    ViewBag.Title = "诗韵——诗";
+    ViewBag.Title = "诗韵—诗";
 }
+<!DOCTYPE html>
+<!-- saved from url=(0025)https://wenxue.ruogoo.cn/ -->
+@*<html lang="zh-CN" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">*@
+<head>
+<title> 诗韵——诗</title>
+<meta name="description" content="  ">
+<meta name="keywords" content="  ">
 
-<h2>ShiIndex</h2>
+<meta name="csrf-token" content="XzDKUs7Acgri0CgGseYipTXvyGhisG9PPp0zgv6J">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="applicable-device" content="pc,mobile">
 
+<meta property="wb:webmaster" content="f1db8ed3fe948373">
+<meta property="qc:admins" content="72241260576257777636">
+
+<link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+<link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
+<link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
+
+
+
+<!--[if lt IE 9]>
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>    <![endif]-->
+
+@*<link rel="icon" href="https://static.ruogoo.cn/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://static.ruogoo.cn/favicon.ico" type="image/x-icon"*@>
+
+</head>
+
+<body class="" style="background-color: #F7F7F7!important;">
+    <div class="message-container">
+    </div>
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            <div class="recommend-section">
+                <div class="background-overlay" style="background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="400" id="blurred_ko06tm8gd" class="tint-bg-blur" viewBox="0 0 1583 400" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_ko06tm8gd"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="https://o.ruogoo.cn/cover/3df19b1b4a0eab45350507583d4eaeb9.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none"></image></svg></div>
+                <div class="container recommend-container">
+                    <div class="recommend-detail">
+                        <h2>
+                            <a href="https://wenxue.ruogoo.cn/article/6994" class="white title extra">江湖江湖（一）</a>
+                        </h2>
+                        <h4>
+                            <a href="https://user.ruogoo.cn/4762" class="white title author">风十九i（东吴）</a>
+                        </h4>
+                        <a href="https://wenxue.ruogoo.cn/article/recommend" class="rg-button see-more">更多推荐</a>
+                    </div>
+
+                    <div class="recommend-show">
+                        <a href="https://wenxue.ruogoo.cn/article/6994" class="image current visible transition animating fade left in">
+                            <img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/60e77daf56adc99482ba3b27c0e4d903.jpg" width="240" height="320">
+                        </a>
+                    </div>
+                    
+
+                    <ul class="recommend-list">
+                        <li class="recommend-item">
+                            @foreach (var shi in Model.Shitop8)
+                            {
+                                <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})">
+                                    <img style="width:100px;" src='..@shi.ShiImage' />
+                                    <span class="title small one-line">@shi.ShiTitle</span>                                  
+                                </a>
+                            }
+                            @*<a href="https://wenxue.ruogoo.cn/article/7181" class="image recommend-article" data-title="咏玉兰" data-author="吾悦" data-author-url="https://user.ruogoo.cn/1367">
+                                <img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/3df19b1b4a0eab45350507583d4eaeb9.jpg" width="100">
+                                <p class="title small one-line">咏玉兰</p>
+                            </a>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <section class="nice-section container">
+                <div class="rg-board one-section white section">
+                    <div class="rg-board-head">
+                        <p class="title">类型鉴赏</p>
+                        <a href="https://wenxue.ruogoo.cn/article/nice" class="more"> 更多 &gt;&gt;</a>
+                    </div>
+                    <div class="rg-board-body">
+                        <div class="col-group">
+                            <div class="col-4 col-mb-12">
+                                <div class="nicewithpic-item">
+                                    <a href="https://wenxue.ruogoo.cn/article/7289" class="nice-cover image">
+                                        @*<img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/7682c5242814ce7d36bd24ddaeb331d3.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/7682c5242814ce7d36bd24ddaeb331d3.jpg@!cover-90" class="cover" alt="老狗" style="display: inline;">*@
+                                    </a>
+                                    <div class="big title one-line">
+                                        <a href="https://wenxue.ruogoo.cn/article/7289">老狗</a>
+                                    </div>
+                                    <p class="small text gray summary">
+                                        初春的料峭拉扯着阴冷的乌云，这样的天气总让人觉得有些百无聊赖。想起以前的事，以前的人，就这么不经意的想起了家乡的那条老狗。
+                                        第一次见到老狗是我五岁那年，那时它还很年轻呢。那年我被带着去
+                                    </p>
+                                    <p class="author">
+                                        作者:
+                                        <a href="https://user.ruogoo.cn/565">陌上桃夭</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nice-list col-group">
+                            <div class="col-4 col-mb-12">
+                                <div class="nice-item text one-line">
+                                    <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
+                                    <a href="https://wenxue.ruogoo.cn/article/7295" class="title"> 望湘人.湖州闻箫鼓 </a>
+                                    /
+                                    <a href="https://user.ruogoo.cn/525" class="gray"> 逸云先生</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container">
+                <div class="rg-board collection-section one-section white section">
+                    <div class="rg-board-head">
+                        <p class="title">推荐诗人</p>
+                        <a href="https://wenxue.ruogoo.cn/collection" class="more">更多 &gt;&gt;</a>
+                    </div>
+                    <div class="rg-board-body">
+                        <div class="collection-list clearfix col-group">
+
+                            <div class="col-2 col-mb-6">
+                                <div class="collection-item">
+                                    <a href="https://wenxue.ruogoo.cn/collection/402" class="collection-cover image">
+                                        @*<img src="@item.GoodsImage" style="width:60px;height:80px" />*@
+                                         @*<img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/c367dc866c46745958021a64b0847bba.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" class="cover" alt="繁华浮梦" style="display: inline;">*@
+                                    </a>
+                                    <p class="title one-line">
+                                        <a href="https://wenxue.ruogoo.cn/collection/402">繁华浮梦</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="article-section container">
+                <div class="col-group">
+                    <div class="col-8 col-mb-12">
+                        <div class="rg-board one-section white section">
+                            <div class="rg-board-head">
+                                <p class="title">最新文章</p>
+                                <a href="https://wenxue.ruogoo.cn/article" class="more"> 更多 &gt;&gt;</a>
+                            </div>
+                            <div class="rg-board-body">
+                                <div class="col-group">
+                                    <ul class="latest-list">
+                                        <div class="col-6 col-mb-12">
+                                            <li class="article-item text one-line">
+                                                <a href="https://wenxue.ruogoo.cn/category/cplz" class="gray">[连载]</a>
+                                                <a href="https://wenxue.ruogoo.cn/article/7322">灯鬼02 回归-入梦</a>
+                                                -
+                                                <a href="https://user.ruogoo.cn/9471" class="small text gray">陌涂</a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-mb-12">
+                        <div class="rg-board one-section white section">
+                            <div class="rg-board-head">
+                                <p class="title">诗词年代表</p>
+                            </div>
+                            <div class="rg-board-body">
+                                <ul class="top-list">
+                                    <li class="article-item text one-line">
+                                        <i class="article-no text gray">1. </i>
+                                        <a href="https://wenxue.ruogoo.cn/article/4084">悲欢尘世离合</a>
+                                        -
+                                        <a href="https://user.ruogoo.cn/7691" class="small text gray">月清风</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="banner">
+                <div style="padding: 10px;"></div>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/JS/ShiCipush.js"></script>
+    <script src="~/Scripts/JS/ShiCianalytics.js"></script>
+    <script src="~/Scripts/JS/ShiCilib.js"></script>
+    <script src="~/Scripts/JS/ShiCihm.js"></script>
+
+    <script type="text/javascript">
+	$(document).ready(function () {
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		$.support.cors = true;
+		$('input, textarea').placeholder();
+		$('img[data-original]').lazyload({
+			placeholder: "https://static.ruogoo.cn/image/blank.gif",
+			effect     : "fadeIn",
+			threshold  : 400
+		});
+		$('.ui.pop').popup({
+			position : 'bottom center',
+			variation: "inverted",
+			delay    : {
+				hide: 200
+			}
+		});
+		$('.ui.htmlpop').popup({
+			inline   : true,
+			hoverable: true,
+			exclusive: true,
+			jitter   : 20,
+			position : 'bottom center',
+			delay    : {
+				show: 100,
+				hide: 500
+			}
+		});
+		$('select.dropdown').dropdown();
+		$('.ui.tabs .item').tab();
+		$('.ui.trigger').click(function () {
+			var target = $(this).data('target');
+			$(target).modal('show');
+		});
+		$('.message .close').on('click', function () {
+			$(this).closest('.message').transition('fade');
+		});
+
+		$('.ui.tint.blur').each(function () {
+			var imageUrl = $(this).data('image');
+			$(this).css({
+				position : 'relative',
+				'z-index': '1'
+			});
+			$('<div class="tint-overlay"></div>').css({
+				position : 'absolute',
+				width    : '100%',
+				height   : '100%',
+				overflow : 'hidden',
+				'z-index': '-1'
+			}).prependTo($(this));
+
+			$(this).find('.tint-overlay').backgroundBlur({
+				imageURL  : imageUrl,
+				blurAmount: 20,
+				imageClass: 'tint-bg-blur',
+				duration  : 500,
+				endOpacity: 1
+			}).css('background', 'rgba(0, 0, 0, 0.2)');
+		});
+
+//		$('.plain.paper').each(function () {
+//			$(this).html($(this).html().trim().replace(/\n/g, "<br/>"));
+//		});
+		if ($('.waterfall').length > 0) {
+			waterfall('.waterfall');
+		}
+
+			});
+	new Menu();
+	var RG = {};
+
+			RG.currentUser = {"id":9902,"name":"\u5fd8\u6d25","active":0,"avatar":"https:\/\/o.ruogoo.cn\/user\/7373a76636f0432fbe3f0b1669f5115f.jpeg","gender":0,"birth":"","city":"","qq":"","weibo":"","signature":"","introduction":"","recommend":0,"writter":0,"writter_status":0,"life":0,"popular":0,"score":0,"level":0,"created_at":"2017-04-17 09:10:06","updated_at":"2017-04-17 09:10:08"};
+
+    </script><div class="mm-menu-mask"></div>
+    <script src="~/Scripts/JS/ShiCiswiper.min.js"></script>
+    <script src="~/Scripts/JS/ShiCiwenxue.js"></script>
+
+
+
+    <script type="text/javascript">
+		$(document).ready(function () {
+			var $swiperContainer = $('.swiper-container');
+			if ($swiperContainer.length > 0) {
+				$swiperContainer.swiper({
+					direction          : 'horizontal',
+					autoplay           : 3000,
+					loop               : true,
+					pagination         : '.swiper-pagination',
+					paginationClickable: true
+				});
+			}
+		});
+    </script>
+
+
+    <script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?5b73570792602cb83cdb6b9af4ef15cd";
+			var s  = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+    </script>
+    <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-64523090-1', 'auto');
+		ga('send', 'pageview');
+
+    </script>
+    <script>
+		(function () {
+			var bp          = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+    </script>
+
+
+
+</body>
+@*</html>*@

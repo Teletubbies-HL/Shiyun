@@ -38,13 +38,13 @@
 <script type="text/javascript">
     var editorOption = {
         initialFrameWidth: 784,
-        initialFrameHeight: 400
+        initialFrameHeight: 200
     };
     var editor = new baidu.editor.ui.Editor(editorOption);
     editor.render('ShiTypeJieshao');
 </script>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("TypeCreate", "ManagerAdd", FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
 
@@ -58,7 +58,12 @@
             @Html.EditorFor(model => model.ShiTypeName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ShiTypeName, "", new { @class = "text-danger" })
         </p>
+        <p class="text-left">请选择上传的图片</p>
+        <p>
 
+            <input type="file" name="ShiTypeImage" value="ShiTypeImage" />
+
+        </p>
         <p class="text-left">请输入详情</p>
         <p>
 

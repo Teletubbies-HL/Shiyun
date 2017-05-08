@@ -31,6 +31,7 @@ namespace Models
         public Nullable<int> Time_id { get; set; }
         public Nullable<int> Cipai_id { get; set; }
         public string CiImage { get; set; }
+        public Nullable<System.DateTime> AddTime { get; set; }
     
         public virtual Author Author { get; set; }
         public virtual Time Time { get; set; }

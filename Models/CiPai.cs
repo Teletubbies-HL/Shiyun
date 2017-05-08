@@ -23,6 +23,7 @@ namespace Models
         public int CiPai_id { get; set; }
         public string CiPaiName { get; set; }
         public string CiPaiJieshao { get; set; }
+        public string CiPaiImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ci> Ci { get; set; }

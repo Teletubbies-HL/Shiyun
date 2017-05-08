@@ -7,7 +7,7 @@
 <h2>AuthorIndex</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "AuthorCreate")
 </p>
 <table class="table">
     <tr>
@@ -17,9 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.AuthorImage)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Jieshao)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Time.TimeName)
         </th>
@@ -31,12 +29,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.AuthorName)
         </td>
-        <td>
+        <td>           
             @Html.DisplayFor(modelItem => item.AuthorImage)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Jieshao)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Time.TimeName)
         </td>

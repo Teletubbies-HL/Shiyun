@@ -24,7 +24,19 @@ namespace Models
         public string Timu { get; set; }
         public string AnswerA { get; set; }
         public string AnswerB { get; set; }
-        public Nullable<int> ChallengeK_id { get; set; }
+        public int ChallengeK_id { get; set; }
+        public string C1 { get; set; }
+        public string C2 { get; set; }
+        public string C3 { get; set; }
+        public string C4 { get; set; }
+        public string C5 { get; set; }
+        public string C6 { get; set; }
+        public string C7 { get; set; }
+        public string C8 { get; set; }
+        public string C9 { get; set; }
+        public string C10 { get; set; }
+        public string C11 { get; set; }
+        public string C12 { get; set; }
     
         public virtual ChallengeK ChallengeK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
