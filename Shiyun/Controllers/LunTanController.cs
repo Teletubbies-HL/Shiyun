@@ -6,7 +6,10 @@ using System.Web.Mvc;
 using BLL;
 using Models;
 using Shiyun.Models;
+using System.Net;
+using PagedList;
 using System.Collections;
+using Shiyun.Attributes;
 
 namespace Shiyun.Controllers
 {
@@ -16,6 +19,7 @@ namespace Shiyun.Controllers
         ShiyunEntities db = new ShiyunEntities();
         LunTanManager ltm = new LunTanManager();
         PostManager pm = new PostManager();
+        #region  论坛主页
         public ActionResult Index()
         {
             LuntanIndex luntanIndex = new LuntanIndex();
@@ -25,15 +29,35 @@ namespace Shiyun.Controllers
             luntanIndex.PaiHang = ltm.GetPaiHang(); //排名
             return View(luntanIndex);
         }
+        #endregion 
+        #region 原创页面
         public ActionResult YuanChuang(int luntanId)
         {
             LuntanIndex luntanIndex = new LuntanIndex();
+            ViewBag.LunTan_id = luntanId;
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类
             luntanIndex.YuanChuangZd = ltm.GetYuanChuangZd(1); //原创置顶
             luntanIndex.LuntanName = ltm.GetLuntanName(luntanId); //论坛名称
-            luntanIndex.AllPost = ltm.GetAllPost(luntanId); //原创所有帖子          
+            luntanIndex.PaiHang = ltm.GetPaiHang(); //排名
+            luntanIndex.AllPost = ltm.GetAllPost(luntanId); //原创所有帖子     
             return View(luntanIndex);
         }
+        #endregion
+
+
+
+        #region 原创分页数据获取
+        public ActionResult GetAllPost(int luntanId, int? page)
+        {
+            ViewBag.LunTan_id = luntanId;
+            var post = ltm.GetAllPost(luntanId);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(post.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+        #region 发帖Get页面
+        [Login]
         public ActionResult PostSend(int luntanId)
         {
             LuntanIndex luntanIndex = new LuntanIndex();
@@ -44,13 +68,15 @@ namespace Shiyun.Controllers
             //luntanIndex.LuntanId = luntanId;
             return View(luntanIndex);
         }
-
+        #endregion
+        # region 发帖Post页面
         [HttpPost]
         [ValidateInput(false)]  //富文本编辑器使用
         [ValidateAntiForgeryToken]
         //[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
         //对数据进行增删改时要防止csrf攻击！
         //该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
+        [Login]
         [MultiButton("postt")]   //通过name来选择post方法
         public ActionResult PostSend(Post post)
         {
@@ -82,7 +108,7 @@ namespace Shiyun.Controllers
                 {
                     post.AddTime = System.DateTime.Now;
                     post.Post_draft = 0;
-                    post.Users_id = "a000001";
+                    post.Users_id = Session["Users_id"].ToString();
                     pm.AddPost(post);
                     //db.Post.Add(post);
                     //db.SaveChanges();
@@ -101,9 +127,12 @@ namespace Shiyun.Controllers
             ViewBag.LunTan_id = new SelectList(db.LunTan, "LunTan_id", "LunTanName", post.LunTan_id);
             return View();
         }
+        #endregion
+        #region 发帖Save页面
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
+        [Login]
         [MultiButton("savee")]
         public ActionResult PostSend(Post post, int? postdraft)
         {
@@ -132,7 +161,7 @@ namespace Shiyun.Controllers
                 {
                     post.AddTime = System.DateTime.Now;
                     post.Post_draft = 1;
-                    post.Users_id = "a000001";
+                    post.Users_id = Session["Users_id"].ToString();
                     pm.AddPost(post);
                     return Content("<script>;alert('存为草稿成功！');window.history.go(-2);window.location.reload();</script>");
                 }
@@ -149,5 +178,7 @@ namespace Shiyun.Controllers
             //ViewBag.LunTan_id = new SelectList(db.LunTan, "LunTan_id", "LunTanName", post.LunTan_id);
             return View();
         }
+        #endregion
+       
     }
 }

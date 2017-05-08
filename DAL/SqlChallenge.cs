@@ -22,6 +22,11 @@ namespace DAL
             Challenge challenge = db.Challenge.Find(id);
             return challenge;
         }
+        public IEnumerable<Challenge> SuijiChallengeByKid(int kid)
+        {
+            var challenge = db.Challenge.Where(c=>c.ChallengeK_id==kid).OrderBy(a => Guid.NewGuid()).Take(1);
+            return challenge;
+        }
         public IQueryable<UserDati> GetUserDatiByChallengeId(int id)
         {
             var UserDati = db.UserDati.Include("Challenge").Where(c => c.Timu_id == id);
