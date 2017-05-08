@@ -14,7 +14,6 @@ namespace Shiyun.Controllers
     public class MallController : Controller
     {
         // GET: Mall
-        ShiyunEntities db = new ShiyunEntities();
         GoodsManager goodsmanager = new GoodsManager();
         ShopCarManager shopcarmanager = new ShopCarManager();
         #region 商城主页

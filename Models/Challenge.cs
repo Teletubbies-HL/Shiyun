@@ -34,6 +34,9 @@ namespace Models
         public string C7 { get; set; }
         public string C8 { get; set; }
         public string C9 { get; set; }
+        public string C10 { get; set; }
+        public string C11 { get; set; }
+        public string C12 { get; set; }
     
         public virtual ChallengeK ChallengeK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

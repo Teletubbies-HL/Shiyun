@@ -1,4 +1,4 @@
-﻿
+﻿@model Shiyun.Models.ChallengeViewModels
 @{
     ViewBag.Title = "诗韵-挑战";
 }
@@ -8,90 +8,212 @@
 }
 <section>
     <div class="totalbox">
-        <div class="leftbox">@*1-3点字成诗；4-7选择题；8-10填字接句*@
+        <div class="leftbox">@*1-3点字成诗；4-7选择正解；8-10诗词对句*@
             <div class="challengekname" id="challengekname1">点字成诗</div>
-            <div class="challengekname" id="challengekname2" style="display: none;">选择题</div>
-            <div class="challengekname" id="challengekname3" style="display: none;">填字接句</div>
+            <div class="challengekname" id="challengekname2" style="display: none;">选择正解</div>
+            <div class="challengekname" id="challengekname3" style="display: none;">诗词对句</div>
+            <div class="challengekname" id="challengekname4" style="display: none;">完成</div>
             <div class="jdt">
                 <div class="unit" id="unit1">
-                    <div class="line" style="background-color: #4cd964; width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">1</div>
+                    <div class="line" id="line1" style="background-color: #4cd964; width: 35px;"></div>
+                    <div class="number" id="number1" style="margin-left: 35px;">1</div>
                 </div>
                 <div class="unit" id="unit2">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">2</div>
+                    <div class="line" id="line2" style="width: 35px;"></div>
+                    <div class="number" id="number2" style="margin-left: 35px;">2</div>
                 </div>
                 <div class="unit" id="unit3">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">3</div>
+                    <div class="line" id="line3" style="width: 35px;"></div>
+                    <div class="number" id="number3" style="margin-left: 35px;">3</div>
                 </div>
                 <div class="unit" id="unit4">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">4</div>
+                    <div class="line" id="line4" style="width: 35px;"></div>
+                    <div class="number" id="number4" style="margin-left: 35px;">4</div>
                 </div>
                 <div class="unit" id="unit5">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">5</div>
+                    <div class="line" id="line5" style="width: 35px;"></div>
+                    <div class="number" id="number5" style="margin-left: 35px;">5</div>
                 </div>
-                <div class="line lastline" style="width: 35px;"></div>
+                <div class="line lastline" id="line5-5" style="width: 35px;"></div>
             </div>
             <div class="jdt">
                 <div class="unit" id="unit6">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">6</div>
+                    <div class="line" id="line6" style="width: 35px;"></div>
+                    <div class="number" id="number6" style="margin-left: 35px;">6</div>
                 </div>
                 <div class="unit" id="unit7">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">7</div>
+                    <div class="line" id="line7" style="width: 35px;"></div>
+                    <div class="number" id="number7" style="margin-left: 35px;">7</div>
                 </div>
                 <div class="unit" id="unit8">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">8</div>
+                    <div class="line" id="line8" style="width: 35px;"></div>
+                    <div class="number" id="number8" style="margin-left: 35px;">8</div>
                 </div>
                 <div class="unit" id="unit9">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">9</div>
+                    <div class="line" id="line9" style="width: 35px;"></div>
+                    <div class="number" id="number9" style="margin-left: 35px;">9</div>
                 </div>
                 <div class="unit" id="unit10">
-                    <div class="line" style="width: 35px;"></div>
-                    <div class="number" style="margin-left: 35px;">10</div>
+                    <div class="line" id="line10" style="width: 35px;"></div>
+                    <div class="number" id="number10" style="margin-left: 35px;">10</div>
                 </div>
-                <div class="line lastline" style="width: 35px;"></div>
+                <div class="line lastline" id="line10-5" style="width: 35px;"></div>
             </div>
-            <div class="timu" id="timu1">请从右侧九个字中识别一句诗词</div>
+            <div class="timu" id="timu1">请从右侧十二个字中识别一句诗词</div>
             <div class="timu" id="timu2" style="display: none;">请从右侧四个选项中选择一个正确答案</div>
             <div class="timu" id="timu3" style="display: none;">请将右侧诗词中缺失句子补全</div>
+            <div class="final" id="timu4" style="display: none;"></div>
         </div>
+        @*1-3点字成诗；4-7选择正解；8-10诗词对句*@
         <div class="rightbox" id="rightbox1">
+            @foreach (var item in Model.Challenge1)
+            {
+                <div class="jggbox">
+                    <div class="jggline" style="margin-top: 80px;">
+                        <div class="jiugongge 1-1">@item.C1</div>
+                        <div class="jiugongge 1-2" style="margin-left: 20px;">@item.C2</div>
+                        <div class="jiugongge 1-3" style="margin-left: 20px;">@item.C3</div>
+                        <div class="jiugongge 1-4" style="margin-left: 20px;">@item.C4</div>
+                    </div>
+                    <div class="jggline" style="margin-top: 20px;">
+                        <div class="jiugongge 1-5">@item.C5</div>
+                        <div class="jiugongge 1-6" style="margin-left: 20px;">@item.C6</div>
+                        <div class="jiugongge 1-7" style="margin-left: 20px;">@item.C7</div>
+                        <div class="jiugongge 1-8" style="margin-left: 20px;">@item.C8</div>
+                    </div>
+                    <div class="jggline" style="margin-top: 20px;">
+                        <div class="jiugongge 1-9">@item.C9</div>
+                        <div class="jiugongge 1-10" style="margin-left: 20px;">@item.C10</div>
+                        <div class="jiugongge 1-11" style="margin-left: 20px;">@item.C11</div>
+                        <div class="jiugongge 1-12" style="margin-left: 20px;">@item.C12</div>
+                    </div>
+                </div>
+            }
+            <div class="useranswer"></div>
+            <div class="tijiaobutton" id="btn1">下一题</div>
+        </div>
+    <div class="rightbox" id="rightbox2" style="display: none;">
+        @foreach (var item in Model.Challenge2)
+        {
             <div class="jggbox">
                 <div class="jggline" style="margin-top: 80px;">
-                    <div class="jiugongge"></div>
-                    <div class="jiugongge" style="margin-left: 20px;"></div>
-                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                    <div class="jiugongge j1">@item.C1</div>
+                    <div class="jiugongge j2" style="margin-left: 20px;">@item.C2</div>
+                    <div class="jiugongge j3" style="margin-left: 20px;">@item.C3</div>
+                    <div class="jiugongge j4" style="margin-left: 20px;">@item.C4</div>
                 </div>
                 <div class="jggline" style="margin-top: 20px;">
-                    <div class="jiugongge"></div>
-                    <div class="jiugongge" style="margin-left: 20px;"></div>
-                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                    <div class="jiugongge j5">@item.C5</div>
+                    <div class="jiugongge j6" style="margin-left: 20px;">@item.C6</div>
+                    <div class="jiugongge j7" style="margin-left: 20px;">@item.C7</div>
+                    <div class="jiugongge j8" style="margin-left: 20px;">@item.C8</div>
                 </div>
                 <div class="jggline" style="margin-top: 20px;">
-                    <div class="jiugongge"></div>
-                    <div class="jiugongge" style="margin-left: 20px;"></div>
-                    <div class="jiugongge" style="margin-left: 20px;"></div>
+                    <div class="jiugongge j9">@item.C9</div>
+                    <div class="jiugongge j10" style="margin-left: 20px;">@item.C10</div>
+                    <div class="jiugongge j11" style="margin-left: 20px;">@item.C11</div>
+                    <div class="jiugongge j12" style="margin-left: 20px;">@item.C12</div>
                 </div>
             </div>
+        }
+        <div class="useranswer"></div>
+        <div class="tijiaobutton" id="btn2">下一题</div>
+    </div>
+        <div class="rightbox" id="rightbox3" style="display: none;">
+            @foreach (var item in Model.Challenge3)
+            {
+                <div class="jggbox">
+                    <div class="jggline" style="margin-top: 80px;">
+                        <div class="jiugongge">@item.C1</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C2</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C3</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C4</div>
+                    </div>
+                    <div class="jggline" style="margin-top: 20px;">
+                        <div class="jiugongge">@item.C5</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C6</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C7</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C8</div>
+                    </div>
+                    <div class="jggline" style="margin-top: 20px;">
+                        <div class="jiugongge">@item.C9</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C10</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C11</div>
+                        <div class="jiugongge" style="margin-left: 20px;">@item.C12</div>
+                    </div>
+                </div>
+            }
             <div class="useranswer"></div>
-            <div class="tijiaobutton">提 交</div>
+            <div class="tijiaobutton" id="btn3">下一题</div>
         </div>
-        <div class="rightbox" id="rightbox2" style="display: none;"></div>
-        <div class="rightbox" id="rightbox3" style="display: none;"></div>
-        <div class="rightbox" id="rightbox4" style="display: none;"></div>
-        <div class="rightbox" id="rightbox5" style="display: none;"></div>
-        <div class="rightbox" id="rightbox6" style="display: none;"></div>
-        <div class="rightbox" id="rightbox7" style="display: none;"></div>
-        <div class="rightbox" id="rightbox8" style="display: none;"></div>
-        <div class="rightbox" id="rightbox9" style="display: none;"></div>
-        <div class="rightbox" id="rightbox10" style="display: none;"></div>
+        @*1-3点字成诗；4-7选择正解；8-10诗词对句*@
+        <div class="rightbox" id="rightbox4" style="display: none;">
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <div class="choosearea" style="margin-top: 50px;">
+                <div class="choose" id="A1"></div>
+                <div class="choose" id="B1" style="float:right;"></div>
+            </div>
+            <div class="choosearea">
+                <div class="choose" id="C1"></div>
+                <div class="choose" id="D1" style="float: right;"></div>
+            </div>
+            <div class="tijiaobutton" id="btn4">下一题</div>
+        </div>
+        <div class="rightbox" id="rightbox5" style="display: none;">
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <div class="choosearea" style="margin-top: 50px;">
+                <div class="choose" id="A2"></div>
+                <div class="choose" id="B2" style="float:right;"></div>
+            </div>
+            <div class="choosearea">
+                <div class="choose" id="C2"></div>
+                <div class="choose" id="D2" style="float: right;"></div>
+            </div>
+            <div class="tijiaobutton" id="btn5">下一题</div>
+        </div>
+        <div class="rightbox" id="rightbox6" style="display: none;">
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <div class="choosearea" style="margin-top: 50px;">
+                <div class="choose" id="A3"></div>
+                <div class="choose" id="B3" style="float:right;"></div>
+            </div>
+            <div class="choosearea">
+                <div class="choose" id="C3"></div>
+                <div class="choose" id="D3" style="float: right;"></div>
+            </div>
+            <div class="tijiaobutton" id="btn6">下一题</div>
+        </div>
+        <div class="rightbox" id="rightbox7" style="display: none;">
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <div class="choosearea" style="margin-top: 50px;">
+                <div class="choose" id="A4"></div>
+                <div class="choose" id="B4" style="float:right;"></div>
+            </div>
+            <div class="choosearea">
+                <div class="choose" id="C4"></div>
+                <div class="choose" id="D4" style="float: right;"></div>
+            </div>
+            <div class="tijiaobutton" id="btn7">下一题</div>
+        </div>
+        @*1-3点字成诗；4-7选择正解；8-10诗词对句*@
+        <div class="rightbox" id="rightbox8" style="display: none;">
+            <div class="duijvtimu" style="margin-top: 80px;"></div>
+            <div class="tianjvanswer"></div>
+            <div class="tijiaobutton" id="btn8">下一题</div>
+        </div>
+        <div class="rightbox" id="rightbox9" style="display: none;">
+            <div class="duijvtimu" style="margin-top: 80px;"></div>
+            <div class="tianjvanswer"></div>
+            <div class="tijiaobutton" id="btn9">下一题</div>
+        </div>
+        <div class="rightbox" id="rightbox10" style="display: none;">
+            <div class="duijvtimu" style="margin-top: 80px;"></div>
+            <div class="tianjvanswer"></div>
+            <div class="tijiaobutton" id="btn10">完成</div>
+        </div>
+        <div class="rightbox" id="rightbox11" style="display: none;">
+            
+        </div>
     </div>
 </section>
 
@@ -99,27 +221,111 @@
 {
     <script type="text/javascript">
 
-        $(function() {
-            var hidden = $(".hidden1").val();
-            $(".cssDropDownList1").get(0).selectedIndex = hidden - 1;
-
-
-            if ($(".cssDropDownList1").get(0).selectedIndex == 1) {
-                $(".file_a").css("display", "block");
-            } else {
-                $(".file_a").css("display", "none");
+        (function ($) {
+            //屏蔽，适合单个元素.
+            $.fn.mask = function () {
+                var divHtml = '<div class="divMask" style="position: absolute; width: 90px; height: 90px; left: 0px; top: -42px; background: #fff; opacity: 0; filter: alpha(opacity=0)"> </div>';
+                $(this).wrap('<span style="position: relative"></span>');
+                $(this).parent().append(divHtml);
+                $(this).data("mask", "true");
             }
+            //取消屏蔽
+            $.fn.unmask = function () {
+                $(this).parent().find(".divMask").remove();
+                $(this).unwrap();
+                $(this).data("mask", "false");
+            }
+        })(jQuery);
 
-
-            $(".cssDropDownList1").change(function() {
-                if ($(".cssDropDownList1").get(0).selectedIndex == 1) {
-                    $(".file_a").css("display", "block");
-                } else {
-                    $(".file_a").css("display", "none");
-                }
+        $(function() {
+            $("#btn1").click(function () {
+                $("#number1").css({ border: '1px solid #4cd964', color: '#4cd964'});
+                $("#line2").css("background-color", "#4cd964");
+                $("#rightbox1").hide();
+                $("#rightbox2").css("display", "block");
+                $(".useranswer").empty();
+            });
+            $("#btn2").click(function () {
+                $("#number2").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line3").css("background-color", "#4cd964");
+                $("#rightbox2").hide();
+                $("#rightbox3").css("display", "block");
+            });
+            $("#btn3").click(function () {
+                $("#number3").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line4").css("background-color", "#4cd964");
+                $("#rightbox3").hide();
+                $("#rightbox4").css("display", "block");
+                $("#timu1").hide();
+                $("#timu2").show();
+                $("#challengekname1").hide();
+                $("#challengekname2").show();
+            });
+            $("#btn4").click(function () {
+                $("#number4").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line5").css("background-color", "#4cd964");
+                $("#rightbox4").hide();
+                $("#rightbox5").css("display", "block");
+            });
+            $("#btn5").click(function () {
+                $("#number5").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line5").css("background-color", "#4cd964");
+                $("#line5-5").css("background-color", "#4cd964");
+                $("#line6").css("background-color", "#4cd964");
+                $("#rightbox5").hide();
+                $("#rightbox6").css("display", "block");
+            });
+            $("#btn6").click(function () {
+                $("#number6").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line7").css("background-color", "#4cd964");
+                $("#rightbox6").hide();
+                $("#rightbox7").css("display", "block");
+            });
+            $("#btn7").click(function () {
+                $("#number7").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line8").css("background-color", "#4cd964");
+                $("#rightbox7").hide();
+                $("#rightbox8").css("display", "block");
+                $("#timu2").hide();
+                $("#timu3").show();
+                $("#challengekname2").hide();
+                $("#challengekname3").show();
+            });
+            $("#btn8").click(function () {
+                $("#number8").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line9").css("background-color", "#4cd964");
+                $("#rightbox8").hide();
+                $("#rightbox9").css("display", "block");
+            });
+            $("#btn9").click(function () {
+                $("#number9").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line10").css("background-color", "#4cd964");
+                $("#rightbox9").hide();
+                $("#rightbox10").css("display", "block");
+            });
+            $("#btn10").click(function () {
+                $("#number10").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                $("#line10-5").css("background-color", "#4cd964");
+                $("#rightbox10").hide();
+                $("#rightbox11").css("display", "block");
+                $("#timu3").hide();
+                $("#timu4").show();
+                $("#challengekname3").hide();
+                $("#challengekname4").show();
+            }); 
+            });
+        $(function() {
+            $(".1-1").click(function () {
+                var a = $(".1-1").text();
+                $(".useranswer").append(a);
+                $(".1-1").mask();
+            });
+            $(".1-2").click(function () {
+                var a = $(".1-2").text();
+                $(".useranswer").append(a);
+                $(".1-2").mask();
             });
         });
-    
     </script>
 
 }

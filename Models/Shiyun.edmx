@@ -20,19 +20,22 @@
             <PropertyRef Name="Timu_id" />
           </Key>
           <Property Name="Timu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Timu" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="AnswerA" Type="nvarchar(max)" />
+          <Property Name="Timu" Type="nvarchar(max)" />
+          <Property Name="AnswerA" Type="nvarchar(max)" Nullable="false" />
           <Property Name="AnswerB" Type="nvarchar(max)" />
           <Property Name="ChallengeK_id" Type="int" Nullable="false" />
-          <Property Name="C1" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="C2" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="C3" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="C4" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="C5" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="C6" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="C7" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="C8" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="C9" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C1" Type="nvarchar" MaxLength="100" />
+          <Property Name="C2" Type="nvarchar" MaxLength="100" />
+          <Property Name="C3" Type="nvarchar" MaxLength="100" />
+          <Property Name="C4" Type="nvarchar" MaxLength="100" />
+          <Property Name="C5" Type="nvarchar" MaxLength="50" />
+          <Property Name="C6" Type="nvarchar" MaxLength="50" />
+          <Property Name="C7" Type="nvarchar" MaxLength="50" />
+          <Property Name="C8" Type="nvarchar" MaxLength="50" />
+          <Property Name="C9" Type="nvarchar" MaxLength="50" />
+          <Property Name="C10" Type="nvarchar" MaxLength="50" />
+          <Property Name="C11" Type="nvarchar" MaxLength="50" />
+          <Property Name="C12" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ChallengeK">
           <Key>
@@ -1105,19 +1108,22 @@
             <PropertyRef Name="Timu_id" />
           </Key>
           <Property Name="Timu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Timu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AnswerA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Timu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AnswerB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ChallengeK_id" Type="Int32" Nullable="false" />
-          <Property Name="C1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C11" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C12" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChallengeK" Relationship="Self.FK_Challenge_ChallengeK" FromRole="Challenge" ToRole="ChallengeK" />
           <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_Challenge" FromRole="Challenge" ToRole="UserDati" />
         </EntityType>
@@ -2230,6 +2236,9 @@
                 <ScalarProperty Name="C7" ColumnName="C7" />
                 <ScalarProperty Name="C8" ColumnName="C8" />
                 <ScalarProperty Name="C9" ColumnName="C9" />
+                <ScalarProperty Name="C10" ColumnName="C10" />
+                <ScalarProperty Name="C11" ColumnName="C11" />
+                <ScalarProperty Name="C12" ColumnName="C12" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

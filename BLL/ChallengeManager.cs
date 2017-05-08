@@ -22,6 +22,13 @@ namespace BLL
             Challenge challenge = ichallenge.GetChallengeById(id);
             return challenge;
         }
+
+       public IEnumerable<Challenge> SuijiChallengeByKid(int kid)
+       {
+            var challenge = ichallenge.SuijiChallengeByKid(kid);
+            return challenge;
+
+        }
         public IQueryable<UserDati> GetUserDatiByChallengeId(int id)
         {
             var UserDati = ichallenge.GetUserDatiByChallengeId(id);
