@@ -39,6 +39,8 @@ namespace Models
         public string ReplyContent { get; set; }
         public Nullable<System.DateTime> ReplyTime { get; set; }
         public Nullable<int> ReReply_id { get; set; }
-        public string replyuserid { get; set; }
+        public string ReplyUsers_id { get; set; }
+        public Nullable<int> ReplyPost_id { get; set; }
+        public string PostUsers_id { get; set; }
     }
 }

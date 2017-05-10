@@ -377,7 +377,9 @@
           <Property Name="ReplyContent" Type="nvarchar" MaxLength="500" />
           <Property Name="ReplyTime" Type="datetime" />
           <Property Name="ReReply_id" Type="int" />
-          <Property Name="replyuserid" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReplyUsers_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReplyPost_id" Type="int" />
+          <Property Name="PostUsers_id" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_PostIndex”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -955,7 +957,9 @@
     [View_PostDetails].[ReplyContent] AS [ReplyContent], 
     [View_PostDetails].[ReplyTime] AS [ReplyTime], 
     [View_PostDetails].[ReReply_id] AS [ReReply_id], 
-    [View_PostDetails].[replyuserid] AS [replyuserid]
+    [View_PostDetails].[ReplyUsers_id] AS [ReplyUsers_id], 
+    [View_PostDetails].[ReplyPost_id] AS [ReplyPost_id], 
+    [View_PostDetails].[PostUsers_id] AS [PostUsers_id]
     FROM [dbo].[View_PostDetails] AS [View_PostDetails]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" store:Type="Views" store:Schema="dbo">
@@ -1604,7 +1608,9 @@
           <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ReplyTime" Type="DateTime" Precision="3" />
           <Property Name="ReReply_id" Type="Int32" />
-          <Property Name="replyuserid" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyUsers_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyPost_id" Type="Int32" />
+          <Property Name="PostUsers_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="View_PostIndex">
           <Key>
@@ -2708,7 +2714,9 @@
                 <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
                 <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
                 <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
-                <ScalarProperty Name="replyuserid" ColumnName="replyuserid" />
+                <ScalarProperty Name="ReplyUsers_id" ColumnName="ReplyUsers_id" />
+                <ScalarProperty Name="ReplyPost_id" ColumnName="ReplyPost_id" />
+                <ScalarProperty Name="PostUsers_id" ColumnName="PostUsers_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
