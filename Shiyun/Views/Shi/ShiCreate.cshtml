@@ -94,27 +94,28 @@
                 <td>类型</td>
              </tr>
             <tr>
-                <td style="width:10%;">
+                <td style="width:30%;">
                     @Html.DropDownList("Author_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.Author_id, "", new { @class = "text-danger"})
                 </td>
                 <td>&nbsp;</td>
-                <td style="width:10%;">
+                <td style="width:30%;">
                     @Html.DropDownList("Time_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.Time_id, "", new { @class = "text-danger"})
                 </td>
-                @*<td style="width:30%;">
-                    @Html.CheckBoxFor("ShiType_id", null, htmlAttributes: new { @class = "form-control" })
+                <td>&nbsp;</td>
+                <td style="width:30%;">
+                    
                     @Html.DropDownList("ShiType_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.ShiType_id, "", new { @class = "text-danger"})
-                </td>*@
-                <td>&nbsp;</td>
-                <td style="width:80%;">
+                </td>
+               
+                @*<td style="width:80%;">
 
                     <input id="IsNeverExpired" name="IsNeverExpired" type="checkbox" value="true" />
-                    @*@Html.DropDownList("ShiType_id", null, htmlAttributes: new { @class = "form-control"})*@
+                    @Html.DropDownList("ShiType_id", null, htmlAttributes: new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.ShiType_id, "", new { @class = "text-danger" })
-                </td>
+                </td>*@
             </tr>
             </table>         
         </p>

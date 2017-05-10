@@ -31,8 +31,8 @@ namespace Shiyun.Controllers
         }
         #endregion
 
-        #region 添加商品
-        #region//添加商品的Get方法
+        #region 添加诗
+        #region//添加诗的Get方法
         public ActionResult ShiCreate()
         {
             //存储在ViewBag.CategoryId属性中的分类数据是为了让视图中的DropDownList辅助方法检索
@@ -40,13 +40,13 @@ namespace Shiyun.Controllers
             //第2个参数是一个属性名称，该属性包含当用户选择一个指定项时使用的键值，
             //第3个参数是每一项要显示的文本，第4个参数包含了最初选定项的值。
             ViewBag.Author_id = new SelectList(db.Author, "Author_id", "AuthorName");
-            ViewBag.ShiType_id = new SelectListItem();
+            ViewBag.ShiType_id = new SelectList(db.ShiType, "ShiType_id", "ShiTypeName");
             ViewBag.Time_id = new SelectList(db.Time, "Time_id", "TimeName");
             return View("ShiCreate");
         }
         #endregion
         // POST: StoreManager/Create
-        #region //添加商品的POST方法
+        #region //添加诗的POST方法
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -85,10 +85,10 @@ namespace Shiyun.Controllers
                     postyuyin.SaveAs(serverpath);
                     shi.ShiYuying = relativepath;
                 }
-                else
-                {
-                    return Content("<script>;alert('请先上传音频！');history.go(-1)</script>");
-                }
+                //else
+                //{
+                //    return Content("<script>;alert('请先上传音频！');history.go(-1)</script>");
+                //}
                 shimanager.AddShi(shi);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -105,7 +105,7 @@ namespace Shiyun.Controllers
         #endregion       
         #endregion
 
-        #region 更新商品
+        #region 更新诗
         #region//更新诗的Get方法
         public ActionResult ShiEdit(int? id)
         {
@@ -140,7 +140,7 @@ namespace Shiyun.Controllers
         }
         #endregion
         // POST: StoreManager/Edit/5
-        #region//编辑商品的POST方法
+        #region//编辑诗的POST方法
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -166,8 +166,8 @@ namespace Shiyun.Controllers
         #endregion
         #endregion
 
-        #region 删除商品
-        //删除给定的id的商品
+        #region 删除诗
+        //删除给定的id的诗
         public ActionResult ShiDelete(int? id)
         {
             if (id == null)
