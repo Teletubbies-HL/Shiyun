@@ -63,10 +63,9 @@
                     </td>
                     <td style="width: 15%; margin: 0 auto; line-height: 100px;">
                         <span class="edit" style="cursor: pointer;">编辑</span>
-                        @*<input class="update" style="display: none; cursor: pointer;" type="text" value="@item.Goods_id"/>*@
-                        @*<a id="@item.Goods_id" class="update" style="display: none; cursor: pointer;">更新</a>*@|
+                        <a id="@item.Goods_id" class="update" style="display: none; cursor: pointer;">更新</a>|
                         @*@Html.ActionLink("更新", "Update", new {id = item.Goods_id}, new {@class = "update",style = "display:none;"})*@
-                        @Ajax.ActionLink("更新", "Update", new { id = item.Goods_id,count=item.Count }, null)
+                        @*@Ajax.ActionLink("更新", "Update", new { id = item.Goods_id,count=item.Count }, null)*@
                         @Ajax.ActionLink("删除", "Delete", new {id = item.Goods_id}, null)
                     </td>
                 </tr>
@@ -116,19 +115,20 @@
                 $(this).parent().prev().prev().children().attr("readonly", "readonly");
                 $(this).parent().prev().prev().children().css("border", "none");
                 $(this).prev().show();
-                //$.ajax({
-                //    url: "/Mall/Update",
-                //    type: "post",
-                //    async: false,
-                //    data: { id: $(".update").attr("id"), count: $(".txtbox").val() },
-                //    success: function(data) {
-                //        alert(data);
-                //        var finalprice = $(".price").val() * $(".txtbox").val();
-                //        $(".chuangzhi").val(finalprice);
-                //    }
-                //});
-                //var chuangzhi = $(".chuangzhi").val();
-                //$(this).parent().prev().children().val(chuangzhi);
+                var finalprice = $(this).parent().prev().prev().prev().children().val() * $(this).parent().prev().prev().children().val();
+                $.ajax({
+                    url: "/Mall/Update",
+                    type: "post",
+                    async: false,
+                    //data: { id: $(".update").attr("id"), count: $(".txtbox").val() },
+                    data: { id: $(this).attr("id"), count: $(this).parent().prev().prev().children().val() },
+                    success: function (data) {
+                        alert(data);
+                        $(".chuangzhi").val(finalprice);
+                    }
+                });
+                var chuangzhi = $(".chuangzhi").val();
+                $(this).parent().prev().children().val(chuangzhi);
             });
 
         });
@@ -145,8 +145,8 @@
                 $("#quanxuan").prop("checked", false);
                 var sumchoose = $("input[name='subBox']:checked").length;
                 $("#lblnum").text(sumchoose);
-
-                alert($(this).parent().next().next().next().next().next().children().val());
+                //$("#lbltotprice").text($(this).parent().next().next().next().next().next().children().val());
+                //alert($(this).parent().next().next().next().next().next().children().val());
             });
         });
 

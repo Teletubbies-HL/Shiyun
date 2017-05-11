@@ -23,9 +23,9 @@ namespace BLL
             return challenge;
         }
 
-       public IEnumerable<Challenge> SuijiChallengeByKid(int kid)
+       public IEnumerable<Challenge> SuijiChallengeByKid(int kid, int tiao)
        {
-            var challenge = ichallenge.SuijiChallengeByKid(kid);
+            var challenge = ichallenge.SuijiChallengeByKid(kid,tiao);
             return challenge;
 
         }

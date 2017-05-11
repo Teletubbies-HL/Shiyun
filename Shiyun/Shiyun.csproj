@@ -522,6 +522,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JS\Challenge.js" />
     <Content Include="Scripts\JS\ShiCihm.js" />
     <Content Include="Scripts\JS\ShiCipush.js" />
     <Content Include="Scripts\JS\ShiCianalytics.js" />
