@@ -102,7 +102,7 @@
                                 <img id="imgUser" class="imgcssUser" src="@post.UserImage" style="width: 100%; height: 100%;" />
                             </div>
                             <div class="hotpost_title">
-                                <a href="javascript:void(0)" style="text-decoration: none;">@post.PostTitle</a>
+                                <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @post.LunTan_id, postId = @post.Post_id})" style="text-decoration: none;">@post.PostTitle</a>
                             </div>
                             <span class="user_name">@post.UserName</span>
                             <span class="addtime">@post.AddTime</span>
@@ -158,13 +158,13 @@
                     <div class="zonghetaolun1">
                         <div class="leftimage">
                             <!--左部分图片-->
-                            <a href="javascript:void(0)"><img src="@zonghe.PostImage" style="width: 100%; height: 100%;" /></a>
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @zonghe.LunTan_id, postId = @zonghe.Post_id})"><img src="@zonghe.PostImage" style="width: 100%; height: 100%;" /></a>
                         </div>
                         <span class="rightfenqu">综合讨论</span><!--右部分综合讨论-->
-                        <a href="javascript:void(0)" style="text-decoration: none;"><label class="cssrighttitle">@zonghe.PostTitle</label></a> <!--帖子标题-->
+                        <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @zonghe.LunTan_id, postId = @zonghe.Post_id})" style="text-decoration: none;"><label class="cssrighttitle">@zonghe.PostTitle</label></a> <!--帖子标题-->
                         <label class="cssrightusername">@zonghe.UserName</label> <!--用户名-->
                         <label class="cssrighttime"> @zonghe.AddTime</label> <!--发布日期-->
-                        <a href="javascript:void(0)" style="text-decoration: none; color: rgb(221, 59, 68); font-size: 13px;"><span class="yueduquanwen">阅读全文</span></a>
+                        <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @zonghe.LunTan_id, postId = @zonghe.Post_id})" style="text-decoration: none; color: rgb(221, 59, 68); font-size: 13px;"><span class="yueduquanwen">阅读全文</span></a>
                         <span class="rightdetails">@zonghe.PostJianjie</span>  <!--简介-->
                     </div>
                 </div>
@@ -220,7 +220,7 @@
                 <ul>
                     @foreach (var ph in Model.PaiHang)
                     {
-                        <li><a href="javascript:void(0)"><span class="paihang_span2">@ph.PostTitle</span><span class="paihang_span3">@ph.UserName</span></a></li>
+                        <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @ph.LunTan_id, postId = @ph.Post_id})"><span class="paihang_span2">@ph.PostTitle</span><span class="paihang_span3">@ph.UserName</span></a></li>
                     }
                     @*<li><a href="javascript:void(0)"><span class="paihang_span2">咏春</span><span class="paihang_span3">张三</span></a></li>
                     <li><a href="javascript:void(0)"><span class="paihang_span2">咏春</span><span class="paihang_span3">张三</span></a></li>

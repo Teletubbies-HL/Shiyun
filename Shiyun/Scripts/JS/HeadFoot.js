@@ -36,7 +36,31 @@ $(window).resize(function () {
         $("header .smallnav").hide();
     }
 });
-
+$(function() {
+    $(".userinfo").hover(function () {
+        //$(".usercenterbox").fadeIn(500);
+        //$(".zhuxiaobox").fadeIn(500);
+        $(".usercenterbox").show();
+        $(".zhuxiaobox").show();
+    }, function() {
+        $(".usercenterbox").hide();
+        $(".zhuxiaobox").hide();
+    });
+    $(".usercenterbox").hover(function () {
+        $(".usercenterbox").css("display","block");
+        $(".zhuxiaobox").css("display", "block");
+    }, function () {
+        $(".usercenterbox").hide();
+        $(".zhuxiaobox").hide();
+    });
+    $(".zhuxiaobox").hover(function () {
+        $(".usercenterbox").css("display", "block");
+        $(".zhuxiaobox").css("display", "block");
+    }, function () {
+        $(".usercenterbox").hide();
+        $(".zhuxiaobox").hide();
+    });
+});
 $(function () {
     //导航栏切换
     $(".open1").click(function () {

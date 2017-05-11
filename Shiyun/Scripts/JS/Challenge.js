@@ -45,7 +45,7 @@ $(function () {
                     zongfenshu = 10 * 1 + $('.fs1').text() * 1;
                 } else {
                     $("#number1").css({ border: '1px solid red', color: 'red' });
-                    zongfenshu = 1 * 1 + $('.fs1').text() * 1;
+                    zongfenshu =  $('.fs1').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -70,7 +70,7 @@ $(function () {
                     zongfenshu = 10 * 1+ $('.fs1').text() * 1;
                 } else {
                     $("#number2").css({ border: '1px solid red', color: 'red' }); 
-                    zongfenshu = 1 * 1 + $('.fs1').text() * 1;
+                    zongfenshu =  $('.fs1').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -99,7 +99,7 @@ $(function () {
                     zongfenshu = 10 * 1 + $('.fs2').text() * 1;
                 } else {
                     $("#number3").css({ border: '1px solid red', color: 'red' });
-                    zongfenshu = 1 * 1 + $('.fs2').text() * 1;
+                    zongfenshu =  $('.fs2').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -114,7 +114,6 @@ $(function () {
         $("#rightbox4").hide();
         $("#rightbox5").css("display", "block");
         var daan = $(".a_4").val();
-        alert(daan);
         $('#userdaan1').val(daan);
         $.ajax({
             url: "/Challenge/Panduan",
@@ -126,7 +125,7 @@ $(function () {
                     zongfenshu = 10 * 1 + $('.fs3').text() * 1;
                 } else {
                     $("#number4").css({ border: '1px solid red', color: 'red' });
-                    zongfenshu = 1 * 1 + $('.fs3').text() * 1;
+                    zongfenshu =  $('.fs3').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -154,7 +153,7 @@ $(function () {
                     zongfenshu = 10 * 1 + $('.fs4').text() * 1;
                 } else {
                     $("#number5").css({ border: '1px solid red', color: 'red' });
-                    zongfenshu = 1 * 1 + $('.fs4').text() * 1;
+                    zongfenshu = $('.fs4').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -180,7 +179,7 @@ $(function () {
                     zongfenshu = 10 * 1 + $('.fs5').text() * 1;
                 } else {
                     $("#number6").css({ border: '1px solid red', color: 'red' });
-                    zongfenshu = 1 * 1 + $('.fs5').text() * 1;
+                    zongfenshu =  $('.fs5').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -209,7 +208,7 @@ $(function () {
                     zongfenshu = 10 * 1 + $('.fs6').text() * 1;
                 } else {
                     $("#number7").css({ border: '1px solid red', color: 'red' });
-                    zongfenshu = 1 * 1 + $('.fs6').text() * 1;
+                    zongfenshu = $('.fs6').text() * 1;
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
@@ -222,12 +221,50 @@ $(function () {
         $("#line9").css("background-color", "#4cd964");
         $("#rightbox8").hide();
         $("#rightbox9").css("display", "block");
+        var daan = $(".a_8").val();
+        $('#userdaan1').val(daan);
+        $.ajax({
+            url: "/Challenge/Panduan",
+            type: "post",
+            data: { userdaan: $('#userdaan1').val(), id: $('#timu8id').val() },
+            success: function (data) {
+                if (data == "成功") {
+                    $("#number8").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                    zongfenshu = 10 * 1 + $('.fs7').text() * 1;
+                } else {
+                    $("#number8").css({ border: '1px solid red', color: 'red' });
+                    zongfenshu = $('.fs7').text() * 1;
+                }
+                $('.fenshu').text(zongfenshu);
+                zongfenshu = $('.fenshu').text(zongfenshu);
+            }
+        });
+        $(".useranswer").empty();
     });
     $("#btn9").click(function () {
         $("#number9").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line10").css("background-color", "#4cd964");
         $("#rightbox9").hide();
         $("#rightbox10").css("display", "block");
+        var daan = $(".a_9").val();
+        $('#userdaan1').val(daan);
+        $.ajax({
+            url: "/Challenge/Panduan",
+            type: "post",
+            data: { userdaan: $('#userdaan1').val(), id: $('#timu9id').val() },
+            success: function (data) {
+                if (data == "成功") {
+                    $("#number9").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                    zongfenshu = 10 * 1 + $('.fs8').text() * 1;
+                } else {
+                    $("#number9").css({ border: '1px solid red', color: 'red' });
+                    zongfenshu =  $('.fs8').text() * 1;
+                }
+                $('.fenshu').text(zongfenshu);
+                zongfenshu = $('.fenshu').text(zongfenshu);
+            }
+        });
+        $(".useranswer").empty();
     });
     $("#btn10").click(function () {
         $("#number10").css({ border: '1px solid #4cd964', color: '#4cd964' });
@@ -236,8 +273,49 @@ $(function () {
         $("#rightbox11").css("display", "block");
         $("#timu3").hide();
         $("#timu4").show();
+        var daan = $(".a_10").val();
+        $('#userdaan1').val(daan);
+        $.ajax({
+            url: "/Challenge/Panduan",
+            type: "post",
+            anync: true,
+            data: { userdaan: $('#userdaan1').val(), id: $('#timu10id').val() },
+            success: function (data) {
+                if (data == "成功") {
+                    $("#number10").css({ border: '1px solid #4cd964', color: '#4cd964' });
+                    zongfenshu = 10 * 1 + $('.fs9').text() * 1;
+                    $.ajax({
+                        url: "/Challenge/Updatejifen",
+                        type: "post",
+                        data: { nowjifen: zongfenshu },
+                        success: function (data) {
+                            
+                        }
+                    });
+                } else {
+                    $("#number10").css({ border: '1px solid red', color: 'red' });
+                    zongfenshu =  $('.fs9').text() * 1;
+                    $(".defen").text(zongfenshu);
+                    $(".jifen").text(zongfenshu);
+                    $.ajax({
+                        url: "/Challenge/Updatejifen",
+                        type: "post",
+                        data: { nowjifen: zongfenshu },
+                        success: function (data) {
+                            
+                        }
+                    });
+                }
+                $('.fenshu').text(zongfenshu);
+                zongfenshu = $('.fenshu').text(zongfenshu);
+                
+            }
+        });
+        $(".useranswer").empty();
         $("#challengekname3").hide();
+        $(".tips").hide();
         $("#challengekname4").show();
+        
     });
     $("#A1").click(function () {
         $(this).css("background-color", "rgba(221, 59, 67, 1)");
@@ -669,4 +747,35 @@ $(function () {
         $(".3-12").css("color", "rgba(0,0,0,0.3)");
         $(".3-12").css("background-color", "rgba(0,0,0,0.1)");
     });
+});
+
+
+$(function () {
+    $(".tabbox .tab a").mouseover(function () {
+        $(this).addClass('on').siblings().removeClass('on');
+        var index = $(this).index();
+        number = index;
+        $('.tabbox .content li').hide();
+        $('.tabbox .content li:eq(' + index + ')').show();
+    });
+
+    var auto = 0;  //等于1则自动切换，其他任意数字则不自动切换
+    if (auto == 1) {
+        var number = 0;
+        var maxNumber = $('.tabbox .tab a').length;
+        function autotab() {
+            number++;
+            number == maxNumber ? number = 0 : number;
+            $('.tabbox .tab a:eq(' + number + ')').addClass('on').siblings().removeClass('on');
+            $('.tabbox .content ul li:eq(' + number + ')').show().siblings().hide();
+        }
+        //var tabChange = setInterval(autotab, 3000);
+        //鼠标悬停暂停切换
+        $('.tabbox').mouseover(function () {
+            clearInterval(tabChange);
+        });
+        $('.tabbox').mouseout(function () {
+            tabChange = setInterval(autotab, 3000);
+        });
+    }
 });
