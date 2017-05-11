@@ -53,5 +53,11 @@ namespace BLL
            var pt = ipost.CountPostById(pid);
            return pt;
        }
+
+       public IEnumerable<View_PostIndex> GetPostDetails(int postid)
+       {
+           var pstd = ipost.GetPostDetails(postid);
+           return pstd;
+       }
     }
 }

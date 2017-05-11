@@ -17,5 +17,6 @@ namespace IDAL
         void EditPost(Post post);
         int CountPostById(int pid);
         void RemoveRangePostReply(IQueryable<PostReply> PostReply);
+        IEnumerable<View_PostIndex> GetPostDetails(int postid);
     }
 }

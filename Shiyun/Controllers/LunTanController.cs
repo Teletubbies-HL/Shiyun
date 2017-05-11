@@ -43,9 +43,6 @@ namespace Shiyun.Controllers
             return View(luntanIndex);
         }
         #endregion
-
-
-
         #region 原创分页数据获取
         public ActionResult GetAllPost(int luntanId, int? page)
         {
@@ -179,6 +176,17 @@ namespace Shiyun.Controllers
             return View();
         }
         #endregion
-       
+        #region  帖子详情页面
+        public ActionResult PostDetails(int luntanId ,int postId)
+        {
+            LuntanIndex luntanIndex = new LuntanIndex();
+            ViewBag.LunTan_id = luntanId;
+            ViewBag.LunTan_id = postId;
+            luntanIndex.FenLei = ltm.GetFenlei(); //导航分类 
+            luntanIndex.LuntanName = ltm.GetLuntanName(luntanId); //论坛名称       
+            luntanIndex.PostDetails = pm.GetPostDetails(postId);//帖子详情
+            return View(luntanIndex);
+        }
+        #endregion
     }
 }
