@@ -1197,6 +1197,7 @@
     <Content Include="Views\Challenge\Index.cshtml" />
     <Content Include="Views\LunTan\PostSend.cshtml" />
     <Content Include="Views\LunTan\GetAllPost.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

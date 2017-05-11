@@ -347,19 +347,14 @@
 警告 6002: 表/视图“Shiyun.dbo.View_PostDetails”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="View_PostDetails">
           <Key>
-            <PropertyRef Name="Users_id" />
             <PropertyRef Name="Post_id" />
             <PropertyRef Name="LunTan_id" />
-            <PropertyRef Name="Reply_id" />
+            <PropertyRef Name="rpid1" />
           </Key>
-          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
-          <Property Name="UserImage" Type="text" />
-          <Property Name="Jifen" Type="int" />
-          <Property Name="Jingyan" Type="int" />
           <Property Name="Post_id" Type="int" Nullable="false" />
           <Property Name="PostTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="AddTime" Type="datetime" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
           <Property Name="LunTan_id" Type="int" Nullable="false" />
           <Property Name="PostDetails" Type="nvarchar(max)" />
           <Property Name="PostImage" Type="nvarchar" MaxLength="50" />
@@ -373,13 +368,22 @@
           <Property Name="Shi_id" Type="int" />
           <Property Name="Ci_id" Type="int" />
           <Property Name="Mp3_Url" Type="nvarchar" MaxLength="200" />
-          <Property Name="Reply_id" Type="int" Nullable="false" />
-          <Property Name="ReplyContent" Type="nvarchar" MaxLength="500" />
-          <Property Name="ReplyTime" Type="datetime" />
-          <Property Name="ReReply_id" Type="int" />
-          <Property Name="ReplyUsers_id" Type="nvarchar" MaxLength="30" />
-          <Property Name="ReplyPost_id" Type="int" />
-          <Property Name="PostUsers_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage" Type="text" />
+          <Property Name="uid1" Type="nvarchar" MaxLength="30" />
+          <Property Name="rpid1" Type="int" Nullable="false" />
+          <Property Name="rct1" Type="nvarchar" MaxLength="500" />
+          <Property Name="rt1" Type="datetime" />
+          <Property Name="rr1" Type="int" />
+          <Property Name="pid1" Type="int" />
+          <Property Name="un1" Type="nvarchar" MaxLength="30" />
+          <Property Name="ui1" Type="text" />
+          <Property Name="asrpid2" Type="int" />
+          <Property Name="uid2" Type="nvarchar" MaxLength="30" />
+          <Property Name="rct2" Type="nvarchar" MaxLength="500" />
+          <Property Name="rt2" Type="datetime" />
+          <Property Name="un2" Type="nvarchar" MaxLength="30" />
+          <Property Name="ui2" Type="text" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_PostIndex”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -932,14 +936,10 @@
           <EntitySet Name="VideoReply" EntityType="Self.VideoReply" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="View_PostDetails" EntityType="Self.View_PostDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_PostDetails].[Users_id] AS [Users_id], 
-    [View_PostDetails].[UserName] AS [UserName], 
-    [View_PostDetails].[UserImage] AS [UserImage], 
-    [View_PostDetails].[Jifen] AS [Jifen], 
-    [View_PostDetails].[Jingyan] AS [Jingyan], 
     [View_PostDetails].[Post_id] AS [Post_id], 
     [View_PostDetails].[PostTitle] AS [PostTitle], 
     [View_PostDetails].[AddTime] AS [AddTime], 
+    [View_PostDetails].[Users_id] AS [Users_id], 
     [View_PostDetails].[LunTan_id] AS [LunTan_id], 
     [View_PostDetails].[PostDetails] AS [PostDetails], 
     [View_PostDetails].[PostImage] AS [PostImage], 
@@ -953,13 +953,22 @@
     [View_PostDetails].[Shi_id] AS [Shi_id], 
     [View_PostDetails].[Ci_id] AS [Ci_id], 
     [View_PostDetails].[Mp3_Url] AS [Mp3_Url], 
-    [View_PostDetails].[Reply_id] AS [Reply_id], 
-    [View_PostDetails].[ReplyContent] AS [ReplyContent], 
-    [View_PostDetails].[ReplyTime] AS [ReplyTime], 
-    [View_PostDetails].[ReReply_id] AS [ReReply_id], 
-    [View_PostDetails].[ReplyUsers_id] AS [ReplyUsers_id], 
-    [View_PostDetails].[ReplyPost_id] AS [ReplyPost_id], 
-    [View_PostDetails].[PostUsers_id] AS [PostUsers_id]
+    [View_PostDetails].[UserName] AS [UserName], 
+    [View_PostDetails].[UserImage] AS [UserImage], 
+    [View_PostDetails].[uid1] AS [uid1], 
+    [View_PostDetails].[rpid1] AS [rpid1], 
+    [View_PostDetails].[rct1] AS [rct1], 
+    [View_PostDetails].[rt1] AS [rt1], 
+    [View_PostDetails].[rr1] AS [rr1], 
+    [View_PostDetails].[pid1] AS [pid1], 
+    [View_PostDetails].[un1] AS [un1], 
+    [View_PostDetails].[ui1] AS [ui1], 
+    [View_PostDetails].[asrpid2] AS [asrpid2], 
+    [View_PostDetails].[uid2] AS [uid2], 
+    [View_PostDetails].[rct2] AS [rct2], 
+    [View_PostDetails].[rt2] AS [rt2], 
+    [View_PostDetails].[un2] AS [un2], 
+    [View_PostDetails].[ui2] AS [ui2]
     FROM [dbo].[View_PostDetails] AS [View_PostDetails]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" store:Type="Views" store:Schema="dbo">
@@ -1578,19 +1587,14 @@
         </EntityType>
         <EntityType Name="View_PostDetails">
           <Key>
-            <PropertyRef Name="Users_id" />
             <PropertyRef Name="Post_id" />
             <PropertyRef Name="LunTan_id" />
-            <PropertyRef Name="Reply_id" />
+            <PropertyRef Name="rpid1" />
           </Key>
-          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Jifen" Type="Int32" />
-          <Property Name="Jingyan" Type="Int32" />
           <Property Name="Post_id" Type="Int32" Nullable="false" />
           <Property Name="PostTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="LunTan_id" Type="Int32" Nullable="false" />
           <Property Name="PostDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PostImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1604,13 +1608,22 @@
           <Property Name="Shi_id" Type="Int32" />
           <Property Name="Ci_id" Type="Int32" />
           <Property Name="Mp3_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Reply_id" Type="Int32" Nullable="false" />
-          <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
-          <Property Name="ReReply_id" Type="Int32" />
-          <Property Name="ReplyUsers_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ReplyPost_id" Type="Int32" />
-          <Property Name="PostUsers_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="uid1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="rpid1" Type="Int32" Nullable="false" />
+          <Property Name="rct1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="rt1" Type="DateTime" Precision="3" />
+          <Property Name="rr1" Type="Int32" />
+          <Property Name="pid1" Type="Int32" />
+          <Property Name="un1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ui1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="asrpid2" Type="Int32" />
+          <Property Name="uid2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="rct2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="rt2" Type="DateTime" Precision="3" />
+          <Property Name="un2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ui2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="View_PostIndex">
           <Key>
@@ -2689,14 +2702,10 @@
           <EntitySetMapping Name="View_PostDetails">
             <EntityTypeMapping TypeName="ShiyunModel.View_PostDetails">
               <MappingFragment StoreEntitySet="View_PostDetails">
-                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
-                <ScalarProperty Name="Jifen" ColumnName="Jifen" />
-                <ScalarProperty Name="Jingyan" ColumnName="Jingyan" />
                 <ScalarProperty Name="Post_id" ColumnName="Post_id" />
                 <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
                 <ScalarProperty Name="LunTan_id" ColumnName="LunTan_id" />
                 <ScalarProperty Name="PostDetails" ColumnName="PostDetails" />
                 <ScalarProperty Name="PostImage" ColumnName="PostImage" />
@@ -2710,13 +2719,22 @@
                 <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
                 <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
                 <ScalarProperty Name="Mp3_Url" ColumnName="Mp3_Url" />
-                <ScalarProperty Name="Reply_id" ColumnName="Reply_id" />
-                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
-                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
-                <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
-                <ScalarProperty Name="ReplyUsers_id" ColumnName="ReplyUsers_id" />
-                <ScalarProperty Name="ReplyPost_id" ColumnName="ReplyPost_id" />
-                <ScalarProperty Name="PostUsers_id" ColumnName="PostUsers_id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="uid1" ColumnName="uid1" />
+                <ScalarProperty Name="rpid1" ColumnName="rpid1" />
+                <ScalarProperty Name="rct1" ColumnName="rct1" />
+                <ScalarProperty Name="rt1" ColumnName="rt1" />
+                <ScalarProperty Name="rr1" ColumnName="rr1" />
+                <ScalarProperty Name="pid1" ColumnName="pid1" />
+                <ScalarProperty Name="un1" ColumnName="un1" />
+                <ScalarProperty Name="ui1" ColumnName="ui1" />
+                <ScalarProperty Name="asrpid2" ColumnName="asrpid2" />
+                <ScalarProperty Name="uid2" ColumnName="uid2" />
+                <ScalarProperty Name="rct2" ColumnName="rct2" />
+                <ScalarProperty Name="rt2" ColumnName="rt2" />
+                <ScalarProperty Name="un2" ColumnName="un2" />
+                <ScalarProperty Name="ui2" ColumnName="ui2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

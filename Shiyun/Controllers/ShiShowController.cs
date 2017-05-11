@@ -16,6 +16,9 @@ namespace Shiyun.Controllers
     {
         ShiyunEntities db = new ShiyunEntities();
         ShiManager shimanager = new ShiManager();
+        AuthorManager authormanager = new AuthorManager();
+        TimeManager timemanager = new TimeManager();
+        ShiTypeManager shitypemanager = new ShiTypeManager();
         // GET: ShiShow
 
         #region 诗展示
@@ -24,9 +27,33 @@ namespace Shiyun.Controllers
         public ActionResult ShiIndex()
         {
             var shitop8 = shimanager.GetShibyTop(8);
-            Models.ShiViewModels shivm = new Models.ShiViewModels();
+            var shi1 = shimanager.whereShiById(2);
+            var shi2 = shimanager.whereShiById(4);
+            var shi3 = shimanager.whereShiById(6);
+            var shi4 = shimanager.whereShiById(8);
+            var shi5 = shimanager.whereShiById(10);
+            var shi6 = shimanager.whereShiById(12);
+            //最新加入的诗
+            var shiauthor1 = authormanager.whereAuthorById(62);
+            var shiauthor2 = authormanager.whereAuthorById(56);
+            var shiauthor3 = authormanager.whereAuthorById(79);
+            var shitypetop12 = shitypemanager.GetShiTypebyTop(12);
+            var shitimtop11 = timemanager.GetTimebyTop(11);
+            Models.ShiViewModels shivm = new Models.ShiViewModels(); 
             shivm.Shitop8 = shitop8;
-            return View();
+            shivm.Shi1 = shi1;
+            shivm.Shi2 = shi2;
+            shivm.Shi3 = shi3;
+            shivm.Shi4 = shi4;
+            shivm.Shi5 = shi5;
+            shivm.Shi6 = shi6;
+            //new poety
+            shivm.ShiAuthor1 = shiauthor1;
+            shivm.ShiAuthor2 = shiauthor2;
+            shivm.ShiAuthor3 = shiauthor3;
+            shivm.ShiTypetop12 = shitypetop12;
+            shivm.ShiTimetop11 = shitimtop11;
+            return View(shivm);
         }
         #endregion
 
@@ -64,6 +91,10 @@ namespace Shiyun.Controllers
 
         #region 详情页
 
+        public ActionResult ShiShowDetails()
+        {
+            return View();
+        }
         #region 诗详情页
 
         #endregion

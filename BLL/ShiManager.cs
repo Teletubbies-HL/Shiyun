@@ -32,9 +32,15 @@ namespace BLL
             var shi = ishi.whereShiById(id);
             return shi;
         }
+
         public IQueryable<Shi> GetShibyTop(int top)
         {
             var shi = ishi.GetShibyTop(top);
+            return shi;
+        }
+        public IQueryable<Shi> GetShibyLast(int last)
+        {
+            var shi = ishi.GetShibyLast(last);
             return shi;
         }
         public void RemoveShi(Shi shi)

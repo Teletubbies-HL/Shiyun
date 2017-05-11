@@ -11,6 +11,7 @@ namespace IDAL
     {
         IEnumerable<Time> GetTime();
         Time GetTimeById(int? id);
+        IQueryable<Time> GetTimebyTop(int top);
         IQueryable<Author> GetAuthorByTimeId(int id);
         IQueryable<Shi> GetShiByTimeId(int id);
         void RemoveTime(Time time);

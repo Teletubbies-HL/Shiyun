@@ -14,14 +14,10 @@ namespace Models
     
     public partial class View_PostDetails
     {
-        public string Users_id { get; set; }
-        public string UserName { get; set; }
-        public string UserImage { get; set; }
-        public Nullable<int> Jifen { get; set; }
-        public Nullable<int> Jingyan { get; set; }
         public int Post_id { get; set; }
         public string PostTitle { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
+        public string Users_id { get; set; }
         public int LunTan_id { get; set; }
         public string PostDetails { get; set; }
         public string PostImage { get; set; }
@@ -35,12 +31,21 @@ namespace Models
         public Nullable<int> Shi_id { get; set; }
         public Nullable<int> Ci_id { get; set; }
         public string Mp3_Url { get; set; }
-        public int Reply_id { get; set; }
-        public string ReplyContent { get; set; }
-        public Nullable<System.DateTime> ReplyTime { get; set; }
-        public Nullable<int> ReReply_id { get; set; }
-        public string ReplyUsers_id { get; set; }
-        public Nullable<int> ReplyPost_id { get; set; }
-        public string PostUsers_id { get; set; }
+        public string UserName { get; set; }
+        public string UserImage { get; set; }
+        public string uid1 { get; set; }
+        public int rpid1 { get; set; }
+        public string rct1 { get; set; }
+        public Nullable<System.DateTime> rt1 { get; set; }
+        public Nullable<int> rr1 { get; set; }
+        public Nullable<int> pid1 { get; set; }
+        public string un1 { get; set; }
+        public string ui1 { get; set; }
+        public Nullable<int> asrpid2 { get; set; }
+        public string uid2 { get; set; }
+        public string rct2 { get; set; }
+        public Nullable<System.DateTime> rt2 { get; set; }
+        public string un2 { get; set; }
+        public string ui2 { get; set; }
     }
 }
