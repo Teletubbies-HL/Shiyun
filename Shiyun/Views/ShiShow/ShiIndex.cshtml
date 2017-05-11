@@ -25,14 +25,18 @@
 <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
 <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
 
-
+    <style>
+        .recommend-list .recommend-item .active .title {
+    border-bottom: 2px solid #CC7030;
+    background-color: #C8336A;
+}
+    </style>
 
 <!--[if lt IE 9]>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>    <![endif]-->
 
-@*<link rel="icon" href="https://static.ruogoo.cn/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="https://static.ruogoo.cn/favicon.ico" type="image/x-icon"*@>
+
 
 </head>
 
@@ -45,80 +49,225 @@
                 <div class="background-overlay" style="background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="400" id="blurred_ko06tm8gd" class="tint-bg-blur" viewBox="0 0 1583 400" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_ko06tm8gd"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="https://o.ruogoo.cn/cover/3df19b1b4a0eab45350507583d4eaeb9.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none"></image></svg></div>
                 <div class="container recommend-container">
                     <div class="recommend-detail">
-                        <h2>
-                            <a href="https://wenxue.ruogoo.cn/article/6994" class="white title extra">江湖江湖（一）</a>
+                        <h2 >
+                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title extra"></a>
                         </h2>
                         <h4>
-                            <a href="https://user.ruogoo.cn/4762" class="white title author">风十九i（东吴）</a>
+                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title author"></a>
                         </h4>
                         <a href="https://wenxue.ruogoo.cn/article/recommend" class="rg-button see-more">更多推荐</a>
                     </div>
 
                     <div class="recommend-show">
                         <a href="https://wenxue.ruogoo.cn/article/6994" class="image current visible transition animating fade left in">
-                            <img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/60e77daf56adc99482ba3b27c0e4d903.jpg" width="240" height="320">
+                            <img src="" width="240" height="320">
                         </a>
                     </div>
-                    
-
-                    <ul class="recommend-list">
-                        <li class="recommend-item">
+                   @*推荐诗句*@
+                    <ul class="recommend-list">                        
                             @foreach (var shi in Model.Shitop8)
                             {
-                                <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})">
-                                    <img style="width:100px;" src='..@shi.ShiImage' />
-                                    <span class="title small one-line">@shi.ShiTitle</span>                                  
-                                </a>
-                            }
-                            @*<a href="https://wenxue.ruogoo.cn/article/7181" class="image recommend-article" data-title="咏玉兰" data-author="吾悦" data-author-url="https://user.ruogoo.cn/1367">
-                                <img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/3df19b1b4a0eab45350507583d4eaeb9.jpg" width="100">
-                                <p class="title small one-line">咏玉兰</p>
-                            </a>*@
-                        </li>
+                                <li class="recommend-item">
+                                    <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})" class="image recommend-article" data-title="@shi.ShiTitle">
+                                        <img style="width:100px;" src='..@shi.ShiImage' />
+                                        <div class="timeline-title">
+                                            <p class="title small one-line">@shi.ShiTitle</p>
+                                        </div>
+                                        
+                                    </a>
+                                </li>
+                            }      
                     </ul>
                 </div>
             </div>
 
+            @*推荐显示部分*@
             <section class="nice-section container">
                 <div class="rg-board one-section white section">
                     <div class="rg-board-head">
-                        <p class="title">类型鉴赏</p>
+                        <p class="title">古诗鉴赏</p>
                         <a href="https://wenxue.ruogoo.cn/article/nice" class="more"> 更多 &gt;&gt;</a>
                     </div>
-                    <div class="rg-board-body">
+
+                    @*古诗鉴赏*@
+                    
+                    <div class="rg-board-body"> 
+
+                        @*古诗推荐*@  
+                         
                         <div class="col-group">
-                            <div class="col-4 col-mb-12">
-                                <div class="nicewithpic-item">
-                                    <a href="https://wenxue.ruogoo.cn/article/7289" class="nice-cover image">
-                                        @*<img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/7682c5242814ce7d36bd24ddaeb331d3.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/7682c5242814ce7d36bd24ddaeb331d3.jpg@!cover-90" class="cover" alt="老狗" style="display: inline;">*@
-                                    </a>
-                                    <div class="big title one-line">
-                                        <a href="https://wenxue.ruogoo.cn/article/7289">老狗</a>
+                           
+                              @foreach (var shi in Model.Shi1)
+                                {
+                                <div class="col-4 col-mb-12">                                    
+                                    <div class="nicewithpic-item">
+                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                            <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
+                                        </a>                                        
+                                        <div class="big title one-line">
+                                            <a href="https://wenxue.ruogoo.cn/article/7370">@shi.ShiTitle</a>
+                                        </div>
+                                        <p class="small text gray summary">
+                                            我生之初尚无为，我生之后汉祚衰。
+                                            天不仁兮降乱离，地不仁兮使我逢此时。
+                                            干戈日寻兮道路危，民卒流亡兮共哀悲。
+                                            烟尘蔽野兮胡虏盛，志意乖兮节义亏。
+                                        </p>
+                                        <p class="author" style="margin-top: -10px;width: 71%;float: left;">
+                                            作者:
+                                            <a href="https://user.ruogoo.cn/8668">@shi.Author.AuthorName</a>
+                                        </p>                                     
                                     </div>
-                                    <p class="small text gray summary">
-                                        初春的料峭拉扯着阴冷的乌云，这样的天气总让人觉得有些百无聊赖。想起以前的事，以前的人，就这么不经意的想起了家乡的那条老狗。
-                                        第一次见到老狗是我五岁那年，那时它还很年轻呢。那年我被带着去
-                                    </p>
-                                    <p class="author">
-                                        作者:
-                                        <a href="https://user.ruogoo.cn/565">陌上桃夭</a>
-                                    </p>
                                 </div>
+                                } 
+
+                            @foreach (var shi in Model.Shi2)
+                            {
+                                <div class="col-4 col-mb-12">
+                                    <div class="nicewithpic-item">
+                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                            <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
+                                        </a>
+                                        <div class="big title one-line">
+                                            <a href="https://wenxue.ruogoo.cn/article/7370">@shi.ShiTitle</a>
+                                        </div>
+                                        <p class="small text gray summary">
+                                            北方有佳人。绝世而独立。
+                                            一顾倾人城。再顾倾人国。
+                                            宁不知倾城与倾国。佳人难再得。
+                                           
+                                        </p>
+                                        <p class="author" style="margin-top: -10px;width: 71%;float: left;">
+                                            作者:
+                                            <a href="https://user.ruogoo.cn/8668">@shi.Author.AuthorName</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                            @foreach (var shi in Model.Shi3)
+                            {
+                                <div class="col-4 col-mb-12">
+                                    <div class="nicewithpic-item">
+                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                            <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
+                                        </a>
+                                        <div class="big title one-line">
+                                            <a href="https://wenxue.ruogoo.cn/article/7370">@shi.ShiTitle</a>
+                                        </div>
+                                        <p class="small text gray summary">
+                                            鸿鹄高飞，一举千里。
+                                            羽翮已就，横绝四海。
+                                            横绝四海，当可奈何？
+                                            虽有矰缴，尚安所施？
+                                        </p>
+                                        <p class="author" style="margin-top: -10px;width: 71%;float: left;">
+                                            作者:
+                                            <a href="https://user.ruogoo.cn/8668">@shi.Author.AuthorName</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                            
+                            @foreach (var shi in Model.Shi4)
+                            {
+                                <div class="col-4 col-mb-12">
+                                    <div class="nicewithpic-item">
+                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                            <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
+                                        </a>
+                                        <div class="big title one-line">
+                                            <a href="https://wenxue.ruogoo.cn/article/7370">@shi.ShiTitle</a>
+                                        </div>
+                                        <p class="small text gray summary">
+                                            美连娟以修嫭兮，命樔绝而不长。
+                                            饰新官以延贮兮，泯不归乎故乡。
+                                            惨郁郁其芜秽兮，隐处幽而怀伤。
+                                            释舆马于山椒兮，奄修夜之不阳。
+                                        </p>
+                                        <p class="author" style="margin-top: -10px;width: 71%;float: left;">
+                                            作者:
+                                            <a href="https://user.ruogoo.cn/8668">@shi.Author.AuthorName</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                            @foreach (var shi in Model.Shi5)
+                            {
+                                <div class="col-4 col-mb-12">
+                                    <div class="nicewithpic-item">
+                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                            <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
+                                        </a>
+                                        <div class="big title one-line">
+                                            <a href="https://wenxue.ruogoo.cn/article/7370">@shi.ShiTitle</a>
+                                        </div>
+                                        <p class="small text gray summary">
+                                            太一况，天马下，沾赤汗，沫流赭。
+                                            志俶傥，精权奇，籋浮云，晻上驰。
+                                            体容与，迣万里，今安匹，龙为友。
+                                        </p>
+                                        <p class="author" style="margin-top: -10px;width: 71%;float: left;">
+                                            作者:
+                                            <a href="https://user.ruogoo.cn/8668">@shi.Author.AuthorName</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                            @foreach (var shi in Model.Shi6)
+                            {
+                                <div class="col-4 col-mb-12">
+                                    <div class="nicewithpic-item">
+                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                            <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
+                                        </a>
+                                        <div class="big title one-line">
+                                            <a href="https://wenxue.ruogoo.cn/article/7370">@shi.ShiTitle</a>
+                                        </div>
+                                        <p class="small text gray summary">
+                                            秋木萋萋，其叶萎黄，有鸟处山，集于苞桑。
+                                            养育毛羽，形容生光，既得行云，上游曲房。
+                                            离宫绝旷，身体摧藏，志念没沉，不得颉颃。
+                                        </p>
+                                        <p class="author" style="margin-top: -10px;width: 71%;float: left;">
+                                            作者:
+                                            <a href="https://user.ruogoo.cn/8668">@shi.Author.AuthorName</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                            
+
+                        </div>
+                                  
+                        @*诗人推荐*@  
+                                                      
+                        <div class="nice-list col-group">
+                               
+                                    @foreach (var shi in Model.Shitop8)
+
+                                    {
+                                        <div class="col-4 col-mb-12">
+                                            <div class="nice-item text one-line">
+
+                                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">@shi.ShiType.ShiTypeName</a>
+                                                <a href="https://wenxue.ruogoo.cn/article/7372" class="title"> @shi.ShiTitle </a>
+                                                /
+                                                <a href="https://user.ruogoo.cn/8383" class="gray"> @shi.Author.AuthorName</a>
+                                            </div>
+                                        </div>
+                                     }
                             </div>
+
                         </div>
 
-                        <div class="nice-list col-group">
-                            <div class="col-4 col-mb-12">
-                                <div class="nice-item text one-line">
-                                    <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                    <a href="https://wenxue.ruogoo.cn/article/7295" class="title"> 望湘人.湖州闻箫鼓 </a>
-                                    /
-                                    <a href="https://user.ruogoo.cn/525" class="gray"> 逸云先生</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+                    </div>                        
             </section>
 
             <div class="container">
@@ -133,8 +282,7 @@
                             <div class="col-2 col-mb-6">
                                 <div class="collection-item">
                                     <a href="https://wenxue.ruogoo.cn/collection/402" class="collection-cover image">
-                                        @*<img src="@item.GoodsImage" style="width:60px;height:80px" />*@
-                                         @*<img src="./若古文学 _ 若古 _ 最优秀的古风文学网站 _ 古风网站_files/c367dc866c46745958021a64b0847bba.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" class="cover" alt="繁华浮梦" style="display: inline;">*@
+                                       
                                     </a>
                                     <p class="title one-line">
                                         <a href="https://wenxue.ruogoo.cn/collection/402">繁华浮梦</a>
@@ -145,6 +293,7 @@
                     </div>
                 </div>
             </div>
+
             <section class="article-section container">
                 <div class="col-group">
                     <div class="col-8 col-mb-12">
@@ -337,4 +486,4 @@
 
 
 </body>
-@*</html>*@
+

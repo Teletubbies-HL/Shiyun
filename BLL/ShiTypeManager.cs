@@ -27,7 +27,11 @@ namespace BLL
             var Shi = ishitype.GetShiByShiTypeId(id);
             return Shi;
         }
-
+        public IQueryable<ShiType> GetShiTypebyTop(int top)
+        {
+            var shitype = ishitype.GetShiTypebyTop(top);
+            return shitype;
+        }
         public void RemoveShiType(ShiType goods)
         {
             ishitype.RemoveShiType(goods);

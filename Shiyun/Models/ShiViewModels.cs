@@ -10,9 +10,18 @@ namespace Shiyun.Models
     {
        
         public IEnumerable<Shi> Shitop8 { get; set; }
-        public IEnumerable<Shi> ShiAuthortop20 { get; set; }
-        public IEnumerable<Shi> ShiTypetop20 { get; set; }
-        public IEnumerable<Shi> ShiTimetop20 { get; set; }
+        public IEnumerable<Shi> Shi1 { get; set; }
+        public IEnumerable<Shi> Shi2 { get; set; }
+        public IEnumerable<Shi> Shi3 { get; set; }
+        public IEnumerable<Shi> Shi4 { get; set; }
+        public IEnumerable<Shi> Shi5 { get; set; }
+        public IEnumerable<Shi> Shi6 { get; set; }
+        public IEnumerable<Shi> Shinew22 { get; set; }
+        public IEnumerable<Author> ShiAuthor1{ get; set; }
+        public IEnumerable<Author> ShiAuthor2 { get; set; }
+        public IEnumerable<Author> ShiAuthor3 { get; set; }
+        public IEnumerable<ShiType> ShiTypetop12 { get; set; }
+        public IEnumerable<Time> ShiTimetop11 { get; set; }
 
     }
 }
