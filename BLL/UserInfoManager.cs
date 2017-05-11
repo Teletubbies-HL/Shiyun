@@ -16,6 +16,11 @@ namespace BLL
         {
             iuserinfo.AddUserInfo(userInfo);
         }
+
+        public void UpdateUserInfo(UserInfo userInfo)
+        {
+            iuserinfo.UpdateUserInfo(userInfo);
+        }
         public UserInfo Denglu(string Users_id, string UserPass)
         {
             var userInfo = iuserinfo.Denglu(Users_id, UserPass);

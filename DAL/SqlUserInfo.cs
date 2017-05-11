@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,16 @@ namespace DAL
             db.UserInfo.Add(userInfo);
             db.SaveChanges();
         }
-
+        public int CountUserInfoById(string uid)
+        {
+            var shopcar = db.UserInfo.Where(c => c.Users_id == uid).Select(c => c.Users_id).Count();
+            return shopcar;
+        }
+        public void UpdateUserInfo(UserInfo userInfo)
+        {
+            db.Entry(userInfo).State = EntityState.Modified;
+            db.SaveChanges();
+        }
         public UserInfo Denglu(string Users_id, string UserPass)
         {
             var userInfo=db.UserInfo.Where(u => u.Users_id == Users_id)

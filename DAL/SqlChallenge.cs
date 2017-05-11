@@ -22,9 +22,9 @@ namespace DAL
             Challenge challenge = db.Challenge.Find(id);
             return challenge;
         }
-        public IEnumerable<Challenge> SuijiChallengeByKid(int kid)
+        public IEnumerable<Challenge> SuijiChallengeByKid(int kid,int tiao)
         {
-            var challenge = db.Challenge.Where(c=>c.ChallengeK_id==kid).OrderBy(a => Guid.NewGuid()).Take(1);
+            var challenge = db.Challenge.Where(c => c.ChallengeK_id == kid).OrderBy(c => Guid.NewGuid()).ToList().Take(tiao);
             return challenge;
         }
         public IQueryable<UserDati> GetUserDatiByChallengeId(int id)

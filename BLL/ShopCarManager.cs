@@ -42,7 +42,6 @@ namespace BLL
         public void UpdateShopcarCount(ShopCar shopCar)
         {
             ishopcar.UpdateShopcarCount(shopCar);
-
         }
         public int CountShopcarCountById(string uid, int gid)
         {

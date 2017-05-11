@@ -62,6 +62,7 @@
             <div class="timu" id="timu1">请从右侧十二个字中识别一句诗词</div>
             <div class="timu" id="timu2" style="display: none;">请从右侧四个选项中选择一个正确答案</div>
             <div class="timu" id="timu3" style="display: none;">请将右侧诗词中缺失句子补全</div>
+            <div class="tips">每题只有一次机会请慎重答题</div>
             <div class="final" id="timu4" style="display: none;"></div>
         </div>
         @*1-3点字成诗；4-7选择正解；8-10诗词对句*@
@@ -88,244 +89,418 @@
                         <div class="jiugongge 1-12" style="margin-left: 20px;">@item.C12</div>
                     </div>
                 </div>
+                <input name="timu1id" id="timu1id" value="@item.Timu_id" type="hidden"/>
             }
-            <div class="useranswer"></div>
+            <div class="useranswer a_1"></div>
+            <input id="userdaan1" name="userdaan1" value="0" type="hidden"/>
             <div class="tijiaobutton" id="btn1">下一题</div>
+            <div class="fenshu fs1" style="display: none;"></div>
         </div>
     <div class="rightbox" id="rightbox2" style="display: none;">
         @foreach (var item in Model.Challenge2)
         {
             <div class="jggbox">
                 <div class="jggline" style="margin-top: 80px;">
-                    <div class="jiugongge j1">@item.C1</div>
-                    <div class="jiugongge j2" style="margin-left: 20px;">@item.C2</div>
-                    <div class="jiugongge j3" style="margin-left: 20px;">@item.C3</div>
-                    <div class="jiugongge j4" style="margin-left: 20px;">@item.C4</div>
+                    <div class="jiugongge 2-1">@item.C1</div>
+                    <div class="jiugongge 2-2" style="margin-left: 20px;">@item.C2</div>
+                    <div class="jiugongge 2-3" style="margin-left: 20px;">@item.C3</div>
+                    <div class="jiugongge 2-4" style="margin-left: 20px;">@item.C4</div>
                 </div>
                 <div class="jggline" style="margin-top: 20px;">
-                    <div class="jiugongge j5">@item.C5</div>
-                    <div class="jiugongge j6" style="margin-left: 20px;">@item.C6</div>
-                    <div class="jiugongge j7" style="margin-left: 20px;">@item.C7</div>
-                    <div class="jiugongge j8" style="margin-left: 20px;">@item.C8</div>
+                    <div class="jiugongge 2-5">@item.C5</div>
+                    <div class="jiugongge 2-6" style="margin-left: 20px;">@item.C6</div>
+                    <div class="jiugongge 2-7" style="margin-left: 20px;">@item.C7</div>
+                    <div class="jiugongge 2-8" style="margin-left: 20px;">@item.C8</div>
                 </div>
                 <div class="jggline" style="margin-top: 20px;">
-                    <div class="jiugongge j9">@item.C9</div>
-                    <div class="jiugongge j10" style="margin-left: 20px;">@item.C10</div>
-                    <div class="jiugongge j11" style="margin-left: 20px;">@item.C11</div>
-                    <div class="jiugongge j12" style="margin-left: 20px;">@item.C12</div>
+                    <div class="jiugongge 2-9">@item.C9</div>
+                    <div class="jiugongge 2-10" style="margin-left: 20px;">@item.C10</div>
+                    <div class="jiugongge 2-11" style="margin-left: 20px;">@item.C11</div>
+                    <div class="jiugongge 2-12" style="margin-left: 20px;">@item.C12</div>
                 </div>
             </div>
+            <input name="timu2id" id="timu2id" value="@item.Timu_id" type="hidden" />
         }
-        <div class="useranswer"></div>
+        <div class="useranswer a_2"></div>
+        <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
         <div class="tijiaobutton" id="btn2">下一题</div>
+        <div class="fenshu fs2" style="display: none;"><input id="fs2" class="fs" value="0" type="hidden"/></div>
     </div>
         <div class="rightbox" id="rightbox3" style="display: none;">
             @foreach (var item in Model.Challenge3)
             {
                 <div class="jggbox">
                     <div class="jggline" style="margin-top: 80px;">
-                        <div class="jiugongge">@item.C1</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C2</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C3</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C4</div>
+                        <div class="jiugongge 3-1">@item.C1</div>
+                        <div class="jiugongge 3-2" style="margin-left: 20px;">@item.C2</div>
+                        <div class="jiugongge 3-3" style="margin-left: 20px;">@item.C3</div>
+                        <div class="jiugongge 3-4" style="margin-left: 20px;">@item.C4</div>
                     </div>
                     <div class="jggline" style="margin-top: 20px;">
-                        <div class="jiugongge">@item.C5</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C6</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C7</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C8</div>
+                        <div class="jiugongge 3-5">@item.C5</div>
+                        <div class="jiugongge 3-6" style="margin-left: 20px;">@item.C6</div>
+                        <div class="jiugongge 3-7" style="margin-left: 20px;">@item.C7</div>
+                        <div class="jiugongge 3-8" style="margin-left: 20px;">@item.C8</div>
                     </div>
                     <div class="jggline" style="margin-top: 20px;">
-                        <div class="jiugongge">@item.C9</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C10</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C11</div>
-                        <div class="jiugongge" style="margin-left: 20px;">@item.C12</div>
+                        <div class="jiugongge 3-9">@item.C9</div>
+                        <div class="jiugongge 3-10" style="margin-left: 20px;">@item.C10</div>
+                        <div class="jiugongge 3-11" style="margin-left: 20px;">@item.C11</div>
+                        <div class="jiugongge 3-12" style="margin-left: 20px;">@item.C12</div>
                     </div>
                 </div>
+                <input name="timu3id" id="timu3id" value="@item.Timu_id" type="hidden" />
             }
-            <div class="useranswer"></div>
+            <div class="useranswer a_3"></div>
+            <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
             <div class="tijiaobutton" id="btn3">下一题</div>
+            <div class="fenshu fs3" style="display: none;"><input id="fs3" class="fs" value="0"  type="hidden"/></div>
         </div>
         @*1-3点字成诗；4-7选择正解；8-10诗词对句*@
-        <div class="rightbox" id="rightbox4" style="display: none;">
-            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+    <div class="rightbox" id="rightbox4" style="display: none;">
+        @foreach (var item in Model.Challenge4)
+        {
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;">@item.Timu</div>
             <div class="choosearea" style="margin-top: 50px;">
-                <div class="choose" id="A1"></div>
-                <div class="choose" id="B1" style="float:right;"></div>
+                <div class="choose" id="A1">
+                    <div class="Aclass">A</div>@item.C1
+                </div>
+                <div class="choose" id="B1" style="float: right;">
+                    <div class="Aclass">B</div>@item.C2
+                </div>
             </div>
             <div class="choosearea">
-                <div class="choose" id="C1"></div>
-                <div class="choose" id="D1" style="float: right;"></div>
+                <div class="choose" id="C1">
+                    <div class="Aclass">C</div>@item.C3
+                </div>
+                <div class="choose" id="D1" style="float: right;">
+                    <div class="Aclass">D</div>@item.C4
+                </div>
             </div>
-            <div class="tijiaobutton" id="btn4">下一题</div>
-        </div>
-        <div class="rightbox" id="rightbox5" style="display: none;">
-            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <input name="timu4id" id="timu4id" value="@item.Timu_id" type="hidden" />
+        }
+        <input class="useranswer a_4" type="hidden" value="0"/>
+        <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
+        <div class="tijiaobutton" id="btn4">下一题</div>
+        <div class="fenshu fs4" style="display: none;"><input id="fs4" class="fs" value="0"  type="hidden"/></div>
+    </div>
+    <div class="rightbox" id="rightbox5" style="display: none;">
+        @foreach (var item in Model.Challenge5)
+        {
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;">@item.Timu</div>
             <div class="choosearea" style="margin-top: 50px;">
-                <div class="choose" id="A2"></div>
-                <div class="choose" id="B2" style="float:right;"></div>
+                <div class="choose" id="A2">
+                    <div class="Aclass">A</div>@item.C1
+                </div>
+                <div class="choose" id="B2" style="float: right;">
+                    <div class="Aclass">B</div>@item.C2
+                </div>
             </div>
             <div class="choosearea">
-                <div class="choose" id="C2"></div>
-                <div class="choose" id="D2" style="float: right;"></div>
+                <div class="choose" id="C2">
+                    <div class="Aclass">C</div>@item.C3
+                </div>
+                <div class="choose" id="D2" style="float: right;">
+                    <div class="Aclass">D</div>@item.C4
+                </div>
             </div>
-            <div class="tijiaobutton" id="btn5">下一题</div>
-        </div>
-        <div class="rightbox" id="rightbox6" style="display: none;">
-            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <input name="timu5id" id="timu5id" value="@item.Timu_id" type="hidden" />
+        }
+        <input class="useranswer a_5" type="hidden" value="0" />
+        <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
+        <div class="tijiaobutton" id="btn5">下一题</div>
+        <div class="fenshu fs5" style="display: none;"><input id="fs5" class="fs" value="0"  type="hidden"/></div>
+    </div>
+    <div class="rightbox" id="rightbox6" style="display: none;">
+        @foreach (var item in Model.Challenge6)
+        {
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;">@item.Timu</div>
             <div class="choosearea" style="margin-top: 50px;">
-                <div class="choose" id="A3"></div>
-                <div class="choose" id="B3" style="float:right;"></div>
+                <div class="choose" id="A3">
+                    <div class="Aclass">A</div>@item.C1
+                </div>
+                <div class="choose" id="B3" style="float: right;">
+                    <div class="Aclass">B</div>@item.C2
+                </div>
             </div>
             <div class="choosearea">
-                <div class="choose" id="C3"></div>
-                <div class="choose" id="D3" style="float: right;"></div>
+                <div class="choose" id="C3">
+                    <div class="Aclass">C</div>@item.C3
+                </div>
+                <div class="choose" id="D3" style="float: right;">
+                    <div class="Aclass">D</div>@item.C4
+                </div>
             </div>
-            <div class="tijiaobutton" id="btn6">下一题</div>
-        </div>
-        <div class="rightbox" id="rightbox7" style="display: none;">
-            <div class="xuanze" id="xuanze1" style="margin-top: 80px;"></div>
+            <input name="timu6id" id="timu6id" value="@item.Timu_id" type="hidden" />
+        }
+        <input class="useranswer a_6" type="hidden" value="0" />
+        <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
+        <div class="tijiaobutton" id="btn6">下一题</div>
+        <div class="fenshu fs6" style="display: none;"><input id="fs6" class="fs" value="0"  type="hidden"/></div>
+    </div>
+    <div class="rightbox" id="rightbox7" style="display: none;">
+        @foreach (var item in Model.Challenge7)
+        {
+            <div class="xuanze" id="xuanze1" style="margin-top: 80px;">@item.Timu</div>
             <div class="choosearea" style="margin-top: 50px;">
-                <div class="choose" id="A4"></div>
-                <div class="choose" id="B4" style="float:right;"></div>
+                <div class="choose" id="A4">
+                    <div class="Aclass">A</div>@item.C1
+                </div>
+                <div class="choose" id="B4" style="float: right;">
+                    <div class="Aclass">B</div>@item.C2
+                </div>
             </div>
             <div class="choosearea">
-                <div class="choose" id="C4"></div>
-                <div class="choose" id="D4" style="float: right;"></div>
+                <div class="choose" id="C4">
+                    <div class="Aclass">C</div>@item.C3
+                </div>
+                <div class="choose" id="D4" style="float: right;">
+                    <div class="Aclass">D</div>@item.C4
+                </div>
             </div>
-            <div class="tijiaobutton" id="btn7">下一题</div>
-        </div>
+            <input name="timu7id" id="timu7id" value="@item.Timu_id" type="hidden" />
+        }
+        <input class="useranswer a_7" type="hidden" value="0" />
+        <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
+        <div class="tijiaobutton" id="btn7">下一题</div>
+        <div class="fenshu fs7" style="display: none;"><input id="fs7" class="fs" value="0"  type="hidden"/></div>
+    </div>
         @*1-3点字成诗；4-7选择正解；8-10诗词对句*@
         <div class="rightbox" id="rightbox8" style="display: none;">
-            <div class="duijvtimu" style="margin-top: 80px;"></div>
-            <div class="tianjvanswer"></div>
+            @foreach (var item in Model.Challenge8)
+            {
+                <div class="duijvtimu" style="margin-top: 80px;">@item.Timu</div>
+                <div class="tianjvanswer">
+                    <input class="tiankong a_8" type="text"/>
+                </div>
+                <input name="timu8id" id="timu8id" value="@item.Timu_id" type="hidden" />
+            }
+            <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
             <div class="tijiaobutton" id="btn8">下一题</div>
+            <div class="fenshu fs8" style="display: none;"><input id="fs8" class="fs" value="0"  type="hidden"/></div>
         </div>
         <div class="rightbox" id="rightbox9" style="display: none;">
-            <div class="duijvtimu" style="margin-top: 80px;"></div>
-            <div class="tianjvanswer"></div>
+            @foreach (var item in Model.Challenge9)
+            {
+                <div class="duijvtimu" style="margin-top: 80px;">@item.Timu</div>
+                <div class="tianjvanswer">
+                    <input class="tiankong a_9" type="text" />
+                </div>
+                <input name="timu9id" id="timu9id" value="@item.Timu_id" type="hidden" />
+            }
+            <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
             <div class="tijiaobutton" id="btn9">下一题</div>
+            <div class="fenshu fs9" style="display: none;"><input id="fs9" class="fs" value="0"  type="hidden"/></div>
         </div>
         <div class="rightbox" id="rightbox10" style="display: none;">
-            <div class="duijvtimu" style="margin-top: 80px;"></div>
-            <div class="tianjvanswer"></div>
+            @foreach (var item in Model.Challenge10)
+            {
+                <div class="duijvtimu" style="margin-top: 80px;">@item.Timu</div>
+                <div class="tianjvanswer">
+                    <input class="tiankong a_10" type="text" />
+                </div>
+                <input name="timu10id" id="timu10id" value="@item.Timu_id" type="hidden" />
+            }
+            <input id="userdaan1" name="userdaan1" value="0" type="hidden" />
             <div class="tijiaobutton" id="btn10">完成</div>
+            <div class="fenshu fs10" style="display: none;"><input id="fs10" class="fs" value="0"  type="hidden"/></div>
         </div>
-        <div class="rightbox" id="rightbox11" style="display: none;">
-            
+    <div class="rightbox" id="rightbox11" style="display: none;">
+        <div class="fenshu fs11" style="display: none;"><input id="fs11" class="fs" value="0" type="hidden" /></div>
+        <div class="finalshow">
+            <div class="tabbox">
+                <div class="tab">
+                    <a href="javascript:;" class="on">1</a>
+                    <a href="javascript:;">2</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">4</a>
+                    <a href="javascript:;">5</a>
+                    <a href="javascript:;">6</a>
+                    <a href="javascript:;">7</a>
+                    <a href="javascript:;">8</a>
+                    <a href="javascript:;">9</a>
+                    <a href="javascript:;">10</a>
+                </div>
+                <div class="content">
+                    <ul>
+                        @foreach (var item in Model.Challenge1)
+                             {
+                                 <li style="display: list-item;">
+                                     <div class="xjggbox">
+                                         <div class="xjggline" style="margin-top: 0px;">
+                                             <div class="xjiugongge">@item.C1</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C2</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C3</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C4</div>
+                                         </div>
+                                         <div class="xjggline" style="margin-top: 10px;">
+                                             <div class="xjiugongge">@item.C5</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C6</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C7</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C8</div>
+                                         </div>
+                                         <div class="xjggline" style="margin-top: 10px;">
+                                             <div class="xjiugongge">@item.C9</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C10</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C11</div>
+                                             <div class="xjiugongge" style="margin-left: 10px;">@item.C12</div>
+                                         </div>
+                                     </div>
+                                     <div class="xanswer">正确答案：@item.AnswerA</div>
+                                 </li>
+                             }
+                        @foreach (var item in Model.Challenge2)
+                        {
+                            <li>
+                                <div class="xjggbox">
+                                    <div class="xjggline" style="margin-top: 0px;">
+                                        <div class="xjiugongge">@item.C1</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C2</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C3</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C4</div>
+                                    </div>
+                                    <div class="xjggline" style="margin-top: 10px;">
+                                        <div class="xjiugongge">@item.C5</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C6</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C7</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C8</div>
+                                    </div>
+                                    <div class="xjggline" style="margin-top: 10px;">
+                                        <div class="xjiugongge">@item.C9</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C10</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C11</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C12</div>
+                                    </div>
+                                </div>
+                                <div class="xanswer">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge3)
+                        {
+                            <li>
+                                <div class="xjggbox">
+                                    <div class="xjggline" style="margin-top: 0px;">
+                                        <div class="xjiugongge">@item.C1</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C2</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C3</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C4</div>
+                                    </div>
+                                    <div class="xjggline" style="margin-top: 10px;">
+                                        <div class="xjiugongge">@item.C5</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C6</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C7</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C8</div>
+                                    </div>
+                                    <div class="xjggline" style="margin-top: 10px;">
+                                        <div class="xjiugongge">@item.C9</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C10</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C11</div>
+                                        <div class="xjiugongge" style="margin-left: 10px;">@item.C12</div>
+                                    </div>
+                                </div>
+                                <div class="xanswer">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge4)
+                        {
+                            <li>
+                                <div class="xxuanzearea" style="width: 90%;margin: 15px auto;text-align: center;">
+                                    <div class="xxuanze">@item.Timu</div>
+                                    <div class="xxuanxiang">A.@item.C1</div>
+                                    <div class="xxuanxiang">B.@item.C2</div>
+                                    <div class="xxuanxiang">C.@item.C3</div>
+                                    <div class="xxuanxiang">D.@item.C4</div>
+                                </div>
+                                <div class="xanswer">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge5)
+                        {
+                            <li>
+                                <div class="xxuanzearea" style="width: 90%;margin: 15px auto;text-align: center;">
+                                    <div class="xxuanze">@item.Timu</div>
+                                    <div class="xxuanxiang">A.@item.C1</div>
+                                    <div class="xxuanxiang">B.@item.C2</div>
+                                    <div class="xxuanxiang">C.@item.C3</div>
+                                    <div class="xxuanxiang">D.@item.C4</div>
+                                </div>
+                                <div class="xanswer">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge6)
+                        {
+                            <li>
+                                <div class="xxuanzearea" style="width: 90%;margin: 15px auto;text-align: center;">
+                                    <div class="xxuanze">@item.Timu</div>
+                                    <div class="xxuanxiang">A.@item.C1</div>
+                                    <div class="xxuanxiang">B.@item.C2</div>
+                                    <div class="xxuanxiang">C.@item.C3</div>
+                                    <div class="xxuanxiang">D.@item.C4</div>
+                                </div>
+                                <div class="xanswer">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge7)
+                        {
+                            <li>
+                                <div class="xxuanzearea" style="width: 90%;margin: 15px auto;text-align: center;">
+                                    <div class="xxuanze">@item.Timu</div>
+                                    <div class="xxuanxiang">A.@item.C1</div>
+                                    <div class="xxuanxiang">B.@item.C2</div>
+                                    <div class="xxuanxiang">C.@item.C3</div>
+                                    <div class="xxuanxiang">D.@item.C4</div>
+                                </div>
+                                <div class="xanswer">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge8)
+                        {
+                            <li>
+                                <div class="xtiankongarea" style="width: 90%;margin: 25px auto;text-align: center;">
+                                    <div class="xtiankong">@item.Timu</div>
+                                </div>
+                                <div class="xanswer" style="font-size: 17px;">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge9)
+                        {
+                            <li>
+                                <div class="xtiankongarea" style="width: 90%;margin: 25px auto;text-align: center;">
+                                    <div class="xtiankong">@item.Timu</div>
+                                </div>
+                                <div class="xanswer" style="font-size: 17px;">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                        @foreach (var item in Model.Challenge10)
+                        {
+                            <li>
+                                <div class="xtiankongarea" style="width: 90%;margin: 25px auto;text-align: center;">
+                                    <div class="xtiankong">@item.Timu</div>
+                                </div>
+                                <div class="xanswer" style="font-size: 17px;">正确答案：@item.AnswerA</div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="xianshifenshu">
+                <span>本次挑战得分：</span><div class="defen" style="display: inline-block;"></div><br/>
+                <span>个人挑战积分：+</span><div class="jifen" style="display: inline-block;"></div>
+            </div>
+            <div class="buttonarea">
+                <a href="@Url.Action("Index","Home")"><div class="tijiaobutton" id="btn11" style="display: inline-block;">回到主页</div></a>
+                <a href="@Url.Action("Index","Challenge")"><div class="tijiaobutton" id="btn12" style="display: inline-block; float: right;">再次挑战</div></a>
+</div>
+        </div>
         </div>
     </div>
 </section>
 
 @section scripts
 {
+<script src="~/Scripts/JS/Challenge.js"></script>
     <script type="text/javascript">
 
-        (function ($) {
-            //屏蔽，适合单个元素.
-            $.fn.mask = function () {
-                var divHtml = '<div class="divMask" style="position: absolute; width: 90px; height: 90px; left: 0px; top: -42px; background: #fff; opacity: 0; filter: alpha(opacity=0)"> </div>';
-                $(this).wrap('<span style="position: relative"></span>');
-                $(this).parent().append(divHtml);
-                $(this).data("mask", "true");
-            }
-            //取消屏蔽
-            $.fn.unmask = function () {
-                $(this).parent().find(".divMask").remove();
-                $(this).unwrap();
-                $(this).data("mask", "false");
-            }
-        })(jQuery);
-
-        $(function() {
-            $("#btn1").click(function () {
-                $("#number1").css({ border: '1px solid #4cd964', color: '#4cd964'});
-                $("#line2").css("background-color", "#4cd964");
-                $("#rightbox1").hide();
-                $("#rightbox2").css("display", "block");
-                $(".useranswer").empty();
-            });
-            $("#btn2").click(function () {
-                $("#number2").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line3").css("background-color", "#4cd964");
-                $("#rightbox2").hide();
-                $("#rightbox3").css("display", "block");
-            });
-            $("#btn3").click(function () {
-                $("#number3").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line4").css("background-color", "#4cd964");
-                $("#rightbox3").hide();
-                $("#rightbox4").css("display", "block");
-                $("#timu1").hide();
-                $("#timu2").show();
-                $("#challengekname1").hide();
-                $("#challengekname2").show();
-            });
-            $("#btn4").click(function () {
-                $("#number4").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line5").css("background-color", "#4cd964");
-                $("#rightbox4").hide();
-                $("#rightbox5").css("display", "block");
-            });
-            $("#btn5").click(function () {
-                $("#number5").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line5").css("background-color", "#4cd964");
-                $("#line5-5").css("background-color", "#4cd964");
-                $("#line6").css("background-color", "#4cd964");
-                $("#rightbox5").hide();
-                $("#rightbox6").css("display", "block");
-            });
-            $("#btn6").click(function () {
-                $("#number6").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line7").css("background-color", "#4cd964");
-                $("#rightbox6").hide();
-                $("#rightbox7").css("display", "block");
-            });
-            $("#btn7").click(function () {
-                $("#number7").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line8").css("background-color", "#4cd964");
-                $("#rightbox7").hide();
-                $("#rightbox8").css("display", "block");
-                $("#timu2").hide();
-                $("#timu3").show();
-                $("#challengekname2").hide();
-                $("#challengekname3").show();
-            });
-            $("#btn8").click(function () {
-                $("#number8").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line9").css("background-color", "#4cd964");
-                $("#rightbox8").hide();
-                $("#rightbox9").css("display", "block");
-            });
-            $("#btn9").click(function () {
-                $("#number9").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line10").css("background-color", "#4cd964");
-                $("#rightbox9").hide();
-                $("#rightbox10").css("display", "block");
-            });
-            $("#btn10").click(function () {
-                $("#number10").css({ border: '1px solid #4cd964', color: '#4cd964' });
-                $("#line10-5").css("background-color", "#4cd964");
-                $("#rightbox10").hide();
-                $("#rightbox11").css("display", "block");
-                $("#timu3").hide();
-                $("#timu4").show();
-                $("#challengekname3").hide();
-                $("#challengekname4").show();
-            }); 
-            });
-        $(function() {
-            $(".1-1").click(function () {
-                var a = $(".1-1").text();
-                $(".useranswer").append(a);
-                $(".1-1").mask();
-            });
-            $(".1-2").click(function () {
-                var a = $(".1-2").text();
-                $(".useranswer").append(a);
-                $(".1-2").mask();
-            });
-        });
     </script>
 
 }
