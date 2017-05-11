@@ -27,6 +27,11 @@ namespace BLL
             var ShopCar = itime.GetAuthorByTimeId(id);
             return ShopCar;
         }
+        public IQueryable<Time> GetTimebyTop(int top)
+        {
+            var time = itime.GetTimebyTop(top);
+            return time;
+        }
         public IQueryable<Shi> GetShiByTimeId(int id)
         {
             var Shi = itime.GetShiByTimeId(id);

@@ -22,6 +22,14 @@ namespace DAL
             Time time = db.Time.Find(id);
             return time;
         }
+        public IQueryable<Time> GetTimebyTop(int top)
+        {
+            //var goods = db.Goods.OrderBy(c => c.Goods_id).Take(top);
+            var time = from tm in db.Time
+                        orderby tm.Time_id descending
+                        select tm;
+            return time.Take(top);
+        }
         public IQueryable<Author> GetAuthorByTimeId(int id)
         {
             var Author = db.Author.Include("Time").Where(c => c.Time_id == id);

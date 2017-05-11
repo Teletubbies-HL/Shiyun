@@ -27,6 +27,11 @@ namespace BLL
             Author author = iauthor.GetAuthorById(id);
             return author;
         }
+        public IQueryable<Author> whereAuthorById(int id)
+        {
+            var author = iauthor.whereAuthorById(id);
+            return author;
+        }
 
         public IQueryable<Ci> GetCiByAuthorId(int id)
         {

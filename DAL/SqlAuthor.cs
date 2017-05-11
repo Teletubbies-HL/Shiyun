@@ -22,7 +22,12 @@ namespace DAL
             Author author = db.Author.Find(id);
             return author;
         }
-        
+        public IQueryable<Author> whereAuthorById(int id)
+        {
+            var author = db.Author.Where(c => c.Author_id == id);
+            return author;
+        }
+
         public IQueryable<Ci> GetCiByAuthorId(int id)
         {
             var Ci = db.Ci.Include("Author").Where(c => c.Author_id == id);

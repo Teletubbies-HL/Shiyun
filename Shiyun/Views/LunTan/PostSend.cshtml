@@ -1,12 +1,11 @@
 ﻿@*@model  Models.Post*@
 @model Shiyun.Models.LuntanIndex
 @{
-    ViewBag.Title = "PostSend";
+    ViewBag.Title = "发帖";
 }
 @section style{
     <link href="~/Content/css/PostSend.css" rel="stylesheet"/>
 <style>
-    
 </style>
 
 }
@@ -63,7 +62,7 @@
                 <a href="javascript:void(0)" class="file_a" style="display: none;">
                      <input type="file" name="luntanmp3" value="luntanmp3" class="file_a_a"/><div class="file_a_b">请上传mp3文件</div>
                 </a>
-                @Html.TextAreaFor(model => model.Post.PostDetails, htmlAttributes: new {@class = "form-control csszhengwen", id = "txtDetails", style = "height: 400px; width: 900px;"})
+                @Html.TextAreaFor(model => model.Post.PostDetails, htmlAttributes: new {@class = "ckeditor form-control csszhengwen", id = "txtDetails", style = "height: 400px; width: 900px;"})
                 @Html.ValidationMessageFor(model => model.Post.PostDetails, "", new {@class = "text-danger"})
             </div>
 
@@ -93,6 +92,8 @@
 
 
 @section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/config.js"></script>
     <script type="text/javascript">
     $(function () {
             $(".Tribune-choose .cotenter ul").children(":eq(1)").children().attr("href", '@Url.Action("YuanChuang", "LunTan", new { luntanId = 1 })');

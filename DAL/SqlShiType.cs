@@ -22,6 +22,14 @@ namespace DAL
             ShiType shitype = db.ShiType.Find(id);
             return shitype;
         }
+        public IQueryable<ShiType> GetShiTypebyTop(int top)
+        {
+            //var goods = db.Goods.OrderBy(c => c.Goods_id).Take(top);
+            var type = from ty in db.ShiType
+                       orderby ty.ShiType_id descending
+                       select ty;
+            return type.Take(top);
+        }
         public IQueryable<Shi> GetShiByShiTypeId(int id)
         {
             var Shi = db.Shi.Include("ShiType").Where(c => c.ShiType_id == id);

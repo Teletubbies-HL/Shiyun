@@ -33,13 +33,13 @@
             <tr>
                 <th style="width: 6%">诗集名</th>
                 <th style="width: 12%">图片</th>
-                <th style="width: 15%">内容</th>
-                <th style="width: 15%">翻译</th>
+                @*<th style="width: 15%">内容</th>*@
+                @*<th style="width: 15%">翻译</th>
                 <th style="width: 15%">赏析</th>
-                <th style="width: 15%">背景</th>
-                <th style="width: 4%">作者</th>
-                <th style="width: 4%">类型</th>
-                <th style="width: 4%">年代</th>
+                <th style="width: 15%">背景</th>*@
+                <th style="width: 10%">作者</th>
+                <th style="width: 10%">年代</th>
+                <th style="width: 10%">类型</th>
                 <th style="width: 10%">操作</th>
             </tr>
         </thead>
@@ -52,10 +52,10 @@
                 <td>
                     <img src="@item.ShiImage" style="width:60px;height:80px" />
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ShiContent)
-                </td>
-                <td>
+                </td>*@
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ShiFanyi)
                 </td>
                 <td>
@@ -64,15 +64,18 @@
                
                 <td>
                     @Html.DisplayFor(modelItem => item.Shibeijing)
+                </td>*@
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Author_id)*@
+                    @Html.DisplayFor(modelItem => item.Author.AuthorName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Author_id)
+                    @*@Html.DisplayFor(modelItem => item.Time_id)*@
+                    @Html.DisplayFor(modelItem => item.Time.TimeName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Time_id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShiType_id)
+                    @*@Html.DisplayFor(modelItem => item.ShiType_id)*@
+                    @Html.DisplayFor(modelItem => item.ShiType.ShiTypeName)
                 </td>
                 <td>
                     <p>
@@ -89,7 +92,7 @@
         <div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>
 
         <div class="col-xs-6 col-sm-4 col-md-4 pagejiye">
-            @Html.PagedListPager(Model, page => Url.Action("Classify", "Malls", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            @Html.PagedListPager(Model, page => Url.Action("Index", "Shi", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 pageje">

@@ -11,6 +11,7 @@ namespace IDAL
     {
         IEnumerable<Author> GetAuthor();
         Author GetAuthorById(int? id);
+        IQueryable<Author> whereAuthorById(int id);
         IQueryable<Ci> GetCiByAuthorId(int id);
         IQueryable<Shi> GetShiByAuthorId(int id);
         void RemoveAuthor(Author author);
