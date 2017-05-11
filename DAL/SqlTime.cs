@@ -26,7 +26,7 @@ namespace DAL
         {
             //var goods = db.Goods.OrderBy(c => c.Goods_id).Take(top);
             var time = from tm in db.Time
-                        orderby tm.Time_id descending
+                        orderby tm.Time_id ascending
                         select tm;
             return time.Take(top);
         }
