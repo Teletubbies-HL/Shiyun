@@ -47,7 +47,7 @@
                                 <img class="imgcssUser" style="width: 100%; height: 100%;" src="@item.UserImage" />
                             </div>
                             <div class="hotpost_title">
-                                <a href="javascript:void(0)" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe69e;&nbsp;</span>@item.PostTitle</a>
+                                <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe69e;&nbsp;</span>@item.PostTitle</a>
                             </div>
                             <span class="user_name">@item.UserName</span>
                             <span class="addtime">@item.AddTime</span>
@@ -222,12 +222,12 @@
             });
         });
     });
-    $(function() {
+    $(function () {
         if ($(".LunTan_id").val() == 1) {
 
         } else {
             $(".paihang").hide();
         }
-    })
+    });
     </script>
 }

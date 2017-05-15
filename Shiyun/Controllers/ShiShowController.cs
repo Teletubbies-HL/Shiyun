@@ -33,7 +33,7 @@ namespace Shiyun.Controllers
             var shi4 = shimanager.whereShiById(8);
             var shi5 = shimanager.whereShiById(10);
             var shi6 = shimanager.whereShiById(12);
-            //最新加入的诗
+            var shinew22 = shimanager.GetShibyLast(22);
             var shiauthor1 = authormanager.whereAuthorById(62);
             var shiauthor2 = authormanager.whereAuthorById(56);
             var shiauthor3 = authormanager.whereAuthorById(79);
@@ -47,7 +47,7 @@ namespace Shiyun.Controllers
             shivm.Shi4 = shi4;
             shivm.Shi5 = shi5;
             shivm.Shi6 = shi6;
-            //new poety
+            shivm.Shinew22 = shinew22;
             shivm.ShiAuthor1 = shiauthor1;
             shivm.ShiAuthor2 = shiauthor2;
             shivm.ShiAuthor3 = shiauthor3;
@@ -99,6 +99,61 @@ namespace Shiyun.Controllers
 
         #endregion
         #endregion
+
+
+        #region 词展示
+
+        #region 词展示首页
+
+        public ActionResult CiIndex()
+        {
+            var shitop8 = shimanager.GetShibyTop(8);
+            var shi1 = shimanager.whereShiById(2);
+            var shi2 = shimanager.whereShiById(4);
+            var shi3 = shimanager.whereShiById(6);
+            var shi4 = shimanager.whereShiById(8);
+            var shi5 = shimanager.whereShiById(10);
+            var shi6 = shimanager.whereShiById(12);
+            var shinew22 = shimanager.GetShibyLast(22);
+            var shiauthor1 = authormanager.whereAuthorById(62);
+            var shiauthor2 = authormanager.whereAuthorById(56);
+            var shiauthor3 = authormanager.whereAuthorById(79);
+            var shitypetop12 = shitypemanager.GetShiTypebyTop(12);
+            var shitimtop11 = timemanager.GetTimebyTop(11);
+            Models.ShiViewModels shivm = new Models.ShiViewModels();
+            shivm.Shitop8 = shitop8;
+            shivm.Shi1 = shi1;
+            shivm.Shi2 = shi2;
+            shivm.Shi3 = shi3;
+            shivm.Shi4 = shi4;
+            shivm.Shi5 = shi5;
+            shivm.Shi6 = shi6;
+            shivm.Shinew22 = shinew22;
+            shivm.ShiAuthor1 = shiauthor1;
+            shivm.ShiAuthor2 = shiauthor2;
+            shivm.ShiAuthor3 = shiauthor3;
+            shivm.ShiTypetop12 = shitypetop12;
+            shivm.ShiTimetop11 = shitimtop11;
+            return View(shivm);
+        }
+
+
+
+        #region 词具体分类展示
+        #endregion
+
+        #endregion
+
+        #region 词具体分类展示
+        #endregion
+        #endregion
+
+        #region 词选择
+        #endregion
+
+        #region 词详情
+        #endregion
+
 
     }
 }

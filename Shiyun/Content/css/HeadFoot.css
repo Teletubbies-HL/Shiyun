@@ -381,3 +381,68 @@ footer .a1 {
   width: 100%;
   background-size: auto 20px;
 }
+.usercenterbox {
+  width: 67px;
+  height: 40px;
+  position: absolute;
+  top: 5px;
+  left: -85px;
+  font-size: 16px;
+}
+.usercenter {
+  /*.abs;*/
+  cursor: pointer;
+  /*top: 5px;
+    left: -55px;*/
+  font-size: 16px !important;
+  width: 35px !important;
+  height: 35px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  line-height: 35px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  text-align: center;
+  color: #39210b;
+  display: block !important;
+}
+.usercenter:hover {
+  color: #c03f3c;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+.zhuxiaobox {
+  position: absolute;
+  bottom: 5px;
+  left: -85px;
+  width: 67px;
+  height: 40px;
+}
+.zhuxiao {
+  /*.abs;*/
+  cursor: pointer;
+  /*bottom: 5px;
+    left: -55px;*/
+  font-size: 16px !important;
+  width: 35px !important;
+  height: 35px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  line-height: 35px !important;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  text-align: center;
+  padding-right: 6px;
+  color: #39210b;
+  display: block !important;
+}
+.zhuxiao:hover {
+  color: #c03f3c;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+.userinfo {
+  z-index: 50;
+}

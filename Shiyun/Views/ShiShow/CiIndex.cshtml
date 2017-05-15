@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Models.Ci>
+
+@{
+    ViewBag.Title = "CiIndex";
+}
+
+<h2>CiIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CiTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiFanyi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiShangxi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cibeijing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiYuying)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author.AuthorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time.TimeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiPai.CiPaiName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiFanyi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiShangxi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cibeijing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiYuying)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.AuthorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time.TimeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiPai.CiPaiName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Ci_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Ci_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Ci_id })
+        </td>
+    </tr>
+}
+
+</table>

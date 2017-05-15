@@ -18,8 +18,11 @@
         <div class="bignav" style="display: block;">
             <div class="container1">
                 <div class="bignav_left bignav_same">
-                    <ul>
-                        <li style="margin-left: 0px;"><a href="@Url.Action("Login","UserInfo")"><span class="iconfont" aria-hidden="true">&#xe62b;</span></a></li>
+
+                    <ul style="position: relative;">
+                        <li class="usercenterbox"  style="display: none;"><span class="iconfont usercenter"> &#xe648;</span></li>
+                        <li class="zhuxiaobox"  style="display: none;"><span class="iconfont zhuxiao">&#xe610;</span></li>
+                        <li class="userinfobox" style="margin-left: 0px;"><a href="@Url.Action("Login", "UserInfo")"><span class="iconfont userinfo" aria-hidden="true">&#xe62b;</span></a></li>
                         <li><a href="javascript:void(0)">诗</a></li>
                         <li><a href="javascript:void(0)">词</a></li>
                         <li style="margin-right: 30px;"><a href="javascript:void(0)">纪录片</a></li>
@@ -136,7 +139,7 @@
 
         </div>
     </footer><!--底部部分 结束-->
-
+    <input class="uid"  value="@Session["Users_id"]" type="hidden"/>  
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 <script src="~/Scripts/JS/HeadFoot.js"></script>
