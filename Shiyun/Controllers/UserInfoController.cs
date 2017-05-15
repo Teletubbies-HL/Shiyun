@@ -1,8 +1,10 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Protocols;
 using BLL;
 using Models;
 
@@ -28,7 +30,7 @@ namespace Shiyun.Controllers
             if (ModelState.IsValid)
             {
                 userinfomanager.AddUserInfo(userInfo);
-                return Content("<script>;alert('注册成功!');window.history.go(-2);window.location.reload();</script>");
+                return Content("<script>;alert('注册成功!');window.history.go(-2); window.location.reload(); </script>");
             }
             else
             {
@@ -76,6 +78,17 @@ namespace Shiyun.Controllers
             {
                 return Content(ex.Message);
             }
+        }
+        #endregion
+
+        #region 注销
+        [HttpPost]
+        public string Zhuxiao()
+        {
+            //保存到Session HttpContext.
+            Session["Users_id"] = null;
+            string A = "a";
+            return A;
         }
         #endregion
     }
