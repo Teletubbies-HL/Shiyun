@@ -163,6 +163,7 @@ section .leftbox .leftbox1 .leftbox_1 .postdetail .postcontent {
   float: left;
   margin-top: 20px;
   width: 100%;
+  padding: 0px 15px;
 }
 section .leftbox .leftbox1 .leftbox_1 .postdetail .csspinglun {
   display: block;
@@ -214,6 +215,7 @@ section .leftbox .leftbox1 .leftbox_1 .reply .rereplycontent {
   float: right;
   line-height: 25px;
   border-left: 3px solid #E3E5E9;
+  margin-top: 10px;
 }
 section .leftbox .leftbox1 .leftbox_1 .reply .ReplyContent {
   display: block;
@@ -239,14 +241,14 @@ section .leftbox .leftbox1 .leftbox_1 .reply .cssbtnReply:hover {
 /*回复*/
 section .leftbox .huifu {
   width: 100%;
-  height: 280px;
+  height: 335px;
   margin-top: 30px;
 }
 section .leftbox .huifu .huifu_1 {
   box-sizing: content-box;
   background-color: white;
   border: 15px solid #fff;
-  height: 240px;
+  height: 300px;
   width: 680px;
   overflow: visible;
   position: relative;
@@ -410,4 +412,28 @@ section .leftbox .leftbox1 .leftbox_1 .current {
 }
 section .leftbox .leftbox1 .leftbox_1 .aspNetDisabled {
   color: #ababab;
+}
+.pagination-container {
+  margin: 0 auto;
+  text-align: center;
+}
+.queding {
+  margin-top: 10px;
+  width: 70px;
+  outline: none;
+  float: right;
+  font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+  color: #808080;
+  padding: 9px 20px 7px 20px;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.queding:hover {
+  color: #333;
+  background-color: #efefef;
+}
+.queding:active {
+  padding: 10px 20px 6px 20px;
 }

@@ -38,29 +38,36 @@ $(window).resize(function () {
 });
 $(function () {   //登陆和个人中心的hover
     var sessionid = $(".uid").val();
-    if (sessionid != "") {   //判断是否有session
-        $(".userinfo").hover(function () {
+    if (sessionid != "") { //判断是否有session
+        $(".userinfo").parent().on("click", function() {
+            return false;
+        });
+        $(".userinfo").hover(function() {
             //$(".usercenterbox").fadeIn(500);
             //$(".zhuxiaobox").fadeIn(500);
             $(".usercenterbox").show();
             $(".zhuxiaobox").show();
-        }, function () {
+        }, function() {
             $(".usercenterbox").hide();
             $(".zhuxiaobox").hide();
         });
-        $(".usercenterbox").hover(function () {
+        $(".usercenterbox").hover(function() {
             $(".usercenterbox").css("display", "block");
             $(".zhuxiaobox").css("display", "block");
-        }, function () {
+        }, function() {
             $(".usercenterbox").hide();
             $(".zhuxiaobox").hide();
         });
-        $(".zhuxiaobox").hover(function () {
+        $(".zhuxiaobox").hover(function() {
             $(".usercenterbox").css("display", "block");
             $(".zhuxiaobox").css("display", "block");
-        }, function () {
+        }, function() {
             $(".usercenterbox").hide();
             $(".zhuxiaobox").hide();
+        });
+    } else {
+        $(".userinfo").parent().on("click", function () {
+            return true;
         });
     }
 });
@@ -102,7 +109,8 @@ $(function () {
             type: "post",
             data: { a:1 },
             success: function (data) {
-                alert("1");
+                alert("注销成功");
+                $(".userinfo").unbind("mouseenter").unbind("mouseleave");
                 var A = data;
             }
         });

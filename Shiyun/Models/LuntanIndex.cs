@@ -20,6 +20,8 @@ namespace Shiyun.Models
         public int LuntanId { get; set; }
         public IEnumerable<SelectListItem> List1 { get; set; }
         public Post Post { get; set; }
+        public PostReply PostReply { get; set; }
         public IEnumerable<View_PostIndex> PostDetails { get; set; } 
+        public IEnumerable<View_PostReply> AllPostReply { get; set; }
     }
 }

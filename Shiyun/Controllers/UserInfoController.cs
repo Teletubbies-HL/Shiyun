@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -80,7 +79,13 @@ namespace Shiyun.Controllers
             }
         }
         #endregion
+        #region
+        public ActionResult TouXiang()
+        {
 
+            return View();
+        }
+        #endregion
         #region 注销
         [HttpPost]
         public string Zhuxiao()

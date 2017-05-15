@@ -327,13 +327,15 @@ section .rightbox .bankuai .cssright_image {
   float: right;
   color: #999;
 }
-.zan1 {
+.zan1,
+.zan2 {
   position: absolute;
-  top: 100px;
-  right: 100px;
+  top: 30px;
+  right: 160px;
 }
-.cai1 {
+.cai1,
+.cai2 {
   position: absolute;
-  top: 100px;
-  right: 180px;
+  top: 30px;
+  right: 130px;
 }
