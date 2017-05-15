@@ -35,10 +35,26 @@
 <!--[if lt IE 9]>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>    <![endif]-->
+    <script type="text/javascript">
 
+ $(function ()
+ {
+if ($("#divContent2")[0].outerText)
+ {
+ // ie
+$("#divContent1").html($("#divContent2").outerText);
+}
+else
+{
+// Firefox
+ $("#divContent1").html($("#divContent2").textContent);
+}
+});
+    </script>
 
 
 </head>
+
 
 <body class="" style="background-color: #F7F7F7!important;">
     <div class="message-container">
@@ -270,50 +286,104 @@
                     </div>                        
             </section>
 
+
+            @*诗韵推荐类型*@
             <div class="container">
                 <div class="rg-board collection-section one-section white section">
                     <div class="rg-board-head">
-                        <p class="title">推荐诗人</p>
+                        <p class="title">诗韵推荐类型</p>
                         <a href="https://wenxue.ruogoo.cn/collection" class="more">更多 &gt;&gt;</a>
                     </div>
                     <div class="rg-board-body">
                         <div class="collection-list clearfix col-group">
-
-                            <div class="col-2 col-mb-6">
-                                <div class="collection-item">
-                                    <a href="https://wenxue.ruogoo.cn/collection/402" class="collection-cover image">
-                                       
-                                    </a>
-                                    <p class="title one-line">
-                                        <a href="https://wenxue.ruogoo.cn/collection/402">繁华浮梦</a>
-                                    </p>
+                            @foreach (var shi in Model.ShiTypetop12)
+                            {
+                                <div class="col-2 col-mb-6">
+                                    <div class="collection-item">
+                                        <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.ShiType_id})" class="collection-cover image" data-title="@shi.ShiTypeName">
+                                            <img src='..@shi.ShiTypeImage' class="cover"  style="display: inline;" />
+                                            <p class="title one-line">
+                                                <a href="https://wenxue.ruogoo.cn/collection/367">@shi.ShiTypeName</a>
+                                            </p>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
 
+
+            @*诗人专题*@
+            <div class="container">
+                <section class="topic-section">
+                    <div class="col-group">
+                        <div class="col-4 col-mb-12">
+                            <div class="topic">
+                                @foreach (var shi in Model.ShiAuthor1)
+                                {
+                                    <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Author_id}) class="image"">
+                                        <div class="ui orange left label">专题</div>
+                                        <img src="~/Images/shi/shi杜甫.jpg" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-4 col-mb-12">
+                            <div class="topic">
+                                @foreach (var shi in Model.ShiAuthor1)
+                                {
+                                    <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Author_id}) class=" image"">
+                                        <div class="ui orange left label">专题</div>
+                                        <img src="~/Images/shi/shi李白.jpg" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-4 col-mb-12">
+                            <div class="topic">
+                                @foreach (var shi in Model.ShiAuthor1)
+                                {
+                                    <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Author_id}) class=" image"">
+                                        <div class="ui orange left label">专题</div>
+                                        <img src="~/Images/shi/shi陆游.png" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
+                                    </a>
+                                }
+                                @*<a href="https://wenxue.ruogoo.cn/topic/1" class="image">
+                                    <div class="ui orange left label">专题</div>
+                                    <img src="~/Images/shi/shi陆游.png" style="display: inline; width:360px;height:160px;" />
+                                    
+                                </a>*@
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            @*最新诗篇*@
             <section class="article-section container">
                 <div class="col-group">
                     <div class="col-8 col-mb-12">
                         <div class="rg-board one-section white section">
                             <div class="rg-board-head">
-                                <p class="title">最新文章</p>
+                                <p class="title">最新诗篇</p>
                                 <a href="https://wenxue.ruogoo.cn/article" class="more"> 更多 &gt;&gt;</a>
                             </div>
                             <div class="rg-board-body">
                                 <div class="col-group">
-                                    <ul class="latest-list">
-                                        <div class="col-6 col-mb-12">
-                                            <li class="article-item text one-line">
-                                                <a href="https://wenxue.ruogoo.cn/category/cplz" class="gray">[连载]</a>
-                                                <a href="https://wenxue.ruogoo.cn/article/7322">灯鬼02 回归-入梦</a>
-                                                -
-                                                <a href="https://user.ruogoo.cn/9471" class="small text gray">陌涂</a>
-                                            </li>
-                                        </div>
-                                    </ul>
+                                        @foreach (var shi in Model.Shinew22)
+                                        {
+                                            <ul class="latest-list">
+                                                <div class="col-6 col-mb-12">
+                                                    <li class="article-item text one-line">
+                                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})" class="small text gray">[@shi.ShiType.ShiTypeName]</a>
+                                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle  -</a>
+                                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})" class="small text gray">@shi.Author.AuthorName</a>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        }                                                                                          
                                 </div>
                             </div>
                         </div>
@@ -325,18 +395,31 @@
                             </div>
                             <div class="rg-board-body">
                                 <ul class="top-list">
-                                    <li class="article-item text one-line">
-                                        <i class="article-no text gray">1. </i>
-                                        <a href="https://wenxue.ruogoo.cn/article/4084">悲欢尘世离合</a>
-                                        -
-                                        <a href="https://user.ruogoo.cn/7691" class="small text gray">月清风</a>
-                                    </li>
+                                    @foreach (var shi in Model.ShiTimetop11)
+                                    {
+
+                                        <li class="article-item text one-line">
+                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Time_id})" >
+                                                <i class="article-no text gray">@shi.Time_id </i>&nbsp;&nbsp;
+                                                <a href="https://wenxue.ruogoo.cn/article/4084">@shi.TimeName</a>-
+                                                <a href="https://user.ruogoo.cn/7691" class="small text gray"  >
+                                                     @shi.TimeJieshao
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
+
                             </div>
+
+
                         </div>
+
+
+
                     </div>
                 </div>
             </section>
+
             <section class="banner">
                 <div style="padding: 10px;"></div>
             </section>

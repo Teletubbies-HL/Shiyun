@@ -37,15 +37,15 @@ namespace DAL
             //var shi = db.Shi.OrderBy(c => c.Shi_id).Take(top);
             //return shi;
             var shi = from si in db.Shi
-                        orderby si.Shi_id descending
-                        select si;
+                        orderby si.Shi_id ascending
+                      select si;
             return shi.Take(top);
         }
         public IQueryable<Shi> GetShibyLast(int last)
         {
             //var goods = db.Goods.OrderBy(c => c.Goods_id).Take(top);
             var shi = from si in db.Shi
-                        orderby si.Shi_id ascending
+                        orderby si.Shi_id descending 
                         select si;
             return shi.Take(last);
         }

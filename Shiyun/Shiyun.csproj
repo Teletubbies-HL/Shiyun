@@ -451,6 +451,9 @@
     <Content Include="Images\RegisterLogin\dlzc2.png" />
     <Content Include="Images\goods\sjt.jpg" />
     <Content Include="Images\goods\stm.jpg" />
+    <Content Include="Images\shi\shi李白.jpg" />
+    <Content Include="Images\shi\shi杜甫.jpg" />
+    <Content Include="Images\shi\shi陆游.png" />
     <Content Include="Images\userInfo\1.jpg" />
     <Content Include="Images\userInfo\2.jpg" />
     <Content Include="Images\userInfo\20170503823.jpg" />
@@ -1584,13 +1587,13 @@
     <Content Include="Views\LunTan\PostSend.cshtml" />
     <Content Include="Views\LunTan\GetAllPost.cshtml" />
     <Content Include="Views\LunTan\PostDetails.cshtml" />
+    <Content Include="Views\ShiShow\CiIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Author\" />
     <Folder Include="Images\CiPai\" />
     <Folder Include="Images\ShiType\" />
-    <Folder Include="Images\shi\" />
     <Folder Include="Images\Time\" />
     <Folder Include="Images\upload\" />
     <Folder Include="Manager\img\" />
