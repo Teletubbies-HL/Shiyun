@@ -203,8 +203,9 @@
                             type: "post",
                             async: false,
                             data: { id: goodid,sum:$("#lbltotprice").text()},
-                            success: function(data) {
-                                location.href = "/Mall/Order";
+                            success: function (data) {
+                                var sum = $("#lbltotprice").text();
+                                location.href = "/Mall/Order?ordersum=" + sum;
                             }
                         });
                     }

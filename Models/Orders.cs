@@ -17,7 +17,7 @@ namespace Models
         public int Orders_id { get; set; }
         public string Users_id { get; set; }
         public System.DateTime OrderTime { get; set; }
-        public Nullable<int> Sum { get; set; }
+        public Nullable<decimal> Sum { get; set; }
         public string UserName { get; set; }
         public string UserPhone { get; set; }
         public string Address { get; set; }

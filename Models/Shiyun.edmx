@@ -144,7 +144,7 @@
           <Property Name="Orders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="OrderTime" Type="datetime" Nullable="false" />
-          <Property Name="Sum" Type="int" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="2" />
           <Property Name="UserName" Type="nvarchar" MaxLength="30" />
           <Property Name="UserPhone" Type="nvarchar" MaxLength="30" />
           <Property Name="Address" Type="nvarchar(max)" />
@@ -1408,7 +1408,7 @@
           <Property Name="Orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OrderTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Sum" Type="Int32" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="UserPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

@@ -195,19 +195,14 @@ namespace Shiyun.Controllers
 
         #endregion
 
-        public string Ordersum;
+        public double Ordersum;
         #region 购物车结算按钮
         [HttpPost]
         public string Jiesuan(int id,double? sum)
         {
             string uid = Session["Users_id"].ToString();
-            Ordersum = sum.ToString();
+            Ordersum = Convert.ToDouble(sum);
             var beforeshopcar = shopcarmanager.whereShopcarById(uid, id);
-            //beforeshopcar.Goods_id = id;
-            //beforeshopcar.Users_id = Session["Users_id"].ToString();
-            //beforeshopcar.Count = count;
-            //beforeshopcar.note = "";
-            //beforeshopcar.Time = System.DateTime.Now;
             beforeshopcar.flag = 1;
             shopcarmanager.UpdateShopcarCount(beforeshopcar);
             if (shopcarmanager.CountShopcarById(uid, id) != 0)
@@ -225,8 +220,9 @@ namespace Shiyun.Controllers
 
         #region 订单页
         [Login]
-        public ActionResult Order()
+        public ActionResult Order(double ? ordersum)
         {
+            ViewBag.Ordersum = ordersum;
             string uid = Session["Users_id"].ToString();
             var user1 = userInfoManager.IEGetUsersById(uid);
             var viewshopcar1 = shopcarmanager.FindviewShopcarByIdflag1(uid);
@@ -247,7 +243,6 @@ namespace Shiyun.Controllers
             string data = "修改成功";
             return data;
         }
-
         #endregion
             
     }
