@@ -1,7 +1,7 @@
-﻿@model Models.Shi
+﻿@model Models.Ci
 
 @{
-    ViewBag.Title = "ShiCreate";
+    ViewBag.Title = "CiCreate";
 }
 
 <style type="text/css">
@@ -41,7 +41,7 @@
         initialFrameHeight: 400
     };
     var editor = new baidu.editor.ui.Editor(editorOption);
-    editor.render('ShiContent');
+    editor.render('CiContent');
 </script>
 <script type="text/javascript">
     var editorOption = {
@@ -49,7 +49,7 @@
         initialFrameHeight: 400
     };
     var editor = new baidu.editor.ui.Editor(editorOption);
-    editor.render('ShiFanyi');
+    editor.render('CiFanyi');
 </script>
 <script type="text/javascript">
     var editorOption = {
@@ -57,7 +57,7 @@
         initialFrameHeight: 400
     };
     var editor = new baidu.editor.ui.Editor(editorOption);
-    editor.render('ShiShangxi');
+    editor.render('CiShangxi');
 </script>
 <script type="text/javascript">
     var editorOption = {
@@ -65,122 +65,116 @@
         initialFrameHeight: 400
     };
     var editor = new baidu.editor.ui.Editor(editorOption);
-    editor.render('Shibeijing');
+    editor.render('Cibeijing');
 </script>
 
-
-@using (Html.BeginForm("ShiCreate", "Shi", FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("CiCreate", "Shi", FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="container">
         <div class="title_top">
             <p style="color:darkgrey">
-                @Html.ActionLink("诗集列表", "Index")
+                @Html.ActionLink("词集列表", "CiIndex")
             </p>
         </div>
-      
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <p class="text-left">请输入诗名</p>
+        <p class="text-left">请输入词名</p>
         <p>
-            @Html.EditorFor(model => model.ShiTitle, new { htmlAttributes = new { @class = "form-control" ,style = "width:50%;" } })
-            @Html.ValidationMessageFor(model => model.ShiTitle, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.CiTitle, new { htmlAttributes = new { @class = "form-control", style = "width:50%;" } })
+            @Html.ValidationMessageFor(model => model.CiTitle, "", new { @class = "text-danger" })
         </p>
-        @*<p><select id="t"></select></p>
-        <p><select id="a"></select></p>*@
-        <p class="text-left" >请选择诗集类别</p>
+        <p class="text-left">请选择词集类别</p>
         <p>
             <table>
-             <tr>
-                <td>年代</td>
-                 <td> &nbsp;</td>
-                <td>作者</td>
-                 <td> &nbsp;</td>
-                <td>类型</td>
-             </tr>
-            <tr>
-                <td style="width:40px;">
-                   <select id="t" name="Time_id">
-                @*@Html.DropDownList("Time_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Time_id, "", new { @class = "text-danger" })*@
-                   </select>
-                    
-                   
-                </td>
-                <td>&nbsp;</td>
-                <td style="width:40px;">
-                    <select id="a" name="Author_id">
+                <tr>
+                    <td>年代</td>
+                    <td> &nbsp;</td>
+                    <td>作者</td>
+                    <td> &nbsp;</td>
+                    <td>词牌名</td>
+                </tr>
+                <tr>
+                    <td style="width:30%;">
+                        @Html.ValidationMessageFor(model => model.Author_id, "", new { @class = "text-danger" })
+                        <select id="t" name="Time_id"></select>
+                            @*@Html.DropDownList("Author_id", null, htmlAttributes: new { @class = "form-control" })*@
+                            
+                     </td>
+                    <td>&nbsp;</td>
+                    <td style="width:30%;">
+                        <select id="a" name="Author_id"></select>
+                            @*@Html.DropDownList("Time_id", null, htmlAttributes: new { @class = "form-control" })*@
+                            @Html.ValidationMessageFor(model => model.Time_id, "", new { @class = "text-danger" })
+                    </td>
+                    <td>&nbsp;</td>
+                    <td style="width:30%;">
 
-                        @*@Html.DropDownList("Author_id", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Author_id, "", new { @class = "text-danger" })*@
-                    </select>  
-                </td>
-                <td>&nbsp;</td>
-                <td style="width:30%;">
-                    
-                    @Html.DropDownList("ShiType_id", null, htmlAttributes: new { @class = "form-control"})
-                    @Html.ValidationMessageFor(model => model.ShiType_id, "", new { @class = "text-danger"})
-                </td>
-            </tr>
-            </table>         
+                        @Html.DropDownList("Cipai_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Cipai_id, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
         </p>
         <p class="text-left">
-        <table>
-            <tr>
-                <td style="width:40%;">
-                    请选择上传图片
-                </td>
-                <td style="width:40%;">
-                    请选择上传语音
-                </td>
-            </tr>
-            <tr>
-                <td style="width:40%;">
-                    <input type="file" name="ShiImage" value="ShiImage" />
-                </td>
-                <td style="width:40%;">
-                    <input type="file" name="ShiYuying" value="ShiYuying" />
-                </td>
-            </tr>
-        </table>
-        
-        
+            <table>
+                <tr>
+                    <td style="width:40%;">
+                        请选择上传图片
+                    </td>
+                    <td style="width:40%;">
+                        请选择上传语音
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:40%;">
+                        <input type="file" name="CiImage" value="CiImage" />
+                    </td>
+                    <td style="width:40%;">
+                        <input type="file" name="CiYuying" value="CiYuying" />
+                    </td>
+                </tr>
+            </table>
+
+
         </p>
-      
-       
+
+
         <p class="text-left">请输入内容</p>
         <p>
 
-            @Html.TextAreaFor(model => model.ShiContent)
+            @Html.TextAreaFor(model => model.CiContent)
         </p>
         <p class="text-left">请输入翻译</p>
         <p>
 
-            @Html.TextAreaFor(model => model.ShiFanyi)
+            @Html.TextAreaFor(model => model.CiFanyi)
         </p>
         <p class="text-left">请输入赏析</p>
         <p>
 
-            @Html.TextAreaFor(model => model.ShiShangxi)
+            @Html.TextAreaFor(model => model.CiShangxi)
         </p>
         <p class="text-left">请输入背景</p>
-       <p>
+        <p>
 
-            @Html.TextAreaFor(model => model.Shibeijing)
-        </p>       
+            @Html.TextAreaFor(model => model.Cibeijing)
+        </p>
 
-       
-       
+
+
         <p class="text-center">
             <input type="submit" value="添加" class="btn btn-default" style="width:60px;margin-right:1200px;" />
         </p>
-       
+
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "CiIndex")
 </div>
+
 @section scripts
     {
     <script type="text/javascript">

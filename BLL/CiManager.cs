@@ -27,7 +27,23 @@ namespace BLL
             var CiComment = ici.GetCiCommentByCiId(id);
             return CiComment;
         }
-       
+        public IQueryable<Ci> whereCiById(int id)
+        {
+            var ci = ici.whereCiById(id);
+            return ci;
+        }
+
+        public IQueryable<Ci> GetCibyTop(int top)
+        {
+            var ci = ici.GetCibyTop(top);
+            return ci;
+        }
+        public IQueryable<Ci> GetCibyLast(int last)
+        {
+            var ci = ici.GetCibyLast(last);
+            return ci;
+        }
+
         public void RemoveCi(Ci ci)
         {
             ici.RemoveCi(ci);

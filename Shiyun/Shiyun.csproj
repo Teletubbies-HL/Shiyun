@@ -230,7 +230,6 @@
     <Compile Include="Models\ChallengeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LuntanIndex.cs" />
-    <Compile Include="Models\OrderViewModels.cs" />
     <Compile Include="Models\ShiViewModels.cs" />
     <Compile Include="Models\MallViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -257,6 +256,7 @@
     <Content Include="Content\css\Homeindex.css" />
     <Content Include="Content\css\PostDetails.css" />
     <Content Include="Content\css\PostSend.css" />
+    <Content Include="Content\css\ShiCiforum.css" />
     <Content Include="Content\css\ShiCilib.css" />
     <Content Include="Content\css\Login.css" />
     <Content Include="Content\css\LunTan.css" />
@@ -912,6 +912,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\Challenge.js" />
+    <Content Include="Scripts\JS\ShiCiforum-.js" />
     <Content Include="Scripts\JS\ShiCihm.js" />
     <Content Include="Scripts\JS\ShiCipush.js" />
     <Content Include="Scripts\JS\ShiCianalytics.js" />
@@ -1589,16 +1590,19 @@
     <Content Include="Views\LunTan\GetAllPost.cshtml" />
     <Content Include="Views\LunTan\PostDetails.cshtml" />
     <Content Include="Views\ShiShow\CiIndex.cshtml" />
-    <Content Include="Views\Mall\Order.cshtml" />
+    <Content Include="Views\Shi\CiIndex.cshtml" />
+    <Content Include="Views\Shi\CiCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Author\" />
     <Folder Include="Images\CiPai\" />
+    <Folder Include="Images\Ci\" />
     <Folder Include="Images\ShiType\" />
     <Folder Include="Images\Time\" />
     <Folder Include="Images\upload\" />
     <Folder Include="Manager\img\" />
+    <Folder Include="MP3\ci\" />
     <Folder Include="MP3\luntan\" />
     <Folder Include="MP3\shi\" />
   </ItemGroup>
