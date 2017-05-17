@@ -84,10 +84,10 @@
         </div>
         <div class="showprice">
             <label id="lbl1">已选商品：</label>
-            <label id="lblnum"> 0 </label><label>&nbsp;&nbsp;类&nbsp;</label>
-            <label>&nbsp;共&nbsp;&nbsp;</label><label id="lbltotjian"> 0 </label><label>&nbsp;&nbsp;件&nbsp;</label>
+            <label id="lblnum">0</label><label>&nbsp;类&nbsp;&nbsp;</label>
+            <label id="lbltotjian">0</label><label>&nbsp;类&nbsp;&nbsp;</label>
             <label id="lbl2">合计：</label>
-            <label id="lbltotprice">0.00</label><label>&nbsp;&nbsp;元&nbsp;</label>
+            <label id="lbltotprice">0.00</label><label>&nbsp;元&nbsp;</label>
             <div class="gwcbutton">
                 <div id="jsuan" class="btn2" style="height: 30px; width: 85px; color: white; background-color: #DD3B44;">生成订单</div>
             </div>
@@ -151,12 +151,11 @@
                 $($subBox).each(function () {
                     if (this.checked == true) {
                         tp += parseFloat($(this).parent().next().next().next().next().next().children().val());
-                        $(this).parent().next().next().next().next().next().next().children().hide();
                         jian += parseInt($(this).parent().next().next().next().next().children().val());
+                        $(this).parent().next().next().next().next().next().next().children().hide();
                     }
                     else {
                         tp = 0.00;
-                        jian = 0;
                         $(this).parent().next().next().next().next().next().next().children().show();
                         $(this).parent().next().next().next().next().next().next().children(":eq(1)").hide();
                     }
@@ -208,6 +207,11 @@
                                 location.href = "/Mall/Order";
                             }
                         });
+                    }
+                    else {
+                        //tp = 0.00;
+                        //$(this).parent().next().next().next().next().next().next().children().show();
+                        //$(this).parent().next().next().next().next().next().next().children(":eq(1)").hide();
                     }
                 });
             }

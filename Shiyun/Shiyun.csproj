@@ -230,6 +230,7 @@
     <Compile Include="Models\ChallengeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LuntanIndex.cs" />
+    <Compile Include="Models\OrderViewModels.cs" />
     <Compile Include="Models\ShiViewModels.cs" />
     <Compile Include="Models\MallViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1592,6 +1593,7 @@
     <Content Include="Views\ShiShow\CiIndex.cshtml" />
     <Content Include="Views\Shi\CiIndex.cshtml" />
     <Content Include="Views\Shi\CiCreate.cshtml" />
+    <Content Include="Views\Mall\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
