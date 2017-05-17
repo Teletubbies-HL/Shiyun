@@ -32,7 +32,7 @@ namespace DAL
         }
         public IQueryable<Author> GetAuthorByTimeId(int id)
         {
-            var Author = db.Author.Include("Time").Where(c => c.Time_id == id);
+            var Author = db.Author.Where(c => c.Time_id == id);
             return Author;
         }
         public IQueryable<Shi> GetShiByTimeId(int id)

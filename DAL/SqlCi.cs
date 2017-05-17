@@ -27,7 +27,49 @@ namespace DAL
             var CiComment = db.CiComment.Include("Ci").Where(c => c.Ci_id == id);
             return CiComment;
         }
-       
+        public IQueryable<View_CiShow> GetCiShow(int id)
+        {
+            var ci = db.View_CiShow.Where(c => c.Ci_id == id);
+            return ci;
+        }
+        public IQueryable<View_CiShow> GetCiShowTops(int top)
+        {
+            var ci = from c in db.View_CiShow
+                     orderby c.CiPai_id ascending
+                     select c;
+            return ci.Take(top);
+        }
+        public IQueryable<View_CiShow> GetCiShowTop5(int top)
+        {
+            var ci = from c in db.View_CiShow
+                     orderby c.Ci_id ascending
+                     select c;
+            return ci.Take(top);
+        }
+
+        public IQueryable<Ci> whereCiById(int id)
+        {
+            var ci = db.Ci.Where(c => c.Ci_id == id);
+            return ci;
+        }
+        public IQueryable<Ci> GetCibyTop(int top)
+        {
+            //var shi = db.Shi.OrderBy(c => c.Shi_id).Take(top);
+            //return shi;
+            var ci = from c in db.Ci
+                      orderby c.Ci_id ascending
+                      select c;
+            return ci.Take(top);
+        }
+        public IQueryable<Ci> GetCibyLast(int last)
+        {
+            //var goods = db.Goods.OrderBy(c => c.Goods_id).Take(top);
+            var ci = from c in db.Ci
+                      orderby c.Ci_id descending
+                      select c;
+            return ci.Take(last);
+        }
+
         public void RemoveCi(Ci ci)
         {
             db.Ci.Remove(ci);

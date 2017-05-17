@@ -154,10 +154,16 @@
     <Compile Include="VideoReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_CiShow.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
     <Compile Include="View_PostDetails.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_PostIndex.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_PostReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_ShopCar.cs">

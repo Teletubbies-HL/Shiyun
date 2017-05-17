@@ -64,27 +64,30 @@ else
             <div class="recommend-section">
                 <div class="background-overlay" style="background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="400" id="blurred_ko06tm8gd" class="tint-bg-blur" viewBox="0 0 1583 400" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_ko06tm8gd"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="https://o.ruogoo.cn/cover/3df19b1b4a0eab45350507583d4eaeb9.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none"></image></svg></div>
                 <div class="container recommend-container">
+@foreach (var shi in Model.Shitop8)
+{
                     <div class="recommend-detail">
                         <h2 >
-                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title extra"></a>
+                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title extra">@*@shi.ShiTitle*@</a>
                         </h2>
                         <h4>
-                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title author"></a>
+                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title author">@*@shi.Author.AuthorName*@</a>
                         </h4>
                         <a href="https://wenxue.ruogoo.cn/article/recommend" class="rg-button see-more">更多推荐</a>
                     </div>
 
                     <div class="recommend-show">
                         <a href="https://wenxue.ruogoo.cn/article/6994" class="image current visible transition animating fade left in">
-                            <img src="" width="240" height="320">
+                            <img src="..@shi.ShiImage" width="240" height="320">
                         </a>
                     </div>
+}
                    @*推荐诗句*@
                     <ul class="recommend-list">                        
-                            @foreach (var shi in Model.Shitop8)
-                            {
+                           @foreach (var shi in Model.Shitop8)
+                           {
                                 <li class="recommend-item">
-                                    <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})" class="image recommend-article" data-title="@shi.ShiTitle">
+                                    <a href="@Url.Action("ShiShowDetails", "ShiShow", new { id = shi.Shi_id })" class="image recommend-article" data-title="@shi.ShiTitle">
                                         <img style="width:100px;" src='..@shi.ShiImage' />
                                         <div class="timeline-title">
                                             <p class="title small one-line">@shi.ShiTitle</p>
@@ -92,8 +95,10 @@ else
                                         
                                     </a>
                                 </li>
-                            }      
+                           }
                     </ul>
+
+ 
                 </div>
             </div>
 
