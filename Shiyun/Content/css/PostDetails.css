@@ -156,6 +156,16 @@ section .leftbox .leftbox1 .leftbox_1 .postdetail .posttime {
 }
 section .leftbox .leftbox1 .leftbox_1 .postdetail .postcontent {
   display: block;
+  line-height: 32px;
+  color: #515151;
+  padding-bottom: 35px;
+  float: left;
+  margin-top: 20px;
+  width: 100%;
+  padding: 0px 15px;
+}
+section .leftbox .leftbox1 .leftbox_1 .postdetail .music {
+  display: block;
   font-size: 16px;
   line-height: 32px;
   color: #515151;
@@ -177,6 +187,20 @@ section .leftbox .leftbox1 .leftbox_1 .postdetail .csspinglun {
   outline: none;
   margin-left: 20px;
   margin-top: 20px;
+}
+section .leftbox .leftbox1 .leftbox_1 .postdetail .cssShanchu {
+  display: block;
+  float: right;
+  height: 35px;
+  width: 100px;
+  background: #dd3b44;
+  border-radius: 3px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  margin-left: 20px;
+  margin-top: 20px;
+  text-align: center;
 }
 section .leftbox .leftbox1 .leftbox_1 .reply {
   width: 100%;
