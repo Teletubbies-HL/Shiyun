@@ -14,5 +14,7 @@ namespace IDAL
         IQueryable<PostReply> GetPostReplyByPostReplyId(int id);
         void RemovePostReply(PostReply postr);
         void RemoveRangePostReply(IQueryable<PostReply> PostReply);
+        IEnumerable<View_PostReply> GetPostReply(int postid);
+        void AddPostReply(PostReply postreply);
     }
 }

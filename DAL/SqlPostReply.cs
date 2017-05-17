@@ -38,5 +38,18 @@ namespace DAL
         {
             db.PostReply.RemoveRange(PostReply);
         }
+        public IEnumerable<View_PostReply> GetPostReply(int postid) //获取帖子回复
+        {
+            var psr = from po in db.View_PostReply
+                       where po.Post_id1 == postid
+                       orderby po.ReplyTime1 descending
+                       select po;
+            return psr;
+        }
+        public void AddPostReply(PostReply postreply) //添加回复
+        {
+            db.PostReply.Add(postreply);
+            db.SaveChanges();
+        }
     }
 }

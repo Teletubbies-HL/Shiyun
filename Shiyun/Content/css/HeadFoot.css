@@ -446,3 +446,10 @@ footer .a1 {
 .userinfo {
   z-index: 50;
 }
+.userinfo2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}

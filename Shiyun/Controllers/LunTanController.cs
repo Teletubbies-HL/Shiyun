@@ -19,6 +19,7 @@ namespace Shiyun.Controllers
         ShiyunEntities db = new ShiyunEntities();
         LunTanManager ltm = new LunTanManager();
         PostManager pm = new PostManager();
+        PostReplyManager pr = new PostReplyManager();
         #region  论坛主页
         public ActionResult Index()
         {
@@ -181,11 +182,42 @@ namespace Shiyun.Controllers
         {
             LuntanIndex luntanIndex = new LuntanIndex();
             ViewBag.LunTan_id = luntanId;
-            ViewBag.LunTan_id = postId;
+            ViewBag.Post_id = postId;
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类 
             luntanIndex.LuntanName = ltm.GetLuntanName(luntanId); //论坛名称       
             luntanIndex.PostDetails = pm.GetPostDetails(postId);//帖子详情
+            luntanIndex.AllPostReply = pr.GetPostReply(postId);
             return View(luntanIndex);
+        }
+        #endregion
+        #region 帖子评论数据获取
+        public ActionResult GetAllPostReply(int postId, int? page)
+        {
+            var postreply = pr.GetPostReply(postId);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(postreply.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+        #region  保存评论
+        [HttpPost]
+        [ValidateInput(false)]  //富文本编辑器使用
+        [ValidateAntiForgeryToken]
+        [Login]
+        public ActionResult Pinglun(PostReply postReply)
+        {
+           
+            if (ModelState.IsValid)
+                {
+                    postReply.ReplyTime = System.DateTime.Now;
+                    postReply.Users_id = Session["Users_id"].ToString();              
+                    pr.AddPostReply(postReply);
+                    return Content("<script>;alert('发布成功！');window.history.go(-1);window.location.reload();</script>");
+                }
+                else
+                {
+                    return Content("<script>;alert('发布失败！');history.go(-1)</script>");
+                }        
         }
         #endregion
     }

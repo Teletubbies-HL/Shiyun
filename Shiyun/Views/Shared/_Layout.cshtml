@@ -4,6 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*禁止缓存，用来刷新页面*@   
+    <meta http-equiv="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta http-equiv="Expires" CONTENT="0">
+
     <link rel="shortcut icon" href="~/Images/Home/shiyunlogo.ico" type="image/x-icon" /><!--icon-->
     <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
@@ -22,7 +28,7 @@
                     <ul style="position: relative;">
                         <li class="usercenterbox"  style="display: none;"><span class="iconfont usercenter"> &#xe648;</span></li>
                         <li class="zhuxiaobox"  style="display: none;"><span class="iconfont zhuxiao">&#xe610;</span></li>
-                        <li class="userinfobox" style="margin-left: 0px;"><a href="@Url.Action("Login", "UserInfo")"><span class="iconfont userinfo" aria-hidden="true">&#xe62b;</span></a></li>
+                        <li class="userinfobox" style="margin-left: 0px;"><a href="@Url.Action("Login", "UserInfo")"><span class="iconfont userinfo userinfo1" aria-hidden="true" >&#xe62b;</span>@*<img class="userinfo userinfo2" src="../../Images/userInfo/20170503827.jpg" style=""/>*@</a></li>
                         <li><a href="javascript:void(0)">诗</a></li>
                         <li><a href="javascript:void(0)">词</a></li>
                         <li style="margin-right: 30px;"><a href="javascript:void(0)">纪录片</a></li>
