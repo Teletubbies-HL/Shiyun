@@ -22,5 +22,6 @@ namespace Shiyun.Models
         public IEnumerable<Goods> Goodskind3top9 { get; set; }
         public IEnumerable<Goods> Goodskind4top9 { get; set; }
         public IEnumerable<Goods> Goodskind5top9 { get; set; }
+
     }
 }

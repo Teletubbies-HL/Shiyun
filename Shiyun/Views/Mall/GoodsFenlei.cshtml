@@ -1,0 +1,58 @@
+﻿@model Shiyun.Models.MallViewModels
+@{
+    ViewBag.Title = "诗韵-商品分类页";
+}
+@section style
+{
+<link href="~/Content/css/Mall.css" rel="stylesheet" />
+    <style type="text/css">
+        .pagination-container {
+            margin: 0 auto;
+            text-align: center;
+        }
+         .mdbox{width:25%;height:349px;border-bottom:0.5px solid rgba(0, 0, 0,0.1);display:inline-block;margin:0 0;float:left;}
+     .mdbox .gd{width:215px;height:70px;text-align: center;margin: -10px auto;text-decoration: none;}
+     .mdetail .mdetailimg{width: 200px;height:200px;margin:35px auto;list-style:none;display:block;}
+     .mdetail-Title{display:block;text-decoration:none;font-size: 17px;color:rgba(0, 0, 0,0.6);text-align:center;}
+     .mdetail-Jianjie{display:block;text-decoration:none;font-size:15px;font-weight:400;margin:3px auto;width:210px;height:20px;overflow:hidden;color:rgba(0, 0, 0,0.5);text-align:center;}
+     .mdetail-Price{display:block;text-decoration:none;font-size: 17px;font-weight:400;margin:3px auto;color:#c03f3c;text-align:center;}
+    </style>
+}
+<div id="head_hot_goods_wrap">
+    <div id="head_hot_goods_title">
+        <span class="title_span">热品推荐</span>
+        <div id="head_hot_goods_change">
+            <span id="head_hot_goods_prave"><</span>
+            <span id="head_hot_goods_next">></span>
+        </div>
+    </div>
+    <div id="head_hot_goods_content">
+        <ul>
+            @foreach (var good in Model.Goodstop10)
+            {
+                <li>
+                    <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                        <img id="hotimg" class="liimg" src='..@good.GoodsImage' />
+                        <span class="hot-Title">@good.GoodsName</span>
+                        <span class="hot-Jianjie">@good.GoodsJianjie</span>
+                        <span class="hot-Price">¥  @good.Price</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+
+<div id="GetAllPost">
+    @{Html.RenderAction("GetAllPost", "Mall");}
+</div>
+
+@section scripts
+{
+<script src="~/Scripts/JS/Mall.js"></script>
+    <script type="text/javascript">
+
+    </script>
+}
+
