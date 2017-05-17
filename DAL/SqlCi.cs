@@ -32,16 +32,39 @@ namespace DAL
             var ci = db.View_CiShow.Where(c => c.Ci_id == id);
             return ci;
         }
+        public IEnumerable<Ci> GetbyTopandCiPaiId(int top, int cipaiid)
+        {
+            var ci = from c in db.Ci
+                        where c.Cipai_id==cipaiid
+                        orderby c.Ci_id descending
+                        select c;
+            return ci.Take(top);
+        }
+        //public IQueryable<View_CiShow> GetCiShow65(int top)
+        //{
+        //    var cipai = (from cp in db.CiPai
+        //                 orderby cp.CiPai_id ascending
+        //                 select cp).Take(6);
+        //    foreach (var item in cipai)
+        //    {
+        //        var ci = (from sc in db.View_CiShow
+        //                  where sc.CiPai_id == item.CiPai_id
+        //                  orderby sc.Ci_id ascending
+        //                  select sc).Take(5);
+        //        return ci;
+        //    }
+
+        //}
         public IQueryable<View_CiShow> GetCiShowTops(int top)
         {
             var ci = from c in db.View_CiShow
                      orderby c.CiPai_id ascending
                      select c;
-            return ci.Take(top);
+            return ci.Take(top);            
         }
-        public IQueryable<View_CiShow> GetCiShowTop5(int top)
+        public IQueryable<View_CiShow> GetCiShowTop5(int top,int cipai)
         {
-            var ci = from c in db.View_CiShow
+            var ci = from c in db.View_CiShow                    
                      orderby c.Ci_id ascending
                      select c;
             return ci.Take(top);
@@ -54,8 +77,7 @@ namespace DAL
         }
         public IQueryable<Ci> GetCibyTop(int top)
         {
-            //var shi = db.Shi.OrderBy(c => c.Shi_id).Take(top);
-            //return shi;
+            
             var ci = from c in db.Ci
                       orderby c.Ci_id ascending
                       select c;

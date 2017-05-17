@@ -22,7 +22,11 @@ namespace DAL
             CiPai cipai = db.CiPai.Find(id);
             return cipai;
         }
-       
+        public IQueryable<CiPai> whereCiPaiById(int id)
+        {
+            var cipai = db.CiPai.Where(c => c.CiPai_id == id);
+            return cipai;
+        }
 
         public void RemoveCiPai(CiPai cipai)
         {

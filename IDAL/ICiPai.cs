@@ -14,6 +14,7 @@ namespace IDAL
      
         void RemoveCiPai(CiPai cipai);
         void AddCiPai(CiPai cipai);
+        IQueryable<CiPai> whereCiPaiById(int id);       
         void EditCiPai(CiPai cipai);     
 
     }

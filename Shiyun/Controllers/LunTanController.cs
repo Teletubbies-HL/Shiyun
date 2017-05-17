@@ -20,6 +20,7 @@ namespace Shiyun.Controllers
         LunTanManager ltm = new LunTanManager();
         PostManager pm = new PostManager();
         PostReplyManager pr = new PostReplyManager();
+
         #region  论坛主页
         public ActionResult Index()
         {
