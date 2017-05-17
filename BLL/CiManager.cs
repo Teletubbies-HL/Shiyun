@@ -43,7 +43,11 @@ namespace BLL
             var ci = ici.GetCibyLast(last);
             return ci;
         }
-
+        public IEnumerable<Ci> GetbyTopandCiPaiId(int top, int cipaiid)
+        {
+            var ci = ici.GetbyTopandCiPaiId(top, cipaiid);
+            return ci;
+        }
         public void RemoveCi(Ci ci)
         {
             ici.RemoveCi(ci);

@@ -22,7 +22,11 @@ namespace BLL
             CiPai cipai = icipai.GetCiPaiById(id);
             return cipai;
         }
-       
+        public IQueryable<CiPai> whereCiPaiById(int id)
+        {
+            var cipai = icipai.whereCiPaiById(id);
+            return cipai;
+        }
         public void RemoveCiPai(CiPai cipai)
         {
             icipai.RemoveCiPai(cipai);

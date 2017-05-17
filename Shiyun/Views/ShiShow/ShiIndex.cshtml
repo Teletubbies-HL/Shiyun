@@ -62,13 +62,22 @@ else
     <div class="mm-wrapper" id="mm-wrapper">
         <div class="body">
             <div class="recommend-section">
-                <div class="background-overlay" style="background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="400" id="blurred_ko06tm8gd" class="tint-bg-blur" viewBox="0 0 1583 400" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_ko06tm8gd"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="https://o.ruogoo.cn/cover/3df19b1b4a0eab45350507583d4eaeb9.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none"></image></svg></div>
+                <div class="background-overlay" style="background: rgba(0, 0, 0, 0.2);">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="400" id="blurred_ko06tm8gd" class="tint-bg-blur" viewBox="0 0 1583 400" preserveAspectRatio="none" style="opacity: 1;">
+                    <filter id="blur_ko06tm8gd">
+                    <fegaussianblur in="SourceGraphic" stdDeviation="20">
+                        </fegaussianblur>
+                    </filter>
+                    <image class="bigimgback" x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="https://o.ruogoo.cn/cover/3df19b1b4a0eab45350507583d4eaeb9.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none">
+                    </image>
+                    </svg>
+                </div>
                 <div class="container recommend-container">
 @foreach (var shi in Model.Shitop8)
-{
+{ 
                     <div class="recommend-detail">
                         <h2 >
-                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title extra">@*@shi.ShiTitle*@</a>
+                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title extra bigTitle">@shi.ShiTitle</a>
                         </h2>
                         <h4>
                             <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title author">@*@shi.Author.AuthorName*@</a>
@@ -78,7 +87,7 @@ else
 
                     <div class="recommend-show">
                         <a href="https://wenxue.ruogoo.cn/article/6994" class="image current visible transition animating fade left in">
-                            <img src="..@shi.ShiImage" width="240" height="320">
+                            <img src="..@shi.ShiImage" width="240" height="320" class="bigimg">
                         </a>
                     </div>
 }
@@ -437,85 +446,7 @@ else
     <script src="~/Scripts/JS/ShiCilib.js"></script>
     <script src="~/Scripts/JS/ShiCihm.js"></script>
 
-    <script type="text/javascript">
-	$(document).ready(function () {
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
-		});
-		$.support.cors = true;
-		$('input, textarea').placeholder();
-		$('img[data-original]').lazyload({
-			placeholder: "https://static.ruogoo.cn/image/blank.gif",
-			effect     : "fadeIn",
-			threshold  : 400
-		});
-		$('.ui.pop').popup({
-			position : 'bottom center',
-			variation: "inverted",
-			delay    : {
-				hide: 200
-			}
-		});
-		$('.ui.htmlpop').popup({
-			inline   : true,
-			hoverable: true,
-			exclusive: true,
-			jitter   : 20,
-			position : 'bottom center',
-			delay    : {
-				show: 100,
-				hide: 500
-			}
-		});
-		$('select.dropdown').dropdown();
-		$('.ui.tabs .item').tab();
-		$('.ui.trigger').click(function () {
-			var target = $(this).data('target');
-			$(target).modal('show');
-		});
-		$('.message .close').on('click', function () {
-			$(this).closest('.message').transition('fade');
-		});
-
-		$('.ui.tint.blur').each(function () {
-			var imageUrl = $(this).data('image');
-			$(this).css({
-				position : 'relative',
-				'z-index': '1'
-			});
-			$('<div class="tint-overlay"></div>').css({
-				position : 'absolute',
-				width    : '100%',
-				height   : '100%',
-				overflow : 'hidden',
-				'z-index': '-1'
-			}).prependTo($(this));
-
-			$(this).find('.tint-overlay').backgroundBlur({
-				imageURL  : imageUrl,
-				blurAmount: 20,
-				imageClass: 'tint-bg-blur',
-				duration  : 500,
-				endOpacity: 1
-			}).css('background', 'rgba(0, 0, 0, 0.2)');
-		});
-
-//		$('.plain.paper').each(function () {
-//			$(this).html($(this).html().trim().replace(/\n/g, "<br/>"));
-//		});
-		if ($('.waterfall').length > 0) {
-			waterfall('.waterfall');
-		}
-
-			});
-	new Menu();
-	var RG = {};
-
-			RG.currentUser = {"id":9902,"name":"\u5fd8\u6d25","active":0,"avatar":"https:\/\/o.ruogoo.cn\/user\/7373a76636f0432fbe3f0b1669f5115f.jpeg","gender":0,"birth":"","city":"","qq":"","weibo":"","signature":"","introduction":"","recommend":0,"writter":0,"writter_status":0,"life":0,"popular":0,"score":0,"level":0,"created_at":"2017-04-17 09:10:06","updated_at":"2017-04-17 09:10:08"};
-
-    </script><div class="mm-menu-mask"></div>
+   <div class="mm-menu-mask"></div>
     <script src="~/Scripts/JS/ShiCiswiper.min.js"></script>
     <script src="~/Scripts/JS/ShiCiwenxue.js"></script>
 
@@ -569,6 +500,21 @@ else
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(bp, s);
 		})();
+
+
+
+		$(".recommend-item").hover(function () {
+		  var a=  $(this).children().children().attr("src"); 
+		  
+		  $(".bigimg").attr("src", a);
+		  $(".bigimgback").attr("href", a);
+		  var b = $(this).children().children(":eq(1)").children().text();
+		  $(".bigTitle").text(b);
+		}, function () {
+
+		});
+		var title=  $(".recommend-item").children().children(":eq(1)").children().text();
+		$(".bigTitle").text(title);
     </script>
 
 

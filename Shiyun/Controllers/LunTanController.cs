@@ -20,6 +20,7 @@ namespace Shiyun.Controllers
         LunTanManager ltm = new LunTanManager();
         PostManager pm = new PostManager();
         PostReplyManager pr = new PostReplyManager();
+
         #region  论坛主页
         public ActionResult Index()
         {
@@ -107,6 +108,7 @@ namespace Shiyun.Controllers
                     post.AddTime = System.DateTime.Now;
                     post.Post_draft = 0;
                     post.Users_id = Session["Users_id"].ToString();
+                    post.Post_click = 0;
                     pm.AddPost(post);
                     //db.Post.Add(post);
                     //db.SaveChanges();
@@ -225,6 +227,16 @@ namespace Shiyun.Controllers
         }
         #endregion
 
+        #region  
+        [HttpPost]
+        public string AddClick(int postId)
+        {
+            var beforenum =pm.GetPostById(postId);
+            beforenum.Post_click += 1;          
+            pm.EditPost(beforenum);
+            return beforenum.Post_click.ToString();
+        }
+        #endregion
         #region  删除
         [HttpPost]
         public string ShanChu(int postId)

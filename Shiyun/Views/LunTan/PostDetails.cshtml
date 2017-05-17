@@ -106,10 +106,10 @@
     </div>
 </section>
 @section scripts{
-<script src="~/Scripts/ckeditor-face/ckeditor.js"></script>
-<script src="~/Scripts/ckeditor-face/config.js"></script>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/ckeditor-face/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor-face/config.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
         //$(function() {
         //    var isShowImg = false;
@@ -249,7 +249,7 @@
                     url: "/LunTan/GetAllPost",
                     data: { luntanId: 1 },
                     success: function(data) {
-                        location.href = "/LunTan/YuanChuang?luntanId=1";                        
+                        location.href = "/LunTan/YuanChuang?luntanId=1";
                     }
                 });
             });
@@ -275,7 +275,7 @@
             });
         });
         $(function() {
-            $(".csspinglun").click(function () {  //点击评论
+            $(".csspinglun").click(function() { //点击评论
                 //给rereply改变值
                 var b = "";
                 $(".Hidden1").val(null);
@@ -287,7 +287,7 @@
                 $('body,html').animate({ scrollTop: webheight - 1150 }, 1000);
                 $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制             
             });
-            $(document).on('click', '.cssbtnReply', function () {
+            $(document).on('click', '.cssbtnReply', function() {
                 //给rereply改变值
                 var replyid = $(this).next().val();
                 $(".Hidden1").val(replyid);
@@ -312,17 +312,17 @@
             //    $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
             //});
             //$(".cssbtnReply").unbind("click");
-            $(".queding").click(function () {     //提交评论                   
+            $(".queding").click(function() { //提交评论                   
                 //var time = setInterval 
                 //clearInterval(time);     
-                setTimeout(function () {
+                setTimeout(function() {
                     var plHidden = $("#PLhidden").text();
                     if (plHidden == "aa") {
                         $.ajax({
                             type: "post",
                             url: "/LunTan/GetAllPostReply",
                             data: { postId: $(".postid").val(), luntanId: $(".luntanid").val() },
-                            success: function (data) {
+                            success: function(data) {
                                 $("#getAllPostReply").html(data);
                                 //回到顶部
                                 $('body,html').animate({ scrollTop: 200 }, 1000);
@@ -337,24 +337,24 @@
             });
             //显示删除按钮
             var uid = $(".userid").val();
-            if (uid =="@Session["Users_id"]") {
+            if (uid == "@Session["Users_id"]") {
                 $(".cssShanchu").css("display", "block");
             } else {
                 $(".cssShanchu").css("display", "none");
             }
-            $(".cssShanchu").click(function () {  //删除
+            $(".cssShanchu").click(function() { //删除
                 $.ajax({
                     type: "post",
                     url: "/LunTan/ShanChu",
                     data: { postId: $(".postid").val() },
-                    success: function (data) {
+                    success: function(data) {
                         if (data == "aa") {
                             confirm("确定删除吗？");
                             var luntanid = $(".luntanid").val();
                             location.href = "/LunTan/YuanChuang?luntanId=" + luntanid;
-                        } else {    
+                        } else {
                         }
-                      
+
                     }
                 });
             });
@@ -366,6 +366,18 @@
             }
 
 
+        });
+        $(function() {
+            $.ajax({
+                type: "post",
+                url: "/LunTan/AddClick",
+                data: { postId: $(".postid").val() },
+                success: function(data) {
+                 
+                        //alert(data);
+                    
+                }
+            });
         });
     </script>
 
