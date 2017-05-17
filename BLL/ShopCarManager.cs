@@ -29,6 +29,11 @@ namespace BLL
             return shopcar;
         }
 
+        public IEnumerable<View_OrderDetails> FindviewodById(string uid)
+        {
+            var viewordersd = ishopcar.FindviewodById(uid);
+            return viewordersd;
+        }
         public IQueryable<View_ShopCar> FindviewShopcarById(string uid)
         {
             var viewshopcar = ishopcar.FindviewShopcarById(uid);

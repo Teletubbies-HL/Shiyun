@@ -12,17 +12,20 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Orders
+    public partial class View_OrderDetails
     {
         public int Orders_id { get; set; }
-        public string Users_id { get; set; }
-        public System.DateTime OrderTime { get; set; }
+        public int Goods_id { get; set; }
         public Nullable<decimal> Sum { get; set; }
+        public System.DateTime OrderTime { get; set; }
         public string UserName { get; set; }
         public string UserPhone { get; set; }
         public string Address { get; set; }
         public string note { get; set; }
-    
-        public virtual UserInfo UserInfo { get; set; }
+        public string GoodsName { get; set; }
+        public string GoodsImage { get; set; }
+        public Nullable<int> Count { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public string Users_id { get; set; }
     }
 }

@@ -59,5 +59,10 @@ namespace BLL
            var pstd = ipost.GetPostDetails(postid);
            return pstd;
        }
+
+       public void RemovePostByPost_Id(int postid)
+       {
+           ipost.RemovePostByPost_Id(postid);
+       }
     }
 }

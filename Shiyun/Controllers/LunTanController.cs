@@ -108,6 +108,7 @@ namespace Shiyun.Controllers
                     post.AddTime = System.DateTime.Now;
                     post.Post_draft = 0;
                     post.Users_id = Session["Users_id"].ToString();
+                    post.Post_click = 0;
                     pm.AddPost(post);
                     //db.Post.Add(post);
                     //db.SaveChanges();
@@ -191,9 +192,11 @@ namespace Shiyun.Controllers
             return View(luntanIndex);
         }
         #endregion
-        #region 帖子评论数据获取
-        public ActionResult GetAllPostReply(int postId, int? page)
+        #region 帖子评论分页数据获取
+        public ActionResult GetAllPostReply(int postId, int luntanId, int? page)
         {
+            ViewBag.LunTan_id = luntanId;
+            ViewBag.Post_id = postId;
             var postreply = pr.GetPostReply(postId);
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -205,7 +208,7 @@ namespace Shiyun.Controllers
         [ValidateInput(false)]  //富文本编辑器使用
         [ValidateAntiForgeryToken]
         [Login]
-        public ActionResult Pinglun(PostReply postReply)
+        public string Pinglun(PostReply postReply)
         {
            
             if (ModelState.IsValid)
@@ -213,12 +216,34 @@ namespace Shiyun.Controllers
                     postReply.ReplyTime = System.DateTime.Now;
                     postReply.Users_id = Session["Users_id"].ToString();              
                     pr.AddPostReply(postReply);
-                    return Content("<script>;alert('发布成功！');window.history.go(-1);window.location.reload();</script>");
+                    return "aa";
+                    //Content("<script>;alert('发布成功！');window.history.go(-1);</script>");
                 }
                 else
-                {
-                    return Content("<script>;alert('发布失败！');history.go(-1)</script>");
-                }        
+            {
+                return "bb";
+                //Content("<script>;alert('发布失败！');history.go(-1)</script>");
+            }        
+        }
+        #endregion
+
+        #region  
+        [HttpPost]
+        public string AddClick(int postId)
+        {
+            var beforenum =pm.GetPostById(postId);
+            beforenum.Post_click += 1;          
+            pm.EditPost(beforenum);
+            return beforenum.Post_click.ToString();
+        }
+        #endregion
+        #region  删除
+        [HttpPost]
+        public string ShanChu(int postId)
+        {
+            pr.RemovePostReplyByPost_Id(postId);
+            pm.RemovePostByPost_Id(postId);
+            return "aa";
         }
         #endregion
     }

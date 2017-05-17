@@ -29,6 +29,11 @@ namespace DAL
             var shopcar = db.ShopCar.Where(c => c.Users_id == uid);
             return shopcar;
         }
+        public IEnumerable<View_OrderDetails> FindviewodById(string uid)
+        {
+            var viewordersd = db.View_OrderDetails.Where(c => c.Users_id == uid).ToList();
+            return viewordersd;
+        }
         public IQueryable<View_ShopCar> FindviewShopcarById(string uid)
         {
             var viewshopcar = db.View_ShopCar.Where(c => c.Users_id == uid);

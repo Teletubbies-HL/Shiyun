@@ -28,6 +28,7 @@ namespace Shiyun.Controllers
         {
             if (ModelState.IsValid)
             {
+                userInfo.Jifen = 0;
                 userinfomanager.AddUserInfo(userInfo);
                 return Content("<script>;alert('注册成功!');window.history.go(-2); window.location.reload(); </script>");
             }

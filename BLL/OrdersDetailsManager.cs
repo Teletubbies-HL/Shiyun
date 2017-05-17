@@ -17,6 +17,12 @@ namespace BLL
             var ordersds = iordersd.GetOrdersDetails();
             return ordersds;
         }
+
+       //public IQueryable<View_OrderDetails> FindviewodById(string uid)
+       //{
+       //     var viewordersd = iordersd.FindviewodById(uid);
+       //     return viewordersd;
+       // }
         public OrdersDetails GetOrdersDetailsById(int? id)
         {
             OrdersDetails ordersd = iordersd.GetOrdersDetailsById(id);

@@ -1,4 +1,5 @@
 ﻿@using PagedList.Mvc;
+@using PagedList
 @model PagedList.IPagedList<Models.View_PostIndex>
 @{
     Layout = null;
@@ -27,11 +28,10 @@
     @*<div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>*@
         <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
             @*@Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter , luntanId = @ViewBag.LunTan_id}))*@
-            @Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new {page, luntanId = @ViewBag.LunTan_id}), new PagedListRenderOptions {LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5}) @*LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页"   改文字*@
-
+            @*@Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new {page, luntanId = @ViewBag.LunTan_id}), new PagedListRenderOptions{ LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5})*@ @*LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页"   改文字*@
+            @Html.PagedListPager(Model, page => Url.Action("GetAllPost", "LunTan", new { page, luntanId = @ViewBag.LunTan_id }),PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions{ LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 },new AjaxOptions {HttpMethod = "GET",InsertionMode = InsertionMode.Replace,UpdateTargetId = "GetAllPost" }))
         </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 pageje">
         @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
     </div>
-
