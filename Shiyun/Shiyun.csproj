@@ -1595,6 +1595,7 @@
     <Content Include="Views\Shi\CiCreate.cshtml" />
     <Content Include="Views\Mall\Order.cshtml" />
     <Content Include="Views\Mall\OrderDetails.cshtml" />
+    <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

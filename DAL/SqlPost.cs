@@ -17,11 +17,7 @@ namespace DAL
             var posts = db.Post.ToList();
             return posts;
         }
-        public Post GetPostById(int? id)
-        {
-            Post post = db.Post.Find(id);
-            return post;
-        }
+
         public IQueryable<PostReply> GetPostReplyByPostId(int id)
         {
             var post = db.PostReply.Include("Post").Where(o => o.Post_id == id);
@@ -37,11 +33,7 @@ namespace DAL
             db.Post.Add(post);
             db.SaveChanges();
         }
-        public void EditPost(Post post)
-        {
-            db.Entry(post).State = EntityState.Modified;
-            db.SaveChanges();
-        }
+        
 
         public void RemoveRangePostReply(IQueryable<PostReply> PostReply)
         {
@@ -66,6 +58,17 @@ namespace DAL
                       select po;
              db.Post.Remove(pstd.FirstOrDefault());           
             db.SaveChanges();
+        }
+        public void EditPost(Post post) //更新
+        {
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+        public Post GetPostById(int? id)  //获取postbyid
+        {
+            Post post = db.Post.Where(c => c.Post_id == id)
+                .FirstOrDefault();
+            return post;
         }
     }
 }
