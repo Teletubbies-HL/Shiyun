@@ -143,7 +143,38 @@
 
 
             });
-
+        $(function () {
+            $(".Tribune-choose .cotenter ul").children(":eq(1)").children().click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/GetAllPost",
+                    data: { luntanId: 1 },
+                    success: function (data) {
+                        location.href = "/LunTan/YuanChuang?luntanId=1";
+                    }
+                });
+            });
+            $(".Tribune-choose .cotenter ul").children(":eq(2)").children().click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/GetAllPost",
+                    data: { luntanId: 2 },
+                    success: function (data) {
+                        location.href = "/LunTan/YuanChuang?luntanId=2";
+                    }
+                });
+            });
+            $(".Tribune-choose .cotenter ul").children(":eq(3)").children().click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/GetAllPost",
+                    data: { luntanId: 3 },
+                    success: function (data) {
+                        location.href = "/LunTan/YuanChuang?luntanId=3";
+                    }
+                });
+            });
+        });
 
 
     </script>

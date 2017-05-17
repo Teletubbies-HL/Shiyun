@@ -13,5 +13,6 @@ namespace IDAL
         Orders GetOrdersById(int? id);
         void RemoveOrders(Orders orders);
         void EditOrders(Orders orders);
+        void Goumai(string uid, string uname, string userphone, string address, string note);
     }
 }

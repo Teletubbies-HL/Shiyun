@@ -36,30 +36,40 @@ $(window).resize(function () {
         $("header .smallnav").hide();
     }
 });
-$(function() {
-    $(".userinfo").hover(function () {
-        //$(".usercenterbox").fadeIn(500);
-        //$(".zhuxiaobox").fadeIn(500);
-        $(".usercenterbox").show();
-        $(".zhuxiaobox").show();
-    }, function() {
-        $(".usercenterbox").hide();
-        $(".zhuxiaobox").hide();
-    });
-    $(".usercenterbox").hover(function () {
-        $(".usercenterbox").css("display","block");
-        $(".zhuxiaobox").css("display", "block");
-    }, function () {
-        $(".usercenterbox").hide();
-        $(".zhuxiaobox").hide();
-    });
-    $(".zhuxiaobox").hover(function () {
-        $(".usercenterbox").css("display", "block");
-        $(".zhuxiaobox").css("display", "block");
-    }, function () {
-        $(".usercenterbox").hide();
-        $(".zhuxiaobox").hide();
-    });
+$(function () {   //登陆和个人中心的hover
+    var sessionid = $(".uid").val();
+    if (sessionid != "") { //判断是否有session
+        $(".userinfo").parent().on("click", function() {
+            return false;
+        });
+        $(".userinfo").hover(function() {
+            //$(".usercenterbox").fadeIn(500);
+            //$(".zhuxiaobox").fadeIn(500);
+            $(".usercenterbox").show();
+            $(".zhuxiaobox").show();
+        }, function() {
+            $(".usercenterbox").hide();
+            $(".zhuxiaobox").hide();
+        });
+        $(".usercenterbox").hover(function() {
+            $(".usercenterbox").css("display", "block");
+            $(".zhuxiaobox").css("display", "block");
+        }, function() {
+            $(".usercenterbox").hide();
+            $(".zhuxiaobox").hide();
+        });
+        $(".zhuxiaobox").hover(function() {
+            $(".usercenterbox").css("display", "block");
+            $(".zhuxiaobox").css("display", "block");
+        }, function() {
+            $(".usercenterbox").hide();
+            $(".zhuxiaobox").hide();
+        });
+    } else {
+        $(".userinfo").parent().on("click", function () {
+            return true;
+        });
+    }
 });
 $(function () {
     //导航栏切换
@@ -87,5 +97,22 @@ $(function () {
     });
     $(".btn_search").click(function (event) {
         event.stopPropagation(); //阻止事件冒泡    
+    });
+});
+
+$(function () {
+    
+    $(".zhuxiao").click(function () {
+        
+        $.ajax({
+            url: "/UserInfo/Zhuxiao",
+            type: "post",
+            data: { a:1 },
+            success: function (data) {
+                alert("注销成功");
+                $(".userinfo").unbind("mouseenter").unbind("mouseleave");
+                var A = data;
+            }
+        });
     });
 });

@@ -16,6 +16,8 @@ namespace Shiyun.Controllers
         // GET: Mall
         GoodsManager goodsmanager = new GoodsManager();
         ShopCarManager shopcarmanager = new ShopCarManager();
+        UserInfoManager userInfoManager=new UserInfoManager();
+        OrdersManager ordersManager=new OrdersManager();
         #region 商城主页
         public ActionResult Index()
         {
@@ -79,19 +81,8 @@ namespace Shiyun.Controllers
             var nowcount = shopCar.Count;
             var nowgoodsid = shopCar.Goods_id;
             var a = shopcarmanager.CountShopcarById(shopCar.Users_id, shopCar.Goods_id);
-            //db.ShopCar.Where(c => c.Users_id == shopCar.Users_id)
-            //.Where(c => c.Goods_id == shopCar.Goods_id).Select(c => c.ShopCar_id)
-            //.Count();
             var b = shopcarmanager.CountShopcarCountById(shopCar.Users_id, shopCar.Goods_id);
-            //db.ShopCar.Where(c => c.Users_id == shopCar.Users_id)
-            //    .Where(c => c.Goods_id == shopCar.Goods_id)
-            //    .Select(c => c.Count)
-            //    .Count();
             var beforecount = shopcarmanager.beforeCount(shopCar.Users_id, shopCar.Goods_id);
-            //(from g in db.ShopCar
-            //               where g.Goods_id == shopCar.Goods_id
-            //               where g.Users_id == shopCar.Users_id
-            //               select g.Count).FirstOrDefault();
             if (a == 1)
             {
                 //先查询出拿一条数据，再赋值
@@ -156,16 +147,9 @@ namespace Shiyun.Controllers
         [Login]
         public ActionResult Shopcar()
         {
-            //if (Session["Users_id"] != null)
-            //{
             string uid = Session["Users_id"].ToString();
             var vsc = shopcarmanager.FindviewShopcarById(uid);
             return View(vsc);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Login", "UserInfo");
-            //}
         }
         #endregion
 
@@ -210,5 +194,61 @@ namespace Shiyun.Controllers
         }
 
         #endregion
+
+        public string Ordersum;
+        #region 购物车结算按钮
+        [HttpPost]
+        public string Jiesuan(int id,double? sum)
+        {
+            string uid = Session["Users_id"].ToString();
+            Ordersum = sum.ToString();
+            var beforeshopcar = shopcarmanager.whereShopcarById(uid, id);
+            //beforeshopcar.Goods_id = id;
+            //beforeshopcar.Users_id = Session["Users_id"].ToString();
+            //beforeshopcar.Count = count;
+            //beforeshopcar.note = "";
+            //beforeshopcar.Time = System.DateTime.Now;
+            beforeshopcar.flag = 1;
+            shopcarmanager.UpdateShopcarCount(beforeshopcar);
+            if (shopcarmanager.CountShopcarById(uid, id) != 0)
+            {
+                string data = "修改成功";
+                return data;
+            }
+            else
+            {
+                string data = "修改失败";
+                return data;
+            }
+        }
+        #endregion
+
+        #region 订单页
+        [Login]
+        public ActionResult Order()
+        {
+            string uid = Session["Users_id"].ToString();
+            var user1 = userInfoManager.IEGetUsersById(uid);
+            var viewshopcar1 = shopcarmanager.FindviewShopcarByIdflag1(uid);
+            Models.OrderViewModels ordervm = new Models.OrderViewModels();
+            ordervm.ViewShopCar1 = viewshopcar1;
+            ordervm.UserInfo1 = user1;
+            return View(ordervm);
+        }
+        #endregion
+
+        #region 确认购买
+
+        [HttpPost]
+        public string Querengoumai(string uname, string userphone, string address, string note)
+        {
+            string uid= Session["Users_id"].ToString();
+            ordersManager.Goumai(uid,uname, userphone, address,note);
+            string data = "修改成功";
+            return data;
+        }
+
+        #endregion
+            
     }
 }

@@ -34,6 +34,11 @@ namespace BLL
             var viewshopcar = ishopcar.FindviewShopcarById(uid);
             return viewshopcar;
         }
+        public IQueryable<View_ShopCar> FindviewShopcarByIdflag1(string uid)
+        {
+            var viewshopcar = ishopcar.FindviewShopcarByIdflag1(uid);
+            return viewshopcar;
+        }
         public int CountShopcarById(string uid, int gid)
         {
             var shopcar = ishopcar.CountShopcarById(uid, gid);

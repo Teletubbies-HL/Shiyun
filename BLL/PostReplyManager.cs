@@ -38,5 +38,16 @@ namespace BLL
         {
             irpost.RemoveRangePostReply(PostReply);
         }
+
+       public IEnumerable<View_PostReply> GetPostReply(int postid)
+       {
+           var psr = irpost.GetPostReply(postid);
+           return psr;
+       }
+
+       public void AddPostReply(PostReply postreply)
+       {
+           irpost.AddPostReply(postreply);
+       }
     }
 }
