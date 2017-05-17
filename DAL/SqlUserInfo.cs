@@ -39,5 +39,10 @@ namespace DAL
             UserInfo userInfo = db.UserInfo.Find(Users_id);
             return userInfo;
         }
+        public IEnumerable<UserInfo> IEGetUsersById(string Users_id)
+        {
+            var userInfo = db.UserInfo.Where(c=>c.Users_id== Users_id);
+            return userInfo;
+        }
     }
 }
