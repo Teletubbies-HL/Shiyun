@@ -36,6 +36,9 @@
                 <th style="width: 15%; margin: 0 auto; text-align: center;">
                     @Html.DisplayName("编辑")
                 </th>
+                <th>
+                    
+                </th>
             </tr>
 
             @foreach (var item in Model)
@@ -45,10 +48,11 @@
                         <input type="checkbox" name="subBox" style="width: 30px; margin: 0 auto;"/>
                     </td>
                     <td style="width: 20%; margin: 0 auto; line-height: 100px;">
-                        <img src="@item.GoodsImage" style="width: 100px; height: 100px"/>
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = @item.Goods_id})"><img src="@item.GoodsImage" style="width: 100px; height: 100px"/></a>
                     </td>
                     <td style="width: 20%; margin: 0 auto; line-height: 100px;">
                         @Html.DisplayFor(modelItem => item.GoodsName, new { @class = "goodsname"})
+                        @*<input id="gid" type="hidden" value="@item.Goods_id"/>*@
                     </td>
                     <td style="width: 10%; margin: 0 auto; line-height: 100px;">
                         @*@Html.DisplayFor(modelItem => item.Price)*@
@@ -59,7 +63,7 @@
                     </td>
                     <td style="width: 10%; margin: 0 auto; line-height: 100px;">
                         @*@Html.DisplayFor(modelItem => item.FinalPrice, new { @class = "finalprice" })*@
-                        <input class="finalprice" readonly="readonly" value="@Convert.ToDouble(@item.FinalPrice)" type="text" style="text-align: center; width: 100%;"/>
+                        <input class="finalprice" readonly="readonly" value="@Convert.ToDouble(@item.FinalPrice).ToString("0.00")" type="text" style="text-align: center; width: 100%;"/>
                     </td>
                     <td style="width: 15%; margin: 0 auto; line-height: 100px;">
                         <span class="edit" style="cursor: pointer;">编辑</span>
@@ -68,11 +72,10 @@
                         @*@Ajax.ActionLink("更新", "Update", new { id = item.Goods_id,count=item.Count }, null)*@
                         @Ajax.ActionLink("删除", "Delete", new {id = item.Goods_id}, null)
                     </td>
+                    <td><input id="gid" type="hidden" value="@item.Goods_id"/></td>
                 </tr>
             }
         </table>
-        <br/>
-        <div id="btnRpt" class="btn" style="height: 35px; width: 85px; color: white; background-color: #DD3B44; margin-left: 70px;">批量删除</div>
 
         <br/>
         <div class="koong">
@@ -81,14 +84,15 @@
         </div>
         <div class="showprice">
             <label id="lbl1">已选商品：</label>
-            <label id="lblnum">0</label><label>类</label>
+            <label id="lblnum">0</label><label>&nbsp;类&nbsp;&nbsp;</label>
+            <label id="lbltotjian">0</label><label>&nbsp;类&nbsp;&nbsp;</label>
             <label id="lbl2">合计：</label>
-            <label id="lbltotprice">0</label><label>元</label>
+            <label id="lbltotprice">0.00</label><label>&nbsp;元&nbsp;</label>
+            <div class="gwcbutton">
+                <div id="jsuan" class="btn2" style="height: 30px; width: 85px; color: white; background-color: #DD3B44;">生成订单</div>
+            </div>
         </div>
-        <div class="gwcbutton">
-            <div id="qk" class="btn1" style="height: 30px; width: 85px; color: white; background-color: #DD3B44;line-height: 30px;">清空购物车</div>
-            <div id="jsuan" class="btn2" style="height: 30px; width: 85px; color: white; background-color: #DD3B44;line-height: 30px;">生成订单</div>
-        </div>
+        
     </div>
     <input class="chuangzhi" style="display: none;" value="0"/>
 </section>
@@ -96,6 +100,7 @@
 @section scripts
 {
     <script type="text/javascript">
+        //购物车为空时的页面显示
         if ($(".price").val() == null) {
             $(".table").hide();
             $(".showprice").hide();
@@ -103,6 +108,7 @@
             $(".btn").hide();
             $(".kong").show();
         }
+        //更新数量
         $(function() {
             $(".edit").click(function() {
                 $(this).hide();
@@ -115,14 +121,14 @@
                 $(this).parent().prev().prev().children().attr("readonly", "readonly");
                 $(this).parent().prev().prev().children().css("border", "none");
                 $(this).prev().show();
-                var finalprice = $(this).parent().prev().prev().prev().children().val() * $(this).parent().prev().prev().children().val();
+                var finalprice = ($(this).parent().prev().prev().prev().children().val() * $(this).parent().prev().prev().children().val()).toFixed(2);
                 $.ajax({
                     url: "/Mall/Update",
                     type: "post",
                     async: false,
                     //data: { id: $(".update").attr("id"), count: $(".txtbox").val() },
                     data: { id: $(this).attr("id"), count: $(this).parent().prev().prev().children().val() },
-                    success: function (data) {
+                    success: function(data) {
                         alert(data);
                         $(".chuangzhi").val(finalprice);
                     }
@@ -132,24 +138,88 @@
             });
 
         });
-
-        $(function() {
-            $("#quanxuan").click(function() {
+        //勾选框
+        var $subBox = $("input[name='subBox']");
+        $(function () {
+            $("#quanxuan").click(function () {
+                var tp = 0.00;
+                var jian = 0;
                 var isChecked = $(this).prop("checked");
                 $("input[name='subBox']").prop("checked", isChecked);
                 var sumchoose = $("input[name='subBox']:checked").length;
                 $("#lblnum").text(sumchoose);
+                $($subBox).each(function () {
+                    if (this.checked == true) {
+                        tp += parseFloat($(this).parent().next().next().next().next().next().children().val());
+                        jian += parseInt($(this).parent().next().next().next().next().children().val());
+                        $(this).parent().next().next().next().next().next().next().children().hide();
+                    }
+                    else {
+                        tp = 0.00;
+                        $(this).parent().next().next().next().next().next().next().children().show();
+                        $(this).parent().next().next().next().next().next().next().children(":eq(1)").hide();
+                    }
+                });
+                $("#lbltotprice").text(tp.toFixed(2));
+                $("#lbltotjian").text(jian);
             });
-            var $subBox = $("input[name='subBox']");
-            $subBox.click(function() {
-                $("#quanxuan").prop("checked", false);
-                var sumchoose = $("input[name='subBox']:checked").length;
-                $("#lblnum").text(sumchoose);
-                //$("#lbltotprice").text($(this).parent().next().next().next().next().next().children().val());
-                //alert($(this).parent().next().next().next().next().next().children().val());
+            $subBox.click(function () {
+                if (this.checked == true) {
+                    $("#quanxuan").prop("checked", false);
+                    var sumchoose = $("input[name='subBox']:checked").length;
+                    $("#lblnum").text(sumchoose);
+                    var dprice = $(this).parent().next().next().next().next().next().children().val();
+                    var tprice = ($("#lbltotprice").text() * 1 + dprice * 1).toFixed(2);
+                    $("#lbltotprice").text(tprice);
+                    $(this).parent().next().next().next().next().next().next().children().hide();
+                    var len = $("input[name='subBox']").length;
+                    //已选中的checkbox的个数
+                    var checkedLen = $("input[name='subBox']:checked").length;
+                    if (len == checkedLen) {
+                        $('#quanxuan').prop('checked', true);
+                    } else {
+                        $('#quanxuan').prop('checked', false);
+                    }
+                } else {
+                    $("#quanxuan").prop("checked", false);
+                    var sumchoose = $("input[name='subBox']:checked").length;
+                    $("#lblnum").text(sumchoose);
+                    var dprice = $(this).parent().next().next().next().next().next().children().val();
+                    var tprice = ($("#lbltotprice").text() * 1 - dprice * 1).toFixed(2);
+                    $("#lbltotprice").text(tprice);
+                    $(this).parent().next().next().next().next().next().next().children().show();
+                    $(this).parent().next().next().next().next().next().next().children(":eq(1)").hide();
+                }
             });
         });
-
+        //结算
+        $("#jsuan").click(function () {
+            if ($("input[name='subBox']:checked").length > 0) {
+                $($subBox).each(function () {
+                    if (this.checked == true) {
+                        var goodid = $(this).parent().next().next().next().next().next().next().next().children().val();
+                        $.ajax({
+                            url: "/Mall/Jiesuan",
+                            type: "post",
+                            async: false,
+                            data: { id: goodid,sum:$("#lbltotprice").text()},
+                            success: function (data) {
+                                var sum = $("#lbltotprice").text();
+                                location.href = "/Mall/Order?ordersum=" + sum;
+                            }
+                        });
+                    }
+                    else {
+                        //tp = 0.00;
+                        //$(this).parent().next().next().next().next().next().next().children().show();
+                        //$(this).parent().next().next().next().next().next().next().children(":eq(1)").hide();
+                    }
+                });
+            }
+            else {
+                alert("请勾选您要购买的商品。");
+            }
+        });
     </script>
 }
 

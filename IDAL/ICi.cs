@@ -12,7 +12,9 @@ namespace IDAL
         IEnumerable<Ci> GetCi();
         Ci GetCiById(int? id);
         IQueryable<CiComment> GetCiCommentByCiId(int id);
-   
+        IQueryable<Ci> whereCiById(int id);
+        IQueryable<Ci> GetCibyTop(int top);
+        IQueryable<Ci> GetCibyLast(int last);
         void RemoveCi(Ci ci);
         void AddCi(Ci ci);
         void EditCi(Ci ci);

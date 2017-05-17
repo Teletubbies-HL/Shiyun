@@ -239,11 +239,7 @@ namespace Shiyun.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CiPaiCreate([Bind(Include = "CiPai_id,CiPaiName,CiPaiJieshao，CiPaiImage")]CiPai cipai)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    cipaimanager.AddCiPai(cipai);
-            //    return RedirectToAction("CiPaiIndex");
-            //}
+           
             try
             {
                 HttpPostedFileBase cipaiimage = Request.Files["CiPaiImage"];

@@ -12,17 +12,14 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Orders
+    public partial class View_CiShow
     {
-        public int Orders_id { get; set; }
-        public string Users_id { get; set; }
-        public System.DateTime OrderTime { get; set; }
-        public Nullable<decimal> Sum { get; set; }
-        public string UserName { get; set; }
-        public string UserPhone { get; set; }
-        public string Address { get; set; }
-        public string note { get; set; }
-    
-        public virtual UserInfo UserInfo { get; set; }
+        public int CiPai_id { get; set; }
+        public string CiPaiName { get; set; }
+        public string CiPaiImage { get; set; }
+        public int Ci_id { get; set; }
+        public string CiTitle { get; set; }
+        public Nullable<int> Author_id { get; set; }
+        public string AuthorName { get; set; }
     }
 }

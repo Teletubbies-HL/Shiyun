@@ -1,0 +1,111 @@
+﻿@*@model IQueryable<Models.View_ShopCar>*@
+@model Shiyun.Models.OrderViewModels
+@{
+    ViewBag.Title = "诗韵-订单";
+}
+@section style
+{
+    <link href="~/Content/css/ShopCar.css" rel="stylesheet"/>
+
+}
+<section>
+    <div class="showshopcar">
+        <span1>确认订单</span1>
+        <hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 20px; margin-bottom: 20px;"/>
+        @foreach (var item in Model.UserInfo1)
+        {
+            <table style="width: 53%; margin: 60px auto; text-align: center;">
+            <tr>
+                <td style="width: 10%; margin: 0 auto; line-height: 100px;"><span style="font-size: 20px;">收货人姓名：</span></td>
+                <td style="width: 15%; margin: 0 auto; line-height: 100px;">@Html.TextBoxFor(modelItem => item.UserName, new {@class = "textbox", id = "name" })</td>
+            </tr>
+            <tr>
+                <td style="width: 10%; margin: 0 auto; line-height: 100px;"><span style="font-size: 20px;">联系电话：</span></td>
+                <td style="width: 15%; margin: 0 auto; line-height: 100px;">@Html.TextBoxFor(modelItem => item.UserPhone, new {@class = "textbox ", id = "phone" })</td>
+            </tr>
+            <tr>
+                <td style="width: 10%; margin: 0 auto; line-height: 100px;"><span style="font-size: 20px;">详细地址：</span></td>
+                <td style="width: 15%; margin: 0 auto; line-height: 100px;">@Html.TextBoxFor(modelItem => item.Address, new {@class = "textbox", id = "address" })</td>
+            </tr>
+                <tr>
+                    <td style="width: 10%; margin: 0 auto; line-height: 100px;"><span style="font-size: 20px;">备注：</span></td>
+                    <td style="width: 15%; margin: 0 auto; line-height: 100px;"><input class="textbox" id="note" type="text" /></td>
+                </tr>
+            </table>
+        }
+        <table class="table" style="width: 90%; margin: 0 auto; text-align: center;">
+            <tr style="text-align: center;">
+                <th style="width: 25%; margin: 0 auto; text-align: center;">
+                    <label>商品图片</label>
+                </th>
+                <th style="width: 23%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("商品名称")
+                </th>
+                <th style="width: 15%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("商品价格")
+                </th>
+                <th style="width: 15%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("购买数量")
+                </th>
+                <th style="width: 15%; margin: 0 auto; text-align: center;">
+                    @Html.DisplayName("小计")
+                </th>
+                <th>
+
+                </th>
+            </tr>
+
+            @foreach (var item in Model.ViewShopCar1)
+            {
+                <tr>
+                    <td style="width: 25%; margin: 0 auto; line-height: 100px;">
+                        <img src="@item.GoodsImage" style="width: 100px; height: 100px"/>
+                    </td>
+                    <td style="width: 23%; margin: 0 auto; line-height: 100px;">
+                        @Html.DisplayFor(modelItem => item.GoodsName, new {@class = "goodsname"})
+                        @*<input id="gid" type="hidden" value="@item.Goods_id"/>*@
+                    </td>
+                    <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                        @*@Html.DisplayFor(modelItem => item.Price)*@
+                        <input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 100%;"/>
+                    </td>
+                    <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                        @Html.TextBoxFor(modelItem => item.Count, new {@class = "txtbox", @readonly = "readonly", style = "border: none;"})
+                    </td>
+                    <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                        @*@Html.DisplayFor(modelItem => item.FinalPrice, new { @class = "finalprice" })*@
+                        <input class="finalprice" readonly="readonly" value="@Convert.ToDouble(@item.FinalPrice).ToString("0.00")" type="text" style="text-align: center; width: 100%;"/>
+                    </td>
+                    <td><input id="gid" type="hidden" value="@item.Goods_id"/></td>
+                </tr>
+            }
+        </table>
+        <div class="orderbutton">
+            <div style="display: inline-block; font-size: 17px;line-height: 100px;">
+                <label id="lbl2">&nbsp;&nbsp;合计：</label>
+                <label id="lbltotprice">@ViewBag.Ordersum</label><label>&nbsp;&nbsp;元</label>
+            </div>
+            <div class="btnarea">
+                <a href="@Url.Action("Shopcar","Mall")"><div id="hgwc" class="ljgmbutton" style="height: 45px; width: 100px; color: white; background-color: #DD3B44; margin: 30px auto;">回购物车</div></a>
+                <div id="qrfk" class="ljgmbutton" style="height: 45px; width: 100px; color: white; background-color: #DD3B44; margin: 30px auto; float: right;">确认付款</div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts
+{
+    <script type="text/javascript">
+        $("#qrfk").click(function () {
+            $.ajax({
+                url: "/Mall/Querengoumai",
+                type: "post",
+                async: false,
+                data: { uname: $("#name").val(), address: $("#address").val(), note: $("#note").val(), userphone: $("#phone").val() },
+                success: function (data) {
+                    location.href = "/Mall/OrderDetails";
+                }
+            });
+        });
+    </script>
+}
+

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Models;
 using IDAL;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace DAL
 {
@@ -21,6 +22,11 @@ namespace DAL
         {
             Orders orders = db.Orders.Find(id);
             return orders;
+        }
+        public void Goumai(string uid,string uname, string userphone,string address, string note)
+        {
+            int i=db.ShopCar_Orders( uid, uname, userphone, address, note);
+            db.SaveChanges();
         }
         public void RemoveOrders(Orders orders)
         {

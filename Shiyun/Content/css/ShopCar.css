@@ -3,11 +3,15 @@
 .showshopcar span1{float:left;display:block;font-size:26px;color:#000000;margin-bottom:30px;width:100%;}
 .showshopcar .gd{text-align:center;text-decoration:none;}
 .btn{text-align: center;margin-top:10px;margin-left:10px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
-.showprice{margin-top:-115px;float:right;display:block;font-size:18px;}
+.showprice{margin-top:-80px;float:right;display:block;font-size:18px;}
 .txtbox{display:inline-block;border:0.5px solid rgba(0, 0, 0,0.2);width:55px;height:30px;text-align:center;}
 .koong{text-align:center;margin-top:80px;}
 .kong{font-size:20px;color:#000000;margin:0 auto;text-align:center;}
 .gwcbutton{display:inline-block;float:right;margin-top: -50px;width: 250px;}
-.gwcbutton .btn1{text-align: center;display:inline-block;float:right;margin-top:10px;margin-left:10px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
-.gwcbutton .btn2{text-align: center;display:inline-block;float:right;margin-top:10px;margin-left:20px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+.gwcbutton .btn2{cursor: pointer;text-align: center;display:inline-block;margin-top:45px;margin-left:75px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;line-height: 30px;}
 .edcss {text-align:center;}
+.orderline{ margin: 10px auto;font-size: 20px;display: block;width: 45%;}
+.textbox{border: 1px solid rgba(0, 0, 0, 0.2);height: 50px;width: 390px;font-size: 17px;}
+.orderbutton{ width: 80%;margin: 30px auto;height: 100px;}
+.ljgmbutton{cursor: pointer;text-align: center;display:inline-block;font-size:17px;-webkit-border-radius:9px;-moz-border-radius:9px;line-height: 45px;}
+.btnarea{ width: 30%;float: right;}

@@ -13,5 +13,6 @@ namespace IDAL
         UserInfo Denglu(string Users_id, string UserPass);
         UserInfo GetUsersById(string Users_id);
         void UpdateUserInfo(UserInfo userInfo);
+        IEnumerable<UserInfo> IEGetUsersById(string Users_id);
     }
 }

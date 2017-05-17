@@ -19,6 +19,7 @@ namespace Shiyun.Controllers
         AuthorManager authormanager = new AuthorManager();
         TimeManager timemanager = new TimeManager();
         ShiTypeManager shitypemanager = new ShiTypeManager();
+        CiManager cimanager = new CiManager();
         // GET: ShiShow
 
         #region 诗展示
@@ -107,34 +108,30 @@ namespace Shiyun.Controllers
 
         public ActionResult CiIndex()
         {
-            var shitop8 = shimanager.GetShibyTop(8);
+            var citop7 = cimanager.GetCibyTop(7);
             var shi1 = shimanager.whereShiById(2);
             var shi2 = shimanager.whereShiById(4);
             var shi3 = shimanager.whereShiById(6);
             var shi4 = shimanager.whereShiById(8);
             var shi5 = shimanager.whereShiById(10);
             var shi6 = shimanager.whereShiById(12);
-            var shinew22 = shimanager.GetShibyLast(22);
-            var shiauthor1 = authormanager.whereAuthorById(62);
-            var shiauthor2 = authormanager.whereAuthorById(56);
-            var shiauthor3 = authormanager.whereAuthorById(79);
-            var shitypetop12 = shitypemanager.GetShiTypebyTop(12);
-            var shitimtop11 = timemanager.GetTimebyTop(11);
-            Models.ShiViewModels shivm = new Models.ShiViewModels();
-            shivm.Shitop8 = shitop8;
-            shivm.Shi1 = shi1;
-            shivm.Shi2 = shi2;
-            shivm.Shi3 = shi3;
-            shivm.Shi4 = shi4;
-            shivm.Shi5 = shi5;
-            shivm.Shi6 = shi6;
-            shivm.Shinew22 = shinew22;
-            shivm.ShiAuthor1 = shiauthor1;
-            shivm.ShiAuthor2 = shiauthor2;
-            shivm.ShiAuthor3 = shiauthor3;
-            shivm.ShiTypetop12 = shitypetop12;
-            shivm.ShiTimetop11 = shitimtop11;
-            return View(shivm);
+            
+            Models.ShiViewModels civm = new Models.ShiViewModels();
+            civm.Citop7 = citop7;
+            civm.Shi1 = shi1;
+            civm.Shi2 = shi2;
+            civm.Shi3 = shi3;
+            civm.Shi4 = shi4;
+            civm.Shi5 = shi5;
+            civm.Shi6 = shi6;
+            //shivm.Shinew22 = shinew22;
+            //shivm.ShiAuthor1 = shiauthor1;
+            //shivm.ShiAuthor2 = shiauthor2;
+            //shivm.ShiAuthor3 = shiauthor3;
+            //shivm.ShiTypetop12 = shitypetop12;
+            //shivm.ShiTimetop11 = shitimtop11;
+            //return View(shivm);
+            return View();
         }
 
 

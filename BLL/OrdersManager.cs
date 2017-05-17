@@ -23,6 +23,10 @@ namespace BLL
             return orders;
         }
 
+        public void Goumai(string uid, string uname, string userphone, string address, string note)
+        {
+            iorders.Goumai(uid,uname,userphone,address,note);
+        }
         public void RemoveOrders(Orders orders)
         {
             iorders.RemoveOrders(orders);
