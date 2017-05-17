@@ -17,6 +17,7 @@ namespace IDAL
         int CountShopcarById(string uid, int gid);
         void UpdateShopcarCount(ShopCar shopCar);
         IQueryable<ShopCar> FindShopcarById(string uid);
+        IEnumerable<View_OrderDetails> FindviewodById(string uid);
         IQueryable<View_ShopCar> FindviewShopcarById(string uid);
         IQueryable<View_ShopCar> FindviewShopcarByIdflag1(string uid);
         void RemoveRangeShopCar(IQueryable<ShopCar> shopcar);

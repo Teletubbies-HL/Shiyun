@@ -56,14 +56,14 @@
                     </td>
                     <td style="width: 10%; margin: 0 auto; line-height: 100px;">
                         @*@Html.DisplayFor(modelItem => item.Price)*@
-                        <input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 100%;"/>
+                        <span style="display: inline-block;">¥  </span><input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 40%;"/>
                     </td>
                     <td style="width: 15%; margin: 0 auto; line-height: 100px;">
                         @Html.TextBoxFor(modelItem => item.Count, new {@class = "txtbox", @readonly = "readonly", style = "border: none;"})
                     </td>
                     <td style="width: 10%; margin: 0 auto; line-height: 100px;">
                         @*@Html.DisplayFor(modelItem => item.FinalPrice, new { @class = "finalprice" })*@
-                        <input class="finalprice" readonly="readonly" value="@Convert.ToDouble(@item.FinalPrice).ToString("0.00")" type="text" style="text-align: center; width: 100%;"/>
+                        <input class="finalprice" readonly="readonly" value="@Convert.ToDouble(@item.FinalPrice).ToString("0.00")" type="text" style="text-align: center; width: 60%;"/>
                     </td>
                     <td style="width: 15%; margin: 0 auto; line-height: 100px;">
                         <span class="edit" style="cursor: pointer;">编辑</span>

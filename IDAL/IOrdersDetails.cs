@@ -7,10 +7,11 @@ using Models;
 
 namespace IDAL
 {
-    public interface  IOrdersDetails
+    public interface IOrdersDetails
     {
         IEnumerable<OrdersDetails> GetOrdersDetails();
         OrdersDetails GetOrdersDetailsById(int? id);
         void RemoveOrdersDetails(OrdersDetails ordersdetails);
+        //IQueryable<View_OrderDetails> FindviewodById(string uid);
     }
 }

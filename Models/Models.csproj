@@ -157,6 +157,9 @@
     <Compile Include="View_CiShow.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_OrderDetails.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
     <Compile Include="View_PostDetails.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>

@@ -22,6 +22,11 @@ namespace DAL
             OrdersDetails ordersd = db.OrdersDetails.Find(id);
             return ordersd;
         }
+        //public IQueryable<View_OrderDetails> FindviewodById(string uid)
+        //{
+        //    var viewordersd = db.View_OrderDetails.Where(c => c.Users_id == uid);
+        //    return viewordersd;
+        //}
         public void RemoveOrdersDetails(OrdersDetails ordersd)
         {
             db.OrdersDetails.Remove(ordersd);

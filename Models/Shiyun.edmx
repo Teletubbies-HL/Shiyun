@@ -363,6 +363,30 @@
           <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_OrderDetails”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_OrderDetails">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+            <PropertyRef Name="Goods_id" />
+            <PropertyRef Name="OrderTime" />
+            <PropertyRef Name="GoodsName" />
+            <PropertyRef Name="Users_id" />
+          </Key>
+          <Property Name="Orders_id" Type="int" Nullable="false" />
+          <Property Name="Goods_id" Type="int" Nullable="false" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OrderTime" Type="datetime" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GoodsImage" Type="nvarchar(max)" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_PostDetails”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="View_PostDetails">
           <Key>
@@ -987,6 +1011,23 @@
     [View_CiShow].[Author_id] AS [Author_id], 
     [View_CiShow].[AuthorName] AS [AuthorName]
     FROM [dbo].[View_CiShow] AS [View_CiShow]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_OrderDetails].[Orders_id] AS [Orders_id], 
+    [View_OrderDetails].[Goods_id] AS [Goods_id], 
+    [View_OrderDetails].[Sum] AS [Sum], 
+    [View_OrderDetails].[OrderTime] AS [OrderTime], 
+    [View_OrderDetails].[UserName] AS [UserName], 
+    [View_OrderDetails].[UserPhone] AS [UserPhone], 
+    [View_OrderDetails].[Address] AS [Address], 
+    [View_OrderDetails].[note] AS [note], 
+    [View_OrderDetails].[GoodsName] AS [GoodsName], 
+    [View_OrderDetails].[GoodsImage] AS [GoodsImage], 
+    [View_OrderDetails].[Count] AS [Count], 
+    [View_OrderDetails].[Price] AS [Price], 
+    [View_OrderDetails].[Users_id] AS [Users_id]
+    FROM [dbo].[View_OrderDetails] AS [View_OrderDetails]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_PostDetails" EntityType="Self.View_PostDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1676,6 +1717,28 @@
           <Property Name="Author_id" Type="Int32" />
           <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="View_OrderDetails">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+            <PropertyRef Name="Goods_id" />
+            <PropertyRef Name="OrderTime" />
+            <PropertyRef Name="GoodsName" />
+            <PropertyRef Name="Users_id" />
+          </Key>
+          <Property Name="Orders_id" Type="Int32" Nullable="false" />
+          <Property Name="Goods_id" Type="Int32" Nullable="false" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoodsImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="View_PostDetails">
           <Key>
             <PropertyRef Name="Post_id" />
@@ -2277,6 +2340,7 @@
           <EntitySet Name="VideoK" EntityType="Self.VideoK" />
           <EntitySet Name="VideoReply" EntityType="Self.VideoReply" />
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" />
+          <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" />
           <EntitySet Name="View_PostDetails" EntityType="Self.View_PostDetails" />
           <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" />
           <EntitySet Name="View_PostReply" EntityType="Self.View_PostReply" />
@@ -2824,6 +2888,25 @@
                 <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
                 <ScalarProperty Name="Author_id" ColumnName="Author_id" />
                 <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_OrderDetails">
+            <EntityTypeMapping TypeName="ShiyunModel.View_OrderDetails">
+              <MappingFragment StoreEntitySet="View_OrderDetails">
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+                <ScalarProperty Name="Goods_id" ColumnName="Goods_id" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsImage" ColumnName="GoodsImage" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -8,6 +8,7 @@ using BLL;
 using Models;
 using System.Data.Entity;
 using Shiyun.Attributes;
+using PagedList;
 
 namespace Shiyun.Controllers
 {
@@ -18,6 +19,7 @@ namespace Shiyun.Controllers
         ShopCarManager shopcarmanager = new ShopCarManager();
         UserInfoManager userInfoManager=new UserInfoManager();
         OrdersManager ordersManager=new OrdersManager();
+        OrdersDetailsManager ordersdetailsManager = new OrdersDetailsManager();
         #region 商城主页
         public ActionResult Index()
         {
@@ -244,6 +246,18 @@ namespace Shiyun.Controllers
             return data;
         }
         #endregion
-            
+
+        #region 我的订单页
+        [Login]
+        public ActionResult OrderDetails(int? page)
+        {
+            string uid = Session["Users_id"].ToString();
+            var vod = shopcarmanager.FindviewodById(uid);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(vod.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
     }
 }
