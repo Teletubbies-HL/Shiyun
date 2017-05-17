@@ -1,4 +1,5 @@
 ﻿@using PagedList.Mvc;
+@using PagedList
 @model PagedList.IPagedList<Models.View_PostReply>
 @{
     Layout = null;
@@ -22,7 +23,7 @@
                             }
 
         <div class="ReplyContent">@Html.Raw(apr.ReplyContent1) </div>
-        <input id = "btnReply3" class="cssbtnReply" value="回复" />
+        <input id = "btnReply3" class="cssbtnReply" value="回复" readonly="readonly" type="submit"/>
         <input type = "hidden" class="huifuHidden" id="HiddenField1" value="@apr.Reply_id1" />
         <hr style = "border-bottom: 1px solid #E6E6E6; display: block; float: right; margin: 25px 0px 0px; width: 100%;" />
        </div>
@@ -33,7 +34,10 @@
     @*<div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>*@
     <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
         @*@Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter , luntanId = @ViewBag.LunTan_id}))*@
-        @Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new { page, luntanId = @ViewBag.LunTan_id }), new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }) @*LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页"   改文字*@
+        @*@Html.PagedListPager(Model, page => Url.Action("PostDetails", "LunTan", new {page, luntanId = @ViewBag.LunTan_id, postId = @ViewBag.Post_id }), new PagedListRenderOptions {LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5})*@
+
+
+        @Html.PagedListPager(Model, page => Url.Action("GetAllPostReply", "LunTan", new { page, luntanId = @ViewBag.LunTan_id, postId = @ViewBag.Post_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "getAllPostReply" }))
     </div>
 </div>
 <div class="col-xs-2 col-sm-2 col-md-2 pageje">

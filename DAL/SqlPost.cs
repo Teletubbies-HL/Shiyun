@@ -59,5 +59,13 @@ namespace DAL
                           select po;
             return pstd;
         }
+        public void RemovePostByPost_Id(int postid)  //删除帖子by post_id
+        {
+            var pstd = from po in db.Post
+                      where po.Post_id == postid
+                      select po;
+             db.Post.Remove(pstd.FirstOrDefault());           
+            db.SaveChanges();
+        }
     }
 }

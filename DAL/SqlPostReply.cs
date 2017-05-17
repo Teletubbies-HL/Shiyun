@@ -40,7 +40,7 @@ namespace DAL
         }
         public IEnumerable<View_PostReply> GetPostReply(int postid) //获取帖子回复
         {
-            var psr = from po in db.View_PostReply
+            var psr =  from po in db.View_PostReply
                        where po.Post_id1 == postid
                        orderby po.ReplyTime1 descending
                        select po;
@@ -49,6 +49,17 @@ namespace DAL
         public void AddPostReply(PostReply postreply) //添加回复
         {
             db.PostReply.Add(postreply);
+            db.SaveChanges();
+        }
+        public void RemovePostReplyByPost_Id(int postid)  //删除评论by post_id
+        {
+            var psr = from po in db.PostReply
+                      where po.Post_id == postid
+                      select po;
+            foreach (var ei in psr)
+            {
+                db.PostReply.Remove(ei);      
+            }
             db.SaveChanges();
         }
     }

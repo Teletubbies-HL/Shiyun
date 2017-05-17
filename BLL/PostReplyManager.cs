@@ -49,5 +49,10 @@ namespace BLL
        {
            irpost.AddPostReply(postreply);
        }
+
+       public void RemovePostReplyByPost_Id(int postid)
+       {
+           irpost.RemovePostReplyByPost_Id(postid);
+       }
     }
 }
