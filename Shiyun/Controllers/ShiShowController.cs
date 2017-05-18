@@ -91,11 +91,21 @@ namespace Shiyun.Controllers
         #endregion
         #endregion
 
-        #region 详情页
+        #region 诗详情页
 
-        public ActionResult ShiShowDetails()
+        public ActionResult ShiShowShiDetails(int id)
         {
-            return View();
+            Session["Shi_id"] = id;
+            if (Session["Shi_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var shis = shimanager.GetShiById(id);
+            if (shis == null)
+            {
+                return HttpNotFound();
+            }
+            return View(shis);
         }
         #region 诗详情页
 
