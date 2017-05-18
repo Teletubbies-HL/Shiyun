@@ -27,6 +27,11 @@ namespace DAL
             var goods = db.Goods.Where(c=>c.Goods_id==id);
             return goods;
         }
+        public IEnumerable<Goods> whereGoodsBykId(string id)
+        {
+            var goods = db.Goods.Where(c => c.GoodsK_id == id).ToList();
+            return goods;
+        }
         public IQueryable<Goods> GetGoodsbyTop(int top)
         {
             //var goods = db.Goods.OrderBy(c => c.Goods_id).Take(top);

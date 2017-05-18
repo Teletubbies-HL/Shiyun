@@ -1,0 +1,74 @@
+﻿@model Shiyun.Models.MallViewModels
+@{
+    ViewBag.Title = "诗韵-商品分类页";
+}
+@section style
+{
+<link href="~/Content/css/Mall.css" rel="stylesheet" />
+    <style type="text/css">
+        .pagination-container {
+            margin: 0 auto;
+            text-align: center;
+        }
+     .mdbox{width:25%;height:349px;border:0.5px solid rgba(0, 0, 0,0.1);display:inline-block;margin:0 0;float:left;}
+     .mdbox .gd{width:215px;height:70px;text-align: center;margin: -10px auto;text-decoration: none;}
+     .mdetailimg{width: 200px;height:200px;margin:35px auto;list-style:none;display:block;}
+     .mdetail-Title{display:block;text-decoration:none;font-size: 17px;color:rgba(0, 0, 0,0.6);text-align:center;}
+     .mdetail-Jianjie{display:block;text-decoration:none;font-size:15px;font-weight:400;margin:3px auto;width:210px;height:20px;overflow:hidden;color:rgba(0, 0, 0,0.5);text-align:center;}
+     .mdetail-Price{display:block;text-decoration:none;font-size: 17px;font-weight:400;margin:3px auto;color:#c03f3c;text-align:center;}
+    </style>
+}
+<section style="width: 99%;">
+    
+    <div class="centerlist" style="width: 79%;">
+        <div class="listimg1">
+            <a id="clist1" class="panel-2" href="">
+                <img id="Image1" class="liimg" src="~/Images/Mall/clist.png"/>
+            </a>
+        </div>
+    </div>
+
+    <div style="width: 80%; margin: 50px auto;">
+        <span style="font-size: 25px;">商品分类</span>
+        <hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 20px; margin-bottom: 45px;" />
+        <div id="GetAllPost2">
+            @{Html.RenderAction("GetAllPost", "Mall");}
+        </div>
+    </div>
+    <div id="head_hot_goods_wrap">
+        <div id="head_hot_goods_title">
+            <span class="title_span">热品推荐</span>
+            <hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 20px; margin-bottom: 20px;"/>
+            <div id="head_hot_goods_change">
+                <span id="head_hot_goods_prave"><</span>
+                <span id="head_hot_goods_next">></span>
+            </div>
+        </div>
+        <div id="head_hot_goods_content">
+            <ul>
+                @foreach (var good in Model.Goodstop10)
+                {
+                    <li>
+                        <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                            <img id="hotimg" class="liimg" src='..@good.GoodsImage'/>
+                            <span class="hot-Title">@good.GoodsName</span>
+                            <span class="hot-Jianjie">@good.GoodsJianjie</span>
+                            <span class="hot-Price">¥  @good.Price</span>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</section>
+@section scripts
+{
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/JS/Mall.js"></script>
+<script src="~/Scripts/JS/slider.js"></script>
+    <script type="text/javascript">
+
+    </script>
+}
+

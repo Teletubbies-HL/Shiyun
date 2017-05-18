@@ -12,6 +12,7 @@ namespace IDAL
         IEnumerable<Goods> GetGoods();
         Goods GetGoodsById(int? id);
         IQueryable<Goods> whereGoodsById(int id);
+        IEnumerable<Goods> whereGoodsBykId(string id);
         IQueryable<Goods> GetGoodsbyTop(int top);
         IEnumerable<Goods> GetbyTopandGoodskId(int top, string kid);
         //IEnumerable<Goods> GetbyTopandGoodskId();

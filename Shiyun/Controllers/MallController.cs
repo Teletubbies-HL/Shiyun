@@ -9,12 +9,14 @@ using Models;
 using System.Data.Entity;
 using Shiyun.Attributes;
 using PagedList;
+using Shiyun.Models;
 
 namespace Shiyun.Controllers
 {
     public class MallController : Controller
     {
         // GET: Mall
+        public double Ordersum;
         GoodsManager goodsmanager = new GoodsManager();
         ShopCarManager shopcarmanager = new ShopCarManager();
         UserInfoManager userInfoManager=new UserInfoManager();
@@ -55,19 +57,43 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 商品详情页
-        public ActionResult GoodsDetail(int id)
+        public ActionResult GoodsDetail(int Goods_id)
         {
-            Session["Goods_id"] = id;
+            Session["Goods_id"] = Goods_id;
             if (Session["Goods_id"] == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var goodses = goodsmanager.GetGoodsById(id);
+            var goodses = goodsmanager.GetGoodsById(Goods_id);
             if (goodses == null)
             {
                 return HttpNotFound();
             }
             return View(goodses);
+        }
+        #endregion
+
+        #region 商品分类页
+        public ActionResult GoodsFenlei(string GoodsK_id)
+        {
+            Models.MallViewModels mallvm = new Models.MallViewModels();
+            ViewBag.GoodsK_id = GoodsK_id;
+            var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
+            var goodstop10 = goodsmanager.GetGoodsbyTop(10);
+            mallvm.Goodses1 = goodses1;
+            mallvm.Goodstop10 = goodstop10;
+            return View(mallvm);
+        }
+        #endregion
+
+        #region 商品分类页数据获取
+        public ActionResult GetAllPost(string GoodsK_id, int? page)
+        {
+            ViewBag.GoodsK_id = GoodsK_id;
+            var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+            return View(goodses1.ToPagedList(pageNumber, pageSize));
         }
         #endregion
 
@@ -196,8 +222,7 @@ namespace Shiyun.Controllers
         }
 
         #endregion
-
-        public double Ordersum;
+        
         #region 购物车结算按钮
         [HttpPost]
         public string Jiesuan(int id,double? sum)

@@ -22,7 +22,7 @@ namespace DAL
        public IEnumerable<View_PostIndex> GetHostPost()  //获取热帖 根据点击量
        {
            var hotpost = from po in db.View_PostIndex
-                         orderby po.Post_click
+                         orderby po.Post_click ascending 
                          select po;
            
            //var hotpost2 = from n in db.Post

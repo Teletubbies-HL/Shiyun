@@ -79,8 +79,8 @@
         <div id="gmoxin" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
             <a href="javascript:void(0)"><span><i class="iconfont">&#xe692;</i>书</span></a>
             <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe60f;</i>诗集</span></a>
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe696;</i>词集</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 501})"><span><i class="iconfont">&#xe60f;</i>诗集</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 502})"><span><i class="iconfont">&#xe696;</i>词集</span></a>
             </div>
         </div>
     </div>
@@ -88,8 +88,8 @@
         <div id="gjiajv" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
             <a href="javascript:void(0)"><span><i class="iconfont">&#xe62e;</i>笔</span></a>
             <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 101})"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 102})"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
             </div>
         </div>
     </div>
@@ -97,8 +97,8 @@
         <div id="gfushi" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
             <a href="javascript:void(0)"><span><i class="iconfont">&#xe6c3;</i>墨</span></a>
             <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 201})"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 202})"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
             </div>
         </div>
     </div>
@@ -106,8 +106,8 @@
         <div id="gzhuangshi" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
             <a href="javascript:void(0)"><span><i class="iconfont">&#xe66f;</i>纸</span></a>
             <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 301})"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 302})"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
             </div>
         </div>
     </div>
@@ -115,8 +115,8 @@
         <div id="gdingzhi" style="display: block; color: rgba(0, 0, 0, 0.8); margin-left: 20px; position: absolute; top: 25%;">
             <a href="javascript:void(0)"><span><i class="iconfont" style="font-size: 33px;">&#xe6d1;</i>砚</span></a>
             <div class="snext" style="display: block; color: rgba(0, 0, 0, 0.8); margin-top: 25px; margin-bottom: 20px; margin-left: 40px;">
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
-                <a href="javascript:void(0)"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 401})"><span><i class="iconfont">&#xe6ef;</i>古</span></a>
+                <a href="@Url.Action("GoodsFenlei", "Mall", new {GoodsK_id = 402})"><span><i class="iconfont">&#xe6f0;</i>今</span></a>
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@
                 <div class="showbottom1">
                     @foreach (var good in Model.Goodses1)
                     {
-                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                             <img id="showbottomimg1" class="showbottom-Img" src="~/Images/Mall/901.jpg" />
                             <span class="showbottom1-Title">@good.GoodsName</span>
                             <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
@@ -161,7 +161,7 @@
                 <div class="showbottom1">
                     @foreach (var good in Model.Goodses2)
                     {
-                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                             <img id="showbottomimg2" class="showbottom-Img" src="~/Images/Mall/902.jpg" />
                             <span class="showbottom1-Title">@good.GoodsName</span>
                             <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
@@ -174,7 +174,7 @@
                 <div class="showbottom1">
                     @foreach (var good in Model.Goodses3)
                     {
-                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                             <img id="showbottomimg3" class="showbottom-Img" src="~/Images/Mall/903.jpg" />
                             <span class="showbottom1-Title">@good.GoodsName</span>
                             <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
@@ -200,7 +200,7 @@
             @foreach (var good in Model.Goodstop10)
             {
                 <li>
-                    <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                         <img id="hotimg" class="liimg" src='..@good.GoodsImage' />
                         <span class="hot-Title">@good.GoodsName</span>
                         <span class="hot-Jianjie">@good.GoodsJianjie</span>
@@ -227,7 +227,7 @@
         @foreach (var good in Model.Goodses1)
         {
             <div class="mx1">
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             </div>
@@ -236,7 +236,7 @@
         @foreach (var good in Model.Goodskind5top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -259,7 +259,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses4)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -268,7 +268,7 @@
         @foreach (var good in Model.Goodskind1top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -291,7 +291,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses5)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -301,7 +301,7 @@
         @foreach (var good in Model.Goodskind2top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -323,7 +323,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses6)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -333,7 +333,7 @@
         @foreach (var good in Model.Goodskind3top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -355,7 +355,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses7)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -365,7 +365,7 @@
         @foreach (var good in Model.Goodskind4top9)
             {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>

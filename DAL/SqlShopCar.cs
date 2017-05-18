@@ -31,7 +31,7 @@ namespace DAL
         }
         public IEnumerable<View_OrderDetails> FindviewodById(string uid)
         {
-            var viewordersd = db.View_OrderDetails.Where(c => c.Users_id == uid).ToList();
+            var viewordersd = db.View_OrderDetails.Where(c => c.Users_id == uid).OrderByDescending(c=>c.OrderTime).ToList();
             return viewordersd;
         }
         public IQueryable<View_ShopCar> FindviewShopcarById(string uid)

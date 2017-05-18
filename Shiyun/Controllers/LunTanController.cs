@@ -32,20 +32,20 @@ namespace Shiyun.Controllers
             return View(luntanIndex);
         }
         #endregion 
-        #region 原创页面
+        #region 帖子中转页面
         public ActionResult YuanChuang(int luntanId)
         {
             LuntanIndex luntanIndex = new LuntanIndex();
             ViewBag.LunTan_id = luntanId;
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类
-            luntanIndex.YuanChuangZd = ltm.GetYuanChuangZd(1); //原创置顶
+            luntanIndex.YuanChuangZd = ltm.GetYuanChuangZd(luntanId); //原创置顶
             luntanIndex.LuntanName = ltm.GetLuntanName(luntanId); //论坛名称
             luntanIndex.PaiHang = ltm.GetPaiHang(); //排名
             luntanIndex.AllPost = ltm.GetAllPost(luntanId); //原创所有帖子     
             return View(luntanIndex);
         }
         #endregion
-        #region 原创分页数据获取
+        #region 帖子分页数据获取
         public ActionResult GetAllPost(int luntanId, int? page)
         {
             ViewBag.LunTan_id = luntanId;
@@ -226,8 +226,7 @@ namespace Shiyun.Controllers
             }        
         }
         #endregion
-
-        #region  
+        #region   点击量
         [HttpPost]
         public string AddClick(int postId)
         {

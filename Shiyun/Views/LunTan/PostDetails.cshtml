@@ -24,14 +24,16 @@
         <div class="leftbox1">
             <div class="leftbox_1">
                 <div class="cssdltnowluntan" id="dltnowluntan"><!--当前位置-->
-                    <a href="Tribune.aspx"><span class="nowluntan">互动论坛 ></span></a>
-                    <a href="javascript:void(0)" style="text-decoration: none">
+                    <a href="javascript:void(0)"><span class="nowluntan">互动论坛 ></span></a>
+                    
                         @foreach (var ln in Model.LuntanName)
                         {
-                            <span class="nowluntan2">@ln.LunTanName</span>
+                            <a href="@Url.Action("YuanChuang", "LunTan", new {luntanId = @ln.LunTan_id})" style="text-decoration: none">
+                                <span class="nowluntan2">@ln.LunTanName</span>
+                            </a>
                         }
 
-                    </a>
+                           
                 </div>
                 <div class="postdetail">
                     @foreach (var pd in Model.PostDetails)
