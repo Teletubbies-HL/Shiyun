@@ -148,7 +148,7 @@
                 <div class="showbottom1">
                     @foreach (var good in Model.Goodses1)
                     {
-                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                             <img id="showbottomimg1" class="showbottom-Img" src="~/Images/Mall/901.jpg" />
                             <span class="showbottom1-Title">@good.GoodsName</span>
                             <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
@@ -161,7 +161,7 @@
                 <div class="showbottom1">
                     @foreach (var good in Model.Goodses2)
                     {
-                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                             <img id="showbottomimg2" class="showbottom-Img" src="~/Images/Mall/902.jpg" />
                             <span class="showbottom1-Title">@good.GoodsName</span>
                             <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
@@ -174,7 +174,7 @@
                 <div class="showbottom1">
                     @foreach (var good in Model.Goodses3)
                     {
-                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                        <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                             <img id="showbottomimg3" class="showbottom-Img" src="~/Images/Mall/903.jpg" />
                             <span class="showbottom1-Title">@good.GoodsName</span>
                             <span class="showbottom1-Jianjie">@good.GoodsJianjie</span>
@@ -200,7 +200,7 @@
             @foreach (var good in Model.Goodstop10)
             {
                 <li>
-                    <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                    <a id="hlhot" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                         <img id="hotimg" class="liimg" src='..@good.GoodsImage' />
                         <span class="hot-Title">@good.GoodsName</span>
                         <span class="hot-Jianjie">@good.GoodsJianjie</span>
@@ -227,7 +227,7 @@
         @foreach (var good in Model.Goodses1)
         {
             <div class="mx1">
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             </div>
@@ -236,7 +236,7 @@
         @foreach (var good in Model.Goodskind5top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -259,7 +259,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses4)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -268,7 +268,7 @@
         @foreach (var good in Model.Goodskind1top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -291,7 +291,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses5)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -301,7 +301,7 @@
         @foreach (var good in Model.Goodskind2top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -323,7 +323,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses6)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -333,7 +333,7 @@
         @foreach (var good in Model.Goodskind3top9)
         {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {id = good.Goods_id})">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = good.Goods_id})">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>
@@ -355,7 +355,7 @@
         <div class="mx1">
             @foreach (var good in Model.Goodses7)
             {
-                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx1" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx1img" class="mx1-Img" src='..@good.GoodsImage' />
                 </a>
             }
@@ -365,7 +365,7 @@
         @foreach (var good in Model.Goodskind4top9)
             {
             <div class="mx2">
-                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { id = good.Goods_id })">
+                <a id="hlkmx2" class="panel-2" href="@Url.Action("GoodsDetail","Mall",new { Goods_id = good.Goods_id })">
                     <img id="mx2img" class="mx2-Img" src='..@good.GoodsImage' />
                     <span class="mx2-Title">@good.GoodsName</span>
                     <span class="mx2-Jianjie">@good.GoodsJianjie</span>

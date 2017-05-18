@@ -4,24 +4,34 @@
 @{
     Layout = null;
 }
-@foreach (var po in Model)
-{
-    <div class="mdbox">
-        <a href="@Url.Action("GoodsDetail", "Mall", new {GoodsK_id = @po.GoodsK_id, Goods_id = @po.Goods_id})" style="text-decoration: none;">
-            <img class="mdetailimg" style="width:200px; height:200px;" src="@po.GoodsImage"/>
-            <div class="gd">
-                <span class="mdetail-Title">@po.GoodsName</span>
-                <span class="mdetail-Jianjie">@po.GoodsJianjie</span>
-                <span class="mdetail-Price">¥&nbsp;&nbsp;@po.Price</span>
-            </div>
-        </a>
-    </div>
-}
+<div class="mainbox">
+    @foreach (var po in Model)
+    {
+
+        <div class="mdbox" style="margin: 0 auto;">
+            <a href="@Url.Action("GoodsDetail", "Mall", new {GoodsK_id = @po.GoodsK_id, Goods_id = @po.Goods_id})" style="text-decoration: none;">
+                <img class="mdetailimg" style="width: 200px; height: 200px;" src="@po.GoodsImage" />
+                <div class="gd">
+                    <span class="mdetail-Title">@po.GoodsName</span>
+                    <span class="mdetail-Jianjie">@po.GoodsJianjie</span>
+                    <span class="mdetail-Price">¥&nbsp;&nbsp;@po.Price</span>
+                </div>
+            </a>
+        </div>
+
+    }
+</div>
+
 <div class="row page-list">
+    @*<div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>*@
     <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
-        
-        @Html.PagedListPager(Model, page => Url.Action("GetAllPost", "Mall", new { page, GoodsK_id = @ViewBag.GoodsK_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "GetAllPost" }))
-    </div>
+        @*@Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter , luntanId = @ViewBag.LunTan_id}))*@
+        @*@Html.PagedListPager(Model, page => Url.Action("YuanChuang", "LunTan", new {page, luntanId = @ViewBag.LunTan_id}), new PagedListRenderOptions{ LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5})*@ @*LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页"   改文字*@
+        @Html.PagedListPager(Model, page => Url.Action("GetAllPost", "Mall", new { page, GoodsK_id = @ViewBag.GoodsK_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "GetAllPost2" }))
+
+      </div>
 </div>
 <div class="col-xs-2 col-sm-2 col-md-2 pageje">
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
 </div>
+
