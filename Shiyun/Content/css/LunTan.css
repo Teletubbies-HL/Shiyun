@@ -317,7 +317,8 @@ section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox .addtime {
   font-size: 12px;
   color: #999;
   /*border:1px solid red;*/
-  margin: 10px 0px 0px 400px;
+  /*margin: 10px 0px 0px 400px;*/
+  float: right;
 }
 section .leftbox .hotpost .hotpost_1 .hotpost_list .postbox {
   width: 100%;
