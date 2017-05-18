@@ -1084,22 +1084,6 @@
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
-    <Content Include="bin\ApplicationInsights.config" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="bin\Shiyun.dll.config" />
-    <Content Include="Scripts\ckeditor-face\CHANGES.md" />
-    <Content Include="Scripts\ckeditor-face\LICENSE.md" />
-    <Content Include="Scripts\ckeditor-face\README.md" />
-    <Content Include="Scripts\ckeditor-face\samples\old\assets\posteddata.php" />
-    <Content Include="Scripts\ckeditor-face\samples\old\sample_posteddata.php" />
-    <Content Include="Scripts\ckeditor-face\samples\toolbarconfigurator\font\config.json" />
-    <Content Include="Scripts\ckeditor-face\samples\toolbarconfigurator\font\fontello.eot" />
-    <Content Include="Scripts\ckeditor-face\samples\toolbarconfigurator\font\fontello.ttf" />
-    <Content Include="Scripts\ckeditor-face\samples\toolbarconfigurator\font\fontello.woff" />
-    <Content Include="Scripts\ckeditor-face\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
-    <Content Include="Scripts\ckeditor-face\skins\moono-lisa\readme.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -1879,7 +1863,7 @@
     <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowDetails.cshtml" />
+    <Content Include="Views\Mall\GetAllPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
