@@ -331,11 +331,25 @@ section .rightbox .bankuai .cssright_image {
 .zan2 {
   position: absolute;
   top: 30px;
-  right: 160px;
+  right: 200px;
+  cursor: pointer;
+}
+.zannum {
+  position: absolute;
+  top: 30px;
+  right: 170px;
+  color: #999;
 }
 .cai1,
 .cai2 {
   position: absolute;
   top: 30px;
+  right: 150px;
+  cursor: pointer;
+}
+.cainum {
+  position: absolute;
+  top: 30px;
   right: 130px;
+  color: #999;
 }
