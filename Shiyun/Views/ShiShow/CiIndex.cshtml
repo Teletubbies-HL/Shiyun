@@ -7,29 +7,10 @@
 
 <head>
 <title>诗韵-词 </title>
-@*<meta name="description" content=" 若古社区是若古文化旗下社区网站，致力于做中国最优秀的古风文化社区，为古风兴趣爱好者提供一个和谐有爱的交流平台。 ">
-<meta name="keywords" content=" 古风网站,古风,古风论坛,古风社区,若古,若古社区,汉服,汉文化,古典,文化,文学,文学网站,歌曲,艺术,社区, ">*@
-<meta name="csrf-token" content="7hjjPlFLbeZdxxypNF0uMWUlS0SBuarJJzj8vRGu">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="renderer" content="webkit">
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-<meta name="applicable-device" content="pc,mobile">
-<meta property="wb:webmaster" content="f1db8ed3fe948373">
-<meta property="qc:admins" content="72241260576257777636">
-
-
 <link href="~/Content/css/ShiCiforum.css" rel="stylesheet" />
 <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
 <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
 <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
-
-<!--[if lt IE 9]>
-<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>    <![endif]-->
-<!--<link rel="icon" href="https://static.ruogoo.cn/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="https://static.ruogoo.cn/favicon.ico" type="image/x-icon">-->
 </head>
 
 <body class="" style="background-color: #F7F7F7!important;">
@@ -54,7 +35,7 @@
                                 @foreach (var ci in Model.Citop7)
                                 {
                                     <div class="preview relative left mr10 mb10 smallall">
-                                        <a href="https://forum.ruogoo.cn/post/2069" class="image">
+                                        <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci.Ci_id })" class="image">
                                             <img width="200" height="170" style="display: inline;" src='..@ci.CiImage'>
                                             <p class="title small one-line">@ci.CiTitle</p>
                                         </a>
@@ -79,7 +60,7 @@
 
                         @foreach (var ci in Model.CiAuthor1)
                         {
-                            <a href="https://forum.ruogoo.cn/school/20" class="card" style="border-radius:80px;border:none;">
+                            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = ci.Author_id })" class="card" style="border-radius:80px;border:none;">
                                 <div class="image" style="width:170px;height:170px;background-color:rgba(255,255,255,1);border:none;">
                                     <img  style="width:171px;height:170px;border-radius:80px;border:none;" src="..@ci.AuthorImage">
                                 </div>
@@ -92,7 +73,7 @@
                         }
                        @foreach (var ci in Model.CiAuthor2)
                        {
-                        <a href="https://forum.ruogoo.cn/school/20" class="card" style="border-radius:80px;border:none;">
+                        <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = ci.Author_id })" class="card" style="border-radius:80px;border:none;">
                             <div class="image" style="width:170px;height:170px;background-color:rgba(255,255,255,1);border:none;">
                                 <img style="width:171px;height:170px;border-radius:80px;border:none;" src="..@ci.AuthorImage">
                             </div>
@@ -104,7 +85,7 @@
                        }
                         @foreach (var ci in Model.CiAuthor3)
                         {
-                            <a href="https://forum.ruogoo.cn/school/20" class="card" style="border-radius:80px;border:none;">
+                            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = ci.Author_id })" class="card" style="border-radius:80px;border:none;">
                                 <div class="image" style="width:170px;height:170px;background-color:rgba(255,255,255,1);border:none;">
                                     <img style="width:171px;height:170px;border-radius:80px;border:none;" src="..@ci.AuthorImage">
                                 </div>
@@ -116,7 +97,7 @@
                         }
                         @foreach (var ci in Model.CiAuthor4)
                         {
-                            <a href="https://forum.ruogoo.cn/school/20" class="card" style="border-radius:80px;border:none;">
+                            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = ci.Author_id })" class="card" style="border-radius:80px;border:none;">
                                 <div class="image" style="width:170px;height:170px;background-color:rgba(255,255,255,1);border:none;">
                                     <img style="width:171px;height:170px;border-radius:80px;border:none;" src="..@ci.AuthorImage">
                                 </div>
@@ -129,7 +110,7 @@
                         }
                         @foreach (var ci in Model.CiAuthor5)
                         {
-                            <a href="https://forum.ruogoo.cn/school/20" class="card" style="border-radius:80px;border:none;">
+                            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = ci.Author_id })" class="card" style="border-radius:80px;border:none;">
                                 <div class="image" style="width:170px;height:170px;background-color:rgba(255,255,255,1);border:none;">
                                     <img style="width:171px;height:170px;border-radius:80px;border:none;" src="..@ci.AuthorImage">
                                 </div>
@@ -141,7 +122,7 @@
                         }
                         @foreach (var ci in Model.CiAuthor6)
                         {
-                            <a href="https://forum.ruogoo.cn/school/20" class="card" style="border-radius:80px;border:none;">
+                            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = ci.Author_id })" class="card" style="border-radius:80px;border:none;">
                                 <div class="image" style="width:170px;height:170px;background-color:rgba(255,255,255,1);border:none;">
                                     <img style="width:171px;height:170px;border-radius:80px;border:none;" src="..@ci.AuthorImage">
                                 </div>
@@ -169,7 +150,7 @@
                         <div class="school-card white">
                             @foreach (var cipai1 in Model.CiPai1)
                             {
-                                <a href="https://forum.ruogoo.cn/school/12" class="school-header image">
+                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai1.CiPai_id })" class="school-header image">
                                     <img src="..@cipai1.CiPaiImage" data-original="..@cipai1.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -184,10 +165,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci1.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="https://forum.ruogoo.cn/post/2668" class="big title">@ci1.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci1.Ci_id })" class="big title">@ci1.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="https://user.ruogoo.cn/8582" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci1.Ci_id })" class="small gray title">
                                                 <img src="..@ci1.CiImage" data-original="..@ci1.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci1.Author.AuthorName</span>
                                             </a>
@@ -201,7 +182,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai2)
                             {
-                                <a href="https://forum.ruogoo.cn/school/12" class="school-header image">
+                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -216,10 +197,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="https://forum.ruogoo.cn/post/2668" class="big title">@ci.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci.Ci_id })" class="big title">@ci.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="https://user.ruogoo.cn/8582" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci.Ci_id })" class="small gray title">
                                                 <img src="..@ci.CiImage" data-original="..@ci.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci.Author.AuthorName</span>
                                             </a>
@@ -233,7 +214,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai3)
                             {
-                                <a href="https://forum.ruogoo.cn/school/12" class="school-header image">
+                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -248,10 +229,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="https://forum.ruogoo.cn/post/2668" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="https://user.ruogoo.cn/8582" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
@@ -265,7 +246,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai4)
                             {
-                                <a href="https://forum.ruogoo.cn/school/12" class="school-header image">
+                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -280,10 +261,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="https://forum.ruogoo.cn/post/2668" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="https://user.ruogoo.cn/8582" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
@@ -297,7 +278,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai5)
                             {
-                                <a href="https://forum.ruogoo.cn/school/12" class="school-header image">
+                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -312,10 +293,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="https://forum.ruogoo.cn/post/2668" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="https://user.ruogoo.cn/8582" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
@@ -329,7 +310,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai6)
                             {
-                                <a href="https://forum.ruogoo.cn/school/12" class="school-header image">
+                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -344,10 +325,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="https://forum.ruogoo.cn/post/2668" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="https://user.ruogoo.cn/8582" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
