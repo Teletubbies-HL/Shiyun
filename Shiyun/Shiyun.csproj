@@ -2006,6 +2006,11 @@
     <Content Include="Views\Mall\Order.cshtml" />
     <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Views\Mall\OrderDetails.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
+    <Content Include="Views\Mall\GoodsFenlei.cshtml" />
+    <Content Include="Views\Mall\GetAllPost.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

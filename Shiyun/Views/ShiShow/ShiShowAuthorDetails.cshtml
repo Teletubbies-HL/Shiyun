@@ -1,0 +1,245 @@
+﻿@model Models.Author
+
+@{
+    ViewBag.Title = "诗韵作者";
+}
+
+@using (Html.BeginForm("jrgwc", "ShiShow", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Author_id)
+    <head>
+    <link href="~/Content/css/ShiCiforum.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
+    </head>
+    <body class="" style="background-color: #F7F7F7!important;">
+        <div class="message-container">
+        </div>
+        <div class="mm-wrapper" id="mm-wrapper">
+            <div class="body">
+
+                <section class="home-header-section ui tint blur" data-image="https://static.ruogoo.cn/image/theme/009.jpg" style="position: relative; z-index: 1;">
+                    <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="320" id="blurred_vdd3x4seq" class="tint-bg-blur" viewBox="0 0 1583 320" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_vdd3x4seq"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="320" externalResourcesRequired="true" href="https://static.ruogoo.cn/image/theme/009.jpg" style="filter:url(#blur_vdd3x4seq)" preserveAspectRatio="none"></image></svg></div>
+                    <div class="user-detail container">
+                        <div class="avatar-block">
+                            <img class="avatar-big" src="@Model.AuthorImage" data-original="@Model.AuthorImage" width="160" height="160" alt="@Model.AuthorName" style="display: inline;">
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info">
+                                <span class="name title white extra">@Model.AuthorName</span>
+                                <a href="https://www.ruogoo.cn/life" class="rg-label small level" style="background-color: #3D6BE2;">朝代</a>
+                                <a href="https://www.ruogoo.cn/writer" class="rg-label small level" style="background-color: #803DE2;">@Model.Time.TimeName</a>
+                                <span class="span-item gender white text">
+                                    <i class="ri ri-transgender"></i>
+                                </span>
+                            </div>
+                            <div class="count">
+                                <span class="span-item text white attention">
+                                    关注：<a href="https://user.ruogoo.cn/5240/attentions" class="gray"> 27</a>
+                                </span>
+                                <span class="span-item text white fan">
+                                    · 粉丝：<a href="https://user.ruogoo.cn/5240/fans" class="gray"> 98</a>
+                                </span>
+                                <span class="span-item">
+                                    · <a href="javascript:void(0);" class="action-private-message text white">发私信</a>
+                                </span>
+                            </div>
+                            <p class="signature text white">
+                                慕诗客，爱僧家。几时归去，做个闲人，与白衣送酒。
+                            </p>
+                            <div class="action-block">
+                                <a href="javascript:void(0);" class="rg-button followed" text="已关注" ontext="取消关注" style="display: none;" action="https://user.ruogoo.cn/5240/unfollow">已关注</a>
+                                <a href="javascript:void(0);" class="rg-button unfollowed" style="display: inline-block;" action="https://user.ruogoo.cn/5240/follow">关注</a>
+                            </div>
+                        </div>
+
+                        <div id="message-box" class="zoom-anim-dialog mfp-hide">
+                            <div class="message-head">发私信给 江阴士子：</div>
+                            <textarea class="rg-textarea textbox" placeholder="说点悄悄话~~"></textarea>
+                            <div class="action">
+                                <a href="javascript:void(0);" class="rg-button action-send">发送</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="home-section one-section container">
+                    <div class="col-group">
+                        <div class="col-dt-9 col-9 col-mb-12">
+                            <section class="home-content-section one-section white section">
+                                <div class="tab-panel">
+                                    <div class="tab-content">
+                                        <div class="col-group collection-list">
+                                            <div class="col-dt-6 col-6 col-mb-12">
+                                                <div class="collection-item">
+                                                    <div class="collection-cover">
+                                                        <a href="https://wenxue.ruogoo.cn/collection/379" class="image">
+                                                            @*<img src="./江阴士子的个人空间 _ 若古 _ 最优秀的古风文化社区 _ 古风网站_files/0da7059a37d28d7978d091bd5920a079.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/0da7059a37d28d7978d091bd5920a079.jpg@!cover-120" width="120" height="160" style="display: inline;">*@
+                                                        </a>
+                                                    </div>
+                                                    <div class="collection-detail">
+                                                        <h3 class="big title one-line">
+                                                            <a href="https://wenxue.ruogoo.cn/collection/379"> 杂谈异录 </a>
+                                                        </h3>
+                                                        <p class="description">人间凄凉荒谬事，此集尽数入囊中。</p>
+                                                        <p>
+                                                            <span class="span-item"><a href="https://user.ruogoo.cn/5240" class="gray"> 江阴士子 </a></span>
+                                                            <span class="span-item gray small text"> 2016年08月26日 </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-dt-3 col-3 col-mb-12">
+                            <section class="home-side-section">
+                                <div class="intro-block one-section white section">
+                                    <div class="rg-board">
+                                        <div class="rg-board-head">
+                                            <p class="title">简介</p>
+                                            @*<a href="https://user.ruogoo.cn/5240/profile" class="more">详细资料 &gt;</a>*@
+                                        </div>
+
+                                        <div class="rg-board-body text">
+                                           @Html.Raw(@Model.Jieshao)
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script src="~/Scripts/JS/ShiCipush.js"></script>
+        <script src="~/Scripts/JS/ShiCianalytics.js"></script>
+        <script src="~/Scripts/JS/ShiCilib.js"></script>
+        <script src="~/Scripts/JS/ShiCihm.js"></script>
+        <script async="" src="~/Scripts/JS/ShiCianalytics.js"></script>
+        <script type="text/javascript">
+	$(document).ready(function () {
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		$.support.cors = true;
+		$('input, textarea').placeholder();
+		$('img[data-original]').lazyload({
+			placeholder: "https://static.ruogoo.cn/image/blank.gif",
+			effect     : "fadeIn",
+			threshold  : 400
+		});
+		$('.ui.pop').popup({
+			position : 'bottom center',
+			variation: "inverted",
+			delay    : {
+				hide: 200
+			}
+		});
+		$('.ui.htmlpop').popup({
+			inline   : true,
+			hoverable: true,
+			exclusive: true,
+			jitter   : 20,
+			position : 'bottom center',
+			delay    : {
+				show: 100,
+				hide: 500
+			}
+		});
+		$('select.dropdown').dropdown();
+		$('.ui.tabs .item').tab();
+		$('.ui.trigger').click(function () {
+			var target = $(this).data('target');
+			$(target).modal('show');
+		});
+		$('.message .close').on('click', function () {
+			$(this).closest('.message').transition('fade');
+		});
+
+		$('.ui.tint.blur').each(function () {
+			var imageUrl = $(this).data('image');
+			$(this).css({
+				position : 'relative',
+				'z-index': '1'
+			});
+			$('<div class="tint-overlay"></div>').css({
+				position : 'absolute',
+				width    : '100%',
+				height   : '100%',
+				overflow : 'hidden',
+				'z-index': '-1'
+			}).prependTo($(this));
+
+			$(this).find('.tint-overlay').backgroundBlur({
+				imageURL  : imageUrl,
+				blurAmount: 20,
+				imageClass: 'tint-bg-blur',
+				duration  : 500,
+				endOpacity: 1
+			}).css('background', 'rgba(0, 0, 0, 0.2)');
+		});
+
+		if ($('.waterfall').length > 0) {
+			waterfall('.waterfall');
+		}
+	});
+	new Menu();
+	var RG = {};
+
+
+        </script><div class="mm-menu-mask"></div>
+
+        @*<script type="text/javascript">
+		RG.user = {"id":5240,"name":"\u6c5f\u9634\u58eb\u5b50","active":0,"avatar":"https:\/\/o.ruogoo.cn\/user\/08fadf39de434f8ba84a9688d6423431.jpg","gender":0,"birth":"3.14","city":"","qq":"1973727974","weibo":"","signature":"\u6155\u8bd7\u5ba2\uff0c\u7231\u50e7\u5bb6\u3002\u51e0\u65f6\u5f52\u53bb\uff0c\u505a\u4e2a\u95f2\u4eba\uff0c\u4e0e\u767d\u8863\u9001\u9152\u3002","introduction":"\u76d6\u672c\u6c5f\u9634\u4eba\u58eb\uff0c\u5e08\u66f0\u516c\u5b50\uff0c\u6545\u51a0\u4ee5\u516c\u5b50\u4e4b\u540d\u3002","recommend":0,"writter":1,"writter_status":1,"life":5954,"popular":0,"score":1428,"level":6,"created_at":"2015-11-10 20:26:04","updated_at":"2017-05-18 11:54:14"};
+        </script>
+        <script src="./江阴士子的个人空间 _ 若古 _ 最优秀的古风文化社区 _ 古风网站_files/home-de9e75a99f.js"></script>*@
+
+
+
+        <script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?5b73570792602cb83cdb6b9af4ef15cd";
+			var s  = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+        </script>
+        <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-64523090-1', 'auto');
+		ga('send', 'pageview');
+
+        </script>
+        <script>
+		(function () {
+			var bp          = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+        </script>
+
+
+
+    </body>
+}

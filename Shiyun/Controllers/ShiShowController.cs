@@ -107,9 +107,7 @@ namespace Shiyun.Controllers
             }
             return View(shis);
         }
-        #region 诗详情页
-
-        #endregion
+       
         #endregion
 
 
@@ -177,8 +175,41 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 词详情
+        public ActionResult ShiShowCiDetails(int id)
+        {
+            Session["Ci_id"] = id;
+            if (Session["Ci_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var cis = cimanager.GetCisById(id);
+            if (cis == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cis);
+        }
         #endregion
+        #region 作者页面
+        public ActionResult ShiShowAuthorDetails(int id)
+        {
+            Session["Author_id"] = id;
+            if (Session["Author_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var aus = authormanager.GetAuthorById(id);
+            if (aus == null)
+            {
+                return HttpNotFound();
+            }
+            //int pageSize = 6;
+            //int pageNumber = (page ?? 1);
 
+            //return View(aus.ToPagedList(pageNumber, pageSize));
+            return View(aus);
+        }
+        #endregion
 
     }
 }
