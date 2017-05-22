@@ -663,8 +663,6 @@
     <Content Include="MP3\曾轶可 - 勇敢一点.mp3" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2020,11 +2018,9 @@
     <Content Include="Views\Mall\Order.cshtml" />
     <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Views\Mall\OrderDetails.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
-    <Content Include="Views\Mall\GoodsFenlei.cshtml" />
+    <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
+    <Content Include="Views\Mall\GoodsFenlei.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2039,12 +2035,8 @@
     <Folder Include="ueditor\net\upload\image\20170503\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
