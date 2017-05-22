@@ -230,5 +230,27 @@
             $(".paihang").hide();
         }
     });
+    $(function () {
+        $(".postbox").children(":eq(0)").click(function () {   //赞1
+            alert("1");
+        });
+        $(".postbox").children(":eq(2)").children(":eq(0)").click(function () {   //赞1
+            alert("1");
+            $(this).css("display", "none");
+            $(this).next().show("display", "block");
+        });
+        $(".postbox").children(":eq(2)").children(":eq(1)").click(function () {  //赞2
+            $(this).css("display", "none");
+            $(this).prev().show("display", "block");
+        });
+        $(".postbox").children(":eq(3)").children(":eq(0)").click(function () {  //踩1
+            $(this).css("display", "none");
+            $(this).next().show("display", "block");
+        });
+        $(".postbox").children(":eq(3)").children(":eq(1)").click(function () {  //踩2
+            $(this).css("display", "none");
+            $(this).prev().show("display", "block");
+        });
+    });    
     </script>
 }
