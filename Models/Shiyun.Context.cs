@@ -56,6 +56,7 @@ namespace Models
         public virtual DbSet<VideoComment> VideoComment { get; set; }
         public virtual DbSet<VideoK> VideoK { get; set; }
         public virtual DbSet<VideoReply> VideoReply { get; set; }
+        public virtual DbSet<View_Authorsc> View_Authorsc { get; set; }
         public virtual DbSet<View_CiShow> View_CiShow { get; set; }
         public virtual DbSet<View_OrderDetails> View_OrderDetails { get; set; }
         public virtual DbSet<View_PostDetails> View_PostDetails { get; set; }

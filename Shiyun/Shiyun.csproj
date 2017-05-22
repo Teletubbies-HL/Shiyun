@@ -371,6 +371,7 @@
     <Content Include="Content\css\css3.css" />
     <Content Include="Content\css\GoodsDetails.css" />
     <Content Include="Content\css\HeadFoot.css" />
+    <Content Include="Content\css\ShiCihome.css" />
     <Content Include="Content\css\Homeindex.css" />
     <Content Include="Content\css\PostDetails.css" />
     <Content Include="Content\css\PostSend.css" />
@@ -2074,6 +2075,8 @@
     <Content Include="Views\Mall\OrderDetails.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
+    
+    <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
     <Content Include="Views\Video\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -2089,6 +2092,9 @@
     <Folder Include="ueditor\net\upload\image\20170503\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>

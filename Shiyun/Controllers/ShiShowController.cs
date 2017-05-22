@@ -9,6 +9,7 @@ using System.Net;
 using PagedList;
 using System.IO;
 using System.Web.Helpers;
+using Shiyun.Models;
 
 namespace Shiyun.Controllers
 {
@@ -190,8 +191,9 @@ namespace Shiyun.Controllers
             return View(cis);
         }
         #endregion
+
         #region 作者页面
-        public ActionResult ShiShowAuthorDetails(int id)
+        public ActionResult ShiShowAuthorDetails(int id,int?page)
         {
             Session["Author_id"] = id;
             if (Session["Author_id"] == null)
@@ -203,13 +205,22 @@ namespace Shiyun.Controllers
             {
                 return HttpNotFound();
             }
-            //int pageSize = 6;
-            //int pageNumber = (page ?? 1);
-
-            //return View(aus.ToPagedList(pageNumber, pageSize));
+            var shici = authormanager.GetAuthorsc(id);
+            Models.ShiViewModels shivm = new Models.ShiViewModels();
+            shivm.Authorsc = shici;
             return View(aus);
         }
         #endregion
 
+        #region 作者诗作分页页面
+        //public ActionResult GetCibyAuthor(int Authorid, int? page)
+        //{
+            
+        //    var aus = authormanager.GetCiByAuthorId(Authorid);
+        //    int pageSize = 6;
+        //    int pageNumber = (page ?? 1);
+        //    return View(aus.ToPagedList(pageNumber, pageSize));
+        //}
+        #endregion
     }
 }

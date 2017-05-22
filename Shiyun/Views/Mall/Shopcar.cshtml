@@ -55,8 +55,7 @@
                         @*<input id="gid" type="hidden" value="@item.Goods_id"/>*@
                     </td>
                     <td style="width: 10%; margin: 0 auto; line-height: 100px;">
-                        @*@Html.DisplayFor(modelItem => item.Price)*@
-                        <span style="display: inline-block;">¥  </span><input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 40%;"/>
+                        @*@Html.DisplayFor(modelItem => item.Price)*@<input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 40%;"/>
                     </td>
                     <td style="width: 15%; margin: 0 auto; line-height: 100px;">
                         @Html.TextBoxFor(modelItem => item.Count, new {@class = "txtbox", @readonly = "readonly", style = "border: none;"})
