@@ -11,7 +11,7 @@ namespace IDAL
     {
         IEnumerable<VideoK> GetVideoK();
         VideoK GetVideoKById(int? id);
-        IQueryable<Video> GetVideoByVideoKId(int id);
+        IQueryable<VideoK> GetVideoKByVideoKId(int? id);
         void RemoveVideoK(VideoK video);
         void AddVideoK(VideoK video);
         void EditVideoK(VideoK video);

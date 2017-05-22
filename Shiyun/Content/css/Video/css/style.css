@@ -2,7 +2,7 @@
 /* ---------------------------------------------------------------------------- */
 /* ------------------------------------Reset----------------------------------- */
 /* ---------------------------------------------------------------------------- */
-a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}
+a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;/*vertical-align:top;*/}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {/*vertical-align:top;*/}embed {/*vertical-align:top;*/}
 article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
 mark, rp, rt, ruby, summary, time {display:inline;}
 input, textarea {border:0; padding:0; margin:0; outline: 0;}
@@ -77,9 +77,8 @@ hr.line { margin: 25px auto 15px; padding: 0; max-width: 80px;border: 0; border-
 #main-content{margin-top: 10px;}
 #main-content .wrap-content{}
 
-.header {background-color: #fff;padding: 15px 20px;margin-bottom: 15px;border: 1px solid #ddd;}
-.header h2{font-size: 23px;}
-
+.header {background-color: #fff;padding: 15px 20px;margin-bottom: 15px;/*border: 1px solid #ddd;*/box-shadow: 0 0 4px #cecccc; -webkit-box-shadow: 0 0 4px #cecccc;}
+.header h2{font-size: 18px;line-height: 50px;color: #333;border-bottom: 1px solid rgba(128, 128, 128, 0.4);display: block;}
 
 /* ---Sidebar-Widget--- */
 #sidebar{margin-top: 10px;}
@@ -89,9 +88,9 @@ hr.line { margin: 25px auto 15px; padding: 0; max-width: 80px;border: 0; border-
 .widget ul li { line-height: 2.8;border-bottom: 2px solid #DDD;}
 .widget:after, .widget:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
 
-.widget .wid-header  {background-color: #fff;padding: 20px;margin-bottom: 15px;border: 1px solid #ddd;}
-.widget .wid-header h5 {font-size: 23px;}
-.widget .wid-content{padding: 20px;background-color: #fff;border: 1px solid #ddd;}
+.widget .wid-header  {background-color: #fff;padding: 20px;margin-bottom: 15px;/*border:1px solid #ddd;*/ box-shadow: 0 0 4px #cecccc; -webkit-box-shadow: 0 0 4px #cecccc;}
+.widget .wid-header h6 {    font-size: 15px;color: rgba(34, 34, 34, 0.7);font-weight: 700;border-top: 3px solid #e2d537;display: block;line-height: 30px;text-align: center;}
+.widget .wid-content{padding:0px 20px;background-color: #fff;/*border:1px solid #ddd;*/}
 
 .post {}
 .post:last-child {margin-bottom: 0;}
@@ -158,9 +157,9 @@ a.search-submit-button {
 
 #ff label {cursor:pointer;margin:5px 0;display:block;font-weight:bold;}
 
-#ff input {display:block;width:90%;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px; color:#000;	border:1px solid #bbb;padding:10px;margin: 5px 0 25px 0;background-color: #F9F9F9;}
+#ff input {display:block;width:90%;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px; color:#000;	/*border:1px solid #bbb;*/padding:10px;margin: 5px 0 25px 0;background-color: #F9F9F9;}
 
-textarea {display:block;width:90%;height:200px; border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;background-color: #F9F9F9; color:#000;	border:1px solid #bbb;padding:10px;margin: 5px 0 25px 0;}
+textarea {display:block;width:90%;height:200px; border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;background-color: #F9F9F9; color:#000;	/*border:1px solid #bbb;*/padding:10px;margin: 5px 0 25px 0;}
 
 #ff .sendButton {border: none;cursor:pointer;background-color:#0A8CBE;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;;width:100px;color:#ffffff;}
 #ff .sendButton:hover {opacity: 0.8;}
@@ -180,7 +179,7 @@ textarea {display:block;width:90%;height:200px; border-radius:4px;-webkit-border
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------Vid-Effect----------------------------------- */
 /* ---------------------------------------------------------------------------- */
-.wrap-vid{margin-bottom: 20px;}
+.wrap-vid{margin-bottom: 10px;}
 .vid-item {position: relative;}
 .vid-name{margin-top: 5px;}
 .vid-name a{font-size: 19px;color: #654E2D;}

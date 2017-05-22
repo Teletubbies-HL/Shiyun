@@ -635,6 +635,8 @@
     <Content Include="Images\Video\8.jpg" />
     <Content Include="Images\Video\9.jpg" />
     <Content Include="Images\Video\logo.png" />
+    <Content Include="Images\Video\zhankai.png" />
+    <Content Include="Images\Video\我在故宫修文物大图.png" />
     <Content Include="Manager\css\animate.css" />
     <Content Include="Manager\css\bootstrap-fileupload.min.css" />
     <Content Include="Manager\css\bootstrap-reset.css" />
@@ -1240,6 +1242,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\Challenge.js" />
+    <Content Include="Scripts\JS\offlights.js" />
     <Content Include="Scripts\JS\ShiCiforum-.js" />
     <Content Include="Scripts\JS\ShiCihm.js" />
     <Content Include="Scripts\JS\ShiCipush.js" />
@@ -1974,6 +1977,10 @@
     <Content Include="ueditor\ueditor.config.js" />
     <Content Include="ueditor\ueditor.parse.js" />
     <Content Include="ueditor\ueditor.parse.min.js" />
+    <Content Include="Video\1.mp4" />
+    <Content Include="Video\2.mp4" />
+    <Content Include="Video\3.mp4" />
+    <Content Include="Video\4.mp4" />
     <Content Include="Views\Goods\GoodsCreate.cshtml" />
     <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Web.config" />
@@ -2075,9 +2082,10 @@
     <Content Include="Views\Mall\OrderDetails.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
-    
     <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
     <Content Include="Views\Video\Index.cshtml" />
+    <Content Include="Views\Video\GetAllVideoK.cshtml" />
+    <Content Include="Views\Video\VideoDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

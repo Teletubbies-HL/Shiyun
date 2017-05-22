@@ -1,0 +1,35 @@
+﻿@using PagedList.Mvc;
+@using PagedList
+@model PagedList.IPagedList<Models.VideoK>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-1-3" style="margin-top: 10px;">
+        <div class="wrap-col">
+            <div class="wrap-vid">
+                <div class="zoom-container">
+                    <a href="@Url.Action("VideoDetails","Video",new { VideoK_id = @item.VideoK_id})">
+                        <span class="zoom-caption">
+                            @*<i class="iconfont icon-play" style="color: white;">&#xe64f;</i>*@
+                        </span>
+                        <img src="@item.Cover" />
+                    </a>
+                </div>
+                <h3 class="vid-name"><a href="@Url.Action("VideoDetails","Video",new { VideoK_id = @item.VideoK_id})">@item.VideoKName</a></h3>
+                <div class="info"><span><i class="iconfont">&#xe63e;</i>@item.AddTime</span></div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row page-list">
+    <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">        
+        @Html.PagedListPager(Model, page => Url.Action("GetAllVideoK", "Video", new { page}), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "getAllVideoK" }))
+    </div>
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 pageje">
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
+</div>

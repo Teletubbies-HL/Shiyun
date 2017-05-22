@@ -22,9 +22,9 @@ namespace DAL
             VideoK videok = db.VideoK.Find(id);
             return videok;
         }
-        public IQueryable<Video> GetVideoByVideoKId(int id)
+        public IQueryable<VideoK> GetVideoKByVideoKId(int? id)
         {
-            var Video = db.Video.Include("VideoK").Where(c => c.VideoK_id == id);
+            var Video = db.VideoK.Where(c => c.VideoK_id == id);
             return Video;
         }
 

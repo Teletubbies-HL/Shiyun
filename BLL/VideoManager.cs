@@ -17,11 +17,17 @@ namespace BLL
             var videos = ivideo.GetVideo();
             return videos;
         }
-        public Video GetVideoById(int? id)
+        public IEnumerable<Video> GetVideoById(int? id)
         {
-            Video video = ivideo.GetVideoById(id);
+            var video = ivideo.GetVideoById(id);
             return video;
         }
+        public IEnumerable<Video> GetVideoByVideoKId(int? id)
+        {
+            var video = ivideo.GetVideoByVideoKId(id);
+            return video;
+        }
+
         public IQueryable<VideoComment> GetVideoCommentByVideoId(int id)
         {
             var VideoComment = ivideo.GetVideoCommentByVideoId(id);
@@ -52,6 +58,12 @@ namespace BLL
        {
            var getnewvideo = ivideo.GetNewVideo();
            return getnewvideo;
+       }
+
+       public IEnumerable<Video> GetRecommend()
+       {
+           var recommend = ivideo.GetRecommend();
+           return recommend;
        }
     }
 }

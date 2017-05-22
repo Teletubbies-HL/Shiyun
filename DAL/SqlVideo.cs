@@ -12,14 +12,23 @@ namespace DAL
     public class SqlVideo:IVideo
     {
         ShiyunEntities db = DbContextFactory.CreateDbContext();
-        public IEnumerable<Video> GetVideo()
+        public IEnumerable<Video> GetVideo() 
         {
             var videos = db.Video.ToList();
             return videos;
         }
-        public Video GetVideoById(int? id)
+        public IEnumerable<Video> GetVideoById(int? id)
         {
-            Video video = db.Video.Find(id);
+            var video = from vi in db.Video
+                        where vi.Video_id == id
+                        select vi;
+            return video;
+        }
+        public IEnumerable<Video> GetVideoByVideoKId(int? id)
+        {
+            var video = from vi in db.Video
+                        where vi.VideoK_id == id
+                        select vi;
             return video;
         }
         public IQueryable<VideoComment> GetVideoCommentByVideoId(int id)
