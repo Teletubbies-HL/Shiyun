@@ -21,7 +21,6 @@ namespace Shiyun.Controllers
         ShopCarManager shopcarmanager = new ShopCarManager();
         UserInfoManager userInfoManager=new UserInfoManager();
         OrdersManager ordersManager=new OrdersManager();
-        OrdersDetailsManager ordersdetailsManager = new OrdersDetailsManager();
         #region 商城主页
         public ActionResult Index()
         {
