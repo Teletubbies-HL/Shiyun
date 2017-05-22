@@ -47,5 +47,11 @@ namespace BLL
         {
             ivideo.RemoveRangeVideoComment(VideoComment);
         }
+
+       public IEnumerable<Video> GetNewVideo()
+       {
+           var getnewvideo = ivideo.GetNewVideo();
+           return getnewvideo;
+       }
     }
 }

@@ -16,6 +16,8 @@ namespace IDAL
         void AddVideo(Video video);
         void EditVideo(Video video);
         void RemoveRangeVideoComment(IQueryable<VideoComment> VideoComment);
-       
+        IEnumerable<Video> GetNewVideo();
+
+
     }
 }

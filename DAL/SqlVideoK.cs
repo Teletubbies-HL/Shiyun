@@ -12,7 +12,7 @@ namespace DAL
     public class SqlVideoK:IVideoK
     {
         ShiyunEntities db = DbContextFactory.CreateDbContext();
-        public IEnumerable<VideoK> GetVideoK()
+        public IEnumerable<VideoK> GetVideoK()  //获取全部视频分类
         {
             var videoks = db.VideoK.ToList();
             return videoks;

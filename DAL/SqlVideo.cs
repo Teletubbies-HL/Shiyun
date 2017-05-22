@@ -49,5 +49,20 @@ namespace DAL
         {
             db.VideoComment.RemoveRange(VideoComment);
         }
+        public IEnumerable<Video> GetNewVideo() //获取最新的视频
+        {
+            var newvideo = from po in db.Video
+                               orderby po.AddTime descending
+                               select po;
+            return newvideo;
+        }
+        public IEnumerable<Video> GetRecommend() //获取推荐的视频
+        {
+            var recommend = from po in db.Video
+                           where po.Video_recommend == 1
+                           orderby po.AddTime descending
+                           select po;
+            return recommend;
+        }
     }
 }
