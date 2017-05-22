@@ -367,6 +367,7 @@
     <Content Include="Content\css\css3.css" />
     <Content Include="Content\css\GoodsDetails.css" />
     <Content Include="Content\css\HeadFoot.css" />
+    <Content Include="Content\css\ShiCihome.css" />
     <Content Include="Content\css\Homeindex.css" />
     <Content Include="Content\css\PostDetails.css" />
     <Content Include="Content\css\PostSend.css" />
@@ -2011,6 +2012,7 @@
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
+    <Content Include="Views\ShiShow\GetAuthorAllPoem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

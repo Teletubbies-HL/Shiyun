@@ -27,6 +27,7 @@ namespace Models
         public Nullable<System.DateTime> AddTime { get; set; }
         public string VideoURL { get; set; }
         public Nullable<int> VideoK_id { get; set; }
+        public Nullable<int> Video_recommend { get; set; }
     
         public virtual VideoK VideoK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

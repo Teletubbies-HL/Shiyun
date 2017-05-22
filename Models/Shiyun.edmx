@@ -304,13 +304,14 @@
           <Key>
             <PropertyRef Name="Video_id" />
           </Key>
-          <Property Name="Video_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Video_id" Type="int" Nullable="false" />
           <Property Name="VideoName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Cover" Type="nvarchar(max)" />
           <Property Name="VideoJishu" Type="nvarchar" MaxLength="50" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="VideoURL" Type="nvarchar(max)" />
           <Property Name="VideoK_id" Type="int" />
+          <Property Name="Video_recommend" Type="int" />
         </EntityType>
         <EntityType Name="VideoComment">
           <Key>
@@ -343,6 +344,29 @@
           <Property Name="VideoComment_id" Type="int" Nullable="false" />
           <Property Name="ReplyTim" Type="datetime" Nullable="false" />
           <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_Authorsc”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Authorsc">
+          <Key>
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="Author_id" />
+          </Key>
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Author_id" Type="int" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Jieshao" Type="nvarchar(max)" />
+          <Property Name="Time_id" Type="int" />
+          <Property Name="Shi_id" Type="int" />
+          <Property Name="ShiTitle" Type="nvarchar" MaxLength="20" />
+          <Property Name="ShiContent" Type="nvarchar(max)" />
+          <Property Name="ShiImage" Type="nvarchar(max)" />
+          <Property Name="Ci_id" Type="int" />
+          <Property Name="CiTitle" Type="nvarchar" MaxLength="20" />
+          <Property Name="CiContent" Type="nvarchar(max)" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+          <Property Name="Expr1" Type="int" />
+          <Property Name="Expr2" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_CiShow”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1001,6 +1025,25 @@
           <EntitySet Name="VideoComment" EntityType="Self.VideoComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoK" EntityType="Self.VideoK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoReply" EntityType="Self.VideoReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Authorsc" EntityType="Self.View_Authorsc" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Authorsc].[AuthorName] AS [AuthorName], 
+    [View_Authorsc].[Author_id] AS [Author_id], 
+    [View_Authorsc].[AuthorImage] AS [AuthorImage], 
+    [View_Authorsc].[Jieshao] AS [Jieshao], 
+    [View_Authorsc].[Time_id] AS [Time_id], 
+    [View_Authorsc].[Shi_id] AS [Shi_id], 
+    [View_Authorsc].[ShiTitle] AS [ShiTitle], 
+    [View_Authorsc].[ShiContent] AS [ShiContent], 
+    [View_Authorsc].[ShiImage] AS [ShiImage], 
+    [View_Authorsc].[Ci_id] AS [Ci_id], 
+    [View_Authorsc].[CiTitle] AS [CiTitle], 
+    [View_Authorsc].[CiContent] AS [CiContent], 
+    [View_Authorsc].[CiImage] AS [CiImage], 
+    [View_Authorsc].[Expr1] AS [Expr1], 
+    [View_Authorsc].[Expr2] AS [Expr2]
+    FROM [dbo].[View_Authorsc] AS [View_Authorsc]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_CiShow].[CiPai_id] AS [CiPai_id], 
@@ -1653,13 +1696,14 @@
           <Key>
             <PropertyRef Name="Video_id" />
           </Key>
-          <Property Name="Video_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video_id" Type="Int32" Nullable="false" />
           <Property Name="VideoName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cover" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="VideoJishu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="VideoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="VideoK_id" Type="Int32" />
+          <Property Name="Video_recommend" Type="Int32" />
           <NavigationProperty Name="VideoK" Relationship="Self.FK_Video_VideoK" FromRole="Video" ToRole="VideoK" />
           <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoComment_Video" FromRole="Video" ToRole="VideoComment" />
         </EntityType>
@@ -1700,6 +1744,27 @@
           <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserInfo" Relationship="Self.FK_VideoReply_UserInfo" FromRole="VideoReply" ToRole="UserInfo" />
           <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoReply_VideoComment" FromRole="VideoReply" ToRole="VideoComment" />
+        </EntityType>
+        <EntityType Name="View_Authorsc">
+          <Key>
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="Author_id" />
+          </Key>
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author_id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_id" Type="Int32" />
+          <Property Name="Shi_id" Type="Int32" />
+          <Property Name="ShiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ShiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ci_id" Type="Int32" />
+          <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="Int32" />
+          <Property Name="Expr2" Type="Int32" />
         </EntityType>
         <EntityType Name="View_CiShow">
           <Key>
@@ -2339,6 +2404,7 @@
           <EntitySet Name="VideoComment" EntityType="Self.VideoComment" />
           <EntitySet Name="VideoK" EntityType="Self.VideoK" />
           <EntitySet Name="VideoReply" EntityType="Self.VideoReply" />
+          <EntitySet Name="View_Authorsc" EntityType="Self.View_Authorsc" />
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" />
           <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" />
           <EntitySet Name="View_PostDetails" EntityType="Self.View_PostDetails" />
@@ -2840,6 +2906,7 @@
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
                 <ScalarProperty Name="VideoK_id" ColumnName="VideoK_id" />
+                <ScalarProperty Name="Video_recommend" ColumnName="Video_recommend" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2875,6 +2942,27 @@
                 <ScalarProperty Name="VideoComment_id" ColumnName="VideoComment_id" />
                 <ScalarProperty Name="ReplyTim" ColumnName="ReplyTim" />
                 <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Authorsc">
+            <EntityTypeMapping TypeName="ShiyunModel.View_Authorsc">
+              <MappingFragment StoreEntitySet="View_Authorsc">
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Jieshao" ColumnName="Jieshao" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ShiTitle" ColumnName="ShiTitle" />
+                <ScalarProperty Name="ShiContent" ColumnName="ShiContent" />
+                <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
+                <ScalarProperty Name="CiContent" ColumnName="CiContent" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

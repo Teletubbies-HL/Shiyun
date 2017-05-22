@@ -281,10 +281,10 @@ else
                                         <div class="col-4 col-mb-12">
                                             <div class="nice-item text one-line">
 
-                                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">@shi.ShiType.ShiTypeName</a>
-                                                <a href="https://wenxue.ruogoo.cn/article/7372" class="title"> @shi.ShiTitle </a>
+                                                <a href=@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = shi.Author_id }) class="gray">@shi.ShiType.ShiTypeName</a>
+                                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="title"> @shi.ShiTitle </a>
                                                 /
-                                                <a href="https://user.ruogoo.cn/8383" class="gray"> @shi.Author.AuthorName</a>
+                                                <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = shi.Author_id })" class="gray"> @shi.Author.AuthorName</a>
                                             </div>
                                         </div>
                                      }
@@ -334,7 +334,7 @@ else
                             <div class="topic">
                                 @foreach (var shi in Model.ShiAuthor1)
                                 {
-                                    <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Author_id}) class="image"">
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = shi.Author_id }) class="image"">
                                         <div class="ui orange left label">专题</div>
                                         <img src="~/Images/shi/shi杜甫.jpg" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
                                     </a>
@@ -345,7 +345,7 @@ else
                             <div class="topic">
                                 @foreach (var shi in Model.ShiAuthor1)
                                 {
-                                    <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Author_id}) class=" image"">
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = shi.Author_id }) class=" image"">
                                         <div class="ui orange left label">专题</div>
                                         <img src="~/Images/shi/shi李白.jpg" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
                                     </a>
@@ -356,7 +356,7 @@ else
                             <div class="topic">
                                 @foreach (var shi in Model.ShiAuthor1)
                                 {
-                                    <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Author_id}) class=" image"">
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = shi.Author_id }) class=" image"">
                                         <div class="ui orange left label">专题</div>
                                         <img src="~/Images/shi/shi陆游.png" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
                                     </a>
@@ -383,9 +383,9 @@ else
                                             <ul class="latest-list">
                                                 <div class="col-6 col-mb-12">
                                                     <li class="article-item text one-line">
-                                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})" class="small text gray">[@shi.ShiType.ShiTypeName]</a>
-                                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle  -</a>
-                                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Shi_id})" class="small text gray">@shi.Author.AuthorName</a>
+                                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="small text gray">[@shi.ShiType.ShiTypeName]</a>
+                                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })">@shi.ShiTitle  -</a>
+                                                            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new {id = shi.Author_id})" class="small text gray">@shi.Author.AuthorName</a>
                                                     </li>
                                                 </div>
                                             </ul>

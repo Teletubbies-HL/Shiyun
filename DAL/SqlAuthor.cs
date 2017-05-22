@@ -17,6 +17,7 @@ namespace DAL
             var author = db.Author.ToList();
             return author;
         }
+      
         public Author GetAuthorById(int? id)
         {
             Author author = db.Author.Find(id);
@@ -32,15 +33,20 @@ namespace DAL
             var author = db.Author.Where(c => c.Author_id == id);
             return author;
         }
+        //public IEnumerable<View_Authorsc> whereShiByAId(int id)
+        //{
+        //    var author = db.Author.Where(c => c.Author_id == id);
+        //    return author;
+        //}
 
-        public IQueryable<Ci> GetCiByAuthorId(int id)
+        public IEnumerable<Ci> GetCiByAuthorId(int id)
         {
-            var Ci = db.Ci.Include("Author").Where(c => c.Author_id == id);
+            var Ci = db.Ci.Include("Author").Where(c => c.Author_id == id).ToList();
             return Ci;
         }
-        public IQueryable<Shi> GetShiByAuthorId(int id)
+        public IEnumerable<Shi> GetShiByAuthorId(int id)
         {
-            var Shi = db.Shi.Include("Author").Where(o => o.Author_id == id);
+            var Shi = db.Shi.Include("Author").Where(o => o.Author_id == id).ToList();
             return Shi;
         }
         public void RemoveAuthor(Author author)
@@ -66,6 +72,16 @@ namespace DAL
         public void RemoveRangeShi(IQueryable<Shi> Shi)
         {
             db.Shi.RemoveRange(Shi);
+        }
+
+        public IEnumerable<View_Authorsc> GetAuthorsc(int Authorid)
+        {
+            var auscid = from au in db.View_Authorsc
+                         where au.Author_id== Authorid
+                         select au;
+            return auscid;
+            //var authorsc = db.View_Authorsc.ToList();
+            //return authorsc;
         }
     }
 }
