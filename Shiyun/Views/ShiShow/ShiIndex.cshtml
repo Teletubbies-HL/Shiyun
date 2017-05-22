@@ -2,9 +2,6 @@
 @{
     ViewBag.Title = "诗韵—诗";
 }
-<!DOCTYPE html>
-<!-- saved from url=(0025)https://wenxue.ruogoo.cn/ -->
-@*<html lang="zh-CN" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">*@
 <head>
 <title> 诗韵——诗</title>
 <meta name="description" content="  ">
@@ -68,7 +65,7 @@ else
                     <fegaussianblur in="SourceGraphic" stdDeviation="20">
                         </fegaussianblur>
                     </filter>
-                    <image class="bigimgback" x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="https://o.ruogoo.cn/cover/3df19b1b4a0eab45350507583d4eaeb9.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none">
+                    <image class="bigimgback" x="0" y="0" width="1583" height="400" externalResourcesRequired="true" href="~/Images/shi/shi杜甫.jpg" style="filter:url(#blur_ko06tm8gd)" preserveAspectRatio="none">
                     </image>
                     </svg>
                 </div>
@@ -77,16 +74,16 @@ else
 { 
                     <div class="recommend-detail">
                         <h2 >
-                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title extra bigTitle">@shi.ShiTitle</a>
+                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow",new { id = shi.Shi_id })" class="white title extra bigTitle">@shi.ShiTitle</a>
                         </h2>
                         <h4>
-                            <a href="@Url.Action("ShiShowDetails", "ShiShow")" class="white title author">@*@shi.Author.AuthorName*@</a>
+                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow",new { id = shi.Shi_id })" class="white title author">@*@shi.Author.AuthorName*@</a>
                         </h4>
-                        <a href="https://wenxue.ruogoo.cn/article/recommend" class="rg-button see-more">更多推荐</a>
+                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="rg-button see-more">更多推荐</a>
                     </div>
 
                     <div class="recommend-show">
-                        <a href="https://wenxue.ruogoo.cn/article/6994" class="image current visible transition animating fade left in">
+                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="image current visible transition animating fade left in">
                             <img src="..@shi.ShiImage" width="240" height="320" class="bigimg">
                         </a>
                     </div>
@@ -96,7 +93,7 @@ else
                            @foreach (var shi in Model.Shitop8)
                            {
                                 <li class="recommend-item">
-                                    <a href="@Url.Action("ShiShowDetails", "ShiShow", new { id = shi.Shi_id })" class="image recommend-article" data-title="@shi.ShiTitle">
+                                    <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="image recommend-article" data-title="@shi.ShiTitle">
                                         <img style="width:100px;" src='..@shi.ShiImage' />
                                         <div class="timeline-title">
                                             <p class="title small one-line">@shi.ShiTitle</p>
@@ -131,7 +128,7 @@ else
                                 {
                                 <div class="col-4 col-mb-12">                                    
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>                                        
                                         <div class="big title one-line">
@@ -155,7 +152,7 @@ else
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
@@ -179,7 +176,7 @@ else
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
@@ -204,7 +201,7 @@ else
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
@@ -228,7 +225,7 @@ else
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
@@ -251,7 +248,7 @@ else
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("GoodsDetail", "Mall", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
@@ -364,11 +361,6 @@ else
                                         <img src="~/Images/shi/shi陆游.png" style="display: inline; width:360px;height:160px;" class="collection-cover image" />
                                     </a>
                                 }
-                                @*<a href="https://wenxue.ruogoo.cn/topic/1" class="image">
-                                    <div class="ui orange left label">专题</div>
-                                    <img src="~/Images/shi/shi陆游.png" style="display: inline; width:360px;height:160px;" />
-                                    
-                                </a>*@
                             </div>
                         </div>
                     </div>
