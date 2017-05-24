@@ -21,14 +21,14 @@ namespace Shiyun.Controllers
             VideoViewMode videoViewMode = new VideoViewMode();
             videoViewMode.GetAllVideo = vkm.GetVideoK();
             videoViewMode.GetNewVideo = vm.GetNewVideo().Take(3);
-            videoViewMode.GetRecommend = vm.GetRecommend().Take(3);
+            videoViewMode.GetRecommend = vm.GetRecommend().Take(2);
             return View(videoViewMode);
         }
         #region Video分页数据获取
         public ActionResult GetAllVideoK(int? page)
         {
             var post = vkm.GetVideoK();
-            int pageSize = 12;
+            int pageSize = 9;
             int pageNumber = (page ?? 1);
             return View(post.ToPagedList(pageNumber, pageSize));
         }

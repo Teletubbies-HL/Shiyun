@@ -302,7 +302,8 @@ function ckstyle() { //定义总的风格
 		/*
 		该处定义是否使用开关灯，使用开灯效果时调用页面的js函数function closelights(){}，关灯调用 function closelights(){};
 		*/
-        cpt_share: 'ckplayer/share.xml',
+        cpt_share: '',
+        //ckplayer/share.xml
         /*
 		分享插件调用的配置文件地址,此设设置成空，则不启用分享按钮
 		调用插件开始

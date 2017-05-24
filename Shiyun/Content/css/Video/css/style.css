@@ -97,11 +97,11 @@ hr.line { margin: 25px auto 15px; padding: 0; max-width: 80px;border: 0; border-
 .post:after, .post:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
 .post img{float: left; max-width: 140px;display: inline-block;}
 .post .zoom-container .zoom-caption i.icon-play{font-size: 13px; max-width: 40px;margin: 18% auto 0;}
-.post .wrapper {display: inline-block;text-align: left;}
+.post .wrapper {display: inline-block;text-align: left;float: left;margin: 20px 0px 0px 15px;}
 .post .wrapper span{display: block;margin: 5px 0;}
 .post .wrapper span i{margin: 0 5px 0 0;}
 .post .wrapper .info h6, .post .wrapper .info a{font-size: 13px;margin: 4px 0;}
-.post .vid-name a{font-size: 17px;color: #654E2D;}
+.post .vid-name a{/*font-size: 17px;color: #654E2D;*/color: #333;font-size: 15px;}
 .post .info {font-size: 12px;margin-top: 0;}
 .post .info i{margin: 5px 3px 0 0;}
 .post .vid-item  i.icon-play{position: absolute; top: 15px;text-align: center;width: 40px;margin: 0 auto;left: 40px;font-size: 12px;}
@@ -181,9 +181,9 @@ textarea {display:block;width:90%;height:200px; border-radius:4px;-webkit-border
 /* ---------------------------------------------------------------------------- */
 .wrap-vid{margin-bottom: 10px;}
 .vid-item {position: relative;}
-.vid-name{margin-top: 5px;}
-.vid-name a{font-size: 19px;color: #654E2D;}
-.info {margin: 7px 0 10px;font-size: 14px;}
+.vid-name{margin-top: 5px;color: #333;font-size: 15px;}
+.vid-name a{/*font-size: 19px;color: #654E2D;*/color: #333;font-size: 15px;}
+.info {margin: 7px 0 10px;font-size: 12px;color: #999;}
 .info i{margin-right: 8px;}
 .info span{margin-right: 10px;}
 .info h5, .info a{font-size: 13px;line-height: 1;margin-bottom: 9px;}
@@ -201,6 +201,7 @@ textarea {display:block;width:90%;height:200px; border-radius:4px;-webkit-border
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	margin: 5px 0;
+    float: left;
 }
 .zoom-container img {
 	display: block;
