@@ -2066,13 +2066,13 @@
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
     <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
-    <Content Include="Views\Video\Index.cshtml" />
     <Content Include="Views\Video\GetAllVideoK.cshtml" />
     <Content Include="Views\Video\VideoDetails.cshtml" />
     <Content Include="Views\Challenge\ChallengePaihang.cshtml" />
     <Content Include="Views\ShiShow\GetAuthorAllPoem.cshtml" />
     <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
