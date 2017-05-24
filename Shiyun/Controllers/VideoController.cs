@@ -16,6 +16,15 @@ namespace Shiyun.Controllers
         ShiyunEntities db = new ShiyunEntities();
         VideoKManager vkm = new VideoKManager();
        VideoManager vm = new VideoManager();
+
+        public ActionResult Index1()
+        {
+            VideoViewMode videoViewMode = new VideoViewMode();
+            videoViewMode.GetAllVideo = vkm.GetVideoK();
+            videoViewMode.GetNewVideo = vm.GetNewVideo().Take(3);
+            videoViewMode.GetRecommend = vm.GetRecommend().Take(2);
+            return View(videoViewMode);
+        }
         public ActionResult Index()
         {
             VideoViewMode videoViewMode = new VideoViewMode();
