@@ -27,11 +27,11 @@
                             <li class="userinfobox" style="margin-left: 0px;"><a href=""><span class="iconfont userinfo" aria-hidden="true">&#xe62b;</span></a></li>
                         }
                         else {
-                            <li class="userinfobox" style="margin-left: 0px;"><a href="@Url.Action("Login", "UserInfo")"><span class="iconfont userinfo" aria-hidden="true">&#xe62b;</span></a></li>
+                            <li class="userinfobox userinfobox1" style="margin-left: 0px; color: rgba(57, 33, 11, 1); cursor: pointer;">@*<a href="@Url.Action("Login", "UserInfo")">*@<span class="iconfont userinfo" aria-hidden="true">&#xe62b;</span>@*</a>*@</li>
                         }
                         <li><a href="@Url.Action("ShiIndex","ShiShow")">诗</a></li>
                         <li><a href="@Url.Action("CiIndex","ShiShow")">词</a></li>
-                        <li style="margin-right: 30px;"><a href="javascript:void(0)">纪录片</a></li>
+                        <li style="margin-right: 30px;"><a href="@Url.Action("Index","Video")">纪录片</a></li>
                     </ul>
                 </div>
                 <div class="bignav_center">
@@ -67,12 +67,42 @@
         </div>
     </header>
     <!-- 搜索 -->
-    <div class="search" style="display: none;">
-        <button type="button" class="close">×</button>
-        <form>
-            <input type="search" class="input_search" value="" placeholder="请输入搜索内容...." required />
-            <button type="submit" class="btn btn_search">搜索</button>
-        </form>
+<div class="search" style="display: none;">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" class="input_search" value="" placeholder="请输入搜索内容...." required/>
+        <button type="submit" class="btn btn_search">搜索</button>
+    </form>
+</div>
+    <div id="denglubox" class="denglubox" style="display: none;background: url(../../Content/../Images/RegisterLogin/dengluzhuce.jpg) left center repeat-x;">
+        <div class="closed" style="cursor: pointer;font-size: 30px;text-align: center;line-height: 30px;color: white; background-color: #DD3B44; width: 30px; height: 30px; -webkit-border-radius: 30px; float: right; margin-top: 10px; margin-right: 20px; ">×</div>
+        <div class="shiimg2" style="width:71px;height:100%;float: left;padding-left: 150px;display: block;margin: 178px 0px 0px 0px;">
+            <img id="textimg2" src="../../Images/RegisterLogin/dlzc2.png" />
+        </div>
+        <div class="shiimg1" style="width:71px;height:100%;float: left;display: block;margin: 130px 0px 0px 75px;">
+            <img id="textimg1" src="../../Images/RegisterLogin/dlzc1.png" />
+        </div>
+        <div class="zuo" style="width: 30%;height: 100%;float: right;margin-right:90px; margin-top: 100px;">
+            <div class="mengban" style="width: 400px;height: 400px;padding-top:0px;overflow: visible;background-color: rgba(1, 1, 1, 0.2);">
+                <div class="formheader" style="width: 100%;font-size: 18px; padding-top: 30px;margin: 10px auto;text-align: center;">
+                    <label id="hlkNormalLogin" style="color: #E5E5E5;">用户登录</label>
+                </div>
+                <div class="normalInput normaluser">
+                    <input id="Users_id" placeholder="用户名" value="" style="height: 46px;width: 80%; float: left;" maxlength="32"/>
+                    <div class="usertip"></div>
+                </div>
+                <div class="normalInput normalpassword">
+                    <input id="UserPass" placeholder="密码" style="height: 46px;width: 80%;float: left;" maxlength="20" type="password" value=""/>
+                    <span class="iconfont showpassword" style="display: none; font-size: 40px;float: left;margin-left: 200px;margin-top: -50px;">&#xe80b;</span>
+                    <span class="iconfont hidepassword" style="display: block; color:rgba(178,178,178,1);font-size: 48px;margin-left: 200px;float: left;margin-top: -55px;">&#xe6a2;</span>
+                    <div class="passtip"></div>
+                </div>
+                <input id="dl" type="submit" value="登录" class="cssbtnRegister" style="margin-left: 52px;color: white; font-size: 14px; background-color: #32A5E7; height: 46px; width: 300px;"/>
+                <a href="@Url.Action("Register","UserInfo")"><label class="ljzc">立即注册</label></a>
+                <br/>
+            </div>
+        </div>
+
     </div>
     @RenderBody()
     <!--回到顶部-->
@@ -150,44 +180,35 @@
 @Scripts.Render("~/bundles/bootstrap")
 <script src="~/Scripts/JS/HeadFoot.js"></script>
 <script type="text/javascript">
-
-    @*$(function () {   //登陆和个人中心的hover
-        @*var sessionid;
-        sessionid = "@Session["Users_id"].ToString()";
-        alert(sessionid);
-        if ("@Session["Users_id"]" != "undefined"&&"@Session["Users_id"]" != null) { //判断是否有session
-            $(".userinfo").parent().on("click", function () {
-                return false;
-            });
-            $(".userinfo").hover(function () {
-                //$(".usercenterbox").fadeIn(500);
-                //$(".zhuxiaobox").fadeIn(500);
-                $(".usercenterbox").show();
-                $(".zhuxiaobox").show();
-            }, function () {
-                $(".usercenterbox").hide();
-                $(".zhuxiaobox").hide();
-            });
-            $(".usercenterbox").hover(function () {
-                $(".usercenterbox").css("display", "block");
-                $(".zhuxiaobox").css("display", "block");
-            }, function () {
-                $(".usercenterbox").hide();
-                $(".zhuxiaobox").hide();
-            });
-            $(".zhuxiaobox").hover(function () {
-                $(".usercenterbox").css("display", "block");
-                $(".zhuxiaobox").css("display", "block");
-            }, function () {
-                $(".usercenterbox").hide();
-                $(".zhuxiaobox").hide();
-            });
-        } else {
-            $(".userinfo").parent().on("click", function () {
-                return true;
-            });
-        }
-    });*@
+    $(".normalInput .showpassword").click(function () {
+        $(this).hide();
+        $('.normalInput #txtPassword').prop("type", 'password');
+        $(".normalInput .hidepassword").show();
+    });
+    $(".normalInput .hidepassword").click(function () {
+        $(this).hide();
+        $('.normalInput #txtPassword').prop("type", 'text');
+        $(".normalInput .showpassword").show();
+    });
+    $(".userinfobox1").click(function () {
+        $(".denglubox").css("display", "block");
+    });
+    $(".closed").click(function () {
+        $(".denglubox").css("display", "none");
+    });
+    $("#dl").click(function () {
+        $.ajax({
+            url: "/UserInfo/Login",
+            type: "post",
+            data: { Users_id: $("#Users_id").val(), UserPass: $("#UserPass").val() },
+            success: function (data) {              
+                $(".denglubox").css("display", "none");
+                if (data == "登录成功") {
+                    location.reload();
+                }
+            }
+        });
+    });
 </script>
 
 @RenderSection("scripts", required: false)

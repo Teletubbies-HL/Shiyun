@@ -110,6 +110,7 @@ $(function () {
             data: { a:1 },
             success: function (data) {
                 alert("注销成功");
+                location.reload();
                 $(".userinfo").unbind("mouseenter").unbind("mouseleave");
                 var A = data;
             }

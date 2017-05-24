@@ -133,9 +133,9 @@ $("#mainform .normalInput #txtUser").blur(function() {
         }
     });
 //checkbox
-    $("#mainform .checkField .chebox-before").click(function() {
-        $("#mainform .checkField .chebox-before").hide();
-        $(" #mainform .checkField .chebox-after").show();
+    $(".chebox-before").click(function () {
+        $(".chebox-before").hide();
+        $(".chebox-after").show();
         $("#ckbAgree").prop("checked", true);
         //if ($("#ckbAgree").is(":checked")) {
         //    alert("1");
@@ -144,9 +144,9 @@ $("#mainform .normalInput #txtUser").blur(function() {
         //    alert("0");
         //}
     });
-    $("#mainform .checkField .chebox-after").click(function() {
-        $("#mainform .checkField .chebox-after").hide();
-        $("#mainform .checkField .chebox-before").show();
+    $(".chebox-after").click(function () {
+        $(".chebox-after").hide();
+        $(".chebox-before").show();
         $("#ckbAgree").prop("checked", false);
         //if ($("#ckbAgree").is(":checked")) {
         //    alert("1");

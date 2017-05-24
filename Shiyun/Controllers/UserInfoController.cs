@@ -52,12 +52,12 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 登录
-        public ActionResult Login()
-        {
-            return View();
-        }
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
         [HttpPost]
-        public ActionResult Login([Bind(Include = "Users_id,UserPass")]string Users_id,string UserPass)
+        public string Login([Bind(Include = "Users_id,UserPass")]string Users_id,string UserPass)
         {
             try
             {
@@ -66,17 +66,19 @@ namespace Shiyun.Controllers
                 {
                     //保存到Session HttpContext.
                     Session["Users_id"] = Users_id;
-                    return Content("<script>;alert('登录成功!');history.go(-2);</script>");
-
+                    string data = "登录成功";
+                    return data;
                 }
                 else
                 {
-                    return Content("<script>;alert('该账号不存在或密码错误!');history.go(-1)</script>");
+                    string data = "登录失败";
+                    return data;
                 }
             }
             catch (Exception ex)
             {
-                return Content(ex.Message);
+                string data = "错误";
+                return data;
             }
         }
         #endregion

@@ -15,7 +15,7 @@ namespace Shiyun.Attributes
                 //filterContext.HttpContext.Response.Redirect("/UserInfo/Login");
                 //
                 ContentResult cr = new ContentResult();
-                cr.Content = "<script>alert('您尚未登陆，请登陆'); window.location='/UserInfo/Login' </script>";
+                cr.Content = "<script>alert('您尚未登陆，请登陆');history.go(-1);</script>"; /*$('.denglubox').css('display', 'block');*/
                 filterContext.Result = cr;
             }
         }

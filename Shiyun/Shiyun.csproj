@@ -2091,6 +2091,9 @@
     <Content Include="Views\Video\GetAllVideoK.cshtml" />
     <Content Include="Views\Video\VideoDetails.cshtml" />
     <Content Include="Views\Challenge\ChallengePaihang.cshtml" />
+    <Content Include="Views\ShiShow\GetAuthorAllPoem.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

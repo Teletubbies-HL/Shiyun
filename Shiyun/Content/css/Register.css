@@ -94,14 +94,14 @@
             height:470px;
             /*padding-left: 220px;*/
             /*border:1px solid  red;*/
-            margin:50px auto 0px;
+            margin:40px auto 0px;
             position:relative;
         }
         #mainform .formheader{
             width:300px;
             height:22px;
             text-align:center;
-            margin-bottom:28px;
+            margin-bottom:20px;
             font-size:16px;
         }
         #mainform .formheader #hlkNormalRegister,#mainform .formheader #hlkPhoneRegister{
