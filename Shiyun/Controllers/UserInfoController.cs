@@ -66,6 +66,7 @@ namespace Shiyun.Controllers
                 {
                     //保存到Session HttpContext.
                     Session["Users_id"] = Users_id;
+                    Session["UserImage"] = userinfomanager.GetUsersById(Users_id).UserImage;
                     string data = "登录成功";
                     return data;
                 }
