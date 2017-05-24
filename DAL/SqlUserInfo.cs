@@ -44,5 +44,10 @@ namespace DAL
             var userInfo = db.UserInfo.Where(c=>c.Users_id== Users_id);
             return userInfo;
         }
+        public IEnumerable<UserInfo> Jifenpaihang10()
+        {
+            var userInfo = db.UserInfo.OrderByDescending(c=>c.Jifen).Take(10);
+            return userInfo;
+        }
     }
 }

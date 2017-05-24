@@ -43,6 +43,11 @@ namespace DAL
             db.Challenge.Add(challenge);
             db.SaveChanges();
         }
+        public void AddUserdati(UserDati userDati)
+        {
+            db.UserDati.Add(userDati);
+            db.SaveChanges();
+        }
         public void EditChallenge(Challenge challenge)
         {
             db.Entry(challenge).State = EntityState.Modified;

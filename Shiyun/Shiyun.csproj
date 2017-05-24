@@ -403,6 +403,8 @@
     <Content Include="iconfont\iconfont.js" />
     <Content Include="iconfont\iconfont.svg" />
     <Content Include="Images\Author\311609-106.jpg" />
+    <Content Include="Images\Challenge\phb.png" />
+    <Content Include="Images\Challenge\tdback.png" />
     <Content Include="Images\Mall\clist.png" />
     <Content Include="Images\face\0_微笑.gif" />
     <Content Include="Images\face\10_尴尬.gif" />
@@ -1214,6 +1216,8 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.hover3d.js" />
+    <Content Include="Scripts\jquery.hover3d.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -2065,6 +2069,7 @@
     <Content Include="Views\Video\Index.cshtml" />
     <Content Include="Views\Video\GetAllVideoK.cshtml" />
     <Content Include="Views\Video\VideoDetails.cshtml" />
+    <Content Include="Views\Challenge\ChallengePaihang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

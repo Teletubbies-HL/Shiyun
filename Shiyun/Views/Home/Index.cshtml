@@ -415,44 +415,44 @@
 @section scripts{
     <script src="~/Scripts/slider.js"></script>
     <script type="text/javascript">
-    $(function () {
-        var headerSlider = new Slider($(".imgListcontent"), {
-            time: 3000,
-            delay: 400,
-            event: 'hover',
-            auto: true,
-            mode: 'fade',
-            controller: $('#bannerCtrl'),
-            activeControllerCls: 'active'
-        });
-        $(".imgListcontent .prev").click(function () {
-            headerSlider.prev();
-        });
+        $(function() {
+            var headerSlider = new Slider($(".imgListcontent"), {
+                time: 3000,
+                delay: 400,
+                event: 'hover',
+                auto: true,
+                mode: 'fade',
+                controller: $('#bannerCtrl'),
+                activeControllerCls: 'active'
+            });
+            $(".imgListcontent .prev").click(function() {
+                headerSlider.prev();
+            });
 
-        $(".imgListcontent .next").click(function () {
-            headerSlider.next();
+            $(".imgListcontent .next").click(function() {
+                headerSlider.next();
+            });
         });
-    });
-    $(function () {
-        //排行前三颜色切换
-        $(".Paihang-item1 ul").children(":eq(1)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-        $(".Paihang-item1 ul").children(":eq(2)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-        $(".Paihang-item1 ul").children(":eq(3)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-       // for (var i = 0; i <= 3; i++) {
-       //    $(".Paihang-item1 ul").children(":eq(i)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-       //}
-        $(".Paihang-item1 ul").children(":eq(4)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-        $(".Paihang-item1 ul").children(":eq(5)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-        $(".Paihang-item1 ul").children(":eq(6)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-        $(".Paihang-item1 ul").children(":eq(7)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        $(function() {
+            //排行前三颜色切换
+            $(".Paihang-item1 ul").children(":eq(1)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            $(".Paihang-item1 ul").children(":eq(2)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            $(".Paihang-item1 ul").children(":eq(3)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            // for (var i = 0; i <= 3; i++) {
+            //    $(".Paihang-item1 ul").children(":eq(i)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            //}
+            $(".Paihang-item1 ul").children(":eq(4)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+            $(".Paihang-item1 ul").children(":eq(5)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+            $(".Paihang-item1 ul").children(":eq(6)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+            $(".Paihang-item1 ul").children(":eq(7)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
 
-        $(".Paihang-item2 ul").children(":eq(1)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-        $(".Paihang-item2 ul").children(":eq(2)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-        $(".Paihang-item2 ul").children(":eq(3)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
-        $(".Paihang-item2 ul").children(":eq(4)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-        $(".Paihang-item2 ul").children(":eq(5)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-        $(".Paihang-item2 ul").children(":eq(6)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-        $(".Paihang-item2 ul").children(":eq(7)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
-    });
+            $(".Paihang-item2 ul").children(":eq(1)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            $(".Paihang-item2 ul").children(":eq(2)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            $(".Paihang-item2 ul").children(":eq(3)").children(":eq(0)").children(":eq(0)").css("color", "rgb(192,63,60)");
+            $(".Paihang-item2 ul").children(":eq(4)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+            $(".Paihang-item2 ul").children(":eq(5)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+            $(".Paihang-item2 ul").children(":eq(6)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+            $(".Paihang-item2 ul").children(":eq(7)").children(":eq(0)").children(":eq(0)").css("color", "rgba(0,0,0,0.5)");
+        });
     </script>
 }
