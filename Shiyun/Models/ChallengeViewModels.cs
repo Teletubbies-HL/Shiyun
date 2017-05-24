@@ -18,5 +18,6 @@ namespace Shiyun.Models
         public IEnumerable<Challenge> Challenge8 { get; set; }
         public IEnumerable<Challenge> Challenge9 { get; set; }
         public IEnumerable<Challenge> Challenge10 { get; set; }
+        public IEnumerable<UserInfo> UserInfo10 { get; set; }
     }
 }

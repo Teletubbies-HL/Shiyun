@@ -22,6 +22,12 @@ namespace BLL
             var userInfo = iuserinfo.IEGetUsersById(Users_id);
             return userInfo;
         }
+
+        public IEnumerable<UserInfo> Jifenpaihang10()
+        {
+            var userInfo = iuserinfo.Jifenpaihang10();
+            return userInfo;
+        }
         public void UpdateUserInfo(UserInfo userInfo)
         {
             iuserinfo.UpdateUserInfo(userInfo);

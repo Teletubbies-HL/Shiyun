@@ -16,7 +16,7 @@ namespace IDAL
         void RemoveChallenge(Challenge challenge);
         void AddChallenge(Challenge challenge);
         void EditChallenge(Challenge challenge);
-
+        void AddUserdati(UserDati userDati);
         void RemoveRangeUserDati(IQueryable<UserDati> UserDati);
 
     }

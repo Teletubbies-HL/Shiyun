@@ -66,7 +66,7 @@ namespace Shiyun.Controllers
                 {
                     //保存到Session HttpContext.
                     Session["Users_id"] = Users_id;
-                    return Content("<script>;alert('登录成功!');window.history.go(-2);window.location.reload();</script>");
+                    return Content("<script>;alert('登录成功!');history.go(-2);</script>");
 
                 }
                 else
