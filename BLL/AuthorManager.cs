@@ -17,11 +17,11 @@ namespace BLL
             var authors = iauthor.GetAuthor();
             return authors;
         }
-        //public Author GetCiByAuthorId(int? id)
-        //{
-        //    Author author = iauthor.GetCiByAuthorId(id);
-        //    return author;
-        //}
+        public IEnumerable<View_Authorsc> GetAuthorsc(int Authorid)
+        {
+            var authorsc = iauthor.GetAuthorsc(Authorid);
+            return authorsc;
+        }
         public Author GetAuthorById(int? id)
         {
             Author author = iauthor.GetAuthorById(id);
@@ -38,13 +38,13 @@ namespace BLL
             return author;
         }
 
-        public IQueryable<Ci> GetCiByAuthorId(int id)
+        public IEnumerable<Ci> GetCiByAuthorId(int id)
         {
             var Ci = iauthor.GetCiByAuthorId(id);
             return Ci;
         }
 
-        public IQueryable<Shi> GetShiByAuthorId(int id)
+        public IEnumerable<Shi> GetShiByAuthorId(int id)
         {
             var Shi = iauthor.GetShiByAuthorId(id);
             return Shi;

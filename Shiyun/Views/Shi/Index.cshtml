@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<Models.Shi>*@
-@model PagedList.IPagedList<Models.Shi>
+﻿@model PagedList.IPagedList<Models.Shi>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
@@ -33,10 +32,6 @@
             <tr>
                 <th style="width: 6%">诗集名</th>
                 <th style="width: 12%">图片</th>
-                @*<th style="width: 15%">内容</th>*@
-                @*<th style="width: 15%">翻译</th>
-                <th style="width: 15%">赏析</th>
-                <th style="width: 15%">背景</th>*@
                 <th style="width: 10%">作者</th>
                 <th style="width: 10%">年代</th>
                 <th style="width: 10%">类型</th>
@@ -52,35 +47,20 @@
                 <td>
                     <img src="@item.ShiImage" style="width:60px;height:80px" />
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.ShiContent)
-                </td>*@
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.ShiFanyi)
-                </td>
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.ShiShangxi)
-                </td>
-               
-                <td>
-                    @Html.DisplayFor(modelItem => item.Shibeijing)
-                </td>*@
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.Author_id)*@
+                  
                     @Html.DisplayFor(modelItem => item.Author.AuthorName)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Time_id)*@
                     @Html.DisplayFor(modelItem => item.Time.TimeName)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.ShiType_id)*@
                     @Html.DisplayFor(modelItem => item.ShiType.ShiTypeName)
                 </td>
                 <td>
                     <p>
                         @Html.ActionLink("更新", "ShiEdit", new { id = item.Shi_id }) |
-                        @*@Html.ActionLink("详情", "GoodsDetails", new { id = item.Goods_id }) |*@
                         @Html.ActionLink("删除", "ShiDelete", new { id = item.Shi_id })
                     </p>
                 </td>

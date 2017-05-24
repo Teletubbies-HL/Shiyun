@@ -223,6 +223,7 @@
     <Compile Include="Controllers\ShiController.cs" />
     <Compile Include="Controllers\ShiShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,7 @@
     <Compile Include="Models\MallViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShopCarViewModel.cs" />
+    <Compile Include="Models\VideoViewMode.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -369,6 +371,7 @@
     <Content Include="Content\css\css3.css" />
     <Content Include="Content\css\GoodsDetails.css" />
     <Content Include="Content\css\HeadFoot.css" />
+    <Content Include="Content\css\ShiCihome.css" />
     <Content Include="Content\css\Homeindex.css" />
     <Content Include="Content\css\PostDetails.css" />
     <Content Include="Content\css\PostSend.css" />
@@ -382,6 +385,11 @@
     <Content Include="Content\css\ShopCar.css" />
     <Content Include="Content\css\ShiCiswiper.min.css" />
     <Content Include="Content\css\ShiCiwenxue.css" />
+    <Content Include="Content\css\Video\css\menu.css" />
+    <Content Include="Content\css\Video\css\owl.carousel.css" />
+    <Content Include="Content\css\Video\css\owl.theme.css" />
+    <Content Include="Content\css\Video\css\style.css" />
+    <Content Include="Content\css\Video\css\zerogrid.css" />
     <Content Include="Content\css\YuanChuang.css" />
     <Content Include="Content\css\z.css" />
     <Content Include="Content\css\Luntan-animation.css" />
@@ -607,6 +615,30 @@
     <Content Include="Images\userInfo\20170503833.jpg" />
     <Content Include="Images\userInfo\3.jpg" />
     <Content Include="Images\userInfo\4.jpg" />
+    <Content Include="Images\Video\1.jpg" />
+    <Content Include="Images\Video\10.jpg" />
+    <Content Include="Images\Video\11.jpg" />
+    <Content Include="Images\Video\12.jpg" />
+    <Content Include="Images\Video\13.jpg" />
+    <Content Include="Images\Video\14.jpg" />
+    <Content Include="Images\Video\15.jpg" />
+    <Content Include="Images\Video\16.jpg" />
+    <Content Include="Images\Video\17.jpg" />
+    <Content Include="Images\Video\18.jpg" />
+    <Content Include="Images\Video\19.jpg" />
+    <Content Include="Images\Video\2.jpg" />
+    <Content Include="Images\Video\20.jpg" />
+    <Content Include="Images\Video\21.jpg" />
+    <Content Include="Images\Video\3.jpg" />
+    <Content Include="Images\Video\4.jpg" />
+    <Content Include="Images\Video\5.jpg" />
+    <Content Include="Images\Video\6.jpg" />
+    <Content Include="Images\Video\7.jpg" />
+    <Content Include="Images\Video\8.jpg" />
+    <Content Include="Images\Video\9.jpg" />
+    <Content Include="Images\Video\logo.png" />
+    <Content Include="Images\Video\zhankai.png" />
+    <Content Include="Images\Video\我在故宫修文物大图.png" />
     <Content Include="Manager\css\animate.css" />
     <Content Include="Manager\css\bootstrap-fileupload.min.css" />
     <Content Include="Manager\css\bootstrap-reset.css" />
@@ -1097,6 +1129,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\ckplayer\share\ckplayer.cer" />
+    <Content Include="Scripts\ckplayer\share\update.php" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -1181,6 +1215,24 @@
     <Content Include="Scripts\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\ckplayer\ckplayer.js" />
+    <Content Include="Scripts\ckplayer\ckplayer.swf" />
+    <Content Include="Scripts\ckplayer\ckplayer.xml" />
+    <Content Include="Scripts\ckplayer\language.xml" />
+    <Content Include="Scripts\ckplayer\related.xml" />
+    <Content Include="Scripts\ckplayer\share.xml" />
+    <Content Include="Scripts\ckplayer\share\feixin.png" />
+    <Content Include="Scripts\ckplayer\share\google.png" />
+    <Content Include="Scripts\ckplayer\share\kaixin001.png" />
+    <Content Include="Scripts\ckplayer\share\msn.png" />
+    <Content Include="Scripts\ckplayer\share\qq.png" />
+    <Content Include="Scripts\ckplayer\share\qq2.png" />
+    <Content Include="Scripts\ckplayer\share\qzone.png" />
+    <Content Include="Scripts\ckplayer\share\rr.png" />
+    <Content Include="Scripts\ckplayer\share\sina.png" />
+    <Content Include="Scripts\ckplayer\share\sohu.png" />
+    <Content Include="Scripts\ckplayer\share\tianya.png" />
+    <Content Include="Scripts\ckplayer\style.swf" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -1194,6 +1246,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\Challenge.js" />
+    <Content Include="Scripts\JS\offlights.js" />
     <Content Include="Scripts\JS\ShiCiforum-.js" />
     <Content Include="Scripts\JS\ShiCihm.js" />
     <Content Include="Scripts\JS\ShiCipush.js" />
@@ -1211,6 +1264,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\Video\classie.js" />
+    <Content Include="Scripts\Video\demo.js" />
+    <Content Include="Scripts\Video\jquery-2.1.1.js" />
+    <Content Include="Scripts\Video\owl.carousel.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ueditor\dialogs\anchor\anchor.html" />
     <Content Include="ueditor\dialogs\attachment\attachment.css" />
@@ -1924,7 +1981,12 @@
     <Content Include="ueditor\ueditor.config.js" />
     <Content Include="ueditor\ueditor.parse.js" />
     <Content Include="ueditor\ueditor.parse.min.js" />
+    <Content Include="Video\1.mp4" />
+    <Content Include="Video\2.mp4" />
+    <Content Include="Video\3.mp4" />
+    <Content Include="Video\4.mp4" />
     <Content Include="Views\Goods\GoodsCreate.cshtml" />
+    <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2022,9 +2084,12 @@
     <Content Include="Views\Mall\Order.cshtml" />
     <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Views\Mall\OrderDetails.cshtml" />
-    <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
+    <Content Include="Views\Video\GetAllVideoK.cshtml" />
+    <Content Include="Views\Video\VideoDetails.cshtml" />
     <Content Include="Views\Challenge\ChallengePaihang.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -2040,6 +2105,9 @@
     <Folder Include="ueditor\net\upload\image\20170503\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
