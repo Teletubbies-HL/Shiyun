@@ -405,6 +405,7 @@
     <Content Include="Images\Author\311609-106.jpg" />
     <Content Include="Images\Challenge\backg.png" />
     <Content Include="Images\Challenge\phb.png" />
+    <Content Include="Images\Challenge\zhuzi.png" />
     <Content Include="Images\Mall\clist.png" />
     <Content Include="Images\face\0_微笑.gif" />
     <Content Include="Images\face\10_尴尬.gif" />
@@ -1964,6 +1965,7 @@
     <Content Include="Video\2.mp4" />
     <Content Include="Video\3.mp4" />
     <Content Include="Video\4.mp4" />
+    <Content Include="Images\Challenge\wuyan.png" />
     <Content Include="Views\Goods\GoodsCreate.cshtml" />
     <Content Include="Views\LunTan\GetAllPostReply.cshtml" />
     <Content Include="Web.config" />
@@ -2072,7 +2074,6 @@
     <Content Include="Views\ShiShow\GetAuthorAllPoem.cshtml" />
     <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
-    <Content Include="Views\Video\Index.cshtml" />
     <Content Include="Views\Video\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>

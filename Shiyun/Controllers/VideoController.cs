@@ -25,14 +25,14 @@ namespace Shiyun.Controllers
             videoViewMode.GetRecommend = vm.GetRecommend().Take(2);
             return View(videoViewMode);
         }
-        public ActionResult Index()
-        {
-            VideoViewMode videoViewMode = new VideoViewMode();
-            videoViewMode.GetAllVideo = vkm.GetVideoK();
-            videoViewMode.GetNewVideo = vm.GetNewVideo().Take(3);
-            videoViewMode.GetRecommend = vm.GetRecommend().Take(2);
-            return View(videoViewMode);
-        }
+        //public ActionResult Index()
+        //{
+        //    VideoViewMode videoViewMode = new VideoViewMode();
+        //    videoViewMode.GetAllVideo = vkm.GetVideoK();
+        //    videoViewMode.GetNewVideo = vm.GetNewVideo().Take(3);
+        //    videoViewMode.GetRecommend = vm.GetRecommend().Take(2);
+        //    return View(videoViewMode);
+        //}
         #region Video分页数据获取
         public ActionResult GetAllVideoK(int? page)
         {
