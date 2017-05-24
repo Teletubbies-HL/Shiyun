@@ -129,9 +129,9 @@
                     <div class="foot_part2 foot_part">
                         <ul>
                             <li class="foot_part_title">成长之路</li>
-                            <li class="foot_part_choose"><a href="http://219.229.243.64/Gbuilding/">古建网</a></li>
+                            <li class="foot_part_choose"><a href="http://219.229.243.64/QTYY/">琼台玉宇</a></li>
                             <li class="foot_part_choose"><a href="http://219.229.243.64/Association/">+社团</a></li>
-                            <li class="foot_part_choose"><a href="javascript:void(0)">鞠友</a></li>
+                            <li class="foot_part_choose"><a href="http://219.229.243.64/ergou/">二狗网</a></li>
                         </ul>
                     </div>
                 </article>
@@ -180,36 +180,7 @@
 @Scripts.Render("~/bundles/bootstrap")
 <script src="~/Scripts/JS/HeadFoot.js"></script>
 <script type="text/javascript">
-    $(".normalInput .showpassword").click(function () {
-        $(this).hide();
-        $('.normalInput #txtPassword').prop("type", 'password');
-        $(".normalInput .hidepassword").show();
-    });
-    $(".normalInput .hidepassword").click(function () {
-        $(this).hide();
-        $('.normalInput #txtPassword').prop("type", 'text');
-        $(".normalInput .showpassword").show();
-    });
-    $(".userinfobox1").click(function () {
-        $(".denglubox").css("display", "block");
-    });
-    $(".closed").click(function () {
-        $(".denglubox").css("display", "none");
-    });
-    $("#dl").click(function () {
-        $.ajax({
-            url: "/UserInfo/Login",
-            type: "post",
-            data: { Users_id: $("#Users_id").val(), UserPass: $("#UserPass").val() },
-            success: function (data) {              
-                $(".denglubox").css("display", "none");
-                if (data == "登录成功") {
-                    location.reload();
-                    
-                }
-            }
-        });
-    });
+    
 </script>
 
 @RenderSection("scripts", required: false)

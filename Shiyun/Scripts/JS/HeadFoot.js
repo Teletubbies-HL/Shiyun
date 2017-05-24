@@ -117,3 +117,33 @@ $(function () {
         });
     });
 });
+
+$(".normalInput .showpassword").click(function () {
+    $(this).hide();
+    $('.normalInput #txtPassword').prop("type", 'password');
+    $(".normalInput .hidepassword").show();
+});
+$(".normalInput .hidepassword").click(function () {
+    $(this).hide();
+    $('.normalInput #txtPassword').prop("type", 'text');
+    $(".normalInput .showpassword").show();
+});
+$(".userinfobox1").click(function () {
+    $(".denglubox").css("display", "block");
+});
+$(".closed").click(function () {
+    $(".denglubox").css("display", "none");
+});
+$("#dl").click(function () {
+    $.ajax({
+        url: "/UserInfo/Login",
+        type: "post",
+        data: { Users_id: $("#Users_id").val(), UserPass: $("#UserPass").val() },
+        success: function (data) {
+            $(".denglubox").css("display", "none");
+            if (data == "登录成功") {
+                location.reload();
+            }
+        }
+    });
+});
