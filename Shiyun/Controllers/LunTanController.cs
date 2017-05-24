@@ -109,6 +109,8 @@ namespace Shiyun.Controllers
                     post.Post_draft = 0;
                     post.Users_id = Session["Users_id"].ToString();
                     post.Post_click = 0;
+                    post.Post_down = 0;
+                    post.Post_upvote = 0;
                     pm.AddPost(post);
                     //db.Post.Add(post);
                     //db.SaveChanges();
@@ -161,6 +163,9 @@ namespace Shiyun.Controllers
                 {
                     post.AddTime = System.DateTime.Now;
                     post.Post_draft = 1;
+                    post.Post_click = 0;
+                    post.Post_down = 0;
+                    post.Post_upvote = 0;
                     post.Users_id = Session["Users_id"].ToString();
                     pm.AddPost(post);
                     return Content("<script>;alert('存为草稿成功！');window.history.go(-2);window.location.reload();</script>");
@@ -245,5 +250,52 @@ namespace Shiyun.Controllers
             return "aa";
         }
         #endregion
+        #region 排行榜
+        public ActionResult PostPaihang(int choose_id)
+        {
+            LuntanIndex luntanIndex = new LuntanIndex();
+            ViewBag.Choose_id = choose_id;
+
+            //ViewBag.Post_id = postId;
+            if (choose_id == 1)
+            {
+                ViewBag.ChooseName = "赞上来的";
+                luntanIndex.AllPost = pm.GetAllPostByZan();
+            }
+            else if (choose_id == 2)
+            {
+                ViewBag.ChooseName = "踩下去的";
+                luntanIndex.AllPost = pm.GetAllPostByCai();
+            }
+            else
+            {
+                ViewBag.ChooseName = "热门";
+                luntanIndex.AllPost = pm.GetAllPostByClick();
+            }
+            return View(luntanIndex);
+        }
+        #endregion
+        #region 原创排行数据获取
+        public ActionResult GetAllPostPaihang(int choose_id, int? page)
+        {
+            var post = pm.GetAllPostByZan();
+            ViewBag.Choose_id = choose_id;
+            if (choose_id == 1)
+            {
+                post = pm.GetAllPostByZan();
+            }
+            else if (choose_id == 2)
+            {
+                post = pm.GetAllPostByCai();
+            }
+            else
+            {
+                post = pm.GetAllPostByClick();
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(post.ToPagedList(pageNumber, pageSize));
+        }
     }
-}
+} 
+#endregion

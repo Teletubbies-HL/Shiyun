@@ -608,7 +608,7 @@
     <Content Include="Images\userInfo\20170503829.jpg" />
     <Content Include="Images\userInfo\20170503830.jpg" />
     <Content Include="Images\userInfo\20170503831.jpg" />
-    <Content Include="Images\userInfo\20170503832.jpg" />
+    <Content Include="Images\userInfo\20170503838.jpg" />
     <Content Include="Images\userInfo\20170503833.jpg" />
     <Content Include="Images\userInfo\3.jpg" />
     <Content Include="Images\userInfo\4.jpg" />
@@ -2074,6 +2074,8 @@
     <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
     <Content Include="Views\Video\Index.cshtml" />
     <Content Include="Views\Video\Index1.cshtml" />
+    <Content Include="Views\LunTan\PostPaihang.cshtml" />
+    <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
