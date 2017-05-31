@@ -2078,7 +2078,6 @@
     <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
     <Content Include="Views\Video\Index1.cshtml" />
-    <Content Include="Views\LunTan\PostPaihang.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
   </ItemGroup>
   <ItemGroup>
