@@ -2079,6 +2079,7 @@
     <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
     <Content Include="Views\Video\Index1.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
+    <Content Include="Views\LunTan\PostPaihang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
