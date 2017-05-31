@@ -185,6 +185,8 @@
           <Property Name="Shi_id" Type="int" />
           <Property Name="Ci_id" Type="int" />
           <Property Name="Mp3_Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="Post_upvoteId" Type="nvarchar(max)" />
+          <Property Name="Post_downId" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PostReply">
           <Key>
@@ -481,6 +483,8 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="30" />
           <Property Name="UserImage" Type="text" />
           <Property Name="UserSign" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_upvoteId" Type="nvarchar(max)" />
+          <Property Name="Post_downId" Type="nvarchar(max)" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_PostReply”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1131,7 +1135,9 @@
     [View_PostIndex].[Expr1] AS [Expr1], 
     [View_PostIndex].[UserName] AS [UserName], 
     [View_PostIndex].[UserImage] AS [UserImage], 
-    [View_PostIndex].[UserSign] AS [UserSign]
+    [View_PostIndex].[UserSign] AS [UserSign], 
+    [View_PostIndex].[Post_upvoteId] AS [Post_upvoteId], 
+    [View_PostIndex].[Post_downId] AS [Post_downId]
     FROM [dbo].[View_PostIndex] AS [View_PostIndex]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_PostReply" EntityType="Self.View_PostReply" store:Type="Views" store:Schema="dbo">
@@ -1535,6 +1541,8 @@
           <Property Name="Shi_id" Type="Int32" />
           <Property Name="Ci_id" Type="Int32" />
           <Property Name="Mp3_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Post_upvoteId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post_downId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LunTan" Relationship="Self.FK_Post_LunTan" FromRole="Post" ToRole="LunTan" />
           <NavigationProperty Name="UserInfo" Relationship="Self.FK_Post_UserInfo" FromRole="Post" ToRole="UserInfo" />
           <NavigationProperty Name="PostReply" Relationship="Self.FK_PostReply_Post" FromRole="Post" ToRole="PostReply" />
@@ -1871,6 +1879,8 @@
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UserSign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_upvoteId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post_downId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="View_PostReply">
           <Key>
@@ -2769,6 +2779,8 @@
                 <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
                 <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
                 <ScalarProperty Name="Mp3_Url" ColumnName="Mp3_Url" />
+                <ScalarProperty Name="Post_upvoteId" ColumnName="Post_upvoteId" />
+                <ScalarProperty Name="Post_downId" ColumnName="Post_downId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3061,6 +3073,8 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserImage" ColumnName="UserImage" />
                 <ScalarProperty Name="UserSign" ColumnName="UserSign" />
+                <ScalarProperty Name="Post_upvoteId" ColumnName="Post_upvoteId" />
+                <ScalarProperty Name="Post_downId" ColumnName="Post_downId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

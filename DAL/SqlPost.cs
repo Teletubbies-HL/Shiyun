@@ -94,5 +94,20 @@ namespace DAL
                                select po;
             return yuanChuangZd;
         }
+
+        public IEnumerable<View_PostIndex> Zan1(string con, int postid) //获取是否点赞
+        {
+            var zan1 = from po in db.View_PostIndex
+                       where po.Post_upvoteId.Contains(con) && po.Post_id == postid
+                       select po;
+            return zan1.ToList();
+        }
+        public IEnumerable<View_PostIndex> Cai1(string con, int postid) //获取是否被踩
+        {
+            var cai1 = from po in db.View_PostIndex
+                       where po.Post_downId.Contains(con) && po.Post_id == postid
+                       select po;
+            return cai1.ToList();
+        }
     }
 }

@@ -82,5 +82,17 @@ namespace BLL
             var allPost = ipost.GetAllPostByClick();
             return allPost;
         }
+
+       public IEnumerable<View_PostIndex> Zan1(string con, int postid)
+       {
+           var zan1 = ipost.Zan1(con, postid);
+           return zan1;
+       }
+
+       public IEnumerable<View_PostIndex> Cai1(string con, int postid)
+       {
+            var cai1 = ipost.Cai1(con, postid);
+            return cai1;
+        }
     }
 }

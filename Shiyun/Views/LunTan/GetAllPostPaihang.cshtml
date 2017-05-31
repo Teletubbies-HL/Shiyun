@@ -12,32 +12,33 @@
                 <div class="userimage" style="margin:5px 15px 0px 20px;">
                     <img id="imgUser" class="imgcssUser" src="@item.UserImage" style="width: 100%; height: 100%;" />
                 </div>
-                <div class="posttitle" style="top: 18px;">@item.PostTitle</div>
-                <div class="postname" style="top: 55px;">@item.UserName</div>
-                <div class="posttime" style="top: 55px;">@item.AddTime</div>
-                <div class="postcontent">@Html.Raw(@item.PostDetails)</div>
+                <a class="pl1" href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                    <div class="posttitle" style="top: 18px;">@item.PostTitle</div>
+                </a>
+                    <div class="postname" style="top: 55px;">@item.UserName</div>
+                    <div class="posttime" style="top: 55px;">@item.AddTime</div>
+                    <div class="postcontent">@Html.Raw(@item.PostDetails)</div>
 
-                <div class="pl">
-                    <a class="pl1" href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
-                        <span class="iconfont pl1">&#xe667;</span>
-                    </a>
-                </div>
-                <div class="cai">
-                    <span class="iconfont cai1">&#xe873;</span>
-                    <span class="iconfont cai2" style="display: none;">&#xe872;</span>
-                    <span class="cainum">@item.Post_down</span>
-                </div>
-                <div class="zan">
-                    <span class="iconfont zan1">&#xe871;</span>
-                    <span class="iconfont zan2" style="display: none;">&#xe870;</span>
-                    <span class="zannum">@item.Post_upvote</span>
-                </div>
-
-                <input type="hidden" class="mp3url" value="@item.Mp3_Url" />
-                <input type="hidden" class="postid" value="@item.Post_id" />
-                <input type="hidden" class="luntanid" value="@item.LunTan_id" />
-                <input type="hidden" class="userid" value="@item.Users_id" />
-            </div>
+                    <div class="pl">
+                        <a class="pl1" href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                            <span class="iconfont pl1">&#xe667;</span>
+                        </a>
+                    </div>
+                    <div class="cai">
+                        <span class="iconfont cai1">&#xe873;</span>
+                        <span class="iconfont cai2" style="display: none;">&#xe872;</span>
+                        <span class="cainum">@item.Post_down</span>
+                    </div>
+                    <div class="zan">
+                        <span class="iconfont zan1">&#xe871;</span>
+                        <span class="iconfont zan2" style="display: none;">&#xe870;</span>
+                        <span class="zannum">@item.Post_upvote</span>
+                    </div>
+                    <input type="hidden" class="mp3url" value="@item.Mp3_Url" />
+                    <input type="hidden" class="postid" value="@item.Post_id" />
+                    <input type="hidden" class="luntanid" value="@item.LunTan_id" />
+                    <input type="hidden" class="userid" value="@item.Users_id" />
+</div>
         </div>
     </div>
 }

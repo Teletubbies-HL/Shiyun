@@ -385,6 +385,9 @@
     <Content Include="Content\css\ShopCar.css" />
     <Content Include="Content\css\ShiCiswiper.min.css" />
     <Content Include="Content\css\ShiCiwenxue.css" />
+    <Content Include="Content\css\Video\css\menu.css" />
+    <Content Include="Content\css\Video\css\owl.carousel.css" />
+    <Content Include="Content\css\Video\css\owl.theme.css" />
     <Content Include="Content\css\Video\css\style.css" />
     <Content Include="Content\css\Video\css\zerogrid.css" />
     <Content Include="Content\css\YuanChuang.css" />

@@ -15,10 +15,11 @@
         <div class="hotpost_title">
             <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @po.LunTan_id, postId = @po.Post_id})" style="text-decoration: none; color: #333;">@po.PostTitle</a>
         </div>
-        <div class="zan"><span class="iconfont zan1">&#xe871;</span><span class="iconfont zan2" style="display: none;">&#xe870;</span><span class="zannum">100</span></div>
-        <div class="cai"><span class="iconfont cai1">&#xe873;</span><span class="iconfont cai2" style="display: none;">&#xe872;</span><span class="cainum">12</span></div>
+        <div class="zan"><span class="iconfont zan1">&#xe871;</span><span class="iconfont zan2" style="display: none;">&#xe870;</span><span class="zannum">@po.Post_upvote</span></div>
+        <div class="cai"><span class="iconfont cai1">&#xe873;</span><span class="iconfont cai2" style="display: none;">&#xe872;</span><span class="cainum">@po.Post_down</span></div>
         <span class="user_name">@po.UserName</span>
         <span class="addtime">@po.AddTime</span>
+        <input class="post_id" type="hidden" value="@po.Post_id"/>
     </div>
 }
 

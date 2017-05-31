@@ -35,5 +35,7 @@ namespace Models
         public string UserName { get; set; }
         public string UserImage { get; set; }
         public string UserSign { get; set; }
+        public string Post_upvoteId { get; set; }
+        public string Post_downId { get; set; }
     }
 }
