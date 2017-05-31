@@ -52,10 +52,6 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 登录
-        //public ActionResult Login()
-        //{
-        //    return View();
-        //}
         [HttpPost]
         public string Login([Bind(Include = "Users_id,UserPass")]string Users_id,string UserPass)
         {
