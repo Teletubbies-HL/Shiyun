@@ -1,0 +1,86 @@
+﻿@*@model IEnumerable<Models.Ci>*@
+@model PagedList.IPagedList<Models.Ci>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "CiIndex";
+}
+
+<title>词集列表</title>
+<style type="text/css">
+    .title_top {
+        margin-top: 20px;
+        background-color: #dd3b64;
+        padding: 5px;
+        border-radius: 2px;
+        background-position: -88px 0pt;
+        color: #FFFFFF;
+        width: 100%;
+    }
+</style>
+<link href="../bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../scripts/jquery.min.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="title_top">
+        <p style="color:darkgrey">
+            @Html.ActionLink("添加词集", "CiCreate")
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 28%">词集名</th>
+                <th style="width: 12%">图片</th>
+                @*<th style="width: 15%">内容</th>*@
+                @*<th style="width: 15%">翻译</th>
+                    <th style="width: 15%">赏析</th>
+                    <th style="width: 15%">背景</th>*@
+                <th style="width: 10%">作者</th>
+                <th style="width: 10%">年代</th>
+                <th style="width: 10%">词牌名</th>
+                <th style="width: 10%">操作</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CiTitle)
+                </td>
+                <td>
+                    <img src="@item.CiImage" style="width:80px;height:60px" />
+                </td>
+              
+                <td>                   
+                    @Html.DisplayFor(modelItem => item.Author.AuthorName)
+                </td>
+                <td>                   
+                    @Html.DisplayFor(modelItem => item.Time.TimeName)
+                </td>
+                <td>                   
+                    @Html.DisplayFor(modelItem => item.CiPai.CiPaiName)
+                </td>
+                <td>
+                    <p>
+                        @Html.ActionLink("更新", "CiiEdit", new { id = item.Ci_id }) |
+                        @*@Html.ActionLink("详情", "GoodsDetails", new { id = item.Goods_id }) |*@
+                        @Html.ActionLink("删除", "CiiDelete", new { id = item.Ci_id })
+                    </p>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row page-list">
+        <div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>
+
+        <div class="col-xs-6 col-sm-4 col-md-4 pagejiye">
+            @Html.PagedListPager(Model, page => Url.Action("CiIndex", "Shi", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 pageje">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </div>
+    </div>
+</div>

@@ -22,7 +22,7 @@ namespace DAL
             CiPai cipai = db.CiPai.Find(id);
             return cipai;
         }
-        public IQueryable<CiPai> whereCiPaiById(int id)
+        public IEnumerable<CiPai> whereCiPaiById(int id)
         {
             var cipai = db.CiPai.Where(c => c.CiPai_id == id);
             return cipai;
@@ -43,8 +43,16 @@ namespace DAL
             db.Entry(cipai).State = EntityState.Modified;
             db.SaveChanges();
         }
+        //获取诗词
+        public IEnumerable<View_CiPaiCi> GetAllCi(int CiPaiId)  //获取所有诗
+        {
+            var CiPai = from ac in db.View_CiPaiCi
+                          where ac.CiPai_id == CiPaiId
+                        orderby ac.Ci_id descending
+                          select ac;
+            return CiPai;
+        }
 
-      
 
     }
 }

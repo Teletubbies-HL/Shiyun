@@ -1,0 +1,45 @@
+﻿@using PagedList.Mvc;
+@using PagedList
+@model PagedList.IPagedList<Models.View_ShitypeA>
+@{
+    Layout = null;
+}
+
+@foreach (var aus in Model)
+{
+    <div class="col-dt-6 col-6 col-mb-12">
+        <div class="collection-item">
+            <div class="collection-cover">
+                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = aus.Shi_id })" class="image">
+                    <img src="@aus.ShiImage" data-original="@aus.ShiImage" width="120" height="160" style="display: inline;">
+                </a>
+            </div>
+            <div class="collection-detail">
+                <h3 class="big title one-line">
+                    <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = aus.Shi_id })"> @aus.ShiTitle </a>
+                </h3>
+                <p>
+                    <span class="span-item  gray">作者:</span>
+                    <span class="span-item gray small text"><a href="" class="gray">@aus.AuthorName</a></span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+@*<div class="page-list">
+    <div class="pagecout">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</div>
+    @Html.PagedListPager(Model, page => Url.Action("ShiShowTypeDetails", "ShiShow", new { page, sortOrder = ViewBag.CurrentSort, ShiTypeId = ViewBag.CurrentFilter }))
+</div>*@
+<div class="row page-list">
+    <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
+   
+        @Html.PagedListPager(Model, page => Url.Action("ShiShowTypeDetails", "ShiShow", new { page, sortOrder = ViewBag.CurrentSort, ShiTypeId = ViewBag.ShiType_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 10 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "GetAllShi" }))      
+    </div>
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 pageje">
+
+</div>
+

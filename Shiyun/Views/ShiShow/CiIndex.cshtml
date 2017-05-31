@@ -50,11 +50,10 @@
         @*宋词大家推荐*@
         <center>
             <section class="fi-school-section container">
-                <!--<section class="nice-section container">-->
                 <div class="rg-board one-section white section">
                     <div class="rg-board-head">
                         <p class="title">宋词大家</p>
-                        <a href="https://wenxue.ruogoo.cn/article/nice" class="more"> 更多 &gt;&gt;</a>
+                        <a href="@Url.Action("TimeIndex", "ShiCi")" class="more"> 更多 &gt;&gt;</a>
                     </div>
                     <div class="ui six doubling cards school-list">
 
@@ -143,14 +142,14 @@
             <div class="rg-board one-section white section">
                 <div class="rg-board-head">
                     <p class="title">常见词牌</p>
-                    <a href="https://wenxue.ruogoo.cn/article/nice" class="more"> 更多 &gt;&gt;</a>
+                    <a href="@Url.Action("CiPaiIndex", "ShiCi")" class="more"> 更多 &gt;&gt;</a>
                 </div>
                 <div class="col-group">
                     <div class="col-4 col-mb-12">
                         <div class="school-card white">
                             @foreach (var cipai1 in Model.CiPai1)
                             {
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai1.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai1.CiPai_id })" class="school-header image">
                                     <img src="..@cipai1.CiPaiImage" data-original="..@cipai1.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -182,7 +181,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai2)
                             {
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -214,7 +213,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai3)
                             {
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -246,7 +245,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai4)
                             {
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -278,7 +277,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai5)
                             {
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -310,7 +309,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai6)
                             {
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -344,17 +343,13 @@
 
     </div>
     @*</div>*@
-
     <script src="~/Scripts/JS/ShiCipush.js"></script>
     <script src="~/Scripts/JS/ShiCianalytics.js"></script>"
     <script src="~/Scripts/JS/ShiCihm.js"></script>
-    <script src="~/Scripts/JS/ShiCilib.js"></script>
-   
+    <script src="~/Scripts/JS/ShiCilib.js"></script>   
     <div class="mm-menu-mask"></div>
     <script src="~/Scripts/JS/ShiCiforum-.js"></script>
-    <script src="~/Scripts/JS/ShiCiswiper.min.js"></script>
-
-   
+    <script src="~/Scripts/JS/ShiCiswiper.min.js"></script>   
     <script>
 		(function () {
 			var bp          = document.createElement('script');
@@ -368,16 +363,12 @@
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(bp, s);
 		})();
-
-
 		$(".smallall").hover(function () {
 		    var a = $(this).children().children().attr("src");
             
 		    $(".bigimgback").attr("href", a);
 		}, function () {
-
 		});
-
     </script>
 
 </body>

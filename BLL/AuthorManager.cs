@@ -17,19 +17,24 @@ namespace BLL
             var authors = iauthor.GetAuthor();
             return authors;
         }
-        public IEnumerable<View_Authorsc> GetAuthorsc(int Authorid)
+        //public IEnumerable<View_Authorsc> GetAuthorsc(int Authorid)
+        //{
+        //    var authorsc = iauthor.GetAuthorsc(Authorid);
+        //    return authorsc;
+        //}
+        public IEnumerable<View_Authorsc> GetbyTopandCiPaiId(int top, int authorid)
         {
-            var authorsc = iauthor.GetAuthorsc(Authorid);
-            return authorsc;
+            var ci = iauthor.GetbyTopandCiPaiId(top, authorid);
+            return ci;
         }
         public Author GetAuthorById(int? id)
         {
             Author author = iauthor.GetAuthorById(id);
             return author;
         }
-        public IQueryable<Author> whereAuthorById(int id)
+        public IEnumerable<Author> whereAuthorById(int id)
         {
-            var author = iauthor.whereAuthorById(id);
+            var author = iauthor.WhereAuthorById(id);
             return author;
         }
         public IQueryable<Author> GetAuthorByTimeId(int id)
@@ -71,6 +76,23 @@ namespace BLL
         public void RemoveRangeShi(IQueryable<Shi> Shi)
         {
             iauthor.RemoveRangeShi(Shi);
+        }
+        public IEnumerable<View_Authorsc> GetShiCi()
+        {
+            var shicis = iauthor.GetShiCi();
+            return shicis;
+        }
+        //获取诗词
+
+        public IEnumerable<View_AuthorShi> GetAllShi(int AuthorId)
+        {
+            var allshi = iauthor.GetAllShi(AuthorId);
+            return allshi;
+        }
+        public IEnumerable<View_AuthorCi> GetAllCi(int AuthorId)
+        {
+            var allci = iauthor.GetAllCi(AuthorId);
+            return allci;
         }
     }
 }

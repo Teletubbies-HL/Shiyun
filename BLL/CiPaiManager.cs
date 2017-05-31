@@ -22,7 +22,7 @@ namespace BLL
             CiPai cipai = icipai.GetCiPaiById(id);
             return cipai;
         }
-        public IQueryable<CiPai> whereCiPaiById(int id)
+        public IEnumerable<CiPai> whereCiPaiById(int id)
         {
             var cipai = icipai.whereCiPaiById(id);
             return cipai;
@@ -42,6 +42,13 @@ namespace BLL
             icipai.EditCiPai(cipai);
 
         }
-       
+        //获取诗词
+
+        public IEnumerable<View_CiPaiCi> GetAllCi(int CiPaiId)
+        {
+            var allci = icipai.GetAllCi(CiPaiId);
+            return allci;
+        }
+
     }
 }

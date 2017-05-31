@@ -53,7 +53,7 @@
                                     <span class="span-item">@Model.Time.TimeName</span>
                                     <span class="span-item">|</span>
                                     <span class="span-item">
-                                        分类: <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">@Model.CiPai.CiPaiName</a>
+                                        分类: <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = Model.Cipai_id })" class="gray">@Model.CiPai.CiPaiName</a>
                                     </span>
                                     <div class="nice-stamp"></div>
                                 </div>
@@ -87,8 +87,8 @@
                                 <div class="article-reply reply">
                                     <div class="copyright-box">
                                         <div>
-                                            <span>作者：<a href="https://user.ruogoo.cn/8668" target="_blank">@Model.Author.AuthorName</a></span>
-                                            <span>∙ 文章来源：<a href="https://wenxue.ruogoo.cn/article/7370">诗韵</a></span>
+                                            <span>作者：<a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" target="_blank">@Model.Author.AuthorName</a></span>
+                                            <span>∙ 文章来源：<a href="#">诗韵</a></span>
                                         </div>
                                         <div>
                                             <i class="ri ri-copyright"></i>欢迎大家一起学习中国古诗词，遨游诗词海洋，传承中国优秀诗词文化。
@@ -121,15 +121,15 @@
                                             </image>
                                         </svg>
                                     </div>
-                                    <a href="https://user.ruogoo.cn/8668" class="ui circular image user-avatar">
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" class="ui circular image user-avatar">
                                         <img src="@Model.Author.AuthorImage" class="" alt="@Model.Author.AuthorName" width="80" height="80">
                                     </a>
                                     <p class="user-name big text">
-                                        <a href="https://user.ruogoo.cn/8668">@Model.Author.AuthorName</a>
+                                        <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })">@Model.Author.AuthorName</a>
                                     </p>
                                     <p class="user-level">
                                         <a href="" class="rg-label small level" style="background-color: #63A9ED;">朝代</a>
-                                        <a href="https://www.ruogoo.cn/writer" class="rg-label small level" style="background-color: #3D6BE2;">@Model.Time.TimeName</a>
+                                        <a href="#" class="rg-label small level" style="background-color: #3D6BE2;">@Model.Time.TimeName</a>
                                     </p>
                                 </div>
                                 <div class="user-introduction">
@@ -137,7 +137,7 @@
                                 </div>
 
                                 <div class="goto-write center" style="padding: 10px;">
-                                    <a href="" class="ui fluid teal button" target="_blank">其他作品</a>
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" class="ui fluid teal button" target="_blank">其他作品</a>
                                 </div>
                                 <div class="rg-board">
                                     <div class="rg-board-head">

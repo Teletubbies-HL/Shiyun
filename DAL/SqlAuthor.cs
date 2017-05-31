@@ -17,7 +17,15 @@ namespace DAL
             var author = db.Author.ToList();
             return author;
         }
-      
+        public IEnumerable<View_Authorsc> GetbyTopandCiPaiId(int top, int authorid)
+        {
+            //var ci = from c in db.View_Authorsc
+            //         where c.Author_id == authorid
+            //         //orderby c.Ci_id descending
+            //         select c;
+            var ci = db.View_Authorsc.Where(c => c.Author_id == authorid).OrderBy(c => c.Ci_id).Take(top);
+            return ci;
+        }
         public Author GetAuthorById(int? id)
         {
             Author author = db.Author.Find(id);
@@ -28,20 +36,15 @@ namespace DAL
             var Author = db.Author.Include("Time").Where(c => c.Time_id == id);
             return Author;
         }
-        public IQueryable<Author> whereAuthorById(int id)
+       public IEnumerable<Author> WhereAuthorById(int id)
         {
             var author = db.Author.Where(c => c.Author_id == id);
             return author;
         }
-        //public IEnumerable<View_Authorsc> whereShiByAId(int id)
-        //{
-        //    var author = db.Author.Where(c => c.Author_id == id);
-        //    return author;
-        //}
 
         public IEnumerable<Ci> GetCiByAuthorId(int id)
         {
-            var Ci = db.Ci.Include("Author").Where(c => c.Author_id == id).ToList();
+            var Ci = db.Ci.Include("Author").Where(c => c.Author_id == id);
             return Ci;
         }
         public IEnumerable<Shi> GetShiByAuthorId(int id)
@@ -73,15 +76,27 @@ namespace DAL
         {
             db.Shi.RemoveRange(Shi);
         }
-
-        public IEnumerable<View_Authorsc> GetAuthorsc(int Authorid)
+        public IEnumerable<View_Authorsc> GetShiCi()
         {
-            var auscid = from au in db.View_Authorsc
-                         where au.Author_id== Authorid
-                         select au;
-            return auscid;
-            //var authorsc = db.View_Authorsc.ToList();
-            //return authorsc;
+            var shicis = db.View_Authorsc.ToList();
+            return shicis;
+        }
+        //获取诗词
+        public IEnumerable<View_AuthorCi> GetAllCi(int AuthorId)  //获取所有词
+        {
+            var AuthorCi = from ac in db.View_AuthorCi
+                           where ac.Author_id == AuthorId
+                           orderby ac.Ci_id descending
+                           select ac;
+            return AuthorCi;
+        }
+        public IEnumerable<View_AuthorShi> GetAllShi(int AuthorId)  //获取所有诗
+        {
+            var AuthorShi = from aus in db.View_AuthorShi
+                            where aus.Author_id == AuthorId
+                            orderby aus.Shi_id descending
+                            select aus;
+            return AuthorShi;
         }
     }
 }

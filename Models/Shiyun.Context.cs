@@ -56,12 +56,16 @@ namespace Models
         public virtual DbSet<VideoComment> VideoComment { get; set; }
         public virtual DbSet<VideoK> VideoK { get; set; }
         public virtual DbSet<VideoReply> VideoReply { get; set; }
+        public virtual DbSet<View_AuthorCi> View_AuthorCi { get; set; }
         public virtual DbSet<View_Authorsc> View_Authorsc { get; set; }
+        public virtual DbSet<View_AuthorShi> View_AuthorShi { get; set; }
+        public virtual DbSet<View_CiPaiCi> View_CiPaiCi { get; set; }
         public virtual DbSet<View_CiShow> View_CiShow { get; set; }
         public virtual DbSet<View_OrderDetails> View_OrderDetails { get; set; }
         public virtual DbSet<View_PostDetails> View_PostDetails { get; set; }
         public virtual DbSet<View_PostIndex> View_PostIndex { get; set; }
         public virtual DbSet<View_PostReply> View_PostReply { get; set; }
+        public virtual DbSet<View_ShitypeA> View_ShitypeA { get; set; }
         public virtual DbSet<View_ShopCar> View_ShopCar { get; set; }
     
         public virtual int ShopCar_Orders(string users_id, string userName, string userPhone, string address, string note)

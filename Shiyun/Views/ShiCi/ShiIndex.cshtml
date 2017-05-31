@@ -1,0 +1,50 @@
+﻿@using Models
+@using PagedList.Mvc;
+@model Shiyun.Models.TypeViewModels
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+<link href="~/Content/hudie.css" rel="stylesheet"/>
+<link href="~/Scripts/jquery.unobtrusive-ajax.js" rel="stylesheet" />
+
+<link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+<link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
+<link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
+}
+                                    <div class="FoodMenu">
+                                        <div class="content">
+                                            <div class="menu">
+                                                <div class="zhonglei" id="zhonglei">
+                                                    <b>诗集类型：</b>
+                                                    <div class="info">
+                                                        @Ajax.ActionLink("全部", "ShiIndex", "ShiCi", null)
+                                                        @foreach (ShiType p in Model.Type)
+                                                        {
+                                                            @Ajax.ActionLink(p.ShiTypeName, "ShiIndex", "ShiCi", new { genreInfoFrom = p.ShiTypeName }, new AjaxOptions()
+                                                       {
+                                                           UpdateTargetId = "Div1",
+                                                           InsertionMode = InsertionMode.Replace,
+                                                           HttpMethod = "GET"
+                                                       })
+                                                        }
+                                                    </div>
+                                                    <hr />
+                                                    <div class="xian"></div>
+                                                </div>
+                                             @{Html.RenderAction("ShiIndex", "Shi");}
+                                             
+                                            </div>
+                                            </div>
+                                    </div>
+
+<script>
+
+    $(document).ready(function () {
+        var $zhonglei_a = $('#zhonglei a');
+        $zhonglei_a.click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+    });
+</script>

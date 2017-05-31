@@ -17,12 +17,17 @@ namespace BLL
             var shitypes = ishitype.GetShiType();
             return shitypes;
         }
-        public ShiType GetGoodsById(int? id)
+        public ShiType GetShiTypeById(int? id)
         {
             ShiType shitype = ishitype.GetShiTypeById(id);
             return shitype;
         }
-        public IQueryable<Shi> GetShiByShiTypeId(int id)
+        public IEnumerable<ShiType> whereShiTypeById(int id)
+        {
+            var shitype = ishitype.WhereShiTypeById(id);
+            return shitype;
+        }
+        public IEnumerable<Shi> GetShiByShiTypeId(int id)
         {
             var Shi = ishitype.GetShiByShiTypeId(id);
             return Shi;
@@ -51,5 +56,13 @@ namespace BLL
         {
             ishitype.RemoveRangeShi(Shi);
         }
+        //获取诗
+
+        public IEnumerable<View_ShitypeA> GetAllShi(int ShiTypeId)
+        {
+            var allshi = ishitype.GetAllShi(ShiTypeId);
+            return allshi;
+        }
+
     }
 }

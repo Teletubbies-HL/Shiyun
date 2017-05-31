@@ -277,5 +277,26 @@ namespace Shiyun.Controllers
         }
         #endregion
         #endregion
+
+
+        #region 后台附页
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult main()
+        {
+            return View();
+        }
+        #endregion
+
+
+        #region 后台主页
+        public ActionResult menu()
+        {
+            return View();
+        }
+        #endregion
+
     }
 }

@@ -20,6 +20,11 @@ namespace DAL
         public ShiType GetShiTypeById(int? id)
         {
             ShiType shitype = db.ShiType.Find(id);
+             return shitype;
+        }
+        public IEnumerable<ShiType> WhereShiTypeById(int id)
+        {
+            var shitype = db.ShiType.Where(c => c.ShiType_id == id);
             return shitype;
         }
         public IQueryable<ShiType> GetShiTypebyTop(int top)
@@ -30,7 +35,7 @@ namespace DAL
                        select ty;
             return type.Take(top);
         }
-        public IQueryable<Shi> GetShiByShiTypeId(int id)
+        public IEnumerable<Shi> GetShiByShiTypeId(int id)
         {
             var Shi = db.Shi.Include("ShiType").Where(c => c.ShiType_id == id);
             return Shi;
@@ -57,5 +62,16 @@ namespace DAL
         {
             db.Shi.RemoveRange(Shi);
         }
+        //获取诗
+        //获取诗词
+        public IEnumerable<View_ShitypeA> GetAllShi(int ShiTypeId)  //获取所有诗
+        {
+            var ShiType = from ac in db.View_ShitypeA
+                           where ac.ShiType_id == ShiTypeId
+                          orderby ac.Shi_id descending
+                           select ac;
+            return ShiType;
+        }
+
     }
 }
