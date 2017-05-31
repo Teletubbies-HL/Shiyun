@@ -30,6 +30,7 @@ $(function () {
     var zongfenshu;
     var xuanzetidaan;
     $("#btn1").click(function () {
+        
         $("#line2").css("background-color", "#4cd964");
         $("#rightbox1").hide();
         $("#rightbox2").css("display", "block");
@@ -38,6 +39,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu1id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -49,11 +51,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu1id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn2").click(function () {
+        
         //$("#number2").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line3").css("background-color", "#4cd964");
         $("#rightbox2").hide();
@@ -63,6 +73,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu2id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -74,11 +85,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu2id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn3").click(function () {
+        
         //$("#number3").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line4").css("background-color", "#4cd964");
         $("#rightbox3").hide();
@@ -92,6 +111,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu3id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -103,11 +123,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu3id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn4").click(function () {
+        
         $(".Aclass").css("border", "2px solid rgba(221, 59, 67, 1)");
         $("#number4").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line5").css("background-color", "#4cd964");
@@ -118,6 +146,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu4id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -129,11 +158,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu4id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn5").click(function () {
+        
         $(".Aclass").css("border", "2px solid rgba(221, 59, 67, 1)");
         $("#number5").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line5").css("background-color", "#4cd964");
@@ -146,6 +183,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu5id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -157,11 +195,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu5id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn6").click(function () {
+        
         $(".Aclass").css("border", "2px solid rgba(221, 59, 67, 1)");
         $("#number6").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line7").css("background-color", "#4cd964");
@@ -172,6 +218,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu6id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -183,11 +230,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu6id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn7").click(function () {
+        
         $("#number7").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line8").css("background-color", "#4cd964");
         $("#rightbox7").hide();
@@ -201,6 +256,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu7id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -212,11 +268,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu7id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn8").click(function () {
+        
         $("#number8").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line9").css("background-color", "#4cd964");
         $("#rightbox8").hide();
@@ -226,6 +290,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu8id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -237,11 +302,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu8id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn9").click(function () {
+        
         $("#number9").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line10").css("background-color", "#4cd964");
         $("#rightbox9").hide();
@@ -251,6 +324,7 @@ $(function () {
         $.ajax({
             url: "/Challenge/Panduan",
             type: "post",
+            anync: true,
             data: { userdaan: $('#userdaan1').val(), id: $('#timu9id').val() },
             success: function (data) {
                 if (data == "成功") {
@@ -262,11 +336,19 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu9id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();
     });
     $("#btn10").click(function () {
+        
         $("#number10").css({ border: '1px solid #4cd964', color: '#4cd964' });
         $("#line10-5").css("background-color", "#4cd964");
         $("#rightbox10").hide();
@@ -300,6 +382,7 @@ $(function () {
                     $.ajax({
                         url: "/Challenge/Updatejifen",
                         type: "post",
+                        anync: true,
                         data: { nowjifen: zongfenshu },
                         success: function (data) {
                             
@@ -308,7 +391,13 @@ $(function () {
                 }
                 $('.fenshu').text(zongfenshu);
                 zongfenshu = $('.fenshu').text(zongfenshu);
-                
+                $.ajax({
+                    url: "/Challenge/AddUserdati",
+                    type: "post",
+                    data: { tid: $('#timu10id').val() },
+                    success: function (data) {
+                    }
+                });
             }
         });
         $(".useranswer").empty();

@@ -45,6 +45,11 @@ namespace BLL
             ichallenge.AddChallenge(challenge);
 
         }
+
+       public void AddUserdati(UserDati userDati)
+       {
+            ichallenge.AddUserdati(userDati);
+        }
         public void EditChallenge(Challenge challenge)
         {
             ichallenge.EditChallenge(challenge);

@@ -22,9 +22,9 @@ namespace BLL
             VideoK videok = ivideok.GetVideoKById(id);
             return videok;
         }
-        public IQueryable<Video> GetVideoByVideoKId(int id)
+        public IQueryable<VideoK> GetVideoKByVideoKId(int? id)
         {
-            var Video = ivideok.GetVideoByVideoKId(id);
+            var Video = ivideok.GetVideoKByVideoKId(id);
             return Video;
         }
 

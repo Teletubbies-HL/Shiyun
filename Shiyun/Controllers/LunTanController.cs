@@ -10,6 +10,7 @@ using System.Net;
 using PagedList;
 using System.Collections;
 using Shiyun.Attributes;
+using System.Text.RegularExpressions;
 
 namespace Shiyun.Controllers
 {
@@ -109,6 +110,8 @@ namespace Shiyun.Controllers
                     post.Post_draft = 0;
                     post.Users_id = Session["Users_id"].ToString();
                     post.Post_click = 0;
+                    post.Post_down = 0;
+                    post.Post_upvote = 0;
                     pm.AddPost(post);
                     //db.Post.Add(post);
                     //db.SaveChanges();
@@ -161,6 +164,9 @@ namespace Shiyun.Controllers
                 {
                     post.AddTime = System.DateTime.Now;
                     post.Post_draft = 1;
+                    post.Post_click = 0;
+                    post.Post_down = 0;
+                    post.Post_upvote = 0;
                     post.Users_id = Session["Users_id"].ToString();
                     pm.AddPost(post);
                     return Content("<script>;alert('存为草稿成功！');window.history.go(-2);window.location.reload();</script>");
@@ -245,5 +251,126 @@ namespace Shiyun.Controllers
             return "aa";
         }
         #endregion
+        #region 排行榜
+        public ActionResult PostPaihang(int choose_id)
+        {
+            LuntanIndex luntanIndex = new LuntanIndex();
+            ViewBag.Choose_id = choose_id;
+
+            //ViewBag.Post_id = postId;
+            if (choose_id == 1)
+            {
+                ViewBag.ChooseName = "赞上来的";
+                luntanIndex.AllPost = pm.GetAllPostByZan();
+            }
+            else if (choose_id == 2)
+            {
+                ViewBag.ChooseName = "踩下去的";
+                luntanIndex.AllPost = pm.GetAllPostByCai();
+            }
+            else
+            {
+                ViewBag.ChooseName = "热门";
+                luntanIndex.AllPost = pm.GetAllPostByClick();
+            }
+            return View(luntanIndex);
+        }
+        #endregion
+        #region 原创排行数据获取
+        public ActionResult GetAllPostPaihang(int choose_id, int? page)
+        {
+            var post = pm.GetAllPostByZan();
+            ViewBag.Choose_id = choose_id;
+            if (choose_id == 1)
+            {
+                post = pm.GetAllPostByZan();
+            }
+            else if (choose_id == 2)
+            {
+                post = pm.GetAllPostByCai();
+            }
+            else
+            {
+                post = pm.GetAllPostByClick();
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(post.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+        #region   点赞
+        [Login]
+        public string Zan(int postId)
+        {
+            var user_id = Session["Users_id"].ToString();
+            var a = pm.Zan1(user_id,postId);
+            foreach (var po in a)
+            {
+                var Post_upvoteId = po.Post_upvoteId;
+                if (Post_upvoteId.Length > 1)
+                { //取消赞
+                    var before2 = pm.GetPostById(postId);
+                    //替换字符串
+                    string str = Post_upvoteId;
+                    string str2 = Session["Users_id"].ToString() + ",";
+                    Regex r = new Regex(str2);
+                    Match m = r.Match(str);
+                    if (m.Success)
+                    {
+                        str = str.Replace(str2, "");
+                        before2.Post_upvoteId = str;
+                    }
+
+                    before2.Post_upvote -= 1;
+                    pm.EditPost(before2);
+                    var afternum2 = before2.Post_upvote.ToString();
+                    return afternum2;
+                }          
+            }
+            //此处为插入
+            var before = pm.GetPostById(postId);
+            before.Post_upvoteId += (user_id +",");
+            before.Post_upvote += 1;
+            pm.EditPost(before);
+            var afternum = before.Post_upvote.ToString();
+            return afternum;
+        }
+        #endregion
+        #region   踩
+        [Login]
+        public string Cai(int postId)
+        {
+            var user_id = Session["Users_id"].ToString();
+            var a = pm.Cai1(user_id, postId);
+            foreach (var po in a)
+            {
+                var Post_downId = po.Post_downId;
+                if (Post_downId.Length > 1)
+                { //取消踩
+                    var before2 = pm.GetPostById(postId);                   
+                    string str = Post_downId;
+                    string str2 = Session["Users_id"].ToString() + ",";
+                    Regex r = new Regex(str2);
+                    Match m = r.Match(str);
+                    if (m.Success)
+                    {
+                        str = str.Replace(str2, "");
+                        before2.Post_downId = str;
+                    }
+                    before2.Post_down -= 1;
+                    pm.EditPost(before2);
+                    var afternum2 = before2.Post_down.ToString();
+                    return afternum2;
+                }
+            }
+            //此处为插入踩
+            var before = pm.GetPostById(postId);
+            before.Post_downId += (user_id + ",");
+            before.Post_down += 1;
+            pm.EditPost(before);
+            var afternum = before.Post_down.ToString();
+            return afternum;
+        }
+        #endregion
     }
-}
+} 

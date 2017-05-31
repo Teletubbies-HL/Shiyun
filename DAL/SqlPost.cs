@@ -70,5 +70,44 @@ namespace DAL
                 .FirstOrDefault();
             return post;
         }
+        public IEnumerable<View_PostIndex> GetAllPostByZan()  //通过赞获取原创排行
+        {
+            var yuanChuangZd = from po in db.View_PostIndex
+                               where po.LunTan_id == 1 && po.Post_draft != 1 
+                               orderby po.Post_upvote descending 
+                               select po;
+            return yuanChuangZd;
+        }
+        public IEnumerable<View_PostIndex> GetAllPostByCai()  //通过踩获取原创排行
+        {
+            var yuanChuangZd = from po in db.View_PostIndex
+                               where po.LunTan_id == 1 && po.Post_draft != 1
+                               orderby po.Post_down descending 
+                               select po;
+            return yuanChuangZd;
+        }
+        public IEnumerable<View_PostIndex> GetAllPostByClick()  //通过点击量获取原创排行
+        {
+            var yuanChuangZd = from po in db.View_PostIndex
+                               where po.LunTan_id == 1 && po.Post_draft != 1
+                               orderby po.Post_click descending 
+                               select po;
+            return yuanChuangZd;
+        }
+
+        public IEnumerable<View_PostIndex> Zan1(string con, int postid) //获取是否点赞
+        {
+            var zan1 = from po in db.View_PostIndex
+                       where po.Post_upvoteId.Contains(con) && po.Post_id == postid
+                       select po;
+            return zan1.ToList();
+        }
+        public IEnumerable<View_PostIndex> Cai1(string con, int postid) //获取是否被踩
+        {
+            var cai1 = from po in db.View_PostIndex
+                       where po.Post_downId.Contains(con) && po.Post_id == postid
+                       select po;
+            return cai1.ToList();
+        }
     }
 }

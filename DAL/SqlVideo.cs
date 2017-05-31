@@ -12,14 +12,23 @@ namespace DAL
     public class SqlVideo:IVideo
     {
         ShiyunEntities db = DbContextFactory.CreateDbContext();
-        public IEnumerable<Video> GetVideo()
+        public IEnumerable<Video> GetVideo() 
         {
             var videos = db.Video.ToList();
             return videos;
         }
-        public Video GetVideoById(int? id)
+        public IEnumerable<Video> GetVideoById(int? id)
         {
-            Video video = db.Video.Find(id);
+            var video = from vi in db.Video
+                        where vi.Video_id == id
+                        select vi;
+            return video;
+        }
+        public IEnumerable<Video> GetVideoByVideoKId(int? id)
+        {
+            var video = from vi in db.Video
+                        where vi.VideoK_id == id
+                        select vi;
             return video;
         }
         public IQueryable<VideoComment> GetVideoCommentByVideoId(int id)
@@ -48,6 +57,21 @@ namespace DAL
         public void RemoveRangeVideoComment(IQueryable<VideoComment> VideoComment)
         {
             db.VideoComment.RemoveRange(VideoComment);
+        }
+        public IEnumerable<Video> GetNewVideo() //获取最新的视频
+        {
+            var newvideo = from po in db.Video
+                               orderby po.AddTime descending
+                               select po;
+            return newvideo;
+        }
+        public IEnumerable<Video> GetRecommend() //获取推荐的视频
+        {
+            var recommend = from po in db.Video
+                           where po.Video_recommend == 1
+                           orderby po.AddTime descending
+                           select po;
+            return recommend;
         }
     }
 }

@@ -37,12 +37,12 @@ $(window).resize(function () {
     }
 });
 $(function () {   //登陆和个人中心的hover
-    var sessionid = $(".uid").val();
-    if (sessionid != "") { //判断是否有session
-        $(".userinfo").parent().on("click", function() {
-            return false;
-        });
-        $(".userinfo").hover(function() {
+    //alert(sessionid);
+    //if (sessionid != "") { //判断是否有session
+    //    $(".userinfo").parent().on("click", function() {
+    //        return false;
+    //    });
+    $(".userinfo").hover(function() {
             //$(".usercenterbox").fadeIn(500);
             //$(".zhuxiaobox").fadeIn(500);
             $(".usercenterbox").show();
@@ -65,11 +65,11 @@ $(function () {   //登陆和个人中心的hover
             $(".usercenterbox").hide();
             $(".zhuxiaobox").hide();
         });
-    } else {
-        $(".userinfo").parent().on("click", function () {
-            return true;
-        });
-    }
+    //} else {
+    //    $(".userinfo").parent().on("click", function () {
+    //        return true;
+    //    });
+    //}
 });
 $(function () {
     //导航栏切换
@@ -110,9 +110,40 @@ $(function () {
             data: { a:1 },
             success: function (data) {
                 alert("注销成功");
+                location.reload();
                 $(".userinfo").unbind("mouseenter").unbind("mouseleave");
                 var A = data;
             }
         });
+    });
+});
+
+$(".normalInput .showpassword").click(function () {
+    $(this).hide();
+    $('.normalInput #txtPassword').prop("type", 'password');
+    $(".normalInput .hidepassword").show();
+});
+$(".normalInput .hidepassword").click(function () {
+    $(this).hide();
+    $('.normalInput #txtPassword').prop("type", 'text');
+    $(".normalInput .showpassword").show();
+});
+$(".userinfobox1").click(function () {
+    $(".denglubox").css("display", "block");
+});
+$(".closed").click(function () {
+    $(".denglubox").css("display", "none");
+});
+$("#dl").click(function () {
+    $.ajax({
+        url: "/UserInfo/Login",
+        type: "post",
+        data: { Users_id: $("#Users_id").val(), UserPass: $("#UserPass").val() },
+        success: function (data) {
+            $(".denglubox").css("display", "none");
+            if (data == "登录成功") {
+                location.reload();
+            }
+        }
     });
 });

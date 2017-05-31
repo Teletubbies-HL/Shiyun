@@ -9,6 +9,12 @@
             margin: 0 auto;
             text-align: center;
 }
+        .zan1:hover ,.cai1:hover {
+             color: #c03f3c;
+                transition: color 0.2s linear;
+                -webkit-transition: color 0.2s linear;
+                -moz-transition: color 0.2s linear;
+        }
     </style>
 }
 
@@ -232,26 +238,51 @@
         }
     });
     $(function () {
-        $(".postbox").children(":eq(0)").click(function () {   //赞1
-            alert("1");
+        
+        $(document).on('click', '.zan1', function () {   //赞 
+                //$(".zan1").click(function () {   
+            var postId = $(this).parent().next().next().next().next().val();
+            var zannum = $(this).next().next();
+            //$(this).next().css("display", "block");
+            //$(this).css("display", "none");
+            $.ajax({
+                type: "post",
+                url: "/LunTan/Zan",
+                data: { postId: postId },
+                success: function (data) {
+                    zannum.html(data);
+                }
+            });
         });
-        $(".postbox").children(":eq(2)").children(":eq(0)").click(function () {   //赞1
-            alert("1");
-            $(this).css("display", "none");
-            $(this).next().show("display", "block");
+        //$(".zan2").click(function () {   //赞2
+        //    var a = $(this).parent().next().next().next().next().val();
+        //    alert(a);
+        //    $(this).prev().css("display", "block");
+        //    $(this).css("display", "none");
+        //});
+        $(document).on('click', '.cai1', function () { //踩1
+            var postId = $(this).parent().next().next().next().val();
+            var cainum = $(this).next().next();
+            //$(this).next().css("display", "block");
+            //$(this).css("display", "none");
+            $.ajax({
+                type: "post",
+                url: "/LunTan/Cai",
+                data: { postId: postId },
+                success: function (data) {
+                    cainum.html(data);
+                }
+            });
+
         });
-        $(".postbox").children(":eq(2)").children(":eq(1)").click(function () {  //赞2
-            $(this).css("display", "none");
-            $(this).prev().show("display", "block");
-        });
-        $(".postbox").children(":eq(3)").children(":eq(0)").click(function () {  //踩1
-            $(this).css("display", "none");
-            $(this).next().show("display", "block");
-        });
-        $(".postbox").children(":eq(3)").children(":eq(1)").click(function () {  //踩2
-            $(this).css("display", "none");
-            $(this).prev().show("display", "block");
-        });
+        //$(".cai2").click(function () {   //踩2
+        //    var a = $(this).parent().next().next().next().val();
+        //    alert(a);
+        //    $(this).prev().css("display", "block");
+        //    $(this).css("display", "none");
+        //});
+      
+      
     });    
     </script>
 }

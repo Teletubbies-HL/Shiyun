@@ -37,7 +37,7 @@
                     @using (Html.BeginForm("Register", "UserInfo", FormMethod.Post, new { @id = "mainform" }))
                     {
                         <div class="formheader">
-                            @Html.ActionLink("用户登录", "Login", "UserInfo", null, new { @id = "hlkNormalLogin", style = "color:#E5E5E5;" })&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                            @*@Html.ActionLink("用户登录", "Login", "UserInfo", null, new { @id = "hlkNormalLogin", style = "color:#E5E5E5;" })&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;*@
                             @*@Html.ActionLink("用户注册", "Index", "Register", null, new { @id = "hlkNormalRegister", style = "color: #32A5E7" })*@
                             <label id="hlkNormalRegister" style="color: #32A5E7">用户注册</label>
                         </div>
@@ -64,9 +64,9 @@
                             </div>
                             <div class="checkField">
                                 <span class="iconfont chebox-before" style="font-size: 20px; color: rgba(218, 218, 218, 0.9)">&#xe68e;</span>
-                                <span class="iconfont chebox-after" style="font-size: 20px; color: rgba(44, 180, 229, 1)">&#xe707;</span>
+                                <span class="iconfont chebox-after" style="font-size: 20px; color: rgba(44, 180, 229, 1); display: none;">&#xe707;</span>
                                 @Html.CheckBox("a", false, new { @id = "ckbAgree" })
-                                <span class="chebox" style="font-size: 15px; line-height: 30px; color: #7f7f7f;">我已阅读并接受</span>
+                                <span class="chebox" style="font-size: 15px; line-height: 30px; color: #E5E5E5;">我已阅读并接受</span>
                                 @Html.ActionLink("《服务协议条款》", "", "", null, new { @id = "HyperLink1", style = "line-height: 30px; color: rgba(50, 165, 231, 1); text-decoration: none;" })
 
                             </div>
@@ -85,8 +85,7 @@
         </section>
 
     </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/JS/Register.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>

@@ -76,7 +76,7 @@ namespace Shiyun.Controllers
         public ActionResult GoodsFenlei(string GoodsK_id)
         {
             Models.MallViewModels mallvm = new Models.MallViewModels();
-            ViewBag.GoodsK_id = GoodsK_id;
+            ViewBag.GoodsK_id= GoodsK_id;
             var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
             var goodstop10 = goodsmanager.GetGoodsbyTop(10);
             mallvm.Goodses1 = goodses1;
@@ -90,7 +90,7 @@ namespace Shiyun.Controllers
         {
             ViewBag.GoodsK_id = GoodsK_id;
             var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
-            int pageSize = 8;
+            int pageSize = 2;
             int pageNumber = (page ?? 1);
             return View(goodses1.ToPagedList(pageNumber, pageSize));
         }

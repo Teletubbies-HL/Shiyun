@@ -46,7 +46,7 @@
                             <div class="postname">@pd.UserName</div>
                             <div class="posttime">@pd.AddTime</div>
                             <div class="postcontent">@Html.Raw(pd.PostDetails)</div>
-                            <audio controls="controls" class="music" style="display: block;">
+                            <audio controls="controls" class="music" style="display: none;">
                             <source src="@pd.Mp3_Url" type="audio/mpeg"/>
                             </audio>
                             <input type="hidden" class="mp3url" value="@pd.Mp3_Url" />

@@ -12,12 +12,13 @@ using Shiyun.Attributes;
 
 namespace Shiyun.Controllers
 {
-    [Login]
+    
     public class ChallengeController : Controller
     {
         ChallengeManager challengemanager=new ChallengeManager();
         UserInfoManager userinfomanager = new UserInfoManager();
         // GET: Challenge
+        [Login]
         public ActionResult Index()
         {
             var challenge1 = challengemanager.SuijiChallengeByKid(1,3);
@@ -36,6 +37,7 @@ namespace Shiyun.Controllers
             challengevm.Challenge10 = challenge8.Skip(2).Take(1);
             return View(challengevm);
         }
+        [Login]
         [HttpPost]
         public string Panduan(string userdaan,int id)
         {
@@ -52,6 +54,7 @@ namespace Shiyun.Controllers
                 return data;
             }
         }
+        [Login]
         [HttpPost]
         public string Updatejifen(int nowjifen)
         {
@@ -61,6 +64,23 @@ namespace Shiyun.Controllers
             userinfomanager.UpdateUserInfo(beforeuserinfo);
             string data = "成功";
             return data;
+        }
+        [Login]
+        [HttpPost]
+        public string AddUserdati(UserDati userDati,int tid)
+        {
+            userDati.Users_id= Session["Users_id"].ToString();
+            userDati.Timu_id = tid;
+            challengemanager.AddUserdati(userDati);
+            string data = "成功";
+            return data;
+        }
+        public ActionResult ChallengePaihang()
+        {
+            var userinfo10 = userinfomanager.Jifenpaihang10();
+            Models.ChallengeViewModels challengevm = new Models.ChallengeViewModels();
+            challengevm.UserInfo10 = userinfo10;
+            return View(challengevm);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace DAL
     public class SqlVideoK:IVideoK
     {
         ShiyunEntities db = DbContextFactory.CreateDbContext();
-        public IEnumerable<VideoK> GetVideoK()
+        public IEnumerable<VideoK> GetVideoK()  //获取全部视频分类
         {
-            var videoks = db.VideoK.ToList();
+            var videoks = db.VideoK.OrderByDescending(c =>c.AddTime).ToList();
             return videoks;
         }
         public VideoK GetVideoKById(int? id)
@@ -22,9 +22,9 @@ namespace DAL
             VideoK videok = db.VideoK.Find(id);
             return videok;
         }
-        public IQueryable<Video> GetVideoByVideoKId(int id)
+        public IQueryable<VideoK> GetVideoKByVideoKId(int? id)
         {
-            var Video = db.Video.Include("VideoK").Where(c => c.VideoK_id == id);
+            var Video = db.VideoK.Where(c => c.VideoK_id == id);
             return Video;
         }
 

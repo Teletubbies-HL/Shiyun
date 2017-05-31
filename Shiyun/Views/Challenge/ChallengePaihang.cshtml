@@ -1,0 +1,72 @@
+﻿@model Shiyun.Models.ChallengeViewModels
+@{
+    ViewBag.Title = "诗韵-挑战排行榜";
+}
+@section style
+{
+    <style type="text/css">
+     .movie {margin: 0px auto;width: 870px;height: 180px; }
+     .movie-list:after {content: " ";display: block;clear: both; }
+     .movie__card {position: relative;width: 870px;height: 180px; margin: 0px auto;}
+     .movie__card.hover-in {transition: .3s ease-out; }
+     .movie__card.hover-out {transition: .3s ease-in; }
+     .movie [class*="layer"] {position: absolute;left: 0;top: 0;right: 0;bottom: 0;border-radius: 10px; }
+     .movie .layer-1 {background-image: url('../../Images/Challenge/backg.png');background-size: cover;}
+     .movie .layer-2 {border-radius: 90px;margin-left: 135px;margin-top: 43px;-webkit-transform: translateZ(50px);transform: translateZ(90px);}
+     .movie .layer-3 {margin-left:230px;margin-top:53px;color:black;font-size: 24px;width: 600px;height: 120px;transform: translateZ(50px);}
+     .movie .shine {border-radius: 10px; }
+     .tijiaobutton{cursor: pointer;height: 50px;width: 150px;margin: 60px auto;border-radius: 30px;background-color: rgba(221, 59, 68, 1);text-align: center;color: white;font-size: 22px;line-height: 50px;}
+
+    </style>
+    
+
+}
+<section style="width: 100%; margin: 30px auto; ">
+    <div style="margin: 30px auto; width: 100%;">
+        <img src="~/Images/Challenge/wuyan.png"/>
+        <img src="~/Images/Challenge/zhuzi.png" style="float: left;margin-left: 80px;"/>
+        <img src="~/Images/Challenge/zhuzi.png" style="float: right;margin-right: 80px;"/>
+        @*<hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 30px; margin-bottom: 60px;" />*@
+    </div>
+
+    @foreach (var item in Model.UserInfo10)
+    {
+        <div class="movie">
+            <div class="movie__card">
+                <div class="layer-1" style="display: none;"></div>
+                <div class="layer-2" style="background-image: url(@item.UserImage); width: 100px; height: 100px; background-size: cover;"></div>
+                <div class="layer-3">
+                    <span>@item.UserName</span>
+                    <span style="margin-top: 10px; display: block;">@item.UserSign</span>
+                    <span style="position: absolute; top: 15px; right: 80px;">积分:&nbsp;&nbsp;@item.Jifen</span>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="buttonarea">
+        <a href="@Url.Action("Index","Home")"><div class="tijiaobutton" style="display: inline-block; margin-left: 200px;">主&nbsp;&nbsp;页</div></a>
+        <a href="@Url.Action("Index","Challenge")"><div class="tijiaobutton" style="display: inline-block; float: right; margin-right: 200px;">挑&nbsp;&nbsp;战</div></a>
+    </div>
+</section>
+@section scripts
+{
+<script src="~/Scripts/jquery.hover3d.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".movie").hover3d({
+                selector: ".movie__card",
+                //shine: true,
+                sensitivity: 100,
+            });
+
+            $(".movie__card").hover(function() {
+                $(this).children(":eq(0)").css("display", "block");
+                $(this).children(":eq(2)").css("color", "white");
+            },function() {
+                $(this).children(":eq(0)").css("display", "none");
+                $(this).children(":eq(2)").css("color", "black");
+            });
+        });
+    </script>
+}
+
