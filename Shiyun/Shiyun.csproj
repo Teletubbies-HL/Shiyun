@@ -236,6 +236,7 @@
     <Compile Include="Models\MallViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShopCarViewModel.cs" />
+    <Compile Include="Models\UserCenterViewModel.cs" />
     <Compile Include="Models\VideoViewMode.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -385,6 +386,7 @@
     <Content Include="Content\css\ShopCar.css" />
     <Content Include="Content\css\ShiCiswiper.min.css" />
     <Content Include="Content\css\ShiCiwenxue.css" />
+    <Content Include="Content\css\UserCenter.css" />
     <Content Include="Content\css\Video\css\menu.css" />
     <Content Include="Content\css\Video\css\owl.carousel.css" />
     <Content Include="Content\css\Video\css\owl.theme.css" />
@@ -602,6 +604,7 @@
     <Content Include="Images\shi\shi陆游.png" />
     <Content Include="Images\Time\53609-106.jpg" />
     <Content Include="Images\userInfo\1.jpg" />
+    <Content Include="Images\userInfo\h_a.jpg" />
     <Content Include="Images\userInfo\2.jpg" />
     <Content Include="Images\userInfo\20170503823.jpg" />
     <Content Include="Images\userInfo\20170503824.jpg" />
@@ -616,6 +619,8 @@
     <Content Include="Images\userInfo\20170503833.jpg" />
     <Content Include="Images\userInfo\3.jpg" />
     <Content Include="Images\userInfo\4.jpg" />
+    <Content Include="Images\userInfo\h_gradient.png" />
+    <Content Include="Images\userInfo\icons.png" />
     <Content Include="Images\Video\1.jpg" />
     <Content Include="Images\Video\3.jpg" />
     <Content Include="Images\Video\4.jpg" />
@@ -1114,6 +1119,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\ckplayer\share\ckplayer.cer" />
     <Content Include="Scripts\ckplayer\share\update.php" />
+    <Content Include="Content\less\UserCenter.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -2080,6 +2086,7 @@
     <Content Include="Views\Video\Index1.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
     <Content Include="Views\LunTan\PostPaihang.cshtml" />
+    <Content Include="Views\UserInfo\UserCenter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

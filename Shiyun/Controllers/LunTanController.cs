@@ -215,8 +215,7 @@ namespace Shiyun.Controllers
         [ValidateAntiForgeryToken]
         [Login]
         public string Pinglun(PostReply postReply)
-        {
-           
+        {         
             if (ModelState.IsValid)
                 {
                     postReply.ReplyTime = System.DateTime.Now;

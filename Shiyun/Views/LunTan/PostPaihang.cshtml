@@ -49,7 +49,14 @@
             width: 28% !important;
             position: absolute;
             right: 40px;
-            top: 290px !important;
+            top: 280px !important;
+            background-color: #fff;
+        }
+         .rightbox3 {
+            width: 28% !important;
+            position: absolute;
+            right: 40px;
+            top: 410px !important;
             background-color: #fff;
         }
     </style>
@@ -98,10 +105,18 @@
     </div>
     <div class="rightbox rightbox2">
         <div class="tuijian" style="margin: 20px auto; overflow: hidden; border-top: 3px solid #00c3f5;">
-            <a href="@Url.Action("PostSend", "LunTan", new {luntanId = 1})"> <span style="width: 100%; display: block; font-size: 17px; text-align: center; margin-top: 10px; font-size: 15px; color: #333; font-weight: 700; padding-bottom: 15px;">我也能创作</span></a>
-
+            <a href="@Url.Action("PostSend", "LunTan", new {luntanId = 1})"> <span style="width: 100%; display: block; font-size: 17px; text-align: center; margin-top: 10px; font-size: 15px; color: white; font-weight: 700;line-height: 35px;background-color: rgb(221, 59, 68);">我也能创作</span></a>
         </div>
     </div>
+    <div class="rightbox rightbox3">
+        <div class="tuijian" style="margin: 20px auto; overflow: hidden;">
+            <img src="~/Images/LunTan/weibo.jpg" style="width: 100%;"/>
+     
+           </div>
+    </div>
+
+
+   
 </section>
 @section scripts{
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
