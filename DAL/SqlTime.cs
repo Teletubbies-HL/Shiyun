@@ -17,6 +17,11 @@ namespace DAL
             var time = db.Time.ToList();
             return time;
         }
+        public IEnumerable<Time> Search(string search)
+        {
+            var time = db.Time.Where(c => c.TimeName.Contains(search)).ToList();
+            return time;
+        }
         public Time GetTimeById(int? id)
         {
             Time time = db.Time.Find(id);

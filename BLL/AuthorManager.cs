@@ -17,6 +17,11 @@ namespace BLL
             var authors = iauthor.GetAuthor();
             return authors;
         }
+       public IEnumerable<Author> Search(string search)
+       {
+            var authors = iauthor.Search(search);
+            return authors;
+        }
         public IEnumerable<View_Authorsc> GetAuthorsc(int Authorid)
         {
             var authorsc = iauthor.GetAuthorsc(Authorid);

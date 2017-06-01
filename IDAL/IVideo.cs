@@ -19,6 +19,6 @@ namespace IDAL
         IEnumerable<Video> GetNewVideo();
         IEnumerable<Video> GetRecommend();
         IEnumerable<Video> GetVideoByVideoKId(int? id);
-
+        IEnumerable<Video> Search(string search);
     }
 }

@@ -60,6 +60,7 @@
           <Property Name="Cipai_id" Type="int" />
           <Property Name="CiImage" Type="nvarchar(max)" />
           <Property Name="AddTime" Type="datetime" />
+          <Property Name="CiJieSaho" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CiComment">
           <Key>
@@ -215,6 +216,7 @@
           <Property Name="ShiType_id" Type="int" />
           <Property Name="ShiImage" Type="nvarchar(max)" />
           <Property Name="AddTime" Type="datetime" />
+          <Property Name="ShiJieShao" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ShiComment">
           <Key>
@@ -348,6 +350,24 @@
           <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_AuthorCi”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_AuthorCi">
+          <Key>
+            <PropertyRef Name="Author_id" />
+            <PropertyRef Name="Ci_id" />
+            <PropertyRef Name="CiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="Author_id" Type="int" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Jieshao" Type="nvarchar(max)" />
+          <Property Name="Ci_id" Type="int" Nullable="false" />
+          <Property Name="CiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_Authorsc”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="View_Authorsc">
           <Key>
@@ -369,6 +389,43 @@
           <Property Name="CiImage" Type="nvarchar(max)" />
           <Property Name="Expr1" Type="int" />
           <Property Name="Expr2" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_AuthorShi”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_AuthorShi">
+          <Key>
+            <PropertyRef Name="Author_id" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+          </Key>
+          <Property Name="Author_id" Type="int" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Jieshao" Type="nvarchar(max)" />
+          <Property Name="Shi_id" Type="int" Nullable="false" />
+          <Property Name="ShiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShiImage" Type="nvarchar(max)" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_CiPaiCi”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_CiPaiCi">
+          <Key>
+            <PropertyRef Name="CiPaiName" />
+            <PropertyRef Name="CiPai_id" />
+            <PropertyRef Name="Ci_id" />
+            <PropertyRef Name="CiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="CiPaiName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CiPaiImage" Type="nvarchar(max)" />
+          <Property Name="CiPaiJieshao" Type="nvarchar(max)" />
+          <Property Name="CiPai_id" Type="int" Nullable="false" />
+          <Property Name="Ci_id" Type="int" Nullable="false" />
+          <Property Name="CiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_CiShow”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -509,6 +566,82 @@
           <Property Name="ReplyTime2" Type="datetime" />
           <Property Name="ReReply_id2" Type="int" />
           <Property Name="Post_id2" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_Search”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Search">
+          <Key>
+            <PropertyRef Name="Author_id" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="Ci_id" />
+            <PropertyRef Name="CiTitle" />
+            <PropertyRef Name="CiContent" />
+            <PropertyRef Name="Goods_id" />
+            <PropertyRef Name="GoodsName" />
+            <PropertyRef Name="Post_id" />
+            <PropertyRef Name="LunTan_id" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+            <PropertyRef Name="ShiContent" />
+            <PropertyRef Name="Time_id" />
+            <PropertyRef Name="TimeName" />
+            <PropertyRef Name="Users_id" />
+            <PropertyRef Name="Video_id" />
+            <PropertyRef Name="VideoName" />
+          </Key>
+          <Property Name="Author_id" Type="int" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Jieshao" Type="nvarchar(max)" />
+          <Property Name="Ci_id" Type="int" Nullable="false" />
+          <Property Name="CiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CiContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+          <Property Name="Goods_id" Type="int" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GoodsImage" Type="nvarchar(max)" />
+          <Property Name="GoodsJianjie" Type="nvarchar(max)" />
+          <Property Name="Post_id" Type="int" Nullable="false" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="LunTan_id" Type="int" Nullable="false" />
+          <Property Name="PostDetails" Type="nvarchar(max)" />
+          <Property Name="PostJianjie" Type="nvarchar" MaxLength="100" />
+          <Property Name="Shi_id" Type="int" Nullable="false" />
+          <Property Name="ShiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShiContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShiImage" Type="nvarchar(max)" />
+          <Property Name="Time_id" Type="int" Nullable="false" />
+          <Property Name="TimeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TimeJieshao" Type="nvarchar(max)" />
+          <Property Name="TimeImage" Type="text" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage" Type="text" />
+          <Property Name="UserSign" Type="nvarchar" MaxLength="50" />
+          <Property Name="Video_id" Type="int" Nullable="false" />
+          <Property Name="VideoName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cover" Type="nvarchar(max)" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_ShitypeA”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_ShitypeA">
+          <Key>
+            <PropertyRef Name="ShiType_id" />
+            <PropertyRef Name="ShiTypeName" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="ShiType_id" Type="int" Nullable="false" />
+          <Property Name="ShiTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ShiTypeJieshao" Type="nvarchar(max)" />
+          <Property Name="ShiTypeImage" Type="nvarchar(max)" />
+          <Property Name="Shi_id" Type="int" Nullable="false" />
+          <Property Name="ShiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShiImage" Type="nvarchar(max)" />
+          <Property Name="Author_id" Type="int" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_ShopCar”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1029,6 +1162,18 @@
           <EntitySet Name="VideoComment" EntityType="Self.VideoComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoK" EntityType="Self.VideoK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoReply" EntityType="Self.VideoReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_AuthorCi" EntityType="Self.View_AuthorCi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_AuthorCi].[Author_id] AS [Author_id], 
+    [View_AuthorCi].[AuthorImage] AS [AuthorImage], 
+    [View_AuthorCi].[Jieshao] AS [Jieshao], 
+    [View_AuthorCi].[Ci_id] AS [Ci_id], 
+    [View_AuthorCi].[CiTitle] AS [CiTitle], 
+    [View_AuthorCi].[CiImage] AS [CiImage], 
+    [View_AuthorCi].[AddTime] AS [AddTime], 
+    [View_AuthorCi].[AuthorName] AS [AuthorName]
+    FROM [dbo].[View_AuthorCi] AS [View_AuthorCi]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="View_Authorsc" EntityType="Self.View_Authorsc" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_Authorsc].[AuthorName] AS [AuthorName], 
@@ -1047,6 +1192,30 @@
     [View_Authorsc].[Expr1] AS [Expr1], 
     [View_Authorsc].[Expr2] AS [Expr2]
     FROM [dbo].[View_Authorsc] AS [View_Authorsc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_AuthorShi" EntityType="Self.View_AuthorShi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_AuthorShi].[Author_id] AS [Author_id], 
+    [View_AuthorShi].[AuthorName] AS [AuthorName], 
+    [View_AuthorShi].[AuthorImage] AS [AuthorImage], 
+    [View_AuthorShi].[Jieshao] AS [Jieshao], 
+    [View_AuthorShi].[Shi_id] AS [Shi_id], 
+    [View_AuthorShi].[ShiTitle] AS [ShiTitle], 
+    [View_AuthorShi].[ShiImage] AS [ShiImage]
+    FROM [dbo].[View_AuthorShi] AS [View_AuthorShi]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_CiPaiCi" EntityType="Self.View_CiPaiCi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_CiPaiCi].[CiPaiName] AS [CiPaiName], 
+    [View_CiPaiCi].[CiPaiImage] AS [CiPaiImage], 
+    [View_CiPaiCi].[CiPaiJieshao] AS [CiPaiJieshao], 
+    [View_CiPaiCi].[CiPai_id] AS [CiPai_id], 
+    [View_CiPaiCi].[Ci_id] AS [Ci_id], 
+    [View_CiPaiCi].[CiTitle] AS [CiTitle], 
+    [View_CiPaiCi].[CiImage] AS [CiImage], 
+    [View_CiPaiCi].[AuthorName] AS [AuthorName], 
+    [View_CiPaiCi].[AuthorImage] AS [AuthorImage]
+    FROM [dbo].[View_CiPaiCi] AS [View_CiPaiCi]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1159,6 +1328,56 @@
     [View_PostReply].[ReReply_id2] AS [ReReply_id2], 
     [View_PostReply].[Post_id2] AS [Post_id2]
     FROM [dbo].[View_PostReply] AS [View_PostReply]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Search" EntityType="Self.View_Search" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Search].[Author_id] AS [Author_id], 
+    [View_Search].[AuthorName] AS [AuthorName], 
+    [View_Search].[AuthorImage] AS [AuthorImage], 
+    [View_Search].[Jieshao] AS [Jieshao], 
+    [View_Search].[Ci_id] AS [Ci_id], 
+    [View_Search].[CiTitle] AS [CiTitle], 
+    [View_Search].[CiContent] AS [CiContent], 
+    [View_Search].[CiImage] AS [CiImage], 
+    [View_Search].[Goods_id] AS [Goods_id], 
+    [View_Search].[GoodsName] AS [GoodsName], 
+    [View_Search].[GoodsImage] AS [GoodsImage], 
+    [View_Search].[GoodsJianjie] AS [GoodsJianjie], 
+    [View_Search].[Post_id] AS [Post_id], 
+    [View_Search].[PostTitle] AS [PostTitle], 
+    [View_Search].[LunTan_id] AS [LunTan_id], 
+    [View_Search].[PostDetails] AS [PostDetails], 
+    [View_Search].[PostJianjie] AS [PostJianjie], 
+    [View_Search].[Shi_id] AS [Shi_id], 
+    [View_Search].[ShiTitle] AS [ShiTitle], 
+    [View_Search].[ShiContent] AS [ShiContent], 
+    [View_Search].[ShiImage] AS [ShiImage], 
+    [View_Search].[Time_id] AS [Time_id], 
+    [View_Search].[TimeName] AS [TimeName], 
+    [View_Search].[TimeJieshao] AS [TimeJieshao], 
+    [View_Search].[TimeImage] AS [TimeImage], 
+    [View_Search].[Users_id] AS [Users_id], 
+    [View_Search].[UserName] AS [UserName], 
+    [View_Search].[UserImage] AS [UserImage], 
+    [View_Search].[UserSign] AS [UserSign], 
+    [View_Search].[Video_id] AS [Video_id], 
+    [View_Search].[VideoName] AS [VideoName], 
+    [View_Search].[Cover] AS [Cover]
+    FROM [dbo].[View_Search] AS [View_Search]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_ShitypeA" EntityType="Self.View_ShitypeA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ShitypeA].[ShiType_id] AS [ShiType_id], 
+    [View_ShitypeA].[ShiTypeName] AS [ShiTypeName], 
+    [View_ShitypeA].[ShiTypeJieshao] AS [ShiTypeJieshao], 
+    [View_ShitypeA].[ShiTypeImage] AS [ShiTypeImage], 
+    [View_ShitypeA].[Shi_id] AS [Shi_id], 
+    [View_ShitypeA].[ShiTitle] AS [ShiTitle], 
+    [View_ShitypeA].[ShiImage] AS [ShiImage], 
+    [View_ShitypeA].[Author_id] AS [Author_id], 
+    [View_ShitypeA].[AuthorName] AS [AuthorName], 
+    [View_ShitypeA].[AuthorImage] AS [AuthorImage]
+    FROM [dbo].[View_ShitypeA] AS [View_ShitypeA]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1396,6 +1615,7 @@
           <Property Name="Cipai_id" Type="Int32" />
           <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="CiJieSaho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Ci_Author" FromRole="Ci" ToRole="Author" />
           <NavigationProperty Name="Time" Relationship="Self.FK_Ci_Time" FromRole="Ci" ToRole="Time" />
           <NavigationProperty Name="CiPai" Relationship="Self.FK_Ci_Time1" FromRole="Ci" ToRole="CiPai" />
@@ -1578,6 +1798,7 @@
           <Property Name="ShiType_id" Type="Int32" />
           <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="ShiJieShao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Shi_Author" FromRole="Shi" ToRole="Author" />
           <NavigationProperty Name="ShiType" Relationship="Self.FK_Shi_ShiType" FromRole="Shi" ToRole="ShiType" />
           <NavigationProperty Name="Time" Relationship="Self.FK_Shi_Time" FromRole="Shi" ToRole="Time" />
@@ -1753,6 +1974,22 @@
           <NavigationProperty Name="UserInfo" Relationship="Self.FK_VideoReply_UserInfo" FromRole="VideoReply" ToRole="UserInfo" />
           <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoReply_VideoComment" FromRole="VideoReply" ToRole="VideoComment" />
         </EntityType>
+        <EntityType Name="View_AuthorCi">
+          <Key>
+            <PropertyRef Name="Author_id" />
+            <PropertyRef Name="Ci_id" />
+            <PropertyRef Name="CiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="Author_id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ci_id" Type="Int32" Nullable="false" />
+          <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="View_Authorsc">
           <Key>
             <PropertyRef Name="AuthorName" />
@@ -1773,6 +2010,39 @@
           <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Expr1" Type="Int32" />
           <Property Name="Expr2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_AuthorShi">
+          <Key>
+            <PropertyRef Name="Author_id" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+          </Key>
+          <Property Name="Author_id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shi_id" Type="Int32" Nullable="false" />
+          <Property Name="ShiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_CiPaiCi">
+          <Key>
+            <PropertyRef Name="CiPaiName" />
+            <PropertyRef Name="CiPai_id" />
+            <PropertyRef Name="Ci_id" />
+            <PropertyRef Name="CiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="CiPaiName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiPaiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiPaiJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiPai_id" Type="Int32" Nullable="false" />
+          <Property Name="Ci_id" Type="Int32" Nullable="false" />
+          <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="View_CiShow">
           <Key>
@@ -1903,6 +2173,78 @@
           <Property Name="ReplyTime2" Type="DateTime" Precision="3" />
           <Property Name="ReReply_id2" Type="Int32" />
           <Property Name="Post_id2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_Search">
+          <Key>
+            <PropertyRef Name="Author_id" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="Ci_id" />
+            <PropertyRef Name="CiTitle" />
+            <PropertyRef Name="CiContent" />
+            <PropertyRef Name="Goods_id" />
+            <PropertyRef Name="GoodsName" />
+            <PropertyRef Name="Post_id" />
+            <PropertyRef Name="LunTan_id" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+            <PropertyRef Name="ShiContent" />
+            <PropertyRef Name="Time_id" />
+            <PropertyRef Name="TimeName" />
+            <PropertyRef Name="Users_id" />
+            <PropertyRef Name="Video_id" />
+            <PropertyRef Name="VideoName" />
+          </Key>
+          <Property Name="Author_id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ci_id" Type="Int32" Nullable="false" />
+          <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Goods_id" Type="Int32" Nullable="false" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoodsImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsJianjie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post_id" Type="Int32" Nullable="false" />
+          <Property Name="PostTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LunTan_id" Type="Int32" Nullable="false" />
+          <Property Name="PostDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostJianjie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Shi_id" Type="Int32" Nullable="false" />
+          <Property Name="ShiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_id" Type="Int32" Nullable="false" />
+          <Property Name="TimeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TimeImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserSign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Video_id" Type="Int32" Nullable="false" />
+          <Property Name="VideoName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cover" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_ShitypeA">
+          <Key>
+            <PropertyRef Name="ShiType_id" />
+            <PropertyRef Name="ShiTypeName" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="ShiType_id" Type="Int32" Nullable="false" />
+          <Property Name="ShiTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiTypeJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShiTypeImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shi_id" Type="Int32" Nullable="false" />
+          <Property Name="ShiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Author_id" Type="Int32" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="View_ShopCar">
           <Key>
@@ -2414,12 +2756,17 @@
           <EntitySet Name="VideoComment" EntityType="Self.VideoComment" />
           <EntitySet Name="VideoK" EntityType="Self.VideoK" />
           <EntitySet Name="VideoReply" EntityType="Self.VideoReply" />
+          <EntitySet Name="View_AuthorCi" EntityType="Self.View_AuthorCi" />
           <EntitySet Name="View_Authorsc" EntityType="Self.View_Authorsc" />
+          <EntitySet Name="View_AuthorShi" EntityType="Self.View_AuthorShi" />
+          <EntitySet Name="View_CiPaiCi" EntityType="Self.View_CiPaiCi" />
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" />
           <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" />
           <EntitySet Name="View_PostDetails" EntityType="Self.View_PostDetails" />
           <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" />
           <EntitySet Name="View_PostReply" EntityType="Self.View_PostReply" />
+          <EntitySet Name="View_Search" EntityType="Self.View_Search" />
+          <EntitySet Name="View_ShitypeA" EntityType="Self.View_ShitypeA" />
           <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" />
           <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
             <End Role="Time" EntitySet="Time" />
@@ -2644,6 +2991,7 @@
                 <ScalarProperty Name="Cipai_id" ColumnName="Cipai_id" />
                 <ScalarProperty Name="CiImage" ColumnName="CiImage" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="CiJieSaho" ColumnName="CiJieSaho" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2811,6 +3159,7 @@
                 <ScalarProperty Name="ShiType_id" ColumnName="ShiType_id" />
                 <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="ShiJieShao" ColumnName="ShiJieShao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2957,6 +3306,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="View_AuthorCi">
+            <EntityTypeMapping TypeName="ShiyunModel.View_AuthorCi">
+              <MappingFragment StoreEntitySet="View_AuthorCi">
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Jieshao" ColumnName="Jieshao" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="View_Authorsc">
             <EntityTypeMapping TypeName="ShiyunModel.View_Authorsc">
               <MappingFragment StoreEntitySet="View_Authorsc">
@@ -2975,6 +3338,34 @@
                 <ScalarProperty Name="CiImage" ColumnName="CiImage" />
                 <ScalarProperty Name="Expr1" ColumnName="Expr1" />
                 <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_AuthorShi">
+            <EntityTypeMapping TypeName="ShiyunModel.View_AuthorShi">
+              <MappingFragment StoreEntitySet="View_AuthorShi">
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Jieshao" ColumnName="Jieshao" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ShiTitle" ColumnName="ShiTitle" />
+                <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_CiPaiCi">
+            <EntityTypeMapping TypeName="ShiyunModel.View_CiPaiCi">
+              <MappingFragment StoreEntitySet="View_CiPaiCi">
+                <ScalarProperty Name="CiPaiName" ColumnName="CiPaiName" />
+                <ScalarProperty Name="CiPaiImage" ColumnName="CiPaiImage" />
+                <ScalarProperty Name="CiPaiJieshao" ColumnName="CiPaiJieshao" />
+                <ScalarProperty Name="CiPai_id" ColumnName="CiPai_id" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3097,6 +3488,60 @@
                 <ScalarProperty Name="ReplyTime2" ColumnName="ReplyTime2" />
                 <ScalarProperty Name="ReReply_id2" ColumnName="ReReply_id2" />
                 <ScalarProperty Name="Post_id2" ColumnName="Post_id2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Search">
+            <EntityTypeMapping TypeName="ShiyunModel.View_Search">
+              <MappingFragment StoreEntitySet="View_Search">
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Jieshao" ColumnName="Jieshao" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
+                <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
+                <ScalarProperty Name="CiContent" ColumnName="CiContent" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+                <ScalarProperty Name="Goods_id" ColumnName="Goods_id" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsImage" ColumnName="GoodsImage" />
+                <ScalarProperty Name="GoodsJianjie" ColumnName="GoodsJianjie" />
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="LunTan_id" ColumnName="LunTan_id" />
+                <ScalarProperty Name="PostDetails" ColumnName="PostDetails" />
+                <ScalarProperty Name="PostJianjie" ColumnName="PostJianjie" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ShiTitle" ColumnName="ShiTitle" />
+                <ScalarProperty Name="ShiContent" ColumnName="ShiContent" />
+                <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="TimeName" ColumnName="TimeName" />
+                <ScalarProperty Name="TimeJieshao" ColumnName="TimeJieshao" />
+                <ScalarProperty Name="TimeImage" ColumnName="TimeImage" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="UserSign" ColumnName="UserSign" />
+                <ScalarProperty Name="Video_id" ColumnName="Video_id" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ShitypeA">
+            <EntityTypeMapping TypeName="ShiyunModel.View_ShitypeA">
+              <MappingFragment StoreEntitySet="View_ShitypeA">
+                <ScalarProperty Name="ShiType_id" ColumnName="ShiType_id" />
+                <ScalarProperty Name="ShiTypeName" ColumnName="ShiTypeName" />
+                <ScalarProperty Name="ShiTypeJieshao" ColumnName="ShiTypeJieshao" />
+                <ScalarProperty Name="ShiTypeImage" ColumnName="ShiTypeImage" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ShiTitle" ColumnName="ShiTitle" />
+                <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -154,7 +154,16 @@
     <Compile Include="VideoReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_AuthorCi.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
     <Compile Include="View_Authorsc.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_AuthorShi.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_CiPaiCi.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_CiShow.cs">
@@ -170,6 +179,12 @@
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_PostReply.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Search.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_ShitypeA.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_ShopCar.cs">

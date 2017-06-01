@@ -18,6 +18,13 @@ namespace DAL
             db.UserInfo.Add(userInfo);
             db.SaveChanges();
         }
+        public IEnumerable<UserInfo> Search(string search)
+        {
+            var userInfo =from po in db.UserInfo
+                          where po.UserName.Contains(search) || po.Users_id.Equals(search)
+                          select po;
+            return userInfo.ToList();
+        }
         public int CountUserInfoById(string uid)
         {
             var shopcar = db.UserInfo.Where(c => c.Users_id == uid).Select(c => c.Users_id).Count();

@@ -17,6 +17,11 @@ namespace BLL
             iuserinfo.AddUserInfo(userInfo);
         }
 
+        public IEnumerable<UserInfo> Search(string search)
+        {
+            var userInfo = iuserinfo.Search(search);
+            return userInfo;
+        }
         public IEnumerable<UserInfo> IEGetUsersById(string Users_id)
         {
             var userInfo = iuserinfo.IEGetUsersById(Users_id);

@@ -15,5 +15,6 @@ namespace IDAL
         void UpdateUserInfo(UserInfo userInfo);
         IEnumerable<UserInfo> IEGetUsersById(string Users_id);
         IEnumerable<UserInfo> Jifenpaihang10();
+        IEnumerable<UserInfo> Search(string search);
     }
 }

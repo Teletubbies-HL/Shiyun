@@ -220,6 +220,7 @@
     <Compile Include="Controllers\MallController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagerAddController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShiController.cs" />
     <Compile Include="Controllers\ShiShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LuntanIndex.cs" />
     <Compile Include="Models\OrderViewModels.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\ShiViewModels.cs" />
     <Compile Include="Models\MallViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -2080,6 +2082,7 @@
     <Content Include="Views\Video\Index1.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
     <Content Include="Views\LunTan\PostPaihang.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

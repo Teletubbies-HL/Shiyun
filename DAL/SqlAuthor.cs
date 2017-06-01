@@ -17,7 +17,11 @@ namespace DAL
             var author = db.Author.ToList();
             return author;
         }
-      
+        public IEnumerable<Author> Search(string search)
+        {
+            var author = db.Author.Where(c => c.AuthorName.Contains(search)).ToList();
+            return author;
+        }
         public Author GetAuthorById(int? id)
         {
             Author author = db.Author.Find(id);
