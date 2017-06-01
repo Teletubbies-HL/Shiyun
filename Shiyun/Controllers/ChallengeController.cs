@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using BLL;
 using Models;
 using System.Data.Entity;
+using PagedList;
 using System.Web.Script.Serialization;
 using Shiyun.Attributes;
 
@@ -15,6 +16,7 @@ namespace Shiyun.Controllers
     
     public class ChallengeController : Controller
     {
+        ShiyunEntities db = new ShiyunEntities();
         ChallengeManager challengemanager=new ChallengeManager();
         UserInfoManager userinfomanager = new UserInfoManager();
         // GET: Challenge
@@ -82,5 +84,41 @@ namespace Shiyun.Controllers
             challengevm.UserInfo10 = userinfo10;
             return View(challengevm);
         }
+
+
+        #region 挑战题库添加
+        #region Get方法
+        public ActionResult ChanllengeCreate()
+        {
+
+            ViewBag.ChallengeK_id = new SelectList(db.ChallengeK, "ChallengeK_id", "ChallengeKName");
+            return View("ChanllengeCreate");
+        }
+        #endregion      
+        #region  POST方法
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChanllengeCreate(Challenge cl)
+        {
+            challengemanager.AddChallenge(cl);
+            db.SaveChanges();
+            return RedirectToAction("ChellengeIndex");
+           
+            ViewBag.ChallengeK_id = new SelectList(db.ChallengeK, "ChallengeK_id", "ChallengeKName", cl.ChallengeK_id);
+            return View("ChanllengeCreate", cl);
+        }
+        #endregion
+        #endregion
+        #region 题库列表
+        public ActionResult ChellengeIndex(int? page)
+        {
+            var shi = challengemanager.GetChallenge();
+            int pageSize = 12;
+            int pageNumber = (page ?? 1);
+
+            return View(shi.ToPagedList(pageNumber, pageSize));
+            //return View(shi);
+        }
+        #endregion
     }
 }

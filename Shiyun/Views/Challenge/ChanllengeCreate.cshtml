@@ -1,0 +1,124 @@
+﻿@model Models.Challenge
+
+@{
+    ViewBag.Title = "ChanllengeCreate";
+    Layout = "~/Views/Shared/HouTai.cshtml";
+}
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="container">
+            <div class="title_top">
+                <p><center>题库添加</center></p>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <p style="color:red;">注意：</p>
+            <p style="color:red;">点字成诗只需要输入答案和12宫格；选择正解只需要输入题目答案和选项；诗词对句只需要输入题目和答案；</p>
+            <p class="text-left">请选择题目类型：</p>
+            <p style="width:10%;">
+                @Html.DropDownList("ChallengeK_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ChallengeK_id, "", new { @class = "text-danger" })
+            </p>
+            <table>
+                <tr style="height:50px;">
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C1)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C2)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C3)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C4)
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:50px;">
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C5)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C6)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C7)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C8)
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:50px;">
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C9)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C10)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C11)
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.C12)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center><p>题目：</p></center>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.Timu)
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <center><p>正确答案：</p></center>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.EditorFor(model => model.AnswerA)
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+            <p class="text-center">
+                <input type="submit" value="添加" class="btn btn-default" style="width:60px;margin-right:1200px;" />
+            </p>
+
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AuthorIndex")
+</div>

@@ -1,0 +1,61 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList < Models.Orders>
+@{
+    ViewBag.Title = "OrdersIndex";
+    Layout = "~/Views/Shared/HouTai.cshtml";
+}
+
+<div class="container">
+    <div class="title_top">
+        <p style="color:darkgrey">
+            订单列表
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 10%">订单号</th>
+                <th style="width: 15%">数量</th>
+                <th style="width: 30%">用户名</th>
+                <th style="width: 35%">用户地址</th>
+                <th style="width: 10%">备注</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Orders_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem=>item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.note)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row page-list">
+        <div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>
+
+        <div class="col-xs-6 col-sm-4 col-md-4 pagejiye">
+            @Html.PagedListPager(Model, page => Url.Action("OrdersIndex", "Mall", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 pageje">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </div>
+    </div>
+</div>
+
+
+
+
