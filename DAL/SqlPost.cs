@@ -17,7 +17,11 @@ namespace DAL
             var posts = db.Post.ToList();
             return posts;
         }
-
+        public IEnumerable<Post> Search(string search)
+        {
+            var posts = db.Post.Where(c => c.PostTitle.Contains(search)).ToList();
+            return posts;
+        }
         public IQueryable<PostReply> GetPostReplyByPostId(int id)
         {
             var post = db.PostReply.Include("Post").Where(o => o.Post_id == id);

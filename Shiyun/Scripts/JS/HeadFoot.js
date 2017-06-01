@@ -43,7 +43,7 @@ $(function () {   //登陆和个人中心的hover
     //    $(".userinfo").parent().on("click", function() {
     //        return false;
     //    });
-    $(".userinfo").hover(function() {
+        $(".userinfo").hover(function() {
             //$(".usercenterbox").fadeIn(500);
             //$(".zhuxiaobox").fadeIn(500);
             $(".usercenterbox").show();
@@ -66,11 +66,8 @@ $(function () {   //登陆和个人中心的hover
             $(".usercenterbox").hide();
             $(".zhuxiaobox").hide();
         });
-    //} else {
-    //    $(".userinfo").parent().on("click", function () {
-    //        return true;
-    //    });
-    //}
+        
+    
 });
 $(function () {
     //导航栏切换
@@ -100,7 +97,25 @@ $(function () {
         event.stopPropagation(); //阻止事件冒泡    
     });
 });
-
+//搜索
+$(function () {
+    $(".btn_search").click(function () {
+        var search1 = $(".input_search").val();
+        if (search1 != "") {
+            $.ajax({
+                url: "/Search/Index",
+                type: "post",
+                async: false,
+                data: { search: search1, choose_id:9},
+                success: function(data) {
+                    location.href = "/Search/Index";
+                }
+            });} else {
+                alert("请输入搜索内容");
+            }
+        });
+    
+});
 $(function () {
     
     $(".zhuxiao").click(function () {

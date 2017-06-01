@@ -25,5 +25,6 @@ namespace IDAL
         IEnumerable<View_PostIndex> GetAllPostByClick();
         IEnumerable<View_PostIndex> Zan1(string con, int postid);
         IEnumerable<View_PostIndex> Cai1(string con, int postid);
+        IEnumerable<Post> Search(string search);
     }
 }

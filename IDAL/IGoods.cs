@@ -21,7 +21,7 @@ namespace IDAL
         void RemoveGoods(Goods goods);
         void AddGoods(Goods goods);
         void EditGoods(Goods goods);
-
+        IEnumerable<Goods> Search(string search);
         void RemoveRangeShopCar(IQueryable<ShopCar> shopcar);
         void RemoveRangeOrders(IQueryable<OrdersDetails> orderdetail);
     
