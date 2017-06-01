@@ -65,7 +65,6 @@ namespace Models
         public virtual DbSet<View_PostDetails> View_PostDetails { get; set; }
         public virtual DbSet<View_PostIndex> View_PostIndex { get; set; }
         public virtual DbSet<View_PostReply> View_PostReply { get; set; }
-        public virtual DbSet<View_Search> View_Search { get; set; }
         public virtual DbSet<View_ShitypeA> View_ShitypeA { get; set; }
         public virtual DbSet<View_ShopCar> View_ShopCar { get; set; }
     

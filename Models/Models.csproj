@@ -181,9 +181,6 @@
     <Compile Include="View_PostReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
-    <Compile Include="View_Search.cs">
-      <DependentUpon>Shiyun.tt</DependentUpon>
-    </Compile>
     <Compile Include="View_ShitypeA.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
