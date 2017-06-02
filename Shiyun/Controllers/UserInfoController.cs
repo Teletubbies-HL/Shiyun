@@ -50,7 +50,6 @@ namespace Shiyun.Controllers
             }
         }
         #endregion
-
         #region 登录
         //public ActionResult Login()
         //{
@@ -98,6 +97,14 @@ namespace Shiyun.Controllers
             Session["Users_id"] = null;
             string A = "a";
             return A;
+        }
+        #endregion
+
+
+        #region  个人中心
+        public ActionResult UserCenter()
+        {
+            return View();
         }
         #endregion
     }

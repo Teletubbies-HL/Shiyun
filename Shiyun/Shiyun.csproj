@@ -2077,6 +2077,7 @@
     <Content Include="Views\Video\Index1.cshtml" />
     <Content Include="Views\LunTan\PostPaihang.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
+    <Content Include="Views\UserInfo\UserCenter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
