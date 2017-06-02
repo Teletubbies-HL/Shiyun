@@ -224,7 +224,6 @@
     <Compile Include="Controllers\ShiController.cs" />
     <Compile Include="Controllers\ShiShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
-    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2091,6 +2090,10 @@
     <Content Include="Views\LunTan\PostPaihang.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\UserInfo\UserCenter.cshtml" />
+    <Content Include="Views\UserInfo\_Yuanchuang.cshtml" />
+    <Content Include="Views\UserInfo\_Index.cshtml" />
+    <Content Include="Views\UserInfo\_Taolun.cshtml" />
+    <Content Include="Views\UserInfo\_Langsong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

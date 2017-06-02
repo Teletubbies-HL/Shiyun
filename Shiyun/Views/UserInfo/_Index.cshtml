@@ -1,0 +1,80 @@
+﻿<div class="col_1">
+    <div class="section">
+        <h3 class="section_title">
+            <a class="t" href="javascript:void(0)">原创帖</a>
+            <a class="more more_yc" href="javascript:void(0)">更多</a>
+        </h3>
+        <div class="content clearfix">
+            @foreach (var item in Model.Post1)
+            {
+                <div class="large_item clearfix">
+                    <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                        <div class="post_title">
+                            @item.PostTitle
+                        </div>
+                    </a>
+                    <div class="post_time">
+                        @item.AddTime
+                    </div>
+                    <div class="post_con">
+                        @Html.Raw(item.PostDetails)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="section_title">
+            <a class="t" href="javascript:void(0)">朗诵帖</a>
+            <a class="more more_ls" href="javascript:void(0)">更多</a>
+        </h3>
+        <div class="content clearfix">
+            @foreach (var item in Model.Post2)
+            {
+                <div class="large_item clearfix">
+                    <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                        <div class="post_title">
+                            @item.PostTitle
+                        </div>
+                    </a>
+                    <div class="post_time">
+                        @item.AddTime
+                    </div>
+                    <div class="post_con">
+                        @Html.Raw(item.PostDetails)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="section_title">
+            <a class="t" href="javascript:void(0)">讨论帖</a>
+            <a class="more more_tl" href="javascript:void(0)">更多</a>
+        </h3>
+        <div class="content clearfix">
+            @foreach (var item in Model.Post3)
+            {
+                <div class="large_item clearfix">
+                    <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                        <div class="post_title">
+                            @item.PostTitle
+                        </div>
+                    </a>
+                    <div class="post_time">
+                        @item.AddTime
+                    </div>
+                    <div class="post_con">
+                        @Html.Raw(item.PostDetails)
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+</div>
+

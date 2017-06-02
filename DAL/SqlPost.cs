@@ -52,6 +52,7 @@ namespace DAL
         {
             var pstd = from po in db.View_PostIndex
                        where po.Users_id == uid && po.LunTan_id == ltid
+                       orderby po.AddTime descending 
                        select po;
             return pstd;
         }

@@ -13,6 +13,7 @@ namespace Shiyun.Models
         public int UserA { get; set; }
         public int UserB { get; set; }
         public IEnumerable<View_PostIndex> Post1 { get; set; }
+        public IEnumerable<View_PostIndex> PostYuanChuang { get; set; }
         public IEnumerable<View_PostIndex> Post2 { get; set; }
         public IEnumerable<View_PostIndex> Post3 { get; set; }
     }

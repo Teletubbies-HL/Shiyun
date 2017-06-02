@@ -1,0 +1,49 @@
+﻿@using PagedList.Mvc;
+@using PagedList
+@model PagedList.IPagedList<Models.View_PostIndex>
+@{
+    Layout = null;
+}
+
+
+<div class="col_1">
+    <div class="section">
+        <h3 class="section_title">
+            <a class="t" href="javascript:void(0)">讨论区</a>
+        </h3>
+        <div class="content clearfix">
+            @foreach (var item in Model)
+            {
+                <div class="large_item clearfix">
+                    <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                        <div class="post_title">
+                            @item.PostTitle
+                        </div>
+                    </a>
+                    <div class="post_time">
+                        @item.AddTime
+                    </div>
+                    <div class="post_con">
+                        @Html.Raw(item.PostDetails)
+                    </div>
+                </div>
+            }
+
+            <div class="row page-list">
+                @*<div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>*@
+                <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
+                    @Html.PagedListPager(Model, page => Url.Action("_Taolun", "UserInfo", new { page, Users_id = @ViewBag.Users_id 
+                            }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "taolun" }))
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 pageje">
+                @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+

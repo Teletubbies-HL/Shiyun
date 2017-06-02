@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Services.Protocols;
 using BLL;
 using Models;
+using PagedList;
 using Shiyun.Attributes;
 using Shiyun.Models;
 
@@ -105,7 +106,7 @@ namespace Shiyun.Controllers
         {
             UserCenterViewModel uc = new UserCenterViewModel();
             uc.Uses1 = userinfomanager.IEGetUsersById(Users_id);
-            ViewBag.Users_id = Users_id;
+            ViewBag.Users_id = Users_id;        
             Session["Guanzhu"] = 0; //未关注
             #region foreach 获取人数
             //int usera = 0;
@@ -146,6 +147,7 @@ namespace Shiyun.Controllers
             }
             //原创帖
             uc.Post1 = postManager.GetPostByUser(Users_id, 1).Take(4);
+            //uc.PostYuanChuang = postManager.GetPostByUser(Users_id, 1);
             //朗诵帖
             uc.Post2 = postManager.GetPostByUser(Users_id, 2).Take(4);
             //讨论帖
@@ -176,6 +178,33 @@ namespace Shiyun.Controllers
 
             string aa = userinfomanager.CountUserGuanzhu2ById(UserB).Count().ToString();
             return aa;
+        }
+        #endregion
+
+        #region 分页数据获取
+        public ActionResult _Yuanchuang(string Users_id, int? page)
+        {
+            ViewBag.Users_id = Users_id;        
+            var yuanchaung = postManager.GetPostByUser(Users_id, 1);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(yuanchaung.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult _Langsong(string Users_id, int? page)
+        {
+            ViewBag.Users_id = Users_id;
+            var yuanchaung = postManager.GetPostByUser(Users_id, 2);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(yuanchaung.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult _TaoLun(string Users_id, int? page)
+        {
+            ViewBag.Users_id = Users_id;
+            var yuanchaung = postManager.GetPostByUser(Users_id, 3);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(yuanchaung.ToPagedList(pageNumber, pageSize));
         }
         #endregion
     }

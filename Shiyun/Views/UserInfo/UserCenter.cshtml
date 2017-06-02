@@ -75,7 +75,7 @@
         <div class="wrapper">
             <div class="n_inner">
                 <div class="n_tab_links">
-                    <a class="n_btn" href="javascript:void(0)">
+                    <a class="n_btn" href="@Url.Action("UserCenter","UserInfo" , new {Users_id = @ViewBag.Users_id})">
                         <span class="n_icon n_icon_home"></span>
                         <span class="n_text">主页</span>
                     </a>
@@ -108,87 +108,36 @@
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
+            <div class="_index" style="display: none;">
+                @Html.Partial("_Index")
+            </div>
+            <div id="yuanchuang" style="display: none;">
+                @{Html.RenderAction("_Yuanchuang", "UserInfo");}
+            </div>
+            <div id="langsong" style="display: none;">
+                @{Html.RenderAction("_Langsong", "UserInfo");}
+            </div>
+            <div id="taolun" style="display: none;">
+                @{Html.RenderAction("_Taolun", "UserInfo");}
+            </div>
+
+
             <div class="col_1">
                 <div class="section">
                     <h3 class="section_title">
-                        <a class="t" href="javascript:void(0)">原创帖</a>
-                        <a class="more" href="javascript:void(0)">更多</a>
+                        <a class="t" href="javascript:void(0)">个人资料</a>
                     </h3>
                     <div class="content clearfix">
-                        @foreach (var item in Model.Post1)
-                        {
-                            <div class="large_item clearfix">
-                                <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
-                                    <div class="post_title">
-                                        @item.PostTitle
-                                    </div>
-                                </a>
-                                    <div class="post_time">
-                                        @item.AddTime
-                                    </div>
-                                    <div class="post_con">
-                                        @Html.Raw(item.PostDetails)
-                                    </div>
-</div>
-                        }                                                              
+                       ]
+
+
+
+
+
                     </div>
                 </div>
-
-                <div class="section">
-                    <h3 class="section_title">
-                        <a class="t" href="javascript:void(0)">朗诵帖</a>
-                        <a class="more" href="javascript:void(0)">更多</a>
-                    </h3>
-                    <div class="content clearfix">
-                        @foreach (var item in Model.Post2)
-                        {
-                            <div class="large_item clearfix">
-                                <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
-                                    <div class="post_title">
-                                        @item.PostTitle
-                                    </div>
-                                </a>
-                                <div class="post_time">
-                                    @item.AddTime
-                                </div>
-                                <div class="post_con">
-                                    @Html.Raw(item.PostDetails)
-                                </div>
-                            </div>
-                        }    
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3 class="section_title">
-                        <a class="t" href="javascript:void(0)">讨论帖</a>
-                        <a class="more" href="javascript:void(0)">更多</a>
-                    </h3>
-                    <div class="content clearfix">
-                       @foreach (var item in Model.Post3)
-                       {
-                           <div class="large_item clearfix">
-                               <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
-                                       <div class="post_title">
-                                           @item.PostTitle
-                                       </div>
-                               </a>
-                                   <div class="post_time">
-                                       @item.AddTime
-                                   </div>
-                                   <div class="post_con">
-                                       @Html.Raw(item.PostDetails)
-                                   </div>
-</div>
-                       }
-                    
-                    </div>
-                </div>
-
-
             </div>
 
-                
             <div class="col_2">
                 <div class="section user">
                     <div class="meta">
@@ -211,11 +160,30 @@
             </div>
         </div>
 @section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
-        $(function() {
-            
+        $(function () {
+            $(document).on('click', '.more_yc', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "block");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+            });
+            $(document).on('click', '.more_ls', function () {
+                $("._index").css("display", "none");              
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "block");
+                $("#taolun").css("display", "none");
+            });
+            $(document).on('click', '.more_tl', function () {
+                $("._index").css("display", "none");               
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "block");
+            });
 
         });
+
         $(document).on('click', '.h_follow', function() {
             if ($(".h_follow_v").val() == "0") {
                 //未关注
@@ -224,7 +192,7 @@
                     type: "post",
                     url: "/UserInfo/GuanZhu",
                     data: { UserB: $(".Users_id").val() },
-                    success: function (data) {
+                    success: function(data) {
                         $(".h_follow_v").val(1);
                         $(".h_follow").html("已关注");
                         $(".space_fans").html(data);
@@ -242,20 +210,19 @@
                         type: "post",
                         url: "/UserInfo/QuXiaoGuanZhu",
                         data: { UserB: $(".Users_id").val() },
-                        success: function (data) {
+                        success: function(data) {
                             $(".h_follow_v").val(0);
                             $(".h_follow").html("关注");
                             $(".space_fans").html(data);
                             $(".qxgz").show().delay(2000).hide(300);
-                            
+
                         }
                     });
                 } else {
                     return false;
                 }
-                
-            }
 
+            }
         });
     </script>
 
