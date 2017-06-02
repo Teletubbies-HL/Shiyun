@@ -75,7 +75,11 @@ namespace DAL
             db.Entry(goods).State = EntityState.Modified;
             db.SaveChanges();
         }
-
+        public IEnumerable<Goods> Search(string search)
+        {
+            var goods = db.Goods.Where(c => c.GoodsName.Contains(search)).ToList();
+            return goods;
+        }
         public void RemoveRangeShopCar(IQueryable<ShopCar> shopcar)
         {
             db.ShopCar.RemoveRange(shopcar);

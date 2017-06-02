@@ -17,6 +17,11 @@ namespace DAL
             var videos = db.Video.ToList();
             return videos;
         }
+        public IEnumerable<Video> Search(string search)
+        {
+            var videos = db.Video.Where(c => c.VideoName.Contains(search)).ToList();
+            return videos;
+        }
         public IEnumerable<Video> GetVideoById(int? id)
         {
             var video = from vi in db.Video

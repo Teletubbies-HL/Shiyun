@@ -14,7 +14,7 @@ namespace DAL
         ShiyunEntities db = DbContextFactory.CreateDbContext();
         public IEnumerable<VideoK> GetVideoK()  //获取全部视频分类
         {
-            var videoks = db.VideoK.ToList();
+            var videoks = db.VideoK.OrderByDescending(c =>c.AddTime).ToList();
             return videoks;
         }
         public VideoK GetVideoKById(int? id)

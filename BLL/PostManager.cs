@@ -17,6 +17,12 @@ namespace BLL
             var posts = ipost.GetPost();
             return posts;
         }
+
+       public IEnumerable<Post> Search(string search)
+       {
+            var posts = ipost.Search(search);
+            return posts;
+        }
         public Post GetPostById(int? id)
         {
             Post post = ipost.GetPostById(id);
@@ -54,6 +60,11 @@ namespace BLL
            return pt;
        }
 
+       public IEnumerable<View_PostIndex> GetPostByUser(string uid, int ltid)
+       {
+            var pstd = ipost.GetPostByUser(uid,ltid);
+            return pstd;
+        }
        public IEnumerable<View_PostIndex> GetPostDetails(int postid)
        {
            var pstd = ipost.GetPostDetails(postid);
@@ -81,6 +92,18 @@ namespace BLL
        {
             var allPost = ipost.GetAllPostByClick();
             return allPost;
+        }
+
+       public IEnumerable<View_PostIndex> Zan1(string con, int postid)
+       {
+           var zan1 = ipost.Zan1(con, postid);
+           return zan1;
+       }
+
+       public IEnumerable<View_PostIndex> Cai1(string con, int postid)
+       {
+            var cai1 = ipost.Cai1(con, postid);
+            return cai1;
         }
     }
 }

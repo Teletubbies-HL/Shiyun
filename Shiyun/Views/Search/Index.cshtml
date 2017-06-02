@@ -1,0 +1,277 @@
+﻿@model Shiyun.Models.SearchViewModel
+@{
+    ViewBag.Title = "诗韵-搜索";
+}
+@section style{
+    <link href="~/Content/css/PostDetails.css" rel="stylesheet" />
+    <link href="~/Content/css/LunTan.css" rel="stylesheet" />
+    <style>
+        .choose {
+            text-decoration: none;
+            color: #515151;
+            line-height: 44px;
+            display: block;
+            color: #333333;
+            margin-left: 12px;
+        }
+
+            .choose:hover {
+                color: #c03f3c;
+                transition: color 0.2s linear;
+                -webkit-transition: color 0.2s linear;
+                -moz-transition: color 0.2s linear;
+            }
+
+        .zan, .cai, .pl {
+            float: right;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .pl1 {
+            color: #333;
+        }
+
+            .cai1:hover, .zan1:hover, .pl1:hover {
+                color: #c03f3c;
+                transition: color 0.2s linear;
+                -webkit-transition: color 0.2s linear;
+                -moz-transition: color 0.2s linear;
+            }
+
+        .nowarea {
+            border-left: 3px solid #dd3b44;
+            line-height: 40px;
+            padding-left: 15px;
+            font-size: 16px;
+        }
+
+        .rightbox2 {
+            width: 28% !important;
+            position: absolute;
+            right: 40px;
+            top: 290px !important;
+            background-color: #fff;
+        }
+        .choosed {
+            color: white;cursor: pointer;display:block;width: 110px;height: 35px;text-align: center;line-height: 35px;
+        }
+        .choosed:hover{background-color: white;color: black;}
+        .ltitle{font-size: 17px; margin: 10px 0;text-decoration: none;color: black;cursor: pointer;}
+        .ltitle:hover{color:#c03f3c;}
+    </style>
+
+}
+<section style="width: 85%; margin: 30px auto;padding-bottom: 180px;">
+    <div class="leftbox" style="width: 67%;">
+        <div class="leftbox1">
+            <div class="leftbox_1" style="width: 750px;">
+                <div class="postdetail">
+                    <div id="ltvpostdetail">
+                        <div class="nowarea">
+                            <h3>搜索"@Session["Search"]"的结果</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+    @foreach (var item in Model.Shi1)
+    {
+        <div class="leftbox_1 lshi" style="width: 750px;">
+            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = item.Shi_id})">
+                <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[诗]</span>@item.ShiTitle</div>
+                <div style="color: rgba(1, 1, 1, 0.7); margin: 10px 0; height: 135px; overflow: hidden;">@Html.Raw(@item.ShiContent)</div>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.Ci1)
+    {
+        <div class="leftbox_1 lci" style="width: 750px;">
+            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = item.Ci_id })">
+                <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[词]</span>@item.CiTitle</div>
+                <div style="color: rgba(1, 1, 1, 0.7); margin: 10px 0; height: 135px; overflow: hidden;">@Html.Raw(@item.CiContent)</div>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.Author1)
+    {
+        <div class="leftbox_1 lauthor" style="width: 750px;">
+            <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = item.Author_id })">
+                <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[作者]</span>@item.AuthorName</div>
+                <div style="color: rgba(1, 1, 1, 0.7); margin: 10px 0;">@Html.Raw(@item.Jieshao)</div>
+            </a>
+</div>
+    }
+    @foreach (var item in Model.Time1)
+    {
+        <div class="leftbox_1 ltime" style="width: 750px;">
+            <div class="ltitle"><span style="color:rgba(1,1,1,0.5); margin: 0 10px;">[年代]</span>@item.TimeName</div>
+            <div style="color:rgba(1,1,1,0.7); margin: 10px 0;">@Html.Raw(@item.TimeJieshao)</div>
+        </div>
+    }
+    @foreach (var item in Model.Video1)
+    {
+        <div class="leftbox_1 lvideo" style="width: 750px;">
+            <a href="@Url.Action("VideoDetails", "Video", new {VideoK_id = @item.VideoK_id, Video_id = @item.Video_id})">
+                <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[纪录片]</span>@item.VideoName</div>
+                <img style="width: 150px; height: 150px; margin: 10px 0;margin-left: 10px;" src='..@item.Cover'/>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.Goods1)
+    {
+        <div class="leftbox_1 lgood" style="width: 750px;">
+            <a href="@Url.Action("GoodsDetail", "Mall", new {Goods_id = item.Goods_id})">
+                <div  class="ltitle"><span style="color:rgba(1,1,1,0.5); margin: 0 10px;">[商城]</span>@item.GoodsName&nbsp;&nbsp;&nbsp;<span style="color: rgba(211, 59, 68, 1);">¥  @item.Price</span></div>
+                <div style="color:rgba(1,1,1,0.7); margin: 10px 0;">@item.GoodsJianjie</div>
+                <img style="width: 150px; height: 150px; margin: 10px 0;margin-left: 10px;" src='..@item.GoodsImage' />
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.Post1)
+    {
+        <div class="leftbox_1 lpost" style="width: 750px;">
+            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})">
+                <div class="ltitle"><span style="color:rgba(1,1,1,0.5); margin: 0 10px;">[论坛]</span>@item.PostTitle</div>
+                <div style="color:rgba(1,1,1,0.7); margin: 10px 0;">@Html.Raw(@item.PostJianjie)</div>
+                <div style="color:rgba(1,1,1,0.7); margin: 10px 0; height: 130px; overflow: hidden;">@Html.Raw(@item.PostDetails)</div>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.UserInfo1)
+    {
+        <div class="leftbox_1 luserinfo" style="width: 750px;">
+            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.Users_id})">
+                <img style="width: 75px; height: 75px; border-radius: 40px; display: inline-block; float: left; overflow: hidden;" src='..@item.UserImage'/>
+                <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[用户]</span>@item.UserName</div>
+                <div style="margin: 10px 0;">@item.UserSign</div>
+            </a>
+        </div>
+    }
+</div>
+        </div>
+    </div>
+    <div class="rightbox" style="width: 28%;height: auto; display: block;background-color: #fff;box-shadow: 0 0 4px #cecccc;-webkit-box-shadow: 0 0 4px #cecccc;">
+        <div class="tuijian" style="margin: 20px auto; overflow: hidden; border-top: 3px solid #e2d537;">
+            <span style="width: 100%; display: block; font-size: 17px; text-align: center; margin-top: 10px; font-size: 17px; color: #333; font-weight: 700; padding-bottom: 5px;">筛选</span>
+            <div id="ltvtuijian">
+                <div style="width: 100%;">
+                    <div class="choosed c9" style="width: 250px; margin: 15px auto;background-color:rgba(211, 59, 68,0.8); ">全部</div>
+                    <div style="width: 250px; margin: 15px auto;">
+                        <div class="choosed c1" style="display: inline-block; background-color: rgba(144,202,175,0.8);">诗</div>
+                        <div class="choosed c2" style="display: inline-block;margin-left: 25px; background-color: rgba(100, 147, 175,0.8);">词</div>
+                    </div>
+                    <div style="width: 250px; margin: 15px auto;">
+                        <div class="choosed c3" style="display: inline-block; background-color: rgba(215, 193, 107, 0.8);">作者</div>
+                        <div class="choosed c4" style="display: inline-block;margin-left: 25px; background-color: rgba(208, 133, 61, 0.8);">年代</div>
+                    </div>
+                    <div style="width: 250px; margin: 15px auto;">
+                        <div class="choosed c5" style="display: inline-block; background-color: rgba(171,150,197,0.8);">纪录片</div>
+                        <div class="choosed c6" style="display: inline-block;margin-left: 25px; background-color: rgba(121,61,86,0.8);">商品</div>
+                    </div>
+                    <div style="width: 250px; margin: 15px auto;">
+                        <div class="choosed c7" style="display: inline-block; background-color: rgba(147,162,169,0.8);">帖子</div>
+                        <div class="choosed c8" style="display: inline-block;margin-left: 25px; background-color: rgba(84,107,131,0.8);">用户</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts
+{
+    <script type="text/javascript">
+        $(".c9").click(function () {
+            $(".lshi").show();
+            $(".lci").show();
+            $(".lauthor").show();
+            $(".ltime").show();
+            $(".lvideo").show();
+            $(".lgood").show();
+            $(".lpost").show();
+            $(".luserinfo").show();
+        });
+        $(".c1").click(function () {
+            $(".lshi").show();
+            $(".lci").hide();
+            $(".lauthor").hide();
+            $(".ltime").hide();
+            $(".lvideo").hide();
+            $(".lgood").hide();
+            $(".lpost").hide();
+            $(".luserinfo").hide();
+        });
+        $(".c2").click(function () {
+            $(".lshi").hide();
+            $(".lci").show();
+            $(".lauthor").hide();
+            $(".ltime").hide();
+            $(".lvideo").hide();
+            $(".lgood").hide();
+            $(".lpost").hide();
+            $(".luserinfo").hide();
+        });
+        $(".c3").click(function () {
+            $(".lshi").hide();
+            $(".lci").hide();
+            $(".lauthor").show();
+            $(".ltime").hide();
+            $(".lvideo").hide();
+            $(".lgood").hide();
+            $(".lpost").hide();
+            $(".luserinfo").hide();
+        });
+        $(".c4").click(function () {
+            $(".lshi").hide();
+            $(".lci").hide();
+            $(".lauthor").hide();
+            $(".ltime").show();
+            $(".lvideo").hide();
+            $(".lgood").hide();
+            $(".lpost").hide();
+            $(".luserinfo").hide();
+        });
+        $(".c5").click(function () {
+            $(".lshi").hide();
+            $(".lci").hide();
+            $(".lauthor").hide();
+            $(".ltime").hide();
+            $(".lvideo").show();
+            $(".lgood").hide();
+            $(".lpost").hide();
+            $(".luserinfo").hide();
+        });
+        $(".c6").click(function () {
+            $(".lshi").hide();
+            $(".lci").hide();
+            $(".lauthor").hide();
+            $(".ltime").hide();
+            $(".lvideo").hide();
+            $(".lgood").show();
+            $(".lpost").hide();
+            $(".luserinfo").hide();
+        });
+        $(".c7").click(function () {
+            $(".lshi").hide();
+            $(".lci").hide();
+            $(".lauthor").hide();
+            $(".ltime").hide();
+            $(".lvideo").hide();
+            $(".lgood").hide();
+            $(".lpost").show();
+            $(".luserinfo").hide();
+        });
+        $(".c8").click(function () {
+            $(".lshi").hide();
+            $(".lci").hide();
+            $(".lauthor").hide();
+            $(".ltime").hide();
+            $(".lvideo").hide();
+            $(".lgood").hide();
+            $(".lpost").hide();
+            $(".luserinfo").show();
+        });
+    </script>
+
+}
+

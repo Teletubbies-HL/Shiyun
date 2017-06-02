@@ -31,7 +31,16 @@ namespace DAL
         {
             var shi = db.Shi.Where(c => c.Shi_id == id);
             return shi;
-        }   
+        }
+        public IQueryable<Shi> Search(string search)
+        {
+            //var shi = db.Shi.Where(c => c.ShiTitle.Contains(search)).ToList();
+            //return shi;
+            var shi = from po in db.Shi
+                     where po.ShiTitle.Contains(search) || po.ShiContent.Contains(search)
+                     select po;
+            return shi;
+        }
         public IQueryable<Shi> GetShibyTop(int top)
         {
             //var shi = db.Shi.OrderBy(c => c.Shi_id).Take(top);

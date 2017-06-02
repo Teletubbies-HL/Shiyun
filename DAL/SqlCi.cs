@@ -40,6 +40,15 @@ namespace DAL
                         select c;
             return ci.Take(top);
         }
+        public IEnumerable<Ci> Search(string search)
+        {
+            //var ci = db.Ci.Where(c => c.CiTitle.Contains(search)).ToList();
+            //return ci;
+            var ci = from po in db.Ci
+                     where po.CiTitle.Contains(search) || po.CiContent.Contains(search)
+                           select po;
+            return ci.ToList();
+        }
         //public IQueryable<View_CiShow> GetCiShow65(int top)
         //{
         //    var cipai = (from cp in db.CiPai

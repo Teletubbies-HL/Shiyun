@@ -23,6 +23,11 @@ namespace BLL
             return goods;
         }
 
+       public IEnumerable<Goods> Search(string search)
+       {
+            var goodss = igoods.Search(search);
+            return goodss;
+        }
        public IEnumerable<Goods> whereGoodsBykId(string id)
        {
             var goodss = igoods.whereGoodsBykId(id);

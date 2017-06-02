@@ -37,6 +37,8 @@ namespace Models
         public Nullable<int> Shi_id { get; set; }
         public Nullable<int> Ci_id { get; set; }
         public string Mp3_Url { get; set; }
+        public string Post_upvoteId { get; set; }
+        public string Post_downId { get; set; }
     
         public virtual LunTan LunTan { get; set; }
         public virtual UserInfo UserInfo { get; set; }

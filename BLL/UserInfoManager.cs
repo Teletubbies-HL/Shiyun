@@ -17,6 +17,11 @@ namespace BLL
             iuserinfo.AddUserInfo(userInfo);
         }
 
+        public IEnumerable<UserInfo> Search(string search)
+        {
+            var userInfo = iuserinfo.Search(search);
+            return userInfo;
+        }
         public IEnumerable<UserInfo> IEGetUsersById(string Users_id)
         {
             var userInfo = iuserinfo.IEGetUsersById(Users_id);
@@ -42,6 +47,27 @@ namespace BLL
         {
             var userInfo = iuserinfo.GetUsersById(Users_id);
             return userInfo;
+        }
+
+        public IEnumerable<UserGuanzhu> CountUserGuanzhu1ById(string uid)  //关注人数
+        {
+            var u1 = iuserinfo.CountUserGuanzhu1ById(uid);
+            return u1;
+        }
+        public IEnumerable<UserGuanzhu> CountUserGuanzhu2ById(string uid)  //被关注人数
+        {
+            var u2 = iuserinfo.CountUserGuanzhu2ById(uid);
+            return u2;
+        }
+
+        public void GuanZhu(UserGuanzhu us)
+        {
+            iuserinfo.GuanZhu(us);
+        }
+
+        public void QuXiaoGuanZhu(string userA, string userB)
+        {
+            iuserinfo.QuXiaoGuanZhu(userA,userB);
         }
     }
 }

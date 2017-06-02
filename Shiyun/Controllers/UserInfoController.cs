@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Services.Protocols;
 using BLL;
 using Models;
+using Shiyun.Attributes;
+using Shiyun.Models;
 
 namespace Shiyun.Controllers
 {
@@ -13,6 +15,7 @@ namespace Shiyun.Controllers
     {
         ShiyunEntities db = new ShiyunEntities();
         UserInfoManager userinfomanager = new UserInfoManager();
+        PostManager postManager = new PostManager();
         // GET: UserInfo
         public ActionResult Index()
         {
@@ -29,6 +32,7 @@ namespace Shiyun.Controllers
             if (ModelState.IsValid)
             {
                 userInfo.Jifen = 0;
+                userInfo.Addtime = System.DateTime.Now;
                 userinfomanager.AddUserInfo(userInfo);
                 return Content("<script>;alert('注册成功!');window.history.go(-2); window.location.reload(); </script>");
             }
@@ -51,10 +55,6 @@ namespace Shiyun.Controllers
         }
         #endregion
         #region 登录
-        //public ActionResult Login()
-        //{
-        //    return View();
-        //}
         [HttpPost]
         public string Login([Bind(Include = "Users_id,UserPass")]string Users_id,string UserPass)
         {
@@ -100,11 +100,82 @@ namespace Shiyun.Controllers
         }
         #endregion
 
-
-        #region  个人中心
-        public ActionResult UserCenter()
+        #region 个人中心
+        public ActionResult UserCenter(string Users_id)
         {
-            return View();
+            UserCenterViewModel uc = new UserCenterViewModel();
+            uc.Uses1 = userinfomanager.IEGetUsersById(Users_id);
+            ViewBag.Users_id = Users_id;
+            Session["Guanzhu"] = 0; //未关注
+            #region foreach 获取人数
+            //int usera = 0;
+            //var userA = userinfomanager.CountUserGuanzhu1ById(Users_id);
+            //foreach (var item in userA)
+            //{
+            //    usera += 1;
+            //}
+            //uc.UserA = usera;
+
+            //int userb = 0;
+            //var userB = userinfomanager.CountUserGuanzhu2ById(Users_id);
+            //foreach (var item in userB)
+            //{
+            //    userb += 1;
+            //}
+            //uc.UserB = userb;
+            #endregion
+            //关注人数
+            uc.UserA = userinfomanager.CountUserGuanzhu1ById(Users_id).Count();
+            //粉丝人数            
+            uc.UserB = userinfomanager.CountUserGuanzhu2ById(Users_id).Count();
+            //判断是否为其粉丝
+            foreach (var item in userinfomanager.CountUserGuanzhu2ById(Users_id))
+            {
+                if (Session["Users_id"] != null)
+                {
+                    if (item.UserA == Session["Users_id"].ToString())
+                    {
+                        Session["Guanzhu"] = 1; //已经关注
+                        break;
+                    }
+                }
+                else
+                {
+                     break;
+                }               
+            }
+            //原创帖
+            uc.Post1 = postManager.GetPostByUser(Users_id, 1).Take(4);
+            //朗诵帖
+            uc.Post2 = postManager.GetPostByUser(Users_id, 2).Take(4);
+            //讨论帖
+            uc.Post3 = postManager.GetPostByUser(Users_id, 3).Take(4);
+            return View(uc);
+        }
+        #endregion
+        #region 关注
+        [Login]
+        public string GuanZhu(string UserB)
+        {
+            UserGuanzhu us = new UserGuanzhu();
+            us.UserA = Session["Users_id"].ToString();
+            us.UserB = UserB;
+            userinfomanager.GuanZhu(us);
+            string aa = userinfomanager.CountUserGuanzhu2ById(UserB).Count().ToString();
+            return aa;
+        }
+        #endregion
+        #region 取消关注
+        [Login]
+        public string QuXiaoGuanZhu(string UserB)
+        {
+            UserGuanzhu us = new UserGuanzhu();
+
+            string UserA = Session["Users_id"].ToString();
+            userinfomanager.QuXiaoGuanZhu(UserA ,UserB);
+
+            string aa = userinfomanager.CountUserGuanzhu2ById(UserB).Count().ToString();
+            return aa;
         }
         #endregion
     }
