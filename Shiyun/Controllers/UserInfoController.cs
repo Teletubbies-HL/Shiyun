@@ -130,6 +130,9 @@ namespace Shiyun.Controllers
             uc.UserA = userinfomanager.CountUserGuanzhu1ById(Users_id).Count();
             //粉丝人数            
             uc.UserB = userinfomanager.CountUserGuanzhu2ById(Users_id).Count();
+            uc.UsesAa = userinfomanager.CountUserGuanzhu1ById(Users_id);
+            uc.UsesBb = userinfomanager.CountUserGuanzhu2ById(Users_id);
+
             //判断是否为其粉丝
             foreach (var item in userinfomanager.CountUserGuanzhu2ById(Users_id))
             {

@@ -251,12 +251,16 @@ table {
   padding: 0 0 15px;
   position: relative;
 }
-.col_1 .section .section_title .t {
+.col_1 .section .section_title .t,
+.col_1 .section .section_title .GuanZhu_gz,
+.col_1 .section .section_title .GuanZhu_fs {
   display: inline-block;
   vertical-align: middle;
   font-weight: 700;
 }
-.col_1 .section .section_title .t:hover {
+.col_1 .section .section_title .t:hover,
+.col_1 .section .section_title .GuanZhu_gz:hover,
+.col_1 .section .section_title .GuanZhu_fs:hover {
   color: #dd3b44;
   transition: color 0.2s linear;
   -webkit-transition: color 0.2s linear;
@@ -323,6 +327,49 @@ table {
   height: 70px;
   overflow: hidden;
   width: 85%;
+}
+.col_1 .section .cover {
+  border-radius: 48px;
+  overflow: visible;
+  background-size: cover;
+  border-radius: 4px;
+  display: block;
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+.col_1 .section .cover img {
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 0 0 1px #edf2f9;
+  display: block;
+}
+.col_1 .section .content {
+  width: 100%;
+  padding: 0 100px 0 0;
+  position: relative;
+  margin-left: 80px;
+}
+.col_1 .section .content .list-item {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0px;
+}
+.col_1 .section .content .title {
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.col_1 .section .content .desc {
+  color: #6d757a;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  pasdding-right: 10px;
+  line-height: 20px;
 }
 .col_2 {
   float: right;
