@@ -413,6 +413,8 @@
     <Content Include="Images\Challenge\backg.png" />
     <Content Include="Images\Challenge\phb.png" />
     <Content Include="Images\Challenge\zhuzi.png" />
+    <Content Include="Images\Home\tzph.jpg" />
+    <Content Include="Images\Home\ycph.jpg" />
     <Content Include="Images\Mall\4.jpg" />
     <Content Include="Images\face\0_微笑.gif" />
     <Content Include="Images\face\10_尴尬.gif" />
