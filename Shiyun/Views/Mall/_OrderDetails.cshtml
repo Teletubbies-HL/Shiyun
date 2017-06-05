@@ -1,0 +1,62 @@
+﻿using PagedList.Mvc;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Models.View_OrderDetails>
+@{
+    Layout = null;
+}
+<section>
+    <div class="showshopcar" style="width: 95%;">
+        <span1>我的订单</span1>
+        <hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 20px; margin-bottom: 20px;" />
+        <div id="dingdan">
+            @foreach (var item in Model)
+            {
+                <div class="dingdanxiangqing" style="width: 100%; text-align: center; margin-top: 30px; margin-bottom: 30px;">
+                    <p style="display: inline-block;">订单号：</p>@Html.DisplayFor(modelItem => item.Orders_id, new { @class = "textbox", id = "name" })
+                    <p style="display: inline-block; margin-left: 20px;">订单时间：</p>@Html.DisplayFor(modelItem => item.OrderTime, new { @class = "textbox", id = "name" })
+                    <p style="display: inline-block; margin-left: 20px;">共计：</p>@Html.DisplayFor(modelItem => item.Sum, new { @class = "textbox", id = "name" })
+                    <p style="display: inline-block; margin-left: 20px;">收货人姓名：</p>@Html.DisplayFor(modelItem => item.UserName, new { @class = "textbox", id = "name" })
+                    <p style="display: inline-block; margin-left: 20px;">联系电话：</p>@Html.DisplayFor(modelItem => item.UserPhone, new { @class = "textbox", id = "name" })
+                    <p style="display: inline-block; margin-left: 20px;">详细地址：</p>@Html.DisplayFor(modelItem => item.Address, new { @class = "textbox", id = "name" })
+                    <p style="display: inline-block; margin-left: 20px;">备注：</p>@Html.DisplayFor(modelItem => item.note, new { @class = "textbox", id = "name" })
+                </div>
+                <table class="table" style="width: 90%; margin: 0 auto; text-align: center;">
+                    <tr style="text-align: center;">
+                        <th style="width: 25%; margin: 0 auto; text-align: center;">
+                            <label>商品图片</label>
+                        </th>
+                        <th style="width: 23%; margin: 0 auto; text-align: center;">
+                            @Html.DisplayName("商品名称")
+                        </th>
+                        <th style="width: 15%; margin: 0 auto; text-align: center;">
+                            @Html.DisplayName("商品价格")
+                        </th>
+                        <th style="width: 15%; margin: 0 auto; text-align: center;">
+                            @Html.DisplayName("购买数量")
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%; margin: 0 auto; line-height: 100px;">
+                            <img src="@item.GoodsImage" style="width: 100px; height: 100px" />
+                        </td>
+                        <td style="width: 23%; margin: 0 auto; line-height: 100px;">
+                            @Html.DisplayFor(modelItem => item.GoodsName, new { @class = "goodsname" })
+                        </td>
+                        <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                            <span style="display: inline-block;">¥  </span><input class="price" readonly="readonly" value="@Convert.ToDouble(@item.Price)" type="text" style="text-align: center; width: 40%;" />
+                        </td>
+                        <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                            @Html.TextBoxFor(modelItem => item.Count, new { @class = "txtbox", @readonly = "readonly", style = "border: none;" })
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+        <div class="row page-list" style="margin: 0 auto;">
+            <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%;">
+                @Html.PagedListPager(Model, page => Url.Action("OrderDetails", "Mall", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "dingdan" }))
+            </div>
+        </div>
+    </div>
+</section>

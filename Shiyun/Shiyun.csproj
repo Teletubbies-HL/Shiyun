@@ -490,7 +490,6 @@
     <Content Include="Images\face\imgs.png" />
     <Content Include="Images\face\听音乐.gif" />
     <Content Include="Images\face\得意地笑.gif" />
-    <Content Include="Images\goods\1.jpg" />
     <Content Include="Images\goods\ahdy.jpg" />
     <Content Include="Images\goods\ahxz.jpg" />
     <Content Include="Images\goods\bk.jpg" />
@@ -2123,6 +2122,7 @@
     <Content Include="Views\UserInfo\_Index.cshtml" />
     <Content Include="Views\UserInfo\_Taolun.cshtml" />
     <Content Include="Views\UserInfo\_Langsong.cshtml" />
+    <Content Include="Views\Mall\_OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
