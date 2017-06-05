@@ -142,8 +142,6 @@ namespace Shiyun.Controllers
                 shopCar.note = "";
                 shopCar.Time = System.DateTime.Now;
                 shopCar.flag = 0;
-                //db.ShopCar.Add(shopCar);
-                //db.SaveChanges();
                 shopcarmanager.AddShopCar(shopCar);
                 if (name == "1")
                 {

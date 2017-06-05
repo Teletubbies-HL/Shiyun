@@ -15,8 +15,8 @@
         .gselect .snum{display:inline-block;float:left;}
         .gselect .snum span{display:inline-block;float:left;margin-top: 50px;font-size:15px;color:rgba(0, 0, 0,0.5);}
         .gselect .snum .txtbox{display:inline-block;float:left;border:0.5px solid rgba(0, 0, 0,0.2);width:55px;height:40px;text-align:center;margin-top:40px;}
-        .gselect .snum .up{background-color:white;border:0.5px solid rgba(0, 0, 0,0.2);width:22px;height:18px;display:block;margin-top:40px;margin-left:10px;float:left;text-align: center;}
-        .gselect .snum .down{background-color:white;border:0.5px solid rgba(0, 0, 0,0.2);width:22px;height:18px;display:block;margin-top:65px;margin-left:-24px;float:left;text-align: center;}
+        .gselect .snum .up{font-size: 20px;line-height: 16px;cursor: pointer;background-color:white;border:0.5px solid rgba(0, 0, 0,0.2);width:22px;height:18px;display:block;margin-top:40px;margin-left:10px;float:left;text-align: center;}
+        .gselect .snum .down{font-size: 25px;line-height: 15px;cursor: pointer;background-color:white;border:0.5px solid rgba(0, 0, 0,0.2);width:22px;height:18px;display:block;margin-top:62px;margin-left:-22px;float:left;text-align: center;}
         .tbutton{margin-top:-52px;display:block;width:350px; float:left;margin-left:190px;}
         .tbutton .btnjrgwc{margin-top:10px;margin-left:10px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;text-align: center;text-decoration: none;}
         .tbutton .btnljgm{margin-top:10px;margin-left:50px;font-size:15px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
