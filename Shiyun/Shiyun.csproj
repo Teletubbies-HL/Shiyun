@@ -2122,7 +2122,7 @@
     <Content Include="Views\UserInfo\_Index.cshtml" />
     <Content Include="Views\UserInfo\_Taolun.cshtml" />
     <Content Include="Views\UserInfo\_Langsong.cshtml" />
-    <Content Include="Views\Mall\_OrderDetails.cshtml" />
+    <Content Include="Views\Mall\_ucOrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

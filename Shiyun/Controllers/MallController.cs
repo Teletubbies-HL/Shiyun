@@ -281,5 +281,16 @@ namespace Shiyun.Controllers
         }
         #endregion
 
+        #region 个人中心订单页
+        [Login]
+        public ActionResult ucOrderDetails(int? page)
+        {
+            string uid = Session["Users_id"].ToString();
+            var vod = shopcarmanager.FindviewodById(uid);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(vod.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
     }
 }
