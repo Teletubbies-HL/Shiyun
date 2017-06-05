@@ -400,3 +400,38 @@ table {
   margin: 0 auto;
   text-align: center;
 }
+.gerenziliao {
+  width: 100%;
+  /*height: 700px;*/
+  display: block;
+  color: #333333;
+  margin-bottom: 30px;
+}
+.gerenziliao .ua {
+  font-size: 14px;
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+.gerenziliao .ua .atext {
+  float: left;
+  width: 200px;
+  text-align: right;
+  color: #333333;
+  line-height: 60px;
+}
+.gerenziliao .ua .utxt {
+  width: 150px;
+  margin-left: 30px;
+  display: block;
+  float: left;
+  margin-top: 12px;
+  color: #333;
+}
+.gerenziliao .ua .change {
+  margin-top: 12px;
+  margin-left: 230px;
+  color: white;
+  background-color: #c03f3c;
+  outline: none;
+}

@@ -106,7 +106,8 @@ namespace Shiyun.Controllers
         {
             UserCenterViewModel uc = new UserCenterViewModel();
             uc.Uses1 = userinfomanager.IEGetUsersById(Users_id);
-            ViewBag.Users_id = Users_id;        
+            ViewBag.Users_id = Users_id;
+            uc.UserInfo = db.UserInfo.Find(Users_id);
             Session["Guanzhu"] = 0; //未关注
             #region foreach 获取人数
             //int usera = 0;
@@ -207,5 +208,55 @@ namespace Shiyun.Controllers
             return View(yuanchaung.ToPagedList(pageNumber, pageSize));
         }
         #endregion
-    }
+        #region 修改资料
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Ziliao(UserInfo userInfo) 
+        {
+            HttpPostedFileBase userImage = Request.Files["UserImage"];
+            try
+            {
+                if (userImage.FileName != "")
+                {
+                    string filePath = userImage.FileName;
+                    string filename = DateTime.Now.ToString("yyyyMMddHHmmssfffffff") +
+                                      filePath.Substring(filePath.LastIndexOf("\\") + 1);
+                    string serverpath = Server.MapPath(@"\Images\userInfo\") + filename;
+                    string relativepath = @"/Images/userInfo/" + filename;
+                    userImage.SaveAs(serverpath);
+                    userInfo.UserImage = relativepath;
+                }
+                else
+                {
+                    userInfo.UserImage = db.UserInfo.Find(userInfo.Users_id).UserImage;
+                }
+                if (ModelState.IsValid)
+                {
+                    userInfo.UserPass = db.UserInfo.Find(userInfo.Users_id).UserPass;
+                    userInfo.Addtime = db.UserInfo.Find(userInfo.Users_id).Addtime;
+                    userInfo.Jingyan = db.UserInfo.Find(userInfo.Users_id).Jingyan;
+                    userInfo.Jifen = db.UserInfo.Find(userInfo.Users_id).Jifen;
+                    userinfomanager.UpdateUserInfo(userInfo);
+                    //db.Post.Add(post);
+                    //db.SaveChanges();
+                    //return RedirectToAction("Index");
+                    //return "aa";
+                    return RedirectToAction("UserCenter","UserInfo",new { Users_id = userInfo.Users_id });
+                    //return Content("<script>;alert('修改成功！');</script>");
+                }
+                else
+                {
+                    //return "bb";
+                    return Content("<script>;alert('修改失败！');window.history.go(-1);window.location.reload();</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                //return ex.ToString();
+                return Content(ex.Message);
+            }
+            }
+        }
+        #endregion
+    
 }

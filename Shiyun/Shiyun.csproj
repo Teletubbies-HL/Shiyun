@@ -212,6 +212,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\LoginAttribute.cs" />
+    <Compile Include="Controllers\aaaa.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
@@ -2112,6 +2113,13 @@
     <Content Include="Views\UserInfo\_Index.cshtml" />
     <Content Include="Views\UserInfo\_Taolun.cshtml" />
     <Content Include="Views\UserInfo\_Langsong.cshtml" />
+    <Content Include="Views\UserInfo\_Gerenziliao1.cshtml" />
+    <Content Include="Views\aaaa\Create.cshtml" />
+    <Content Include="Views\aaaa\Delete.cshtml" />
+    <Content Include="Views\aaaa\Details.cshtml" />
+    <Content Include="Views\aaaa\Edit.cshtml" />
+    <Content Include="Views\aaaa\Index.cshtml" />
+    <Content Include="Views\UserInfo\_Gerenziliao2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
