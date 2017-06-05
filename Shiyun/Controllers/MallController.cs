@@ -90,7 +90,7 @@ namespace Shiyun.Controllers
         {
             ViewBag.GoodsK_id = GoodsK_id;
             var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
-            int pageSize = 2;
+            int pageSize = 8;
             int pageNumber = (page ?? 1);
             return View(goodses1.ToPagedList(pageNumber, pageSize));
         }
