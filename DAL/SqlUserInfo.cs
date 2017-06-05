@@ -57,16 +57,16 @@ namespace DAL
             return userInfo;
         }
 
-        public IEnumerable<UserGuanzhu> CountUserGuanzhu1ById(string uid)  //关注人数
+        public IEnumerable<View_UserInfo> CountUserGuanzhu1ById(string uid)  //关注人数
         {
-            var userA = from ugz in db.UserGuanzhu
+            var userA = from ugz in db.View_UserInfo
                         where ugz.UserA == uid
                         select ugz; /*db.UserGuanzhu.Where(c => c.UserA == uid).Select(c => c.UserA).Count();*/
             return userA;
         }
-        public IEnumerable<UserGuanzhu> CountUserGuanzhu2ById(string uid)  //被关注人数
+        public IEnumerable<View_UserInfo> CountUserGuanzhu2ById(string uid)  //被关注人数
         {
-            var userB = from ugz in db.UserGuanzhu
+            var userB = from ugz in db.View_UserInfo
                         where ugz.UserB == uid
                         select ugz; /*db.UserGuanzhu.Where(c => c.UserB == uid).Select(c => c.UserB).Count();*/
             return userB;

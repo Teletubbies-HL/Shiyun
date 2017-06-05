@@ -118,7 +118,7 @@
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
-            <div class="_index" style="display: none;">
+            <div class="_index" style="display: block;">
                 @Html.Partial("_Index")
             </div>
             <div id="yuanchuang" style="display: none;">
@@ -252,32 +252,8 @@
                 }
             </div>
 
-            <div class="GuanZhu">
-                <div class="col_1">
-                    <div class="section">
-                        <h3 class="section_title">
-                            <a class="GuanZhu_gz" href="javascript:void(0)">关注</a>  | <a class="GuanZhu_fs" href="javascript:void(0)">粉丝</a>
-                        </h3>
-                        <div class="content clearfix">
-                            @foreach (var item in Model.UsesAa)
-                            {
-                                <div class="list-item clearfix">
-                                    <a target="_blank" class="cover" href="javascript:void(0)">
-                                        <img src="@item.UserA" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <a target="_blank" class="title" href="//space.bilibili.com/3745123"> <span class="vip-name-check fans-name">浅叶流年</span> </a>
-                                        <div class="desc" title="喜欢的话就点波关注吖，不喜欢的话那我再想想办法">喜欢的话就点波关注吖，不喜欢的话那我再想想办法</div>
-                                    </div>
-                                </div>
-                            }
-
-                            
-
-
-                        </div>
-                    </div>
-                </div>
+            <div class="GuanZhu" style="display: none;">
+               @Html.Partial("_Guanzhu")
             </div>
 
 
@@ -311,16 +287,14 @@
         $(function() {
             $(document).on('click', '.n_icon_home', function() {
                 $("._index").css("display", "block");
-
                 $(".geren1").css("display", "none");
             });
             $(document).on('click', '.zl', function() {
                 $("._index").css("display", "none");
-                $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
-
+                $(".GuanZhu").css("display", "none");
                 if ($(".SessionUsers_id").val() != null) {
                     if ($(".SessionUsers_id").val() == $(".Users_id").val())
                     {
@@ -338,6 +312,48 @@
                     $(".geren1").css("display", "block");
                 }               
             });
+
+
+            $(document).on('click', '.GuanZhu_gz', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".GuanZhu").css("display", "block");
+                $(".gz").css("display", "block");
+                $(".fs").css("display", "none");
+            });
+            $(document).on('click', '.GuanZhu_fs', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                
+                $(".GuanZhu").css("display", "block");
+                $(".gz").css("display", "none");
+                $(".fs").css("display", "block");
+            });
+
+            $(document).on('click', '.n_gz', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".GuanZhu").css("display", "block");
+                $(".gz").css("display", "block");
+                $(".fs").css("display", "none");
+            });
+            $(document).on('click', '.n_fs', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".GuanZhu").css("display", "block");
+                $(".gz").css("display", "none");
+                $(".fs").css("display", "block");
+            });
+
+
 
 
             $(document).on('click', '.more_yc', function() {
@@ -358,6 +374,7 @@
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "block");
             });
+            
 
         });
 
