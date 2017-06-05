@@ -15,3 +15,7 @@
 .orderbutton{ width: 80%;margin: 30px auto;height: 100px;}
 .ljgmbutton{cursor: pointer;text-align: center;display:inline-block;font-size:17px;-webkit-border-radius:9px;-moz-border-radius:9px;line-height: 45px;}
 .btnarea{ width: 30%;float: right;}
+.pagination-container {
+        margin: 0 auto;
+        text-align: center;
+    }
