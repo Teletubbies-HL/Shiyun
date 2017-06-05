@@ -60,6 +60,11 @@ namespace BLL
            return pt;
        }
 
+       public IEnumerable<View_PostIndex> GetPostByUser(string uid, int ltid)
+       {
+            var pstd = ipost.GetPostByUser(uid,ltid);
+            return pstd;
+        }
        public IEnumerable<View_PostIndex> GetPostDetails(int postid)
        {
            var pstd = ipost.GetPostDetails(postid);

@@ -48,6 +48,14 @@ namespace DAL
             var pt = db.Post.Where(c => c.Post_id == pid).Select(c => c.Post_id).Count();
             return pt;
         }
+        public IEnumerable<View_PostIndex> GetPostByUser(string uid ,int ltid) //获取帖子
+        {
+            var pstd = from po in db.View_PostIndex
+                       where po.Users_id == uid && po.LunTan_id == ltid
+                       orderby po.AddTime descending 
+                       select po;
+            return pstd;
+        }
         public IEnumerable<View_PostIndex> GetPostDetails(int postid) //获取帖子详情
         {
             var pstd = from po in db.View_PostIndex

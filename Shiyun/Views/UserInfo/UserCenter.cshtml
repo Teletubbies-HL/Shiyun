@@ -1,0 +1,231 @@
+﻿@using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder
+@using System.Web.UI.WebControls
+@model Shiyun.Models.UserCenterViewModel
+@{
+    ViewBag.Title = "个人中心";
+}
+@section style{
+<link href="~/Content/css/UserCenter.css" rel="stylesheet" />
+    <style type="text/css">
+
+    </style>
+}
+<div class="space-body">
+    <div class="h">
+        <div class="wrapper">
+            <div class="h_a">
+                <div class="h_gradient">
+
+                </div>
+                <div class="h_user">
+                    @foreach (var item in Model.Uses1)
+                    {
+                        <div class="h_avatar">
+                            <img class="h_avatar_img" src="@item.UserImage"/>
+                        </div>
+                        <div class="h_info">
+                            <div class="h_basic">
+                                <span class="h_name">@item.UserName</span> 
+                                <input type="hidden" value="@ViewBag.Users_id" class="Users_id"/>
+                                @if (@item.Sex == "女 ")
+                                {
+                                    <span class="h_gender girl">女</span>
+
+                                }
+                                else
+                                {
+                                    <span class="h_gender man">男</span>
+                                }
+                            </div>
+                            <div class="h_sign">@item.UserSign</div>
+                        </div>
+                    }
+                </div>
+                <div class="h_action">
+                    @if (@Session["Users_id"] != null)
+                    {
+                        if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+                        {
+                            <span class="h_follow" style="display: none;">关注</span>
+                            <input class="h_follow_v" value="0" type="hidden"/>
+                        }
+                        else if (@Session["Guanzhu"].ToString() == "0")
+                        {
+                            <span class="h_follow">关注 </span>
+                            <input class="h_follow_v" value="0" type="hidden"/>
+                        }
+                        else
+                        {
+                            <span class="h_follow">已关注</span>
+                            <input class="h_follow_v" value="1" type="hidden"/>
+                        }
+                    }
+                    else
+                    {                       
+                        <span class="h_follow">关注 </span>
+                        <input class="h_follow_v" value="0" type="hidden"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast_layer fade_transition gzcg" style="display: none;">关注成功！</div>
+    <div class="toast_layer fade_transition qxgz" style="display: none;">取消关注成功！</div>
+    <div class="n">
+        <div class="wrapper">
+            <div class="n_inner">
+                <div class="n_tab_links">
+                    <a class="n_btn" href="@Url.Action("UserCenter","UserInfo" , new {Users_id = @ViewBag.Users_id})">
+                        <span class="n_icon n_icon_home"></span>
+                        <span class="n_text">主页</span>
+                    </a>
+                    <a class="n_btn" href="javascript:void(0)">
+                        <span class="n_icon n_icon_zl"></span>
+                        <span class="n_text">资料</span>
+                    </a>
+                    <a class="n_btn" href="javascript:void(0)">
+                        <span class="n_icon n_icon_ly"></span>
+                        <span class="n_text">留言</span>
+                    </a>
+                    <a class="n_btn" href="javascript:void(0)">
+                        <span class="n_icon n_icon_dd"></span>
+                        <span class="n_text">订单</span>
+                    </a>
+                </div>
+                <div class="n_statistics">
+                    <a class="n_data n_gz" href="javascript:void(0)">
+                        <p class="n_data_k">关注数</p>                     
+                            <p class="n_data_v space_attention">@Model.UserA</p>                                           
+                    </a>
+                    <a class="n_data n_fs" href="javascript:void(0)">
+                        <p class="n_data_k">粉丝数</p>
+                        <p class="n_data_v space_fans">@Model.UserB</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="s_space" style="margin-top: 10px;">
+        <div class="wrapper">
+            <div class="_index" style="display: none;">
+                @Html.Partial("_Index")
+            </div>
+            <div id="yuanchuang" style="display: none;">
+                @{Html.RenderAction("_Yuanchuang", "UserInfo");}
+            </div>
+            <div id="langsong" style="display: none;">
+                @{Html.RenderAction("_Langsong", "UserInfo");}
+            </div>
+            <div id="taolun" style="display: none;">
+                @{Html.RenderAction("_Taolun", "UserInfo");}
+            </div>
+
+
+            <div class="col_1">
+                <div class="section">
+                    <h3 class="section_title">
+                        <a class="t" href="javascript:void(0)">个人资料</a>
+                    </h3>
+                    <div class="content clearfix">
+                       ]
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col_2">
+                <div class="section user">
+                    <div class="meta">
+                        @foreach (var item in Model.Uses1)
+                        {
+                            <div class="row">
+                                <div class="item uid"> <span class="icon"></span> <span class="text">@item.Users_id</span> </div>
+                                <div class="item regtime" style="padding-left: 0px;"> <span class="icon"></span> <span class="text">注册于 @item.Addtime.Value.ToString("yyyy-MM-dd")</span> </div>
+                            </div>
+                            <div class="row">
+                                <div class="item birthday"> <span class="icon"></span> <span class="text">积分 @item.Jifen</span>  </div>
+                                <div class="item geo" style="padding-left: 0px;"> <span class="icon"></span> <span class="text">@item.UserMail</span>  </div>
+                            </div>
+                        }
+                        
+                    </div>
+                       </div>
+                    </div>             
+                </div>
+            </div>
+        </div>
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).on('click', '.more_yc', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "block");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+            });
+            $(document).on('click', '.more_ls', function () {
+                $("._index").css("display", "none");              
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "block");
+                $("#taolun").css("display", "none");
+            });
+            $(document).on('click', '.more_tl', function () {
+                $("._index").css("display", "none");               
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "block");
+            });
+
+        });
+
+        $(document).on('click', '.h_follow', function() {
+            if ($(".h_follow_v").val() == "0") {
+                //未关注
+                //alert("111");
+                $.ajax({
+                    type: "post",
+                    url: "/UserInfo/GuanZhu",
+                    data: { UserB: $(".Users_id").val() },
+                    success: function(data) {
+                        $(".h_follow_v").val(1);
+                        $(".h_follow").html("已关注");
+                        $(".space_fans").html(data);
+                        $(".gzcg").show().delay(2000).hide(300);
+                    }
+                });
+
+
+            } else {
+                //已关注
+                //alert("222");
+                var msg = "确定要取消关注嘛 QwQ";
+                if (confirm(msg) == true) {
+                    $.ajax({
+                        type: "post",
+                        url: "/UserInfo/QuXiaoGuanZhu",
+                        data: { UserB: $(".Users_id").val() },
+                        success: function(data) {
+                            $(".h_follow_v").val(0);
+                            $(".h_follow").html("关注");
+                            $(".space_fans").html(data);
+                            $(".qxgz").show().delay(2000).hide(300);
+
+                        }
+                    });
+                } else {
+                    return false;
+                }
+
+            }
+        });
+    </script>
+
+}
+
+

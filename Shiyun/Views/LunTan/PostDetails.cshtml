@@ -25,15 +25,15 @@
             <div class="leftbox_1">
                 <div class="cssdltnowluntan" id="dltnowluntan"><!--当前位置-->
                     <a href="javascript:void(0)"><span class="nowluntan">互动论坛 ></span></a>
-                    
-                        @foreach (var ln in Model.LuntanName)
-                        {
-                            <a href="@Url.Action("YuanChuang", "LunTan", new {luntanId = @ln.LunTan_id})" style="text-decoration: none">
-                                <span class="nowluntan2">@ln.LunTanName</span>
-                            </a>
-                        }
 
-                           
+                    @foreach (var ln in Model.LuntanName)
+                    {
+                        <a href="@Url.Action("YuanChuang", "LunTan", new {luntanId = @ln.LunTan_id})" style="text-decoration: none">
+                            <span class="nowluntan2">@ln.LunTanName</span>
+                        </a>
+                    }
+
+
                 </div>
                 <div class="postdetail">
                     @foreach (var pd in Model.PostDetails)
@@ -47,12 +47,12 @@
                             <div class="posttime">@pd.AddTime</div>
                             <div class="postcontent">@Html.Raw(pd.PostDetails)</div>
                             <audio controls="controls" class="music" style="display: none;">
-                            <source src="@pd.Mp3_Url" type="audio/mpeg"/>
+                                <source src="@pd.Mp3_Url" type="audio/mpeg"/>
                             </audio>
-                            <input type="hidden" class="mp3url" value="@pd.Mp3_Url" />
+                            <input type="hidden" class="mp3url" value="@pd.Mp3_Url"/>
                             <input type="hidden" class="postid" value="@pd.Post_id"/>
                             <input type="hidden" class="luntanid" value="@pd.LunTan_id"/>
-                            <input type="hidden" class="userid" value="@pd.Users_id" />
+                            <input type="hidden" class="userid" value="@pd.Users_id"/>
                         </div>
                     }
                     <input id="btnpinglun" class="csspinglun" value="评论" readonly="readonly" type="submit"/>
@@ -107,6 +107,8 @@
         </div>
     </div>
 </section>
+<div class="toast_layer fade_transition plcg" style="display: none;">评论成功！</div>
+<div class="toast_layer fade_transition sccg" style="display: none;">删除成功！</div>
 @section scripts{
     <script src="~/Scripts/ckeditor-face/ckeditor.js"></script>
     <script src="~/Scripts/ckeditor-face/config.js"></script>
@@ -329,6 +331,7 @@
                                 //回到顶部
                                 $('body,html').animate({ scrollTop: 200 }, 1000);
                                 $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
+                                //$(".plcg").show().delay(2000).hide(300);
                             }
                         });
                     } else {
@@ -354,6 +357,7 @@
                             confirm("确定删除吗？");
                             var luntanid = $(".luntanid").val();
                             location.href = "/LunTan/YuanChuang?luntanId=" + luntanid;
+                            //$(".sccg").show().delay(2000).hide(300);
                         } else {
                         }
 

@@ -16,7 +16,7 @@
                     <div class="posttitle" style="top: 18px;">@item.PostTitle</div>
                 </a>
                     <div class="postname" style="top: 55px;">@item.UserName</div>
-                    <div class="posttime" style="top: 55px;">@item.AddTime</div>
+                    <div class="posttime" style="top: 55px;">@item.AddTime.Value.ToString("yyyy-MM-dd")</div>
                     <div class="postcontent">@Html.Raw(@item.PostDetails)</div>
 
                     <div class="pl">

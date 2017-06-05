@@ -56,5 +56,33 @@ namespace DAL
             var userInfo = db.UserInfo.OrderByDescending(c=>c.Jifen).Take(10);
             return userInfo;
         }
+
+        public IEnumerable<UserGuanzhu> CountUserGuanzhu1ById(string uid)  //关注人数
+        {
+            var userA = from ugz in db.UserGuanzhu
+                        where ugz.UserA == uid
+                        select ugz; /*db.UserGuanzhu.Where(c => c.UserA == uid).Select(c => c.UserA).Count();*/
+            return userA;
+        }
+        public IEnumerable<UserGuanzhu> CountUserGuanzhu2ById(string uid)  //被关注人数
+        {
+            var userB = from ugz in db.UserGuanzhu
+                        where ugz.UserB == uid
+                        select ugz; /*db.UserGuanzhu.Where(c => c.UserB == uid).Select(c => c.UserB).Count();*/
+            return userB;
+        }
+        public void GuanZhu(UserGuanzhu us)  //关注
+        {
+            db.UserGuanzhu.Add(us);
+            db.SaveChanges();
+        }
+        public void QuXiaoGuanZhu(string userA, string userB)  //取消关注
+        {
+            var usgz = from us in db.UserGuanzhu
+                       where us.UserA == userA && us.UserB == userB
+                       select us;
+            db.UserGuanzhu.Remove(usgz.FirstOrDefault());
+            db.SaveChanges();
+        }
     }
 }
