@@ -413,6 +413,15 @@
     <Content Include="Images\Challenge\backg.png" />
     <Content Include="Images\Challenge\phb.png" />
     <Content Include="Images\Challenge\zhuzi.png" />
+    <Content Include="Images\goods\hfpcx.jpg" />
+    <Content Include="Images\goods\lycx.jpg" />
+    <Content Include="Images\goods\mxsx.jpg" />
+    <Content Include="Images\goods\rjch.jpg" />
+    <Content Include="Images\goods\sc.jpg" />
+    <Content Include="Images\goods\tssbs.jpg" />
+    <Content Include="Images\goods\wtyscx.jpg" />
+    <Content Include="Images\goods\zbycx.jpg" />
+    <Content Include="Images\goods\zmhsnlc.jpg" />
     <Content Include="Images\Home\tzph.jpg" />
     <Content Include="Images\Home\ycph.jpg" />
     <Content Include="Images\Mall\4.jpg" />
