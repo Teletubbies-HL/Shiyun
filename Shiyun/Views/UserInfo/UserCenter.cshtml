@@ -88,10 +88,19 @@
                         <span class="n_icon n_icon_ly"></span>
                         <span class="n_text">留言</span>
                     </a>
-                    <a class="n_btn" href="javascript:void(0)">
-                        <span class="n_icon n_icon_dd"></span>
-                        <span class="n_text">订单</span>
-                    </a>
+                    @if (@Session["Users_id"] != null)
+                    {
+                        if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+                        {
+                            <a class="n_btn" href="@Url.Action("OrderDetails","Mall")">
+                                <span class="n_icon n_icon_dd"></span>
+                                <span class="n_text">订单</span>
+                            </a>
+                        }
+                    }
+
+
+                    
                 </div>
                 <div class="n_statistics">
                     <a class="n_data n_gz" href="javascript:void(0)">
@@ -109,7 +118,7 @@
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
-            <div class="_index" style="display: block;">
+            <div class="_index" style="display: none;">
                 @Html.Partial("_Index")
             </div>
             <div id="yuanchuang" style="display: none;">
@@ -121,116 +130,119 @@
             <div id="taolun" style="display: none;">
                 @{Html.RenderAction("_Taolun", "UserInfo");}
             </div>
-        
-            @if (@Session["Users_id"] != null)
-            {
-                if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+            <div class="geren">
+                @if (@Session["Users_id"] != null)
                 {
-                    <div class="geren2" style="display: none;">
-                        <div class="col_1">
-                            <div class="section">
-                                <h3 class="section_title">
-                                    <a class="t" href="javascript:void(0)">个人资料</a>
-                                </h3>
-                                <div class="content clearfix">
-                                    <div class="gerenziliao">
-                                        @using (Html.BeginForm("Ziliao", "UserInfo", FormMethod.Post, new { @class = "ZiliaoSend", enctype = "multipart/form-data" }))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            <div class="form-horizontal">
-                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.Users_id, "账号", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.Users_id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", style = "color:rgb(171, 171, 171);" } })
+                    if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+                    {
+                        <div class="geren2" style="display: none;">
+                            <div class="col_1">
+                                <div class="section">
+                                    <h3 class="section_title">
+                                        <a class="t" href="javascript:void(0)">个人资料</a>
+                                    </h3>
+                                    <div class="content clearfix">
+                                        <div class="gerenziliao">
+                                            @using (Html.BeginForm("Ziliao", "UserInfo", FormMethod.Post, new {@class = "ZiliaoSend", enctype = "multipart/form-data"}))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <div class="form-horizontal">
+                                                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.Users_id, "账号", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.Users_id, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly", style = "color:rgb(171, 171, 171);"}})
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.UserName, "用户名", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserName, "", new { @class = "text-danger" })
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.UserName, "用户名", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.UserName, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserName, "", new {@class = "text-danger"})
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.UserImage, "头像", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        <input type="file" name="UserImage" value="UserImage" class="file_a_a" />
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.UserImage, "头像", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            <input type="file" name="UserImage" value="UserImage" class="file_a_a"/>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.UserPhone, "手机", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.UserPhone, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserPhone, "", new { @class = "text-danger" })
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.UserPhone, "手机", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.UserPhone, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserPhone, "", new {@class = "text-danger"})
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.UserMail, "邮箱", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.UserMail, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserMail, "", new { @class = "text-danger" })
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.UserMail, "邮箱", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.UserMail, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserMail, "", new {@class = "text-danger"})
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.Sex, "性别", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.Sex, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.Sex, "", new {@class = "text-danger"})
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.UserSign, "个性签名", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.UserSign, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserSign, "", new {@class = "text-danger"})
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.SafeQues, "安全问题", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.SafeQues, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.SafeQues, "", new {@class = "text-danger"})
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.Answer, "答案", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.Answer, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.Answer, "", new {@class = "text-danger"})
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ua">
+                                                        @Html.LabelFor(model => model.UserInfo.Address, "地址", htmlAttributes: new {@class = "control-label col-md-2"})
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.UserInfo.Address, new {htmlAttributes = new {@class = "form-control"}})
+                                                            @Html.ValidationMessageFor(model => model.UserInfo.Address, "", new {@class = "text-danger"})
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-offset-2 col-md-10">
+                                                            <input type="submit" value="保存" class="btn btn-default tijiao"/>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.Sex, "性别", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.Sex, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.Sex, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.UserSign, "个性签名", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.UserSign, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserSign, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.SafeQues, "安全问题", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.SafeQues, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.SafeQues, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.Answer, "答案", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.Answer, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.Answer, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group ua">
-                                                    @Html.LabelFor(model => model.UserInfo.Address, "地址", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    <div class="col-md-10">
-                                                        @Html.EditorFor(model => model.UserInfo.Address, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.UserInfo.Address, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-md-offset-2 col-md-10">
-                                                        <input type="submit" value="保存" class="btn btn-default tijiao" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        }
-
-
+                                            }
+                                        </div>
 
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
+                    else
+                    {
+                        <div class="geren1" style="display: none;">
+                            @Html.Partial("_Gerenziliao1")
+                        </div>
+                    }
                 }
                 else
                 {
@@ -238,14 +250,39 @@
                         @Html.Partial("_Gerenziliao1")
                     </div>
                 }
-            }
-            else
-            {
-                    <div class="geren1" style="display: none;">
-                        @Html.Partial("_Gerenziliao1")
+            </div>
+
+            <div class="GuanZhu">
+                <div class="col_1">
+                    <div class="section">
+                        <h3 class="section_title">
+                            <a class="GuanZhu_gz" href="javascript:void(0)">关注</a>  | <a class="GuanZhu_fs" href="javascript:void(0)">粉丝</a>
+                        </h3>
+                        <div class="content clearfix">
+                            @foreach (var item in Model.UsesAa)
+                            {
+                                <div class="list-item clearfix">
+                                    <a target="_blank" class="cover" href="javascript:void(0)">
+                                        <img src="@item.UserA" alt="">
+                                    </a>
+                                    <div class="content">
+                                        <a target="_blank" class="title" href="//space.bilibili.com/3745123"> <span class="vip-name-check fans-name">浅叶流年</span> </a>
+                                        <div class="desc" title="喜欢的话就点波关注吖，不喜欢的话那我再想想办法">喜欢的话就点波关注吖，不喜欢的话那我再想想办法</div>
+                                    </div>
+                                </div>
+                            }
+
+                            
+
+
+                        </div>
                     </div>
-            }
-          
+                </div>
+            </div>
+
+
+
+
             <div class="col_2">
                 <div class="section user">
                     <div class="meta">
