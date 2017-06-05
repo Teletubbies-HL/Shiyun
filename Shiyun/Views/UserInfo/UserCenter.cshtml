@@ -27,6 +27,7 @@
                             <div class="h_basic">
                                 <span class="h_name">@item.UserName</span> 
                                 <input type="hidden" value="@ViewBag.Users_id" class="Users_id"/>
+                                <input type="hidden" value='@Session["Users_id"]' class="SessionUsers_id" />
                                 @if (@item.Sex == "女 ")
                                 {
                                     <span class="h_gender girl">女</span>
@@ -79,9 +80,9 @@
                         <span class="n_icon n_icon_home"></span>
                         <span class="n_text">主页</span>
                     </a>
-                    <a class="n_btn" href="javascript:void(0)">
-                        <span class="n_icon n_icon_zl"></span>
-                        <span class="n_text">资料</span>
+                    <a class="n_btn zl" href="javascript:void(0)">
+                        <span class="n_icon n_icon_zl zl"></span>
+                        <span class="n_text zl">资料</span>
                     </a>
                     <a class="n_btn" href="javascript:void(0)">
                         <span class="n_icon n_icon_ly"></span>
@@ -108,7 +109,7 @@
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
-            <div class="_index" style="display: none;">
+            <div class="_index" style="display: block;">
                 @Html.Partial("_Index")
             </div>
             <div id="yuanchuang" style="display: none;">
@@ -120,24 +121,131 @@
             <div id="taolun" style="display: none;">
                 @{Html.RenderAction("_Taolun", "UserInfo");}
             </div>
+        
+            @if (@Session["Users_id"] != null)
+            {
+                if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+                {
+                    <div class="geren2" style="display: none;">
+                        <div class="col_1">
+                            <div class="section">
+                                <h3 class="section_title">
+                                    <a class="t" href="javascript:void(0)">个人资料</a>
+                                </h3>
+                                <div class="content clearfix">
+                                    <div class="gerenziliao">
+                                        @using (Html.BeginForm("Ziliao", "UserInfo", FormMethod.Post, new { @class = "ZiliaoSend", enctype = "multipart/form-data" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <div class="form-horizontal">
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.Users_id, "账号", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.Users_id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", style = "color:rgb(171, 171, 171);" } })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.UserName, "用户名", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserName, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.UserImage, "头像", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="UserImage" value="UserImage" class="file_a_a" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.UserPhone, "手机", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.UserPhone, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserPhone, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.UserMail, "邮箱", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.UserMail, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserMail, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.Sex, "性别", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.Sex, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.Sex, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.UserSign, "个性签名", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.UserSign, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.UserSign, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.SafeQues, "安全问题", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.SafeQues, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.SafeQues, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.Answer, "答案", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.Answer, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ua">
+                                                    @Html.LabelFor(model => model.UserInfo.Address, "地址", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserInfo.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.UserInfo.Address, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" value="保存" class="btn btn-default tijiao" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
 
 
-            <div class="col_1">
-                <div class="section">
-                    <h3 class="section_title">
-                        <a class="t" href="javascript:void(0)">个人资料</a>
-                    </h3>
-                    <div class="content clearfix">
-                       ]
+
+                                    </div>
 
 
-
-
-
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
+                }
+                else
+                {
+                    <div class="geren1" style="display: none;">
+                        @Html.Partial("_Gerenziliao1")
+                    </div>
+                }
+            }
+            else
+            {
+                    <div class="geren1" style="display: none;">
+                        @Html.Partial("_Gerenziliao1")
+                    </div>
+            }
+          
             <div class="col_2">
                 <div class="section user">
                     <div class="meta">
@@ -160,23 +268,55 @@
             </div>
         </div>
 @section scripts{
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
-        $(function () {
-            $(document).on('click', '.more_yc', function () {
+        $(function() {
+            $(document).on('click', '.n_icon_home', function() {
+                $("._index").css("display", "block");
+
+                $(".geren1").css("display", "none");
+            });
+            $(document).on('click', '.zl', function() {
+                $("._index").css("display", "none");
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+
+                if ($(".SessionUsers_id").val() != null) {
+                    if ($(".SessionUsers_id").val() == $(".Users_id").val())
+                    {
+                        $(".geren2").css("display", "block");
+                        $(".geren1").css("display", "none");
+                    }
+                    else
+                    {
+                        $(".geren2").css("display", "none");
+                        $(".geren1").css("display", "block");
+                    }
+                }
+                else {
+                    $(".geren2").css("display", "none");
+                    $(".geren1").css("display", "block");
+                }               
+            });
+
+
+            $(document).on('click', '.more_yc', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "block");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
             });
-            $(document).on('click', '.more_ls', function () {
-                $("._index").css("display", "none");              
+            $(document).on('click', '.more_ls', function() {
+                $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "block");
                 $("#taolun").css("display", "none");
             });
-            $(document).on('click', '.more_tl', function () {
-                $("._index").css("display", "none");               
+            $(document).on('click', '.more_tl', function() {
+                $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "block");
@@ -199,8 +339,6 @@
                         $(".gzcg").show().delay(2000).hide(300);
                     }
                 });
-
-
             } else {
                 //已关注
                 //alert("222");
@@ -224,6 +362,15 @@
 
             }
         });
+        //$(function() {
+
+        //    $(".tijiao").click(function() {
+        //        setTimeout(function () {
+
+        //        }, 1000);
+
+        //    });
+        //});
     </script>
 
 }

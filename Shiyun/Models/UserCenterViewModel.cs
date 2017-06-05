@@ -10,6 +10,7 @@ namespace Shiyun.Models
     public class UserCenterViewModel
     {
         public IEnumerable<UserInfo> Uses1 { get; set; }
+        public UserInfo UserInfo { get; set; }
         public int UserA { get; set; }
         public int UserB { get; set; }
         public IEnumerable<View_PostIndex> Post1 { get; set; }

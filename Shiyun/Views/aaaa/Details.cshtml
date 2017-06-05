@@ -1,0 +1,122 @@
+﻿@model Models.UserInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserSign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserSign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SafeQues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SafeQues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jingyan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jingyan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jifen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jifen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Users_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
