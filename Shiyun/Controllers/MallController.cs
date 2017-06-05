@@ -283,7 +283,7 @@ namespace Shiyun.Controllers
 
         #region 个人中心订单页
         [Login]
-        public ActionResult ucOrderDetails(int? page)
+        public ActionResult _ucOrderDetails(int? page)
         {
             string uid = Session["Users_id"].ToString();
             var vod = shopcarmanager.FindviewodById(uid);
