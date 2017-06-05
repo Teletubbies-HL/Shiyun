@@ -2131,7 +2131,6 @@
     <Content Include="Views\aaaa\Edit.cshtml" />
     <Content Include="Views\aaaa\Index.cshtml" />
     <Content Include="Views\UserInfo\_Gerenziliao2.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -187,6 +187,9 @@
     <Compile Include="View_ShopCar.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_UserInfo.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

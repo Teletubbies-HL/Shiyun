@@ -21,5 +21,16 @@ namespace Models
         public string CiTitle { get; set; }
         public Nullable<int> Author_id { get; set; }
         public string AuthorName { get; set; }
+        public string CiContent { get; set; }
+        public string CiFanyi { get; set; }
+        public string CiShangxi { get; set; }
+        public string Cibeijing { get; set; }
+        public string CiYuying { get; set; }
+        public string CiImage { get; set; }
+        public Nullable<System.DateTime> AddTime { get; set; }
+        public string CiJieSaho { get; set; }
+        public string AuthorImage { get; set; }
+        public Nullable<int> Time_id { get; set; }
+        public Nullable<int> Expr1 { get; set; }
     }
 }

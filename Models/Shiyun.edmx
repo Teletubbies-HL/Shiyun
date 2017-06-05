@@ -436,6 +436,7 @@
             <PropertyRef Name="Ci_id" />
             <PropertyRef Name="CiTitle" />
             <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="CiContent" />
           </Key>
           <Property Name="CiPai_id" Type="int" Nullable="false" />
           <Property Name="CiPaiName" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -444,6 +445,17 @@
           <Property Name="CiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Author_id" Type="int" />
           <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CiContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CiFanyi" Type="nvarchar(max)" />
+          <Property Name="CiShangxi" Type="nvarchar(max)" />
+          <Property Name="Cibeijing" Type="nvarchar(max)" />
+          <Property Name="CiYuying" Type="nvarchar(max)" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="CiJieSaho" Type="nvarchar(max)" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Time_id" Type="int" />
+          <Property Name="Expr1" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_OrderDetails”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -613,6 +625,38 @@
           <Property Name="UserPhone" Type="nvarchar" MaxLength="11" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="FinalPrice" Type="decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_UserInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_UserInfo">
+          <Key>
+            <PropertyRef Name="Guanzhu_id" />
+            <PropertyRef Name="UserA" />
+            <PropertyRef Name="UserB" />
+          </Key>
+          <Property Name="Guanzhu_id" Type="int" Nullable="false" />
+          <Property Name="UserA" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserB" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Sex" Type="nchar" MaxLength="2" />
+          <Property Name="Addtime" Type="datetime" />
+          <Property Name="UserSign" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserImage" Type="text" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Jifen" Type="int" />
+          <Property Name="UserName2" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="11" />
+          <Property Name="UserPhone2" Type="nvarchar" MaxLength="11" />
+          <Property Name="UserMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserMail2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex2" Type="nchar" MaxLength="2" />
+          <Property Name="Addtime2" Type="datetime" />
+          <Property Name="UserSign2" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserImage2" Type="text" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="Jifen2" Type="int" />
+          <Property Name="Jingyan" Type="int" />
+          <Property Name="Jingyan2" Type="int" />
         </EntityType>
         <Association Name="FK_Author_Time">
           <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
@@ -1170,7 +1214,18 @@
     [View_CiShow].[Ci_id] AS [Ci_id], 
     [View_CiShow].[CiTitle] AS [CiTitle], 
     [View_CiShow].[Author_id] AS [Author_id], 
-    [View_CiShow].[AuthorName] AS [AuthorName]
+    [View_CiShow].[AuthorName] AS [AuthorName], 
+    [View_CiShow].[CiContent] AS [CiContent], 
+    [View_CiShow].[CiFanyi] AS [CiFanyi], 
+    [View_CiShow].[CiShangxi] AS [CiShangxi], 
+    [View_CiShow].[Cibeijing] AS [Cibeijing], 
+    [View_CiShow].[CiYuying] AS [CiYuying], 
+    [View_CiShow].[CiImage] AS [CiImage], 
+    [View_CiShow].[AddTime] AS [AddTime], 
+    [View_CiShow].[CiJieSaho] AS [CiJieSaho], 
+    [View_CiShow].[AuthorImage] AS [AuthorImage], 
+    [View_CiShow].[Time_id] AS [Time_id], 
+    [View_CiShow].[Expr1] AS [Expr1]
     FROM [dbo].[View_CiShow] AS [View_CiShow]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" store:Type="Views" store:Schema="dbo">
@@ -1304,6 +1359,33 @@
     [View_ShopCar].[Address] AS [Address], 
     [View_ShopCar].[FinalPrice] AS [FinalPrice]
     FROM [dbo].[View_ShopCar] AS [View_ShopCar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_UserInfo" EntityType="Self.View_UserInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_UserInfo].[Guanzhu_id] AS [Guanzhu_id], 
+    [View_UserInfo].[UserA] AS [UserA], 
+    [View_UserInfo].[UserB] AS [UserB], 
+    [View_UserInfo].[UserName] AS [UserName], 
+    [View_UserInfo].[Sex] AS [Sex], 
+    [View_UserInfo].[Addtime] AS [Addtime], 
+    [View_UserInfo].[UserSign] AS [UserSign], 
+    [View_UserInfo].[UserImage] AS [UserImage], 
+    [View_UserInfo].[Address] AS [Address], 
+    [View_UserInfo].[Jifen] AS [Jifen], 
+    [View_UserInfo].[UserName2] AS [UserName2], 
+    [View_UserInfo].[UserPhone] AS [UserPhone], 
+    [View_UserInfo].[UserPhone2] AS [UserPhone2], 
+    [View_UserInfo].[UserMail] AS [UserMail], 
+    [View_UserInfo].[UserMail2] AS [UserMail2], 
+    [View_UserInfo].[Sex2] AS [Sex2], 
+    [View_UserInfo].[Addtime2] AS [Addtime2], 
+    [View_UserInfo].[UserSign2] AS [UserSign2], 
+    [View_UserInfo].[UserImage2] AS [UserImage2], 
+    [View_UserInfo].[Address2] AS [Address2], 
+    [View_UserInfo].[Jifen2] AS [Jifen2], 
+    [View_UserInfo].[Jingyan] AS [Jingyan], 
+    [View_UserInfo].[Jingyan2] AS [Jingyan2]
+    FROM [dbo].[View_UserInfo] AS [View_UserInfo]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
             <End Role="Time" EntitySet="Time" />
@@ -1960,6 +2042,7 @@
             <PropertyRef Name="Ci_id" />
             <PropertyRef Name="CiTitle" />
             <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="CiContent" />
           </Key>
           <Property Name="CiPai_id" Type="Int32" Nullable="false" />
           <Property Name="CiPaiName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1968,6 +2051,17 @@
           <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Author_id" Type="Int32" />
           <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiFanyi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiShangxi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cibeijing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiYuying" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="CiJieSaho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_id" Type="Int32" />
+          <Property Name="Expr1" Type="Int32" />
         </EntityType>
         <EntityType Name="View_OrderDetails">
           <Key>
@@ -2125,6 +2219,36 @@
           <Property Name="UserPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FinalPrice" Type="Decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <EntityType Name="View_UserInfo">
+          <Key>
+            <PropertyRef Name="Guanzhu_id" />
+            <PropertyRef Name="UserA" />
+            <PropertyRef Name="UserB" />
+          </Key>
+          <Property Name="Guanzhu_id" Type="Int32" Nullable="false" />
+          <Property Name="UserA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserB" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Addtime" Type="DateTime" Precision="3" />
+          <Property Name="UserSign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jifen" Type="Int32" />
+          <Property Name="UserName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone2" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserMail2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex2" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Addtime2" Type="DateTime" Precision="3" />
+          <Property Name="UserSign2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Jifen2" Type="Int32" />
+          <Property Name="Jingyan" Type="Int32" />
+          <Property Name="Jingyan2" Type="Int32" />
         </EntityType>
         <Association Name="FK_Author_Time">
           <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
@@ -2623,6 +2747,7 @@
           <EntitySet Name="View_PostReply" EntityType="Self.View_PostReply" />
           <EntitySet Name="View_ShitypeA" EntityType="Self.View_ShitypeA" />
           <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" />
+          <EntitySet Name="View_UserInfo" EntityType="Self.View_UserInfo" />
           <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
             <End Role="Time" EntitySet="Time" />
             <End Role="Author" EntitySet="Author" />
@@ -3234,6 +3359,17 @@
                 <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
                 <ScalarProperty Name="Author_id" ColumnName="Author_id" />
                 <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="CiContent" ColumnName="CiContent" />
+                <ScalarProperty Name="CiFanyi" ColumnName="CiFanyi" />
+                <ScalarProperty Name="CiShangxi" ColumnName="CiShangxi" />
+                <ScalarProperty Name="Cibeijing" ColumnName="Cibeijing" />
+                <ScalarProperty Name="CiYuying" ColumnName="CiYuying" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="CiJieSaho" ColumnName="CiJieSaho" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3378,6 +3514,35 @@
                 <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_UserInfo">
+            <EntityTypeMapping TypeName="ShiyunModel.View_UserInfo">
+              <MappingFragment StoreEntitySet="View_UserInfo">
+                <ScalarProperty Name="Guanzhu_id" ColumnName="Guanzhu_id" />
+                <ScalarProperty Name="UserA" ColumnName="UserA" />
+                <ScalarProperty Name="UserB" ColumnName="UserB" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Addtime" ColumnName="Addtime" />
+                <ScalarProperty Name="UserSign" ColumnName="UserSign" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Jifen" ColumnName="Jifen" />
+                <ScalarProperty Name="UserName2" ColumnName="UserName2" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserPhone2" ColumnName="UserPhone2" />
+                <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+                <ScalarProperty Name="UserMail2" ColumnName="UserMail2" />
+                <ScalarProperty Name="Sex2" ColumnName="Sex2" />
+                <ScalarProperty Name="Addtime2" ColumnName="Addtime2" />
+                <ScalarProperty Name="UserSign2" ColumnName="UserSign2" />
+                <ScalarProperty Name="UserImage2" ColumnName="UserImage2" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Jifen2" ColumnName="Jifen2" />
+                <ScalarProperty Name="Jingyan" ColumnName="Jingyan" />
+                <ScalarProperty Name="Jingyan2" ColumnName="Jingyan2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
