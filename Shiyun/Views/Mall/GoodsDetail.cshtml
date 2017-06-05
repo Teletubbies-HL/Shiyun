@@ -4,7 +4,7 @@
 }
 @section style
     {
-<link href="~/Content/css/GoodsDetails.css" rel="stylesheet" />
+    <link href="~/Content/css/GoodsDetails.css" rel="stylesheet"/>
 }
 @using (Html.BeginForm("jrgwc", "Mall", FormMethod.Post))
 {
@@ -31,7 +31,7 @@
                 <div class="fuwulei">
                     <hr style="border-top: 0.5px solid rgba(0, 0, 0, 0.2); width: 700px;" />
                     <span>支持：<i class="iconfont" style="font-size: 22px; color: #DD3B44;">&#xe71f;</i>&nbsp;199元顺丰包邮&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont" style="font-size: 18px; color: #DD3B44;">&#xe72e;</i>&nbsp;7天无理由退货</span>
-                    <span>服务：本商品由 古建网 负责发货并提供售后服务</span>
+                    <span>服务：本商品由 诗韵网 负责发货并提供售后服务</span>
                     <hr style="border-bottom: 0.2px solid rgba(0, 0, 0, 0.2); width: 700px;" />
                 </div>
                 <div class="gselect">
@@ -62,11 +62,15 @@
         </div>
         <div class="secondblo">
             <span>深入了解</span>
-            <hr style="border-top: 3px solid #DD3B44; width: 96%; margin-top: 20px; margin-bottom: 20px; margin-left: 30px;" />
+            <hr style="border-top: 3px solid #DD3B44; width: 96%; margin-top: 20px; margin-bottom: 20px; margin-left: 30px;"/>
             <div class="contents">
                 @Html.Raw(@Model.GoodsDetails)
             </div>
         </div>
+        <div class="toast_layer fade_transition tjcg" style="display: none;">添加成功！</div>
+        <div class="toast_layer fade_transition tjsb" style="display: none;">添加失败！</div>
+        <div class="toast_layer fade_transition jrgwccg" style="display: none;">加入购物车成功！</div>
+        <div class="toast_layer fade_transition jrgwcsb" style="display: none;">加入购物车失败！</div>
     </section>
 }
 @section scripts
@@ -76,6 +80,9 @@
     $('#txtnum').val(value);
     $("#up").click(function() {
         var value = parseInt($('#txtnum').val()) + 1;
+        if (value >= $('#kucun').text() * 1) {
+            value = $('#kucun').text();
+        }
         $('#txtnum').val(value);
     });
     $("#down").click(function() {
@@ -85,7 +92,6 @@
         }
         $('#txtnum').val(value);
     });
-
     $("#ljgm").click(function () {
         $('#ljgm').val(1);
     });

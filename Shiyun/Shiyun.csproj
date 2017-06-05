@@ -224,6 +224,7 @@
     <Compile Include="Controllers\ShiController.cs" />
     <Compile Include="Controllers\ShiShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
