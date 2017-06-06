@@ -21,7 +21,7 @@ namespace IDAL
         void RemoveCi(Ci ci);
         void AddCi(Ci ci);
         void EditCi(Ci ci);
-
+        IEnumerable<Ci> Search(string search);
         void RemoveRangeCiComment(IQueryable<CiComment> CiComment);
      
     }

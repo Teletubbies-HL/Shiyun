@@ -17,7 +17,7 @@ namespace IDAL
         void RemoveTime(Time time);
         void AddTime(Time time);
         void EditTime(Time time);
-
+        IEnumerable<Time> Search(string search);
         void RemoveRangeAuthor(IQueryable<Author> Author);
         void RemoveRangeShi(IQueryable<Shi> Shi);
     }

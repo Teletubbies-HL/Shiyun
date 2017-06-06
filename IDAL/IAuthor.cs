@@ -21,7 +21,7 @@ namespace IDAL
         void RemoveAuthor(Author author);
         void AddAuthor(Author author);
         void EditAuthor(Author author);
-
+        IEnumerable<Author> Search(string search);
         void RemoveRangeCi(IQueryable<Ci> Ci);
         void RemoveRangeShi(IQueryable<Shi> Shi);
         //获取诗词

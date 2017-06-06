@@ -43,6 +43,11 @@ namespace BLL
             return ci;
         }
 
+       public IEnumerable<Ci> Search(string search)
+       {
+            var ci = ici.Search(search);
+            return ci;
+        }
         public IQueryable<Ci> GetCibyTop(int top)
         {
             var ci = ici.GetCibyTop(top);

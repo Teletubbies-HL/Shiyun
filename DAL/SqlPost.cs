@@ -17,7 +17,11 @@ namespace DAL
             var posts = db.Post.ToList();
             return posts;
         }
-
+        public IEnumerable<Post> Search(string search)
+        {
+            var posts = db.Post.Where(c => c.PostTitle.Contains(search)).ToList();
+            return posts;
+        }
         public IQueryable<PostReply> GetPostReplyByPostId(int id)
         {
             var post = db.PostReply.Include("Post").Where(o => o.Post_id == id);
@@ -43,6 +47,14 @@ namespace DAL
         {
             var pt = db.Post.Where(c => c.Post_id == pid).Select(c => c.Post_id).Count();
             return pt;
+        }
+        public IEnumerable<View_PostIndex> GetPostByUser(string uid ,int ltid) //获取帖子
+        {
+            var pstd = from po in db.View_PostIndex
+                       where po.Users_id == uid && po.LunTan_id == ltid
+                       orderby po.AddTime descending 
+                       select po;
+            return pstd;
         }
         public IEnumerable<View_PostIndex> GetPostDetails(int postid) //获取帖子详情
         {

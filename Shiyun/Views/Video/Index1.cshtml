@@ -1,6 +1,6 @@
 ﻿@model Shiyun.Models.VideoViewMode
 @{
-    ViewBag.Title = "Video";
+    ViewBag.Title = "诗韵-纪录片";
 }
 @section style{
 
@@ -13,7 +13,7 @@
             text-align: center;
         }
     </style>
-
+       
 }
 
 <div id="wrapper" style="margin-top:15px;">
@@ -69,7 +69,7 @@
                                                     <span class="zoom-caption">
                                                         <i class="iconfont icon-play" style="color: white;">&#xe64f;</i>
                                                     </span>
-                                                    <img src="@item.Cover" />
+                                                    <img src="@item.Cover" style="width: 250px;height: 80px;"/>
                                                 </a>
                                             </div>
                                             <div class="wrapper">
@@ -116,7 +116,7 @@
                                                         <span class="zoom-caption">
                                                             <i class="iconfont icon-play" style="color: white;">&#xe64f;</i>
                                                         </span>
-                                                        <img src="@item.Cover" />
+                                                        <img src="@item.Cover" style="width: 315px;height:165px;"/>
                                                     </a>
                                                 </div>
                                                 <h3 class="vid-name">@item.VideoName</h3>

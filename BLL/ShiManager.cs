@@ -33,6 +33,11 @@ namespace BLL
             return shi;
         }
 
+       public IQueryable<Shi> Search(string search)
+       {
+            var shi = ishi.Search(search);
+            return shi;
+        }
         public IQueryable<Shi> GetShibyTop(int top)
         {
             var shi = ishi.GetShibyTop(top);

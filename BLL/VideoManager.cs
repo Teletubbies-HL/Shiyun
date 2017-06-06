@@ -17,6 +17,12 @@ namespace BLL
             var videos = ivideo.GetVideo();
             return videos;
         }
+
+       public IEnumerable<Video> Search(string search)
+       {
+            var videos = ivideo.Search(search);
+            return videos;
+        }
         public IEnumerable<Video> GetVideoById(int? id)
         {
             var video = ivideo.GetVideoById(id);

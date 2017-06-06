@@ -17,6 +17,12 @@ namespace BLL
             var times = itime.GetTime();
             return times;
         }
+
+       public IEnumerable<Time> Search(string search)
+       {
+            var times = itime.Search(search);
+            return times;
+        }
         public Time GetTimeById(int? id)
         {
             Time time = itime.GetTimeById(id);

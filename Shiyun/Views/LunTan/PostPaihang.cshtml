@@ -1,0 +1,156 @@
+﻿@model Shiyun.Models.LuntanIndex
+@{
+    ViewBag.Title = "原创排行榜";
+}
+@section style{
+    <link href="~/Content/css/PostDetails.css" rel="stylesheet" />
+    <style>
+        .choose {
+            text-decoration: none;
+            color: #515151;
+            line-height: 44px;
+            display: block;
+            color: #333333;
+            margin-left: 12px;
+        }
+
+            .choose:hover {
+                color: #c03f3c;
+                transition: color 0.2s linear;
+                -webkit-transition: color 0.2s linear;
+                -moz-transition: color 0.2s linear;
+            }
+
+        .zan, .cai, .pl {
+            float: right;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .pl1 {
+            color: #333;
+        }
+
+            .cai1:hover, .zan1:hover, .pl1:hover {
+                color: #c03f3c;
+                transition: color 0.2s linear;
+                -webkit-transition: color 0.2s linear;
+                -moz-transition: color 0.2s linear;
+            }
+
+        .nowarea {
+            border-left: 3px solid #dd3b44;
+            line-height: 40px;
+            padding-left: 15px;
+            font-size: 16px;
+        }
+
+        .rightbox2 {
+            width: 28% !important;
+            position: absolute;
+            right: 40px;
+            top: 280px !important;
+            background-color: #fff;
+        }
+         .rightbox3 {
+            width: 28% !important;
+            position: absolute;
+            right: 40px;
+            top: 410px !important;
+            background-color: #fff;
+        }
+    </style>
+
+}
+
+<section>
+
+    <div class="leftbox">
+
+        <div class="leftbox1">
+            <div class="leftbox_1">
+                <div class="postdetail">
+                    <div id="ltvpostdetail">
+                        <div class="nowarea">
+                            @ViewBag.ChooseName
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="GetAllPostPaihang">
+                @{Html.RenderAction("GetAllPostPaihang", "LunTan");}
+            </div>
+        </div>
+    </div>
+
+    <div class="rightbox" style="width: 28%;">
+        <div class="tuijian" style="margin: 20px auto; overflow: hidden; border-top: 3px solid #e2d537;">
+            <span style="width: 100%; display: block; font-size: 17px; text-align: center; margin-top: 10px; font-size: 15px; color: #333; font-weight: 700; padding-bottom: 15px;">目录</span>
+            <div id="ltvtuijian">
+
+                <div>
+                    <a class="choose" href="@Url.Action("PostPaihang", "LunTan", new {choose_id = 1})">
+                        赞上来的
+                    </a>
+                    <a class="choose" href="@Url.Action("PostPaihang", "LunTan", new {choose_id = 2})">
+                        踩下去的
+                    </a>
+                    <a class="choose" href="@Url.Action("PostPaihang", "LunTan", new {choose_id = 3})">
+                        热门
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightbox rightbox2">
+        <div class="tuijian" style="margin: 20px auto; overflow: hidden; border-top: 3px solid #00c3f5;">
+            <a href="@Url.Action("PostSend", "LunTan", new {luntanId = 1})"> <span style="width: 100%; display: block; font-size: 17px; text-align: center; margin-top: 10px; font-size: 15px; color: white; font-weight: 700;line-height: 35px;background-color: rgb(221, 59, 68);">我也能创作</span></a>
+        </div>
+    </div>
+    <div class="rightbox rightbox3">
+        <div class="tuijian" style="margin: 20px auto; overflow: hidden;">
+            <img src="~/Images/LunTan/weibo.jpg" style="width: 100%;"/>
+     
+           </div>
+    </div>
+
+
+   
+</section>
+@section scripts{
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">       
+        $(function () {
+            $(document).on('click', '.zan1', function () {   //赞 
+                var postId = $(this).parent().next().next().val();
+                var zannum = $(this).next().next();
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/Zan",
+                    data: { postId: postId },
+                    success: function (data) {
+                        zannum.html(data);
+                    }
+                });
+            });
+            $(document).on('click', '.cai1', function () { //踩1
+                var postId = $(this).parent().next().next().next().val();
+                var cainum = $(this).next().next();
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/Cai",
+                    data: { postId: postId },
+                    success: function (data) {
+                        cainum.html(data);
+                    }
+                });
+
+            });
+        });
+    </script>
+
+}
+
+

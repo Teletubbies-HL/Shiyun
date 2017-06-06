@@ -17,7 +17,7 @@
         </div>
         <div class="zan"><span class="iconfont zan1">&#xe871;</span><span class="iconfont zan2" style="display: none;">&#xe870;</span><span class="zannum">@po.Post_upvote</span></div>
         <div class="cai"><span class="iconfont cai1">&#xe873;</span><span class="iconfont cai2" style="display: none;">&#xe872;</span><span class="cainum">@po.Post_down</span></div>
-        <span class="user_name">@po.UserName</span>
+        <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @po.Users_id})"><span class="user_name">@po.UserName</span></a>
         <span class="addtime">@po.AddTime</span>
         <input class="post_id" type="hidden" value="@po.Post_id"/>
     </div>

@@ -9,5 +9,7 @@ namespace IDAL
 {
     public interface  IUserGuanzhu
     {
+        IEnumerable<UserGuanzhu> CountUserGuanzhu1ById(string uid);
+        IEnumerable<UserGuanzhu> CountUserGuanzhu2ById(string uid);
     }
 }

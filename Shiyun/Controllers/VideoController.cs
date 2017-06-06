@@ -15,7 +15,7 @@ namespace Shiyun.Controllers
         // GET: Video
         ShiyunEntities db = new ShiyunEntities();
         VideoKManager vkm = new VideoKManager();
-       VideoManager vm = new VideoManager();
+        VideoManager vm = new VideoManager();
 
         public ActionResult Index1()
         {
@@ -42,11 +42,11 @@ namespace Shiyun.Controllers
             return View(post.ToPagedList(pageNumber, pageSize));
         }
         #endregion
-        public ActionResult VideoDetails(int ? VideoK_id ,int ? Video_id)
+        public ActionResult VideoDetails(int? VideoK_id, int? Video_id)
         {
             VideoViewMode videoViewMode = new VideoViewMode();
-            string videokid = VideoK_id+"01";
-            
+            string videokid = VideoK_id + "01";
+
             if (Video_id == null)
             {
                 videoViewMode.Video1 = vm.GetVideoById(int.Parse(videokid));
@@ -57,7 +57,7 @@ namespace Shiyun.Controllers
             }
             videoViewMode.Video2 = vm.GetVideoByVideoKId(VideoK_id);
             videoViewMode.VideoK1 = vkm.GetVideoKByVideoKId(VideoK_id);
-            videoViewMode.GetNewVideo = vm.GetNewVideo().Take(4);  
+            videoViewMode.GetNewVideo = vm.GetNewVideo().Take(4);
             return View(videoViewMode);
         }
     }

@@ -90,7 +90,7 @@ namespace Shiyun.Controllers
         {
             ViewBag.GoodsK_id = GoodsK_id;
             var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
-            int pageSize = 2;
+            int pageSize = 8;
             int pageNumber = (page ?? 1);
             return View(goodses1.ToPagedList(pageNumber, pageSize));
         }
@@ -142,8 +142,6 @@ namespace Shiyun.Controllers
                 shopCar.note = "";
                 shopCar.Time = System.DateTime.Now;
                 shopCar.flag = 0;
-                //db.ShopCar.Add(shopCar);
-                //db.SaveChanges();
                 shopcarmanager.AddShopCar(shopCar);
                 if (name == "1")
                 {
@@ -292,5 +290,16 @@ namespace Shiyun.Controllers
         }
         #endregion
 
+        #region 个人中心订单页
+        [Login]
+        public ActionResult _ucOrderDetails(int? page)
+        {
+            string uid = Session["Users_id"].ToString();
+            var vod = shopcarmanager.FindviewodById(uid);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(vod.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
     }
 }
