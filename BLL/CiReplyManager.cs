@@ -23,7 +23,11 @@ namespace BLL
             return cireply;
         }
 
+        public void AddCiReply(CiReply cireply)
+        {
+            icireply.AddCiReply(cireply);
 
+        }
         public void RemoveCiReply(CiReply cireply)
         {
             icireply.RemoveCiReply(cireply);

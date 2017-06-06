@@ -1,0 +1,324 @@
+﻿@model Shiyun.Models.CiPaiViewModels
+@{
+    ViewBag.Title = "ShiShowCiDetails1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<head>
+    <link href="~/Content/css/ShiCiforum.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
+
+    <style>
+        .dianji i {
+            font-size: 25px;
+            color: darkgrey;
+        }
+
+            .dianji i:hover {
+                color: #c03f3c;
+                font-size: 25px;
+            }
+    </style>
+</head>
+<body class="" style="background-color: #F7F7F7!important;">
+    <div class="message-container">
+    </div>
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            <div class="container">
+                <div class="col-group">
+                    <div class="col-9 col-mb-12">
+@foreach (var pd in Model.CiDetails)
+{
+                        <section class="as-article-section one-section white section">
+                            <div class="article-head">
+                                <h2>@pd.CiTitle</h2>
+                                <div class="dianji">
+                                    <i class="iconfont zheng" style="color:#c03f3c;">&#xe628;</i>
+                                    <i class="iconfont yi">&#xe60e;</i>
+                                    <i class="iconfont shang">&#xe60c;</i>
+                                    <i class="iconfont bei">&#xe629;</i>
+                                </div>
+
+                            </div>
+                            <div class="article-meta small text">
+                                <span class="span-item">@pd.AddTime</span>
+                                <span class="span-item">|</span>
+                                <span class="span-item">作者:</span>
+                                <span class="span-item">@pd.Author.AuthorName</span>
+                                <span class="span-item">@pd.Time.TimeName</span>
+                                <span class="span-item">|</span>
+                                <span class="span-item">
+                                    分类: <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = @pd.CiPai.CiPai_id })" class="gray">@pd.CiPai.CiPaiName</a>
+                                </span>
+                                <div class="nice-stamp"></div>
+                            </div>
+                            <div class="article-body yuanwen">
+                                <div class="article-content plain paper">
+                                    <center>@Html.Raw(@pd.CiContent)</center>
+                                </div>
+                            </div>
+                            <div class="article-body fanyi" style="display:none;">
+                                <div class="article-content plain paper">
+                                    @Html.Raw(@pd.CiFanyi)
+
+                                </div>
+                            </div>
+                            <div class="article-body shangxi" style="display:none;">
+                                <div class="article-content plain paper">
+                                    @Html.Raw(@pd.CiShangxi)
+
+                                </div>
+                            </div>
+                            <div class="article-body beijing" style="display:none;">
+                                <div class="article-content plain paper">
+                                    @Html.Raw(@pd.Cibeijing)
+
+                                </div>
+                            </div>
+
+                        </section>
+}
+
+                        <section class="as-article-section one-section white section">
+                            <div class="article-reply reply">
+@foreach (var pd in Model.CiDetails)
+{
+                                <div class="copyright-box">
+                                    <div>
+                                        <span>作者：<a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })" target="_blank">@pd.Author.AuthorName</a></span>
+
+                                        <span>∙ 文章来源：<a href="#">诗韵</a></span>
+                                    </div>
+                                    <div>
+                                        <i class="ri ri-copyright"></i>欢迎大家一起学习中国古诗词，遨游诗词海洋，传承中国优秀诗词文化。
+                                    </div>
+                                </div>
+}
+                                <div class="reply-area">
+                                    <div class="reply-unlogin one-row">
+                                        <input id="btnpinglun" class="csspinglun" value="评论" readonly="readonly" type="submit" />
+                                        <input type="hidden" class="Hidden1" id="hfdpinglun" value="" />
+                                        <hr style="border-bottom: 1px solid #E6E6E6; display: block; float: right; margin: 25px 0px 0px; width: 100%;" />
+                                    </div>
+                                </div>
+                                <div class="reply-list">
+                                    <div id="getAllPostReply">
+                                        @{Html.RenderAction("GetAllPostReply", "ShiShow");}
+                                    </div>
+                                </div>
+                                <lable id="PLhidden" style="display: none;"></lable>
+                                @using (Ajax.BeginForm("Pinglun", "ShiShow", new AjaxOptions { HttpMethod = "post", UpdateTargetId = "PLhidden" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="huifu">
+                                        <div class="huifu_1">
+                                            @Html.HiddenFor(model => model.CiReReply.Ci_id, new { @Value = @ViewBag.Ci_id })
+                                            @Html.HiddenFor(model => model.CiReReply.ReReply_id, new { @Value = "", @class = "rereid" })
+                                            <div class="Main">
+                                                @Html.TextAreaFor(model => model.CiReReply.ReplyContent, htmlAttributes: new { @class = "ckeditor form-control Input_text con", id = "TextBox1", style = "width: 100%; height: 100px;" })
+                                                @Html.ValidationMessageFor(model => model.CiReReply.ReplyContent, "", new { @class = "text-danger" })
+                                                <input value="确定" class="queding" type="submit" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-3 col-mb-12">
+@foreach (var pd in Model.CiDetails)
+{
+                        <section class="as-sidebar-section sidebar one-section white section">
+
+                            <div class="user-block ui tint blur" data-image="..@pd.CiImage" style="position: relative; z-index: 1;">
+                                <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="273" height="240" id="blurred_e56ciec5r" class="tint-bg-blur" viewBox="0 0 273 240" preserveAspectRatio="none" style="opacity: 1;">
+                                        <filter id="blur_e56ciec5r">
+                                            <fegaussianblur in="SourceGraphic" stdDeviation="20">
+                                            </fegaussianblur>
+                                        </filter>
+                                        <image x="0" y="0" width="273" height="240" externalResourcesRequired="true" href="@pd.CiImage" style="filter:url(#blur_e56ciec5r)" preserveAspectRatio="none">
+                                        </image>
+                                    </svg>
+                                </div>
+                                <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })" class="ui circular image user-avatar">
+                                    <img src="@pd.Author.AuthorImage" class="" alt="@pd.Author.AuthorName" width="80" height="80">
+                                </a>
+                                <p class="user-name big text">
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })">@pd.Author.AuthorName</a>
+                                </p>
+                                <p class="user-level">
+                                    <a href="" class="rg-label small level" style="background-color: #63A9ED;">朝代</a>
+                                    <a href="#" class="rg-label small level" style="background-color: #3D6BE2;">@pd.Time.TimeName</a>
+                                </p>
+                            </div>
+                            <div class="user-introduction">
+                                <p class="text gray">@pd.CiYuying</p>
+                            </div>
+
+                            <div class="goto-write center" style="padding: 10px;">
+                                <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })" class="ui fluid teal button" target="_blank">其他作品</a>
+                            </div>
+                            <div class="rg-board">
+                                <div class="rg-board-head">
+                                    <p class="title">所属分类</p>
+                                </div>
+                                <div class="rg-board-body">
+                                    <div class="ui list">
+                                        <div class="item">
+                                            <a href="" class="ui tiny image">
+                                                <img src="@pd.CiImage" data-original="" alt="浮生辞" style="display: block;">
+                                            </a>
+                                            <div class="top aligned content">
+                                                <a href="" class="big title">@pd.CiPai.CiPaiName</a>
+                                                <div class="content">
+                                                    <a href="" class="small gray text">@pd.CiTitle</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/JS/ShiCipush.js"></script>
+    <script src="~/Scripts/JS/ShiCianalytics.js"></script>
+    <script src="~/Scripts/JS/ShiCilib.js"></script>
+    <script src="~/Scripts/JS/ShiCihm.js"></script>
+
+    <div class="mm-menu-mask"></div>
+
+
+    <script>
+		(function () {
+			var bp          = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+
+
+
+		$(".yi").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".yi").css("color", "#c03f3c");
+		    $(".zheng").css("color", "darkgrey");
+		    $(".shang").css("color", "darkgrey");
+		    $(".bei").css("color", "darkgrey");
+		    $(".yuanwen").hide();
+		    $(".shamgxi").hide();
+		    $(".beijing").hide();
+		    $(".fanyi").show();
+		});
+		$(".shang").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".shang").css("color", "#c03f3c");
+		    $(".zheng").css("color", "darkgrey");
+		    $(".yi").css("color", "darkgrey");
+		    $(".bei").css("color", "darkgrey");
+		    $(".yuanwen").hide();
+		    $(".shamgxi").show();
+		    $(".beijing").hide();
+		    $(".fanyi").hide();
+		});
+		$(".zheng").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".zheng").css("color", "#c03f3c");
+		    $(".shang").css("color", "darkgrey");
+		    $(".yi").css("color", "darkgrey");
+		    $(".bei").css("color", "darkgrey");
+		    $(".yuanwen").show();
+		    $(".shamgxi").hide();
+		    $(".beijing").hide();
+		    $(".fanyi").hide();
+		});
+		$(".bei").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".bei").css("color", "#c03f3c");
+		    $(".zheng").css("color", "darkgrey");
+		    $(".yi").css("color", "darkgrey");
+		    $(".shang").css("color", "darkgrey");
+		    $(".yuanwen").hide();
+		    $(".beijing").show();
+		    $(".shangxi").hide();
+		    $(".fanyi").hide();
+		});
+    </script>
+
+
+
+</body>
+@section scripts{
+    <script src="~/Scripts/ckeditor-face/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor-face/config.js"></script>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script type="text/javascript">    
+        $(function() {
+            $(".csspinglun").click(function() { //点击评论
+                //给rereply改变值
+                var b = "";
+                $(".Hidden1").val(null);
+                var re = $(".Hidden1").val();
+                $(".rereid").val(re);
+                //alert($(".rereid").val());
+                //跳转到底部
+                var webheight = document.body.scrollHeight; //网页高度
+                $('body,html').animate({ scrollTop: webheight - 1150 }, 1000);
+                $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
+            });
+            $(document).on('click', '.cssbtnReply', function() {
+                //给rereply改变值
+                var replyid = $(this).next().val();
+                $(".Hidden1").val(replyid);
+                var re = $(".Hidden1").val();
+                $(".rereid").val(re);
+                //alert($(".rereid").val());
+                //跳转到底部
+                var webheight = document.body.scrollHeight; //网页高度
+                $('body,html').animate({ scrollTop: webheight - 1150 }, 1000);
+                $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
+            });
+           
+            $(".queding").click(function() { //提交评论
+               
+                setTimeout(function() {
+                    var plHidden = $("#PLhidden").text();
+                    if (plHidden == "aa") {
+                        $.ajax({
+                            type: "post",
+                            url: "/ShiShow/GetAllPostReply",
+                            data: { id: $(".postid").val()},
+                            success: function(data) {
+                                $("#getAllPostReply").html(data);
+                                //回到顶部
+                                $('body,html').animate({ scrollTop: 200 }, 1000);
+                                $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
+                            }
+                        });
+                    } else {
+                    }
+                }, 1000);
+            });                 
+        });
+</script>
+    }

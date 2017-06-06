@@ -53,16 +53,16 @@ else
                     {
                         <div class="recommend-detail">
                             <h2>
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow",new { id = shi.Shi_id })" class="white title extra bigTitle">@shi.ShiTitle</a>
+                                <a href="@Url.Action("ShiShowShiDetails1", "ShiShow",new { shiid = shi.Shi_id })" class="white title extra bigTitle">@shi.ShiTitle</a>
                             </h2>
                             <h4>
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow",new { id = shi.Shi_id })" class="white title author">@*@shi.Author.AuthorName*@</a>
+                                <a href="@Url.Action("ShiShowShiDetails1", "ShiShow",new { shiid = shi.Shi_id })" class="white title author">@*@shi.Author.AuthorName*@</a>
                             </h4>
-                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="rg-button see-more">更多推荐</a>
+                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = shi.Shi_id })" class="rg-button see-more">更多推荐</a>
                         </div>
 
                         <div class="recommend-show">
-                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="image current visible transition animating fade left in">
+                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = shi.Shi_id })" class="image current visible transition animating fade left in">
                                 <img src="..@shi.ShiImage" width="240" height="320" class="bigimg">
                             </a>
                         </div>
@@ -72,7 +72,7 @@ else
                         @foreach (var shi in Model.Shitop8)
                         {
                             <li class="recommend-item">
-                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="image recommend-article" data-title="@shi.ShiTitle">
+                                <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = shi.Shi_id })" class="image recommend-article" data-title="@shi.ShiTitle">
                                     <img style="width:100px;" src='..@shi.ShiImage' />
                                     <div class="timeline-title">
                                         <p class="title small one-line">@shi.ShiTitle</p>

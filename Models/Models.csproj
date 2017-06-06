@@ -72,6 +72,9 @@
     <Compile Include="CiReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="CiReReply.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
     <Compile Include="Goods.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
@@ -107,6 +110,9 @@
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="ShiReply.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiReReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="ShiType.cs">
@@ -166,6 +172,9 @@
     <Compile Include="View_CiPaiCi.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_CiReply.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
     <Compile Include="View_CiShow.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
@@ -179,6 +188,9 @@
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_PostReply.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_ShiReply.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
     <Compile Include="View_ShitypeA.cs">

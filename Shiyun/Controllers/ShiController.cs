@@ -242,19 +242,19 @@ namespace Shiyun.Controllers
         ////[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
         ////对数据进行增删改时要防止csrf攻击！
         ////该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Shi shi = shimanager.GetShiById(id);
-            int shiid = shi.Shi_id;
-            var shicomment = shimanager.GetShiCommentByShiId(shiid);
-            if (shicomment.Count() > 0)
-            {
-                shimanager.RemoveRangeShiComment(shicomment);
-            }
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Shi shi = shimanager.GetShiById(id);
+        //    int shiid = shi.Shi_id;
+        //    var shicomment = shimanager.GetShiCommentByShiId(shiid);
+        //    if (shicomment.Count() > 0)
+        //    {
+        //        shimanager.RemoveRangeShiComment(shicomment);
+        //    }
            
-            shimanager.RemoveShi(shi);
-            return RedirectToAction("Index");
-        }
+        //    shimanager.RemoveShi(shi);
+        //    return RedirectToAction("Index");
+        //}
         #endregion
        
 

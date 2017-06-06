@@ -1,11 +1,10 @@
 ﻿@model Models.Ci
 @{
     ViewBag.Title = "词鉴赏";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("jrgwc", "ShiShow", FormMethod.Post))
-{
-    @Html.HiddenFor(model => model.Ci_id)
+
     <!DOCTYPE html>
 
     <head>
@@ -79,29 +78,22 @@
 
                                     </div>
                                 </div>
-
+                                <div class="copyright-box">
+                                    <div>
+                                        <span>作者：<a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" target="_blank">@Model.Author.AuthorName</a></span>
+                                        <span>∙ 文章来源：<a href="#">诗韵</a></span>
+                                    </div>
+                                    <div>
+                                        <i class="ri ri-copyright"></i>欢迎大家一起学习中国古诗词，遨游诗词海洋，传承中国优秀诗词文化。
+                                    </div>
+                                </div>
                             </section>
 
                             <section class="as-article-section one-section white section">
-                                <div class="article-reply reply">
-                                    <div class="copyright-box">
-                                        <div>
-                                            <span>作者：<a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" target="_blank">@Model.Author.AuthorName</a></span>
-                                            <span>∙ 文章来源：<a href="#">诗韵</a></span>
-                                        </div>
-                                        <div>
-                                            <i class="ri ri-copyright"></i>欢迎大家一起学习中国古诗词，遨游诗词海洋，传承中国优秀诗词文化。
-                                        </div>
-                                    </div>
-                                    <div class="reply-header gray text">评论</div>
+                                <div class="article-reply reply">                                   
+                                    <div class="reply-header gray text"><img src="@Session["UserImage"]" style="width: 30px; height: 30px;" />评论</div>
                                     <div class="reply-area">
-                                        <div class="reply-unlogin one-row">
-                                            评论请
-                                            <a href="#" class="rg-button-small">登录</a>
-                                        </div>
-                                    </div>
-                                    <div class="reply-list">
-                                        <ul></ul>
+                                        @{ Html.RenderAction("CiComments", "ShiShow");}
                                     </div>
                                 </div>
                             </section>
@@ -239,7 +231,4 @@
 
 
     </body>
-
-
-}
 

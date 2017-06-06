@@ -22,7 +22,19 @@ namespace DAL
             Ci ci = db.Ci.Find(id);
             return ci;
         }
-        public IQueryable<CiComment> GetCiCommentByCiId(int id)
+        public IEnumerable<Ci> GetPostDetails(int postid) //获取词详情
+        {
+            var pstd = from po in db.Ci
+                       where po.Ci_id == postid
+                       select po;
+            return pstd;
+        }
+        public IQueryable<CiReReply> GetPostReplyByPostId(int id)
+        {
+            var post = db.CiReReply.Include("Ci").Where(o => o.Ci_id == id);
+            return post;
+        }
+        public IEnumerable<CiComment> GetCiCommentByCiId(int id)
         {
             var CiComment = db.CiComment.Include("Ci").Where(c => c.Ci_id == id);
             return CiComment;

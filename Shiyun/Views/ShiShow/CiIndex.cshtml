@@ -35,7 +35,7 @@
                                 @foreach (var ci in Model.Citop7)
                                 {
                                     <div class="preview relative left mr10 mb10 smallall">
-                                        <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci.Ci_id })" class="image">
+                                        <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci.Ci_id })" class="image">
                                             <img width="200" height="170" style="display: inline;" src='..@ci.CiImage'>
                                             <p class="title small one-line">@ci.CiTitle</p>
                                         </a>

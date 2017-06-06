@@ -10,6 +10,7 @@ using PagedList;
 using System.IO;
 using System.Web.Helpers;
 using Shiyun.Models;
+using Shiyun.Attributes;
 
 namespace Shiyun.Controllers
 {
@@ -22,6 +23,11 @@ namespace Shiyun.Controllers
         ShiTypeManager shitypemanager = new ShiTypeManager();
         CiManager cimanager = new CiManager();
         CiPaiManager cipaimanager = new CiPaiManager();
+        CiReReplyManager pr = new CiReReplyManager();
+        CiCommentManager cc = new CiCommentManager();
+        CiReplyManager cr = new CiReplyManager();
+        ShiCommentManager sc=new ShiCommentManager();
+        ShiReplyManager sr=new ShiReplyManager();
         // GET: ShiShow
 
         #region 诗展示
@@ -109,8 +115,78 @@ namespace Shiyun.Controllers
             return View(shis);
         }
 
+        public ActionResult ShiShowShiDetails1(int shiid)
+        {
+            Session["shiid"] = shiid;
+            int Shi_id = Convert.ToInt32(Session["shiid"]);
+            var shis = shimanager.GetShiById(shiid);
+            if (shis == null)
+            {
+                return HttpNotFound();
+            }
+            return View(shis);
+        }
         #endregion
 
+        #region 诗评论回复
+        public ActionResult ShiComments(int shiid)
+        {
+            shiid = Convert.ToInt32(Session["shiid"]);
+            var comment = shimanager.GetShiCommentByShiId(shiid);
+            return View(comment);
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [Login]
+        public ActionResult ShiComments(ShiComment ShiComment)
+        {
+            int shiid = Convert.ToInt32(Session["shiid"]);
+            string userid = (Session["Users_id"]).ToString();
+            string textarea = Request["pingluntextarea"];
+            if (ModelState.IsValid)
+            {
+                if (textarea != "")
+                {
+                    ShiComment.Users_id = userid.ToString();
+                    ShiComment.Shi_id = shiid;
+                    ShiComment.ComTime = System.DateTime.Now;
+                    ShiComment.ComContent = textarea;
+                    sc.AddShiComment(ShiComment);
+                }
+                else
+                {
+                    return Content("<script>alert('评论不能为空！');history.go(-1)</script>");
+                }
+            }
+            return RedirectToAction("ShiShowShiDetails1", "ShiShow", new { shiid = shiid });
+        }
+        public ActionResult ReplyShiComments()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ReplyShiComments(int ShiCommentid, ShiReply replyshi)
+        {
+            string replytext = Request.Form["textarea1"];
+            if (replytext == "")
+            {
+                return Content("<script>;alert('回复不能为空');history.go(-1)</script>");
+            }
+            else
+            {
+                string userid = (Session["Users_id"]).ToString();
+                replyshi.ShiComment_id = ShiCommentid;
+                replyshi.Users_id = userid.ToString();
+                replyshi.ReplyContent = replytext;
+                replyshi.ReplyTime = DateTime.Now;
+                sr.AddShiReply(replyshi);
+                return Content("<script>alert('回复成功！');history.go(-1)</script>");
+            }
+        }
+
+        #endregion
 
         #region 词展示
 
@@ -189,6 +265,152 @@ namespace Shiyun.Controllers
                 return HttpNotFound();
             }
             return View(cis);
+        }
+        public ActionResult ShiShowCiDetails1(int id)
+        {
+            CiPaiViewModels cidetails = new CiPaiViewModels();
+            ViewBag.Ci_id = id;          
+            cidetails.CiDetails = cimanager.GetPostDetails(id);
+            cidetails.AllCiReply = pr.GetPostReply(id);
+            return View(cidetails);          
+        }
+        public ActionResult ShiShowCiDetails2(int id)
+        {
+            CiPaiViewModels cidetails = new CiPaiViewModels();
+            ViewBag.Ci_id = id;
+            cidetails.CiDetails = cimanager.GetPostDetails(id);
+            cidetails.CiComment = cimanager.GetCiCommentByCiId(id);
+            return View(cidetails);
+        }
+        public ActionResult ShiShowCiDetails3(int ciid)
+        {
+            Session["ciid"] = ciid;
+            int Ci_id = Convert.ToInt32(Session["ciid"]);
+            var cis = cimanager.GetCisById(ciid);
+            if (cis == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cis);
+        }
+        #endregion
+
+        #region 词评论1
+        public ActionResult CiComments(int ciid)
+        {
+            ciid = Convert.ToInt32(Session["ciid"]);
+            var comment = cimanager.GetCiCommentByCiId(ciid);
+            return View(comment);
+        }
+
+        
+        [HttpPost]
+        [ValidateInput(false)]
+        [Login]
+        public ActionResult CiComments(CiComment CiComment)
+        {
+            int ciid = Convert.ToInt32(Session["ciid"]);
+            string userid =(Session["Users_id"]).ToString();
+            string textarea = Request["pingluntextarea"];
+            if (ModelState.IsValid)
+            {
+                    if (textarea != "")
+                    {
+                        CiComment.Users_id = userid.ToString();
+                        CiComment.Ci_id = ciid;
+                        CiComment.ComTime = System.DateTime.Now;
+                        CiComment.ComContent = textarea;
+                        cc.AddCiComment(CiComment);
+                    }
+                    else
+                    {
+                        return Content("<script>alert('评论不能为空！');history.go(-1)</script>");
+                    }
+                }
+             return RedirectToAction("ShiShowCiDetails3", "ShiShow", new { ciid = ciid });
+        }
+        public ActionResult ReplyCiComments()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ReplyCiComments(int CiCommentid, CiReply replyci)
+        {
+            string replytext = Request.Form["textarea1"];
+            if (replytext == "")
+            {
+                return Content("<script>;alert('回复不能为空');history.go(-1)</script>");
+            }
+            else
+            {
+                string userid = (Session["Users_id"]).ToString();
+                replyci.CiComment_id = CiCommentid;
+                replyci.Users_id = userid.ToString();
+                replyci.ReplyContent = replytext;
+                replyci.ReplyTime = DateTime.Now;
+                cr.AddCiReply(replyci);
+                return Content("<script>alert('回复成功！');history.go(-1)</script>");
+            }
+        }
+        #endregion
+
+        #region 词评论
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult CiComment(CiComment cicomment)
+        {
+            string pingluntextarea = Request["pingluntextarea"];
+            int Ci_id = Convert.ToInt32(Session["Ci_id"]);
+            
+
+            if (ModelState.IsValid)
+            {
+                cicomment.Ci_id = Convert.ToInt32(Session["Ci_id"]);
+                cicomment.Users_id = Session["Users_id"].ToString();
+                cicomment.ComContent = pingluntextarea;
+                cicomment.ComTime = System.DateTime.Now;
+                db.CiComment.Add(cicomment);
+                db.SaveChanges();
+                return Content("<script>;alert('评论成功!');history.go(-1)</script>");
+            }
+            return RedirectToAction("ShiShowCiDetails2", "ShiShow");
+        }
+        #endregion
+
+        #region 评论分页数据获取
+        public ActionResult GetAllPostReply(int id, int? page)
+        {
+            ViewBag.Ci_id = id;
+            var postreply = pr.GetPostReply(id);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(postreply.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
+        #region  保存评论
+        [HttpPost]
+        [ValidateInput(false)]  //富文本编辑器使用
+        [ValidateAntiForgeryToken]
+        [Login]
+        public string Pinglun([Bind(Include = "Reply_id,Users_id,ReplyContent,ReplyTime,ReReply_id,Ci_id")]CiReReply postReply)
+        {
+
+            if (ModelState.IsValid)
+            {
+                postReply.Ci_id = ViewBag.Ci_id;
+                postReply.ReplyTime = System.DateTime.Now;
+                postReply.Users_id = Session["Users_id"].ToString();
+                                
+                pr.AddPostReply(postReply);
+                return "aa";
+                //Content("<script>;alert('发布成功！');window.history.go(-1);</script>");
+            }
+            else
+            {
+                return "bb";
+                //Content("<script>;alert('发布失败！');history.go(-1)</script>");
+            }
         }
         #endregion
 

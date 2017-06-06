@@ -11,7 +11,9 @@ namespace IDAL
     {
         IEnumerable<CiComment> GetCiComment();
         CiComment GetCiCommentById(int? id);
-        IQueryable<CiReply> GetCiReplyByCiCommentId(int id);    
+        IEnumerable <CiComment> GetCiComment(int id);
+        IQueryable<CiReply> GetCiReplyByCiCommentId(int id);
+        void AddCiComment(CiComment cicomment);
         void RemoveCiComment(CiComment cicomment);
         void RemoveRangeCiReply(IQueryable<CiReply> CiReply);
        

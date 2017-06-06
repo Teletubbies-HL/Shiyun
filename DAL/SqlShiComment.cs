@@ -27,7 +27,11 @@ namespace DAL
             var ShiReply = db.ShiReply.Include("ShiComment").Where(c => c.ShiComment_id == id);
             return ShiReply;
         }
-
+        public void AddShiComment(ShiComment shicomment)
+        {
+            db.ShiComment.Add(shicomment);
+            db.SaveChanges();
+        }
         public void RemoveShiComment(ShiComment shicomment)
         {
             //db.Shi.Add(goods);

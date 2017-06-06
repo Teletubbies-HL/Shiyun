@@ -66,6 +66,11 @@ namespace DALFactory
             string className = AssemblyName + "." + db + "CiReply";
             return (ICiReply)Assembly.Load(AssemblyName).CreateInstance(className);
         }
+        public static ICiReReply CreateCiReReply()
+        {
+            string className = AssemblyName + "." + db + "CiReReply";
+            return (ICiReReply)Assembly.Load(AssemblyName).CreateInstance(className);
+        }
         public static IGoodsK CreateGoodsK()
         {
             string className = AssemblyName + "." + db + "GoodsK";

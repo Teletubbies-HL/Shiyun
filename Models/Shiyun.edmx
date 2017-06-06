@@ -60,6 +60,7 @@
           <Property Name="Cipai_id" Type="int" />
           <Property Name="CiImage" Type="nvarchar(max)" />
           <Property Name="AddTime" Type="datetime" />
+          <Property Name="CiJieSaho" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CiComment">
           <Key>
@@ -89,6 +90,17 @@
           <Property Name="CiComment_id" Type="int" Nullable="false" />
           <Property Name="ReplyTime" Type="datetime" Nullable="false" />
           <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CiReReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReplyContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime" Type="datetime" />
+          <Property Name="ReReply_id" Type="int" />
+          <Property Name="Ci_id" Type="int" />
         </EntityType>
         <EntityType Name="Goods">
           <Key>
@@ -215,6 +227,7 @@
           <Property Name="ShiType_id" Type="int" />
           <Property Name="ShiImage" Type="nvarchar(max)" />
           <Property Name="AddTime" Type="datetime" />
+          <Property Name="ShiJieShao" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ShiComment">
           <Key>
@@ -235,6 +248,17 @@
           <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="ReplyTime" Type="datetime" Nullable="false" />
           <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShiReReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReplyContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime" Type="datetime" />
+          <Property Name="ReReply_id" Type="int" />
+          <Property Name="Shi_id" Type="int" />
         </EntityType>
         <EntityType Name="ShiType">
           <Key>
@@ -426,6 +450,30 @@
           <Property Name="AuthorImage" Type="nvarchar(max)" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_CiReply”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_CiReply">
+          <Key>
+            <PropertyRef Name="Reply_id1" />
+            <PropertyRef Name="Users_id1" />
+          </Key>
+          <Property Name="Reply_id1" Type="int" Nullable="false" />
+          <Property Name="ReplyContent1" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime1" Type="datetime" />
+          <Property Name="ReReply_id1" Type="int" />
+          <Property Name="Ci_id1" Type="int" />
+          <Property Name="Users_id1" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName1" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage1" Type="text" />
+          <Property Name="Users_id2" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserName2" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage2" Type="text" />
+          <Property Name="Reply_id2" Type="int" />
+          <Property Name="ReplyContent2" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime2" Type="datetime" />
+          <Property Name="ReReply_id2" Type="int" />
+          <Property Name="Ci_id2" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_CiShow”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="View_CiShow">
           <Key>
@@ -434,6 +482,7 @@
             <PropertyRef Name="Ci_id" />
             <PropertyRef Name="CiTitle" />
             <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="CiContent" />
           </Key>
           <Property Name="CiPai_id" Type="int" Nullable="false" />
           <Property Name="CiPaiName" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -442,6 +491,17 @@
           <Property Name="CiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Author_id" Type="int" />
           <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CiContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CiFanyi" Type="nvarchar(max)" />
+          <Property Name="CiShangxi" Type="nvarchar(max)" />
+          <Property Name="Cibeijing" Type="nvarchar(max)" />
+          <Property Name="CiYuying" Type="nvarchar(max)" />
+          <Property Name="CiImage" Type="nvarchar(max)" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="CiJieSaho" Type="nvarchar(max)" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="Time_id" Type="int" />
+          <Property Name="Expr1" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_OrderDetails”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -564,6 +624,30 @@
           <Property Name="ReplyTime2" Type="datetime" />
           <Property Name="ReReply_id2" Type="int" />
           <Property Name="Post_id2" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_ShiReply”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_ShiReply">
+          <Key>
+            <PropertyRef Name="Reply_id1" />
+            <PropertyRef Name="Users_id1" />
+          </Key>
+          <Property Name="Reply_id1" Type="int" Nullable="false" />
+          <Property Name="ReplyContent1" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime1" Type="datetime" />
+          <Property Name="ReReply_id1" Type="int" />
+          <Property Name="Shi_id1" Type="int" />
+          <Property Name="Users_id1" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName1" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage1" Type="text" />
+          <Property Name="Users_id2" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserName2" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserImage2" Type="text" />
+          <Property Name="Reply_id2" Type="int" />
+          <Property Name="ReplyContent2" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyTime2" Type="datetime" />
+          <Property Name="ReReply_id2" Type="int" />
+          <Property Name="Shi_id2" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_ShitypeA”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -720,6 +804,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CiReReply_Ci">
+          <End Role="Ci" Type="Self.Ci" Multiplicity="0..1" />
+          <End Role="CiReReply" Type="Self.CiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ci">
+              <PropertyRef Name="Ci_id" />
+            </Principal>
+            <Dependent Role="CiReReply">
+              <PropertyRef Name="Ci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReReply_CiReReply">
+          <End Role="CiReReply" Type="Self.CiReReply" Multiplicity="0..1" />
+          <End Role="CiReReply1" Type="Self.CiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiReReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="CiReReply1">
+              <PropertyRef Name="ReReply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="CiReReply" Type="Self.CiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="CiReReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Goods_GoodsK">
           <End Role="GoodsK" Type="Self.GoodsK" Multiplicity="0..1" />
           <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
@@ -932,6 +1052,42 @@
               <PropertyRef Name="Users_id" />
             </Principal>
             <Dependent Role="ShiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReReply_Shi">
+          <End Role="Shi" Type="Self.Shi" Multiplicity="0..1" />
+          <End Role="ShiReReply" Type="Self.ShiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shi">
+              <PropertyRef Name="Shi_id" />
+            </Principal>
+            <Dependent Role="ShiReReply">
+              <PropertyRef Name="Shi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReReply_ShiReReply">
+          <End Role="ShiReReply" Type="Self.ShiReReply" Multiplicity="0..1" />
+          <End Role="ShiReReply1" Type="Self.ShiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiReReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="ShiReReply1">
+              <PropertyRef Name="ReReply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="ShiReReply" Type="Self.ShiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShiReReply">
               <PropertyRef Name="Users_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -1083,6 +1239,7 @@
           <EntitySet Name="CiComment" EntityType="Self.CiComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CiPai" EntityType="Self.CiPai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CiReply" EntityType="Self.CiReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CiReReply" EntityType="Self.CiReReply" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GoodsK" EntityType="Self.GoodsK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LunTan" EntityType="Self.LunTan" Schema="dbo" store:Type="Tables" />
@@ -1095,6 +1252,7 @@
           <EntitySet Name="Shi" EntityType="Self.Shi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShiComment" EntityType="Self.ShiComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShiReply" EntityType="Self.ShiReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShiReReply" EntityType="Self.ShiReReply" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShiType" EntityType="Self.ShiType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShopCar" EntityType="Self.ShopCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Time" EntityType="Self.Time" Schema="dbo" store:Type="Tables" />
@@ -1160,6 +1318,26 @@
     [View_CiPaiCi].[AuthorImage] AS [AuthorImage]
     FROM [dbo].[View_CiPaiCi] AS [View_CiPaiCi]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="View_CiReply" EntityType="Self.View_CiReply" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_CiReply].[Reply_id1] AS [Reply_id1], 
+    [View_CiReply].[ReplyContent1] AS [ReplyContent1], 
+    [View_CiReply].[ReplyTime1] AS [ReplyTime1], 
+    [View_CiReply].[ReReply_id1] AS [ReReply_id1], 
+    [View_CiReply].[Ci_id1] AS [Ci_id1], 
+    [View_CiReply].[Users_id1] AS [Users_id1], 
+    [View_CiReply].[UserName1] AS [UserName1], 
+    [View_CiReply].[UserImage1] AS [UserImage1], 
+    [View_CiReply].[Users_id2] AS [Users_id2], 
+    [View_CiReply].[UserName2] AS [UserName2], 
+    [View_CiReply].[UserImage2] AS [UserImage2], 
+    [View_CiReply].[Reply_id2] AS [Reply_id2], 
+    [View_CiReply].[ReplyContent2] AS [ReplyContent2], 
+    [View_CiReply].[ReplyTime2] AS [ReplyTime2], 
+    [View_CiReply].[ReReply_id2] AS [ReReply_id2], 
+    [View_CiReply].[Ci_id2] AS [Ci_id2]
+    FROM [dbo].[View_CiReply] AS [View_CiReply]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_CiShow].[CiPai_id] AS [CiPai_id], 
@@ -1168,7 +1346,18 @@
     [View_CiShow].[Ci_id] AS [Ci_id], 
     [View_CiShow].[CiTitle] AS [CiTitle], 
     [View_CiShow].[Author_id] AS [Author_id], 
-    [View_CiShow].[AuthorName] AS [AuthorName]
+    [View_CiShow].[AuthorName] AS [AuthorName], 
+    [View_CiShow].[CiContent] AS [CiContent], 
+    [View_CiShow].[CiFanyi] AS [CiFanyi], 
+    [View_CiShow].[CiShangxi] AS [CiShangxi], 
+    [View_CiShow].[Cibeijing] AS [Cibeijing], 
+    [View_CiShow].[CiYuying] AS [CiYuying], 
+    [View_CiShow].[CiImage] AS [CiImage], 
+    [View_CiShow].[AddTime] AS [AddTime], 
+    [View_CiShow].[CiJieSaho] AS [CiJieSaho], 
+    [View_CiShow].[AuthorImage] AS [AuthorImage], 
+    [View_CiShow].[Time_id] AS [Time_id], 
+    [View_CiShow].[Expr1] AS [Expr1]
     FROM [dbo].[View_CiShow] AS [View_CiShow]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" store:Type="Views" store:Schema="dbo">
@@ -1272,6 +1461,26 @@
     [View_PostReply].[Post_id2] AS [Post_id2]
     FROM [dbo].[View_PostReply] AS [View_PostReply]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="View_ShiReply" EntityType="Self.View_ShiReply" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ShiReply].[Reply_id1] AS [Reply_id1], 
+    [View_ShiReply].[ReplyContent1] AS [ReplyContent1], 
+    [View_ShiReply].[ReplyTime1] AS [ReplyTime1], 
+    [View_ShiReply].[ReReply_id1] AS [ReReply_id1], 
+    [View_ShiReply].[Shi_id1] AS [Shi_id1], 
+    [View_ShiReply].[Users_id1] AS [Users_id1], 
+    [View_ShiReply].[UserName1] AS [UserName1], 
+    [View_ShiReply].[UserImage1] AS [UserImage1], 
+    [View_ShiReply].[Users_id2] AS [Users_id2], 
+    [View_ShiReply].[UserName2] AS [UserName2], 
+    [View_ShiReply].[UserImage2] AS [UserImage2], 
+    [View_ShiReply].[Reply_id2] AS [Reply_id2], 
+    [View_ShiReply].[ReplyContent2] AS [ReplyContent2], 
+    [View_ShiReply].[ReplyTime2] AS [ReplyTime2], 
+    [View_ShiReply].[ReReply_id2] AS [ReReply_id2], 
+    [View_ShiReply].[Shi_id2] AS [Shi_id2]
+    FROM [dbo].[View_ShiReply] AS [View_ShiReply]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="View_ShitypeA" EntityType="Self.View_ShitypeA" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_ShitypeA].[ShiType_id] AS [ShiType_id], 
@@ -1338,6 +1547,18 @@
           <AssociationSet Name="FK_CiReply_UserInfo" Association="Self.FK_CiReply_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="CiReply" EntitySet="CiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReReply_Ci" Association="Self.FK_CiReReply_Ci">
+            <End Role="Ci" EntitySet="Ci" />
+            <End Role="CiReReply" EntitySet="CiReReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReReply_CiReReply" Association="Self.FK_CiReReply_CiReReply">
+            <End Role="CiReReply" EntitySet="CiReReply" />
+            <End Role="CiReReply1" EntitySet="CiReReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReReply_UserInfo" Association="Self.FK_CiReReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="CiReReply" EntitySet="CiReReply" />
           </AssociationSet>
           <AssociationSet Name="FK_Goods_GoodsK" Association="Self.FK_Goods_GoodsK">
             <End Role="GoodsK" EntitySet="GoodsK" />
@@ -1410,6 +1631,18 @@
           <AssociationSet Name="FK_ShiReply_UserInfo" Association="Self.FK_ShiReply_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="ShiReply" EntitySet="ShiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReReply_Shi" Association="Self.FK_ShiReReply_Shi">
+            <End Role="Shi" EntitySet="Shi" />
+            <End Role="ShiReReply" EntitySet="ShiReReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReReply_ShiReReply" Association="Self.FK_ShiReReply_ShiReReply">
+            <End Role="ShiReReply" EntitySet="ShiReReply" />
+            <End Role="ShiReReply1" EntitySet="ShiReReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReReply_UserInfo" Association="Self.FK_ShiReReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShiReReply" EntitySet="ShiReReply" />
           </AssociationSet>
           <AssociationSet Name="FK_ShopCar_Goods" Association="Self.FK_ShopCar_Goods">
             <End Role="Goods" EntitySet="Goods" />
@@ -1522,10 +1755,12 @@
           <Property Name="Cipai_id" Type="Int32" />
           <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="CiJieSaho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Ci_Author" FromRole="Ci" ToRole="Author" />
           <NavigationProperty Name="Time" Relationship="Self.FK_Ci_Time" FromRole="Ci" ToRole="Time" />
           <NavigationProperty Name="CiPai" Relationship="Self.FK_Ci_Time1" FromRole="Ci" ToRole="CiPai" />
           <NavigationProperty Name="CiComment" Relationship="Self.FK_CiComment_Ci" FromRole="Ci" ToRole="CiComment" />
+          <NavigationProperty Name="CiReReply" Relationship="Self.FK_CiReReply_Ci" FromRole="Ci" ToRole="CiReReply" />
         </EntityType>
         <EntityType Name="CiComment">
           <Key>
@@ -1561,6 +1796,21 @@
           <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CiComment" Relationship="Self.FK_CiReply_CiComment" FromRole="CiReply" ToRole="CiComment" />
           <NavigationProperty Name="UserInfo" Relationship="Self.FK_CiReply_UserInfo" FromRole="CiReply" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="CiReReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id" Type="Int32" />
+          <Property Name="Ci_id" Type="Int32" />
+          <NavigationProperty Name="Ci" Relationship="Self.FK_CiReReply_Ci" FromRole="CiReReply" ToRole="Ci" />
+          <NavigationProperty Name="CiReReply1" Relationship="Self.FK_CiReReply_CiReReply" FromRole="CiReReply" ToRole="CiReReply1" />
+          <NavigationProperty Name="CiReReply2" Relationship="Self.FK_CiReReply_CiReReply" FromRole="CiReReply1" ToRole="CiReReply" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_CiReReply_UserInfo" FromRole="CiReReply" ToRole="UserInfo" />
         </EntityType>
         <EntityType Name="Goods">
           <Key>
@@ -1704,10 +1954,12 @@
           <Property Name="ShiType_id" Type="Int32" />
           <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="ShiJieShao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Shi_Author" FromRole="Shi" ToRole="Author" />
           <NavigationProperty Name="ShiType" Relationship="Self.FK_Shi_ShiType" FromRole="Shi" ToRole="ShiType" />
           <NavigationProperty Name="Time" Relationship="Self.FK_Shi_Time" FromRole="Shi" ToRole="Time" />
           <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiComment_Shi" FromRole="Shi" ToRole="ShiComment" />
+          <NavigationProperty Name="ShiReReply" Relationship="Self.FK_ShiReReply_Shi" FromRole="Shi" ToRole="ShiReReply" />
         </EntityType>
         <EntityType Name="ShiComment">
           <Key>
@@ -1733,6 +1985,21 @@
           <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiReply_ShiComment" FromRole="ShiReply" ToRole="ShiComment" />
           <NavigationProperty Name="UserInfo" Relationship="Self.FK_ShiReply_UserInfo" FromRole="ShiReply" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="ShiReReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id" Type="Int32" />
+          <Property Name="Shi_id" Type="Int32" />
+          <NavigationProperty Name="Shi" Relationship="Self.FK_ShiReReply_Shi" FromRole="ShiReReply" ToRole="Shi" />
+          <NavigationProperty Name="ShiReReply1" Relationship="Self.FK_ShiReReply_ShiReReply" FromRole="ShiReReply" ToRole="ShiReReply1" />
+          <NavigationProperty Name="ShiReReply2" Relationship="Self.FK_ShiReReply_ShiReReply" FromRole="ShiReReply1" ToRole="ShiReReply" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_ShiReReply_UserInfo" FromRole="ShiReReply" ToRole="UserInfo" />
         </EntityType>
         <EntityType Name="ShiType">
           <Key>
@@ -1811,6 +2078,7 @@
           <Property Name="Jifen" Type="Int32" />
           <NavigationProperty Name="CiComment" Relationship="Self.FK_CiComment_UserInfo" FromRole="UserInfo" ToRole="CiComment" />
           <NavigationProperty Name="CiReply" Relationship="Self.FK_CiReply_UserInfo" FromRole="UserInfo" ToRole="CiReply" />
+          <NavigationProperty Name="CiReReply" Relationship="Self.FK_CiReReply_UserInfo" FromRole="UserInfo" ToRole="CiReReply" />
           <NavigationProperty Name="Message" Relationship="Self.FK_Message_Message" FromRole="UserInfo" ToRole="Message" />
           <NavigationProperty Name="Message1" Relationship="Self.FK_Message_UserInfo" FromRole="UserInfo" ToRole="Message" />
           <NavigationProperty Name="Message2" Relationship="Self.FK_Message_UserInfo1" FromRole="UserInfo" ToRole="Message" />
@@ -1819,6 +2087,7 @@
           <NavigationProperty Name="PostReply" Relationship="Self.FK_PostReply_UserInfo" FromRole="UserInfo" ToRole="PostReply" />
           <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiComment_UserInfo" FromRole="UserInfo" ToRole="ShiComment" />
           <NavigationProperty Name="ShiReply" Relationship="Self.FK_ShiReply_UserInfo" FromRole="UserInfo" ToRole="ShiReply" />
+          <NavigationProperty Name="ShiReReply" Relationship="Self.FK_ShiReReply_UserInfo" FromRole="UserInfo" ToRole="ShiReReply" />
           <NavigationProperty Name="ShopCar" Relationship="Self.FK_ShopCar_UserInfo" FromRole="UserInfo" ToRole="ShopCar" />
           <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_UserInfo" FromRole="UserInfo" ToRole="UserDati" />
           <NavigationProperty Name="UserGuanzhu" Relationship="Self.FK_UserGuanzhu_UserInfo" FromRole="UserInfo" ToRole="UserGuanzhu" />
@@ -1949,6 +2218,28 @@
           <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="View_CiReply">
+          <Key>
+            <PropertyRef Name="Reply_id1" />
+            <PropertyRef Name="Users_id1" />
+          </Key>
+          <Property Name="Reply_id1" Type="Int32" Nullable="false" />
+          <Property Name="ReplyContent1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime1" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id1" Type="Int32" />
+          <Property Name="Ci_id1" Type="Int32" />
+          <Property Name="Users_id1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Users_id2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reply_id2" Type="Int32" />
+          <Property Name="ReplyContent2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime2" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id2" Type="Int32" />
+          <Property Name="Ci_id2" Type="Int32" />
+        </EntityType>
         <EntityType Name="View_CiShow">
           <Key>
             <PropertyRef Name="CiPai_id" />
@@ -1956,6 +2247,7 @@
             <PropertyRef Name="Ci_id" />
             <PropertyRef Name="CiTitle" />
             <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="CiContent" />
           </Key>
           <Property Name="CiPai_id" Type="Int32" Nullable="false" />
           <Property Name="CiPaiName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1964,6 +2256,17 @@
           <Property Name="CiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Author_id" Type="Int32" />
           <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiFanyi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiShangxi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cibeijing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiYuying" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="CiJieSaho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_id" Type="Int32" />
+          <Property Name="Expr1" Type="Int32" />
         </EntityType>
         <EntityType Name="View_OrderDetails">
           <Key>
@@ -2078,6 +2381,28 @@
           <Property Name="ReplyTime2" Type="DateTime" Precision="3" />
           <Property Name="ReReply_id2" Type="Int32" />
           <Property Name="Post_id2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_ShiReply">
+          <Key>
+            <PropertyRef Name="Reply_id1" />
+            <PropertyRef Name="Users_id1" />
+          </Key>
+          <Property Name="Reply_id1" Type="Int32" Nullable="false" />
+          <Property Name="ReplyContent1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime1" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id1" Type="Int32" />
+          <Property Name="Shi_id1" Type="Int32" />
+          <Property Name="Users_id1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Users_id2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reply_id2" Type="Int32" />
+          <Property Name="ReplyContent2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime2" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id2" Type="Int32" />
+          <Property Name="Shi_id2" Type="Int32" />
         </EntityType>
         <EntityType Name="View_ShitypeA">
           <Key>
@@ -2218,6 +2543,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CiReReply_Ci">
+          <End Role="Ci" Type="Self.Ci" Multiplicity="0..1" />
+          <End Role="CiReReply" Type="Self.CiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ci">
+              <PropertyRef Name="Ci_id" />
+            </Principal>
+            <Dependent Role="CiReReply">
+              <PropertyRef Name="Ci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CiComment_UserInfo">
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
           <End Role="CiComment" Type="Self.CiComment" Multiplicity="*" />
@@ -2250,6 +2587,30 @@
               <PropertyRef Name="Users_id" />
             </Principal>
             <Dependent Role="CiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReReply_CiReReply">
+          <End Role="CiReReply" Type="Self.CiReReply" Multiplicity="0..1" />
+          <End Role="CiReReply1" Type="Self.CiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiReReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="CiReReply1">
+              <PropertyRef Name="ReReply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CiReReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="CiReReply" Type="Self.CiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="CiReReply">
               <PropertyRef Name="Users_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -2434,6 +2795,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ShiReReply_Shi">
+          <End Role="Shi" Type="Self.Shi" Multiplicity="0..1" />
+          <End Role="ShiReReply" Type="Self.ShiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shi">
+              <PropertyRef Name="Shi_id" />
+            </Principal>
+            <Dependent Role="ShiReReply">
+              <PropertyRef Name="Shi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShiComment_UserInfo">
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
           <End Role="ShiComment" Type="Self.ShiComment" Multiplicity="*" />
@@ -2466,6 +2839,30 @@
               <PropertyRef Name="Users_id" />
             </Principal>
             <Dependent Role="ShiReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReReply_ShiReReply">
+          <End Role="ShiReReply" Type="Self.ShiReReply" Multiplicity="0..1" />
+          <End Role="ShiReReply1" Type="Self.ShiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiReReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="ShiReReply1">
+              <PropertyRef Name="ReReply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiReReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="ShiReReply" Type="Self.ShiReReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="ShiReReply">
               <PropertyRef Name="Users_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -2586,6 +2983,7 @@
           <EntitySet Name="CiComment" EntityType="Self.CiComment" />
           <EntitySet Name="CiPai" EntityType="Self.CiPai" />
           <EntitySet Name="CiReply" EntityType="Self.CiReply" />
+          <EntitySet Name="CiReReply" EntityType="Self.CiReReply" />
           <EntitySet Name="Goods" EntityType="Self.Goods" />
           <EntitySet Name="GoodsK" EntityType="Self.GoodsK" />
           <EntitySet Name="LunTan" EntityType="Self.LunTan" />
@@ -2598,6 +2996,7 @@
           <EntitySet Name="Shi" EntityType="Self.Shi" />
           <EntitySet Name="ShiComment" EntityType="Self.ShiComment" />
           <EntitySet Name="ShiReply" EntityType="Self.ShiReply" />
+          <EntitySet Name="ShiReReply" EntityType="Self.ShiReReply" />
           <EntitySet Name="ShiType" EntityType="Self.ShiType" />
           <EntitySet Name="ShopCar" EntityType="Self.ShopCar" />
           <EntitySet Name="Time" EntityType="Self.Time" />
@@ -2612,11 +3011,13 @@
           <EntitySet Name="View_Authorsc" EntityType="Self.View_Authorsc" />
           <EntitySet Name="View_AuthorShi" EntityType="Self.View_AuthorShi" />
           <EntitySet Name="View_CiPaiCi" EntityType="Self.View_CiPaiCi" />
+          <EntitySet Name="View_CiReply" EntityType="Self.View_CiReply" />
           <EntitySet Name="View_CiShow" EntityType="Self.View_CiShow" />
           <EntitySet Name="View_OrderDetails" EntityType="Self.View_OrderDetails" />
           <EntitySet Name="View_PostDetails" EntityType="Self.View_PostDetails" />
           <EntitySet Name="View_PostIndex" EntityType="Self.View_PostIndex" />
           <EntitySet Name="View_PostReply" EntityType="Self.View_PostReply" />
+          <EntitySet Name="View_ShiReply" EntityType="Self.View_ShiReply" />
           <EntitySet Name="View_ShitypeA" EntityType="Self.View_ShitypeA" />
           <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" />
           <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
@@ -2651,6 +3052,10 @@
             <End Role="Ci" EntitySet="Ci" />
             <End Role="CiComment" EntitySet="CiComment" />
           </AssociationSet>
+          <AssociationSet Name="FK_CiReReply_Ci" Association="Self.FK_CiReReply_Ci">
+            <End Role="Ci" EntitySet="Ci" />
+            <End Role="CiReReply" EntitySet="CiReReply" />
+          </AssociationSet>
           <AssociationSet Name="FK_CiComment_UserInfo" Association="Self.FK_CiComment_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="CiComment" EntitySet="CiComment" />
@@ -2662,6 +3067,14 @@
           <AssociationSet Name="FK_CiReply_UserInfo" Association="Self.FK_CiReply_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="CiReply" EntitySet="CiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReReply_CiReReply" Association="Self.FK_CiReReply_CiReReply">
+            <End Role="CiReReply" EntitySet="CiReReply" />
+            <End Role="CiReReply1" EntitySet="CiReReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CiReReply_UserInfo" Association="Self.FK_CiReReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="CiReReply" EntitySet="CiReReply" />
           </AssociationSet>
           <AssociationSet Name="FK_Goods_GoodsK" Association="Self.FK_Goods_GoodsK">
             <End Role="GoodsK" EntitySet="GoodsK" />
@@ -2723,6 +3136,10 @@
             <End Role="Shi" EntitySet="Shi" />
             <End Role="ShiComment" EntitySet="ShiComment" />
           </AssociationSet>
+          <AssociationSet Name="FK_ShiReReply_Shi" Association="Self.FK_ShiReReply_Shi">
+            <End Role="Shi" EntitySet="Shi" />
+            <End Role="ShiReReply" EntitySet="ShiReReply" />
+          </AssociationSet>
           <AssociationSet Name="FK_ShiComment_UserInfo" Association="Self.FK_ShiComment_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="ShiComment" EntitySet="ShiComment" />
@@ -2734,6 +3151,14 @@
           <AssociationSet Name="FK_ShiReply_UserInfo" Association="Self.FK_ShiReply_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="ShiReply" EntitySet="ShiReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReReply_ShiReReply" Association="Self.FK_ShiReReply_ShiReReply">
+            <End Role="ShiReReply" EntitySet="ShiReReply" />
+            <End Role="ShiReReply1" EntitySet="ShiReReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiReReply_UserInfo" Association="Self.FK_ShiReReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ShiReReply" EntitySet="ShiReReply" />
           </AssociationSet>
           <AssociationSet Name="FK_ShopCar_UserInfo" Association="Self.FK_ShopCar_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
@@ -2842,6 +3267,7 @@
                 <ScalarProperty Name="Cipai_id" ColumnName="Cipai_id" />
                 <ScalarProperty Name="CiImage" ColumnName="CiImage" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="CiJieSaho" ColumnName="CiJieSaho" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2874,6 +3300,18 @@
                 <ScalarProperty Name="CiComment_id" ColumnName="CiComment_id" />
                 <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
                 <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CiReReply">
+            <EntityTypeMapping TypeName="ShiyunModel.CiReReply">
+              <MappingFragment StoreEntitySet="CiReReply">
+                <ScalarProperty Name="Reply_id" ColumnName="Reply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
+                <ScalarProperty Name="Ci_id" ColumnName="Ci_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3009,6 +3447,7 @@
                 <ScalarProperty Name="ShiType_id" ColumnName="ShiType_id" />
                 <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="ShiJieShao" ColumnName="ShiJieShao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3031,6 +3470,18 @@
                 <ScalarProperty Name="Users_id" ColumnName="Users_id" />
                 <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
                 <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiReReply">
+            <EntityTypeMapping TypeName="ShiyunModel.ShiReReply">
+              <MappingFragment StoreEntitySet="ShiReReply">
+                <ScalarProperty Name="Reply_id" ColumnName="Reply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3218,6 +3669,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="View_CiReply">
+            <EntityTypeMapping TypeName="ShiyunModel.View_CiReply">
+              <MappingFragment StoreEntitySet="View_CiReply">
+                <ScalarProperty Name="Reply_id1" ColumnName="Reply_id1" />
+                <ScalarProperty Name="ReplyContent1" ColumnName="ReplyContent1" />
+                <ScalarProperty Name="ReplyTime1" ColumnName="ReplyTime1" />
+                <ScalarProperty Name="ReReply_id1" ColumnName="ReReply_id1" />
+                <ScalarProperty Name="Ci_id1" ColumnName="Ci_id1" />
+                <ScalarProperty Name="Users_id1" ColumnName="Users_id1" />
+                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
+                <ScalarProperty Name="UserImage1" ColumnName="UserImage1" />
+                <ScalarProperty Name="Users_id2" ColumnName="Users_id2" />
+                <ScalarProperty Name="UserName2" ColumnName="UserName2" />
+                <ScalarProperty Name="UserImage2" ColumnName="UserImage2" />
+                <ScalarProperty Name="Reply_id2" ColumnName="Reply_id2" />
+                <ScalarProperty Name="ReplyContent2" ColumnName="ReplyContent2" />
+                <ScalarProperty Name="ReplyTime2" ColumnName="ReplyTime2" />
+                <ScalarProperty Name="ReReply_id2" ColumnName="ReReply_id2" />
+                <ScalarProperty Name="Ci_id2" ColumnName="Ci_id2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="View_CiShow">
             <EntityTypeMapping TypeName="ShiyunModel.View_CiShow">
               <MappingFragment StoreEntitySet="View_CiShow">
@@ -3228,6 +3701,17 @@
                 <ScalarProperty Name="CiTitle" ColumnName="CiTitle" />
                 <ScalarProperty Name="Author_id" ColumnName="Author_id" />
                 <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="CiContent" ColumnName="CiContent" />
+                <ScalarProperty Name="CiFanyi" ColumnName="CiFanyi" />
+                <ScalarProperty Name="CiShangxi" ColumnName="CiShangxi" />
+                <ScalarProperty Name="Cibeijing" ColumnName="Cibeijing" />
+                <ScalarProperty Name="CiYuying" ColumnName="CiYuying" />
+                <ScalarProperty Name="CiImage" ColumnName="CiImage" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="CiJieSaho" ColumnName="CiJieSaho" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3337,6 +3821,28 @@
                 <ScalarProperty Name="ReplyTime2" ColumnName="ReplyTime2" />
                 <ScalarProperty Name="ReReply_id2" ColumnName="ReReply_id2" />
                 <ScalarProperty Name="Post_id2" ColumnName="Post_id2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ShiReply">
+            <EntityTypeMapping TypeName="ShiyunModel.View_ShiReply">
+              <MappingFragment StoreEntitySet="View_ShiReply">
+                <ScalarProperty Name="Reply_id1" ColumnName="Reply_id1" />
+                <ScalarProperty Name="ReplyContent1" ColumnName="ReplyContent1" />
+                <ScalarProperty Name="ReplyTime1" ColumnName="ReplyTime1" />
+                <ScalarProperty Name="ReReply_id1" ColumnName="ReReply_id1" />
+                <ScalarProperty Name="Shi_id1" ColumnName="Shi_id1" />
+                <ScalarProperty Name="Users_id1" ColumnName="Users_id1" />
+                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
+                <ScalarProperty Name="UserImage1" ColumnName="UserImage1" />
+                <ScalarProperty Name="Users_id2" ColumnName="Users_id2" />
+                <ScalarProperty Name="UserName2" ColumnName="UserName2" />
+                <ScalarProperty Name="UserImage2" ColumnName="UserImage2" />
+                <ScalarProperty Name="Reply_id2" ColumnName="Reply_id2" />
+                <ScalarProperty Name="ReplyContent2" ColumnName="ReplyContent2" />
+                <ScalarProperty Name="ReplyTime2" ColumnName="ReplyTime2" />
+                <ScalarProperty Name="ReReply_id2" ColumnName="ReReply_id2" />
+                <ScalarProperty Name="Shi_id2" ColumnName="Shi_id2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

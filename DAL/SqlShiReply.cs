@@ -23,7 +23,11 @@ namespace DAL
             return shireply;
         }
 
-
+        public void AddShiReply(ShiReply shiireply)
+        {
+            db.ShiReply.Add(shiireply);
+            db.SaveChanges();
+        }
         public void RemoveShiReply(ShiReply shireply)
         {
             //db.Shi.Add(goods);

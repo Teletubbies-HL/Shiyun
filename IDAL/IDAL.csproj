@@ -66,6 +66,7 @@
     <Compile Include="IOrders.cs" />
     <Compile Include="IOrdersDetails.cs" />
     <Compile Include="IPost.cs" />
+    <Compile Include="ICiReReply.cs" />
     <Compile Include="IPostReply.cs" />
     <Compile Include="IShi.cs" />
     <Compile Include="IShiComment.cs" />

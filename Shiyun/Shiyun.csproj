@@ -2166,6 +2166,13 @@
     <Content Include="Views\ManagerAdd\Login.cshtml" />
     <Content Include="Views\ManagerAdd\menu.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowCiDetails1.cshtml" />
+    <Content Include="Views\ShiShow\GetAllPostReply.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowCiDetails2.cshtml" />
+    <Content Include="Views\ShiShow\CiComments.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowCiDetails3.cshtml" />
+    <Content Include="Views\ShiShow\ShiComments.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowShiDetails1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

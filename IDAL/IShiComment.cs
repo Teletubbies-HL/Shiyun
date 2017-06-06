@@ -12,7 +12,7 @@ namespace IDAL
         IEnumerable<ShiComment> GetShiComment();
         ShiComment GetShiCommentById(int? id);
         IQueryable<ShiReply> GetShiReplyByShiCommentId(int id);
-
+        void AddShiComment(ShiComment shicomment);
         void RemoveShiComment(ShiComment shicomment);
         void RemoveRangeShiReply(IQueryable<ShiReply> Shireply);
     }

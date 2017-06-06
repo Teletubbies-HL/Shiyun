@@ -19,6 +19,7 @@ namespace Models
         {
             this.CiComment = new HashSet<CiComment>();
             this.CiReply = new HashSet<CiReply>();
+            this.CiReReply = new HashSet<CiReReply>();
             this.Message = new HashSet<Message>();
             this.Message1 = new HashSet<Message>();
             this.Message2 = new HashSet<Message>();
@@ -27,6 +28,7 @@ namespace Models
             this.PostReply = new HashSet<PostReply>();
             this.ShiComment = new HashSet<ShiComment>();
             this.ShiReply = new HashSet<ShiReply>();
+            this.ShiReReply = new HashSet<ShiReReply>();
             this.ShopCar = new HashSet<ShopCar>();
             this.UserDati = new HashSet<UserDati>();
             this.UserGuanzhu = new HashSet<UserGuanzhu>();
@@ -55,6 +57,8 @@ namespace Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CiReply> CiReply { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CiReReply> CiReReply { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Message { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Message1 { get; set; }
@@ -70,6 +74,8 @@ namespace Models
         public virtual ICollection<ShiComment> ShiComment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShiReply> ShiReply { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShiReReply> ShiReReply { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShopCar> ShopCar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

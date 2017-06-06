@@ -1,0 +1,99 @@
+﻿@model IEnumerable < Models.ShiComment>
+@{
+    Layout = null;
+}
+
+<body>
+    @using (Html.BeginForm("ShiComments", "ShiShow", FormMethod.Post, new { id = "pinglun" }))
+    {
+        <div class="PL-box">
+            <div class="PL-neirong">
+                <div class="box" style="border: 1px;"><textarea class="textarea" name="pingluntextarea"></textarea>  </div>
+                <div class="PL-btn">
+                    <input type="submit" value="发表评论" />
+                    @*@if (Session["UserName"] != null)
+                        {
+                            <a href="javascript:document.getElementById('pinglun').submit()">发表评论</a>
+                        }*@
+                    @*else
+                        {
+                            <a onclick="confirm('请先登录')?location.href='@Url.Action("Login","UserInfo")':''" href="javascript:;">发表评论</a>
+                        }*@
+                </div>
+            </div>
+        </div>
+    }
+    <div class="comments">全部评论</div>
+    <hr style="width:96%;margin:10px auto;" />
+    <ul class="out-ul">
+        @{ string tempid; }
+        @foreach (var p in Model)
+        {
+            tempid = "dev" + p.ShiComment_id;
+            <li class="out-li">
+                <div class="user-icon">
+                    <img src="@Session["UserImage"]" style="width: 30px; height: 30px;" />
+                </div>
+                <input type="hidden" value="@p.ShiComment_id" name="ShiCommentid" />
+                <div class="PL-content">
+                    <p>@p.UserInfo.UserName</p>
+                    <p>@p.ComContent</p>
+                    <div class="huifu">
+                        <p>
+                            <span>@p.ComTime</span>
+                            <span><button class="btn btn-xs btn-default" onclick="document.getElementById('@tempid').style.display = document.getElementById('@tempid').style.display == '' ? 'none' : ''">回复</button></span>
+                        </p>
+                    </div>
+                </div>
+                <div id="@tempid" style="display:none;" class="ReplyBox">
+                    <div class="ReplyToPost">
+                        @using (Html.BeginForm("ReplyShiComments", "ShiShow", new { ShiCommentid = p.ShiComment_id }, FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
+                {
+                            <div class="PostRly01">
+                                <textarea style="resize:none;" class="form-control" rows="3" name="textarea1" placeholder="我也要简单说两句"></textarea>
+                            </div>
+                            <div class="PostRly02">
+                                <div class="Rly02-A">
+                                    @*<p>此处放错误信息</p>*@
+                                </div>
+                                <div class="Rly02-B">
+                                    <input type="submit" value="提交" class="btn btn-xs btn-default" />
+                                    @*@if (Session["Users_id"] != null)
+                                        {
+                                            <input type="submit" value="提交" class="btn btn-xs btn-default" />
+                                        }
+                                        else
+                                        {
+
+                                            <input onclick="confirm('请先登录')?location.href='@Url.Action("Login","User")':''" href="javascript:;" type="button" value="提交">
+                                        }*@
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </li>
+
+            foreach (Models.ShiReply B in p.ShiReply.Where(c => c.ShiComment_id == p.ShiComment_id).ToList().AsReadOnly())
+            {
+                <li class="in-li">
+                    <div class="huifu-icon">
+                        <p>
+                            <img src="@Session["UserImage"]" style="width: 30px; height: 30px;" />
+                            <div class="names">
+                                <span>@B.UserInfo.UserName</span> 回复
+                                <span>@B.ShiComment.UserInfo.UserName</span>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="HF-content">
+                        <div class="HF-comment">@B.ReplyContent</div>
+                        <div class="HF-time">@B.ReplyTime</div>
+                    </div>
+                </li>
+            }
+
+        }
+    </ul>
+
+</body>

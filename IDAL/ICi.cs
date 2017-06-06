@@ -11,7 +11,9 @@ namespace IDAL
     {
         IEnumerable<Ci> GetCi();
         Ci GetCiById(int? id);
-        IQueryable<CiComment> GetCiCommentByCiId(int id);
+        IEnumerable<Ci> GetPostDetails(int postid);
+        IQueryable<CiReReply> GetPostReplyByPostId(int id);
+        IEnumerable<CiComment> GetCiCommentByCiId(int id);
         IQueryable<Ci> whereCiById(int id);
         IQueryable<Ci> GetCibyTop(int top);
         IQueryable<Ci> GetCibyLast(int last);
