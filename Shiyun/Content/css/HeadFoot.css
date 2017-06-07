@@ -295,6 +295,7 @@ header {
 .footright .foot_part ul .foot_part_title {
   font-size: 15px;
   font-weight: 700;
+  color: #333;
   margin-bottom: 10px;
 }
 .footleft .foot_part ul .foot_part_choose,

@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<Models.Author>
-
 @{
     ViewBag.Title = "AuthorIndex";
+    Layout = "~/Views/Shared/HouTai.cshtml";
 }
-
 <h2>AuthorIndex</h2>
-
 <p>
     @Html.ActionLink("Create New", "AuthorCreate")
 </p>
@@ -23,7 +21,6 @@
         </th>
         <th></th>
     </tr>
-
 @foreach (var item in Model) {
     <tr>
         <td>

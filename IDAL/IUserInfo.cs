@@ -16,6 +16,9 @@ namespace IDAL
         IEnumerable<UserInfo> IEGetUsersById(string Users_id);
         IEnumerable<UserInfo> Jifenpaihang10();
         IEnumerable<UserInfo> Search(string search);
+
+        IEnumerable<View_UserInfo> CountUserGuanzhu1ById(string uid);
+        IEnumerable<View_UserInfo> CountUserGuanzhu2ById(string uid);
         IEnumerable<UserInfo> Jifentop(int top);
         IEnumerable<UserGuanzhu> CountUserGuanzhu1ById(string uid);
         IEnumerable<UserGuanzhu> CountUserGuanzhu2ById(string uid);

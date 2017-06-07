@@ -1,78 +1,98 @@
-﻿@model Models.Author
-@*@model Shiyun.Models.ShiViewModels*@
+﻿@model Shiyun.Models.ShiViewModels
 @{
     ViewBag.Title = "诗韵作者";
 }
 
-@using (Html.BeginForm("jrgwc", "ShiShow", FormMethod.Post))
-{
-    @Html.HiddenFor(model => model.Author_id)
-    <head>
+  @section style{
         <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
         <link href="~/Content/css/ShiCihome.css" rel="stylesheet" />
-    </head>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+      <style>
+*{margin:0;padding:0;list-style:none;}
+body{font-size:12px;color:#666;text-align:left;}
+h1{text-align:center;}
+
+.tabbox{width:100%;height:100%;margin:0px auto;font-family:'微软雅黑';}
+.tabbox .tab{overflow:hidden;background:#ccc;}
+.tabbox .tab a{display:block;padding:10px 20px;float:left;text-decoration:none;color:#333;}
+.tabbox .tab a:hover{background:#E64E3F;color:#fff;text-decoration:none;}
+.tabbox .tab a.on{background:#E64E3F;color:#fff;text-decoration:none;}
+.tabbox .content{overflow:hidden;width:840px;height:600px;position:relative;}
+.tabbox .content ul{position:absolute;left:0;top:0;height:100px;}
+.tabbox .content li{width:840px;float:left;}
+.tabbox .content li p{padding:10px;}
+       .pagination-container {
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+   }
 
     <body class="" style="background-color: #F7F7F7!important;">
         <div class="message-container">
         </div>
         <div class="mm-wrapper" id="mm-wrapper">
             <div class="body">
-                
-                <section class="home-header-section ui tint blur" data-image="@Model.AuthorImage" style="position: relative; z-index: 1;">
-                    <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="320" id="blurred_vdd3x4seq" class="tint-bg-blur" viewBox="0 0 1583 320" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_vdd3x4seq"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="320" externalResourcesRequired="true" href="@Model.AuthorImage" style="filter:url(#blur_vdd3x4seq)" preserveAspectRatio="none"></image></svg></div>
-                    <div class="user-detail container">
-                        <div class="avatar-block">
-                            <img class="avatar-big" src="@Model.AuthorImage" data-original="@Model.AuthorImage" width="160" height="160" alt="@Model.AuthorName" style="display: inline;">
-                        </div>
-
-                        <div class="info-block">
-                            <div class="info">
-                                <span class="name title white extra">@Model.AuthorName</span>
-                                <a href="" class="rg-label small level" style="background-color: #3D6BE2;">朝代</a>
-                                <a href="" class="rg-label small level" style="background-color: #803DE2;">@Model.Time.TimeName</a>
-                                <span class="span-item gender white text">
-                                    <i class="ri ri-transgender">诗韵</i>
-                                </span>
+                @foreach (var au in Model.GetAuthorById)
+                {
+                    <section class="home-header-section ui tint blur" data-image="@au.AuthorImage" style="position: relative; z-index: 1;">
+                        <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="320" id="blurred_vdd3x4seq" class="tint-bg-blur" viewBox="0 0 1583 320" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_vdd3x4seq"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="320" externalResourcesRequired="true" href="@au.AuthorImage" style="filter:url(#blur_vdd3x4seq)" preserveAspectRatio="none"></image></svg></div>
+                        <div class="user-detail container">
+                            <div class="avatar-block">
+                                <img class="avatar-big" src="@au.AuthorImage" data-original="@au.AuthorImage" width="160" height="160" alt="@au.AuthorName" style="display: inline;">
                             </div>
-                            <p class="signature text white">
-                                慕诗客，爱僧家。几时归去，做个闲人，与白衣送酒。
-                            </p>
-                    </div>
+                            <div class="info-block">
+                                <div class="info">
+                                    <span class="name title white extra">@au.AuthorName</span>
+                                    <a href="" class="rg-label small level" style="background-color: #3D6BE2;">朝代</a>
+                                    <a href="" class="rg-label small level" style="background-color: #803DE2;">@au.Time.TimeName</a>
+                                    <span class="span-item gender white text">
+                                        <i class="ri ri-transgender">诗韵</i>
+                                    </span>
+                                </div>
+                                <p class="signature text white">
+                                    慕诗客，爱僧家。几时归去，做个闲人，与白衣送酒。
+                                </p>
+                            </div>
                         </div>
-                </section>
+                    </section>
+                }
+               
                 <section class="home-section one-section container">
                     <div class="col-group">
                         <div class="col-dt-9 col-9 col-mb-12">
                             <section class="home-content-section one-section white section">
                                 <div class="tab-panel">
                                     <div class="tab-content">
-                                        <div class="col-group collection-list">
-                                            <div class="col-dt-6 col-6 col-mb-12">
-                                                <div class="collection-item">
-                                                    <div class="collection-cover">
-                                                        <a href="https://wenxue.ruogoo.cn/collection/379" class="image">
-                                                            @*<img src="./江阴士子的个人空间 _ 若古 _ 最优秀的古风文化社区 _ 古风网站_files/0da7059a37d28d7978d091bd5920a079.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/0da7059a37d28d7978d091bd5920a079.jpg@!cover-120" width="120" height="160" style="display: inline;">*@
-                                                        </a>
+                                        <div class="col-group collection-list" style="height:660px;">
+
+
+                                            <div class="tab post-tab">
+                                                <div class="tabbox">
+                                                    <div class="tab">
+                                                        <a href="javascript:;" class="on">诗集</a>
+                                                        <a href="javascript:;">词集</a>
                                                     </div>
-                                                    <div class="collection-detail">
-                                                        <h3 class="big title one-line">
-                                                            <a href="https://wenxue.ruogoo.cn/collection/379"> 杂谈异录 </a>
-                                                        </h3>
-                                                        <p class="description">人间凄凉荒谬事，此集尽数入囊中。</p>
-                                                        <p>
-                                                            <span class="span-item"><a href="https://user.ruogoo.cn/5240" class="gray"> 江阴士子 </a></span>
-                                                            <span class="span-item gray small text"> 2016年08月26日 </span>
-                                                        </p>
+                                                    <div class="content">
+
+                                                        <ul>
+                                                            <li id="GetAllShi">@{Html.RenderAction("GetAuthorShi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}</li>
+                                                            <li id="GetAllCi">@{Html.RenderAction("GetAuthorCi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}</p></li>
+                                                           
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                                    </div>
 
 
                                     </div>
                                 </div>
+                                    </div>
                             </section>
+
                         </div>
+
                         <div class="col-dt-3 col-3 col-mb-12">
                             <section class="home-side-section">
                                 <div class="intro-block one-section white section">
@@ -81,10 +101,13 @@
                                             <p class="title">简介</p>
                                           
                                         </div>
-
-                                        <div class="rg-board-body text">
-                                           @Html.Raw(@Model.Jieshao)
-                                        </div>
+                                        @foreach (var au in Model.GetAuthorById)
+                                        {
+                                            <div class="rg-board-body text">
+                                                @Html.Raw(@au.Jieshao)
+                                            </div>
+                                        }
+                                       
                                     </div>
                                 </div>
                             </section>
@@ -94,4 +117,44 @@
             </div>
         </div>      
     </body>
-}
+@*}*@
+@section scripts{
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+	$('.tabbox .content ul').width(840*$('.tabbox .content li').length+'px');
+	$(".tabbox .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		var distance = -840*index;
+		$('.tabbox .content ul').stop().animate({
+			left:distance
+		});
+	});
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.tabbox .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.tabbox .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			var distance = -840*number;
+			$('.tabbox .content ul').stop().animate({
+				left:distance
+			});
+		}
+		var tabChange = setInterval(autotab,30000);
+		//鼠标悬停暂停切换
+		$('.tabbox').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.tabbox').mouseout(function(){
+			tabChange = setInterval(autotab,30000);
+		});
+	  }
+});
+</script>
+    }

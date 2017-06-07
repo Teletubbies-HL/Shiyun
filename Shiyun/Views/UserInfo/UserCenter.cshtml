@@ -92,9 +92,13 @@
                     {
                         if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
                         {
-                            <a class="n_btn" href="@Url.Action("OrderDetails","Mall")">
+                            <a class="n_btn" href="@Url.Action("OrderDetails", "Mall")">
                                 <span class="n_icon n_icon_dd"></span>
                                 <span class="n_text">订单</span>
+                            </a>
+                            <a class="n_btn" href="javascript:void(0)">
+                                <span class="n_icon n_icon_cg cg"></span>
+                                <span class="n_text cg">草稿</span>
                             </a>
                         }
                     }
@@ -114,11 +118,10 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
-            <div class="_index" style="display: none;">
+            <div class="_index" style="display: block;">
                 @Html.Partial("_Index")
             </div>
             <div id="yuanchuang" style="display: none;">
@@ -252,34 +255,12 @@
                 }
             </div>
 
-            <div class="GuanZhu">
-                <div class="col_1">
-                    <div class="section">
-                        <h3 class="section_title">
-                            <a class="GuanZhu_gz" href="javascript:void(0)">关注</a>  | <a class="GuanZhu_fs" href="javascript:void(0)">粉丝</a>
-                        </h3>
-                        <div class="content clearfix">
-                            @foreach (var item in Model.UsesAa)
-                            {
-                                <div class="list-item clearfix">
-                                    <a target="_blank" class="cover" href="javascript:void(0)">
-                                        <img src="@item.UserA" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <a target="_blank" class="title" href="//space.bilibili.com/3745123"> <span class="vip-name-check fans-name">浅叶流年</span> </a>
-                                        <div class="desc" title="喜欢的话就点波关注吖，不喜欢的话那我再想想办法">喜欢的话就点波关注吖，不喜欢的话那我再想想办法</div>
-                                    </div>
-                                </div>
-                            }
-
-                            
-
-
-                        </div>
-                    </div>
-                </div>
+            <div class="GuanZhu" style="display: none;">
+               @Html.Partial("_Guanzhu")
             </div>
-
+            <div id="caogao" style="display: none;">
+               @{Html.RenderAction("_Caogao", "UserInfo");} 
+            </div>
 
 
 
@@ -311,32 +292,89 @@
         $(function() {
             $(document).on('click', '.n_icon_home', function() {
                 $("._index").css("display", "block");
-
                 $(".geren1").css("display", "none");
             });
-            $(document).on('click', '.zl', function() {
-                $("._index").css("display", "none");
+            $(document).on('click', '.cg', function () {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
-
+                $(".geren").css("display", "none");
+                $(".GuanZhu").css("display", "none");
+                $("#caogao").css("display", "block");
+            });           
+            $(document).on('click', '.zl', function() {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".GuanZhu").css("display", "none");
+                $("#caogao").css("display", "none");
                 if ($(".SessionUsers_id").val() != null) {
-                    if ($(".SessionUsers_id").val() == $(".Users_id").val())
-                    {
+                    if ($(".SessionUsers_id").val() == $(".Users_id").val()) {
                         $(".geren2").css("display", "block");
                         $(".geren1").css("display", "none");
-                    }
-                    else
-                    {
+                    } else {
                         $(".geren2").css("display", "none");
                         $(".geren1").css("display", "block");
                     }
-                }
-                else {
+                } else {
                     $(".geren2").css("display", "none");
                     $(".geren1").css("display", "block");
-                }               
+                }
+            });
+            $(document).on('click', '.GuanZhu_gz', function() {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
+                $(".GuanZhu").css("display","block");
+                $(".GuanZhu_gz").css("color", "#dd3b44");
+                $(".GuanZhu_fs").css("color", "#000");
+                $(".gz").css("display", "block");
+                $(".fs").css("display", "none");
+            });
+            $(document).on('click', '.GuanZhu_fs', function() {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
+                $(".GuanZhu").css("display", "block");
+                $(".GuanZhu_gz").css("color", "#000");
+                $(".GuanZhu_fs").css("color", "#dd3b44");
+                $(".gz").css("display", "none");
+                $(".fs").css("display", "block");
+            });
+
+            $(document).on('click', '.n_gz', function() {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
+                $(".GuanZhu").css("display", "block");
+                $(".GuanZhu_gz").css("color", "#dd3b44");
+                $(".GuanZhu_fs").css("color", "#000");
+                $(".gz").css("display", "block");
+                $(".fs").css("display", "none");
+            });
+            $(document).on('click', '.n_fs', function() {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
+                $(".GuanZhu").css("display", "block");
+                $(".GuanZhu_gz").css("color", "#000");
+                $(".GuanZhu_fs").css("color", "#dd3b44");
+                $(".gz").css("display", "none");
+                $(".fs").css("display", "block");
             });
 
 
@@ -358,6 +396,7 @@
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "block");
             });
+
 
         });
 

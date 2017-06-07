@@ -242,20 +242,21 @@ namespace Shiyun.Controllers
         ////[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
         ////对数据进行增删改时要防止csrf攻击！
         ////该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Shi shi = shimanager.GetShiById(id);
-            int shiid = shi.Shi_id;
-            var shicomment = shimanager.GetShiCommentByShiId(shiid);
-            if (shicomment.Count() > 0)
-            {
-                shimanager.RemoveRangeShiComment(shicomment);
-            }
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Shi shi = shimanager.GetShiById(id);
+        //    int shiid = shi.Shi_id;
+        //    var shicomment = shimanager.GetShiCommentByShiId(shiid);
+        //    if (shicomment.Count() > 0)
+        //    {
+        //        shimanager.RemoveRangeShiComment(shicomment);
+        //    }
            
-            shimanager.RemoveShi(shi);
-            return RedirectToAction("Index");
-        }
+        //    shimanager.RemoveShi(shi);
+        //    return RedirectToAction("Index");
+        //}
         #endregion
+       
 
         #region 词列表
         public ActionResult CiIndex(int? page)
@@ -341,10 +342,118 @@ namespace Shiyun.Controllers
             ViewBag.CiPai_id = new SelectList(db.CiPai, "CiPai_id", "CiPaiName", ci.Cipai_id);
             return View("CiCreate", ci);
         }
-        #endregion       
+        #endregion
         #endregion
 
-        #region 
+        #region 诗按类型分页
+        public ActionResult ShiIndex(String genreInfoFrom, string currentFilter, int? page)
+        {
+            //var foods = from m in db.Shi.OrderByDescending(p => p.Shi_id)
+
+            //            select m;
+            var foods = shimanager.GetShi();
+
+
+            if (genreInfoFrom != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                genreInfoFrom = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = genreInfoFrom;
+
+
+           
+
+            if (!String.IsNullOrEmpty(genreInfoFrom))
+            {
+
+                foods = foods.Where(x => x.ShiType.ShiTypeName == genreInfoFrom);
+
+            }
+
+            
+
+            int pageSize = 18;
+            int pageNumber = (page ?? 1);
+
+            return View(foods.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
+        #region 按年代分
+        public ActionResult TimeIndex(String genreInfoFrom, string currentFilter, int? page)
+        {
+            var foods = authormanager.GetAuthor();
+
+
+            if (genreInfoFrom != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                genreInfoFrom = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = genreInfoFrom;
+
+
+
+
+            if (!String.IsNullOrEmpty(genreInfoFrom))
+            {
+
+                foods = foods.Where(x => x.Time.TimeName == genreInfoFrom);
+
+            }
+
+
+
+            int pageSize = 18;
+            int pageNumber = (page ?? 1);
+
+            return View(foods.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
+        #region 按词牌名分
+        public ActionResult CiPaiIndex(String genreInfoFrom, string currentFilter, int? page)
+        {
+            var foods = cimanager.GetCi();
+
+
+            if (genreInfoFrom != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                genreInfoFrom = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = genreInfoFrom;
+
+
+
+
+            if (!String.IsNullOrEmpty(genreInfoFrom))
+            {
+
+                foods = foods.Where(x => x.CiPai.CiPaiName == genreInfoFrom);
+
+            }
+
+
+
+            int pageSize = 18;
+            int pageNumber = (page ?? 1);
+
+            return View(foods.ToPagedList(pageNumber, pageSize));
+        }
         #endregion
     }
 }

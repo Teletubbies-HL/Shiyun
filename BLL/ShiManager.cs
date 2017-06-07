@@ -28,7 +28,7 @@ namespace BLL
             Shi shi = ishi.GetShiById(id);
             return shi;
         }
-        public IQueryable<ShiComment> GetShiCommentByShiId(int id)
+        public IEnumerable<ShiComment> GetShiCommentByShiId(int id)
         {
             var ShiComment = ishi.GetShiCommentByShiId(id);
             return ShiComment;

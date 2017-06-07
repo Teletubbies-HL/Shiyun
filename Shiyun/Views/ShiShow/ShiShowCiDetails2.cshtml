@@ -1,0 +1,307 @@
+﻿@model Shiyun.Models.CiPaiViewModels
+@{
+    ViewBag.Title = "ShiShowCiDetails2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<head>
+    <link href="~/Content/css/ShiCiforum.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
+
+    <style>
+        .dianji i {
+            font-size: 25px;
+            color: darkgrey;
+        }
+
+            .dianji i:hover {
+                color: #c03f3c;
+                font-size: 25px;
+            }
+    </style>
+</head>
+<body class="" style="background-color: #F7F7F7!important;">
+    <div class="message-container">
+    </div>
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            <div class="container">
+                <div class="col-group">
+                    <div class="col-9 col-mb-12">
+                        @foreach (var pd in Model.CiDetails)
+                        {
+                            <section class="as-article-section one-section white section">
+                                <div class="article-head">
+                                    <h2>@pd.CiTitle</h2>
+                                    <div class="dianji">
+                                        <i class="iconfont zheng" style="color:#c03f3c;">&#xe628;</i>
+                                        <i class="iconfont yi">&#xe60e;</i>
+                                        <i class="iconfont shang">&#xe60c;</i>
+                                        <i class="iconfont bei">&#xe629;</i>
+                                    </div>
+
+                                </div>
+                                <div class="article-meta small text">
+                                    <span class="span-item">@pd.AddTime</span>
+                                    <span class="span-item">|</span>
+                                    <span class="span-item">作者:</span>
+                                    <span class="span-item">@pd.Author.AuthorName</span>
+                                    <span class="span-item">@pd.Time.TimeName</span>
+                                    <span class="span-item">|</span>
+                                    <span class="span-item">
+                                        分类: <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = @pd.CiPai.CiPai_id })" class="gray">@pd.CiPai.CiPaiName</a>
+                                    </span>
+                                    <div class="nice-stamp"></div>
+                                </div>
+                                <div class="article-body yuanwen">
+                                    <div class="article-content plain paper">
+                                        <center>@Html.Raw(@pd.CiContent)</center>
+                                    </div>
+                                </div>
+                                <div class="article-body fanyi" style="display:none;">
+                                    <div class="article-content plain paper">
+                                        @Html.Raw(@pd.CiFanyi)
+
+                                    </div>
+                                </div>
+                                <div class="article-body shangxi" style="display:none;">
+                                    <div class="article-content plain paper">
+                                        @Html.Raw(@pd.CiShangxi)
+
+                                    </div>
+                                </div>
+                                <div class="article-body beijing" style="display:none;">
+                                    <div class="article-content plain paper">
+                                        @Html.Raw(@pd.Cibeijing)
+
+                                    </div>
+                                </div>
+
+                            </section>
+                        }
+
+                        <section class="as-article-section one-section white section">
+                            <div class="article-reply reply">
+                                @foreach (var pd in Model.CiDetails)
+                                {
+                                    <div class="copyright-box">
+                                        <div>
+                                            <span>作者：<a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })" target="_blank">@pd.Author.AuthorName</a></span>
+
+                                            <span>∙ 文章来源：<a href="#">诗韵</a></span>
+                                        </div>
+                                        <div>
+                                            <i class="ri ri-copyright"></i>欢迎大家一起学习中国古诗词，遨游诗词海洋，传承中国优秀诗词文化。
+                                        </div>
+                                    </div>
+                                }
+                                <div class="reply-area">
+                                    <div class="reply-unlogin one-row">
+                                        <div class="g-wrap">
+                                            <div class="content-wrap">
+                                                <div class="comment-container">
+
+                                                    <div class="comment-pc">
+                                                        <div class="comment-header">
+                                                            <div class="comment-h1">评论</div>
+
+                                                            <div class="comment-post">
+                                                                <div class="comment-aside">
+                                                                    @if (Session["UserName"] != null)
+                                                                    {
+                                                                        <img src="@Session["UserImage"]" height="50">
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <img src="/img/avt.jpg" height="50">
+                                                                    }
+                                                                </div>
+                                                                <div class="comment-primary">
+                                                                    @using (Html.BeginForm("CiComment", "ShiShow", FormMethod.Post, new { id = "pinglun", @class = "postbox" }))
+                                                                    {
+                                                                        @Html.AntiForgeryToken()
+                                                                        <div class="textarea-wrapper">
+                                                                            <textarea class="textarea" name="pingluntextarea"></textarea>
+                                                                        </div>
+                                                                        <input type="hidden" name="Ci_id" value="@Model.Ci.Ci_id" />
+                                                                        if (Session["UserName"] != null)
+                                                                        {
+                                                                            <a href="javascript:document.getElementById('pinglun').submit()" class="u-btn btn-postcmt">发表评论</a>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <a href="#" id="example2" class="u-btn btn-postcmt">发表评论</a>
+                                                                        }
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="c-comment-h2">
+                                                                <p>
+                                                                    <b class="title">全部评论</b>
+                                                                </p>
+                                                            </div>
+                                                            @foreach (var p in Model.CiComment)
+                                                            {
+                                                                <div class="comments_box">
+                                                                    <div class="textarea_box">
+                                                                        <a class="comment-username">@p.UserInfo.UserName</a>
+                                                                        <p class="comment-text">@p.ComContent</p>
+                                                                        <div class="comments_contrl">
+                                                                            <span class="fl">
+                                                                                发表于 @p.ComTime
+                                                                            </span>
+                                                                            <a class="contrl_02 link_reply  a_popup_login " href="javascript:;">
+                                                                                回复
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a class="img">
+                                                                        <img src="@p.UserInfo.UserImage" />
+                                                                    </a>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                @*<div class="reply-list">
+                                </div>*@                                                             
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-3 col-mb-12">
+                        @foreach (var pd in Model.CiDetails)
+                        {
+                            <section class="as-sidebar-section sidebar one-section white section">
+                                <div class="user-block ui tint blur" data-image="..@pd.CiImage" style="position: relative; z-index: 1;">
+                                    <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="273" height="240" id="blurred_e56ciec5r" class="tint-bg-blur" viewBox="0 0 273 240" preserveAspectRatio="none" style="opacity: 1;">
+                                            <filter id="blur_e56ciec5r">
+                                                <fegaussianblur in="SourceGraphic" stdDeviation="20">
+                                                </fegaussianblur>
+                                            </filter>
+                                            <image x="0" y="0" width="273" height="240" externalResourcesRequired="true" href="@pd.CiImage" style="filter:url(#blur_e56ciec5r)" preserveAspectRatio="none">
+                                            </image>
+                                        </svg>
+                                    </div>
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })" class="ui circular image user-avatar">
+                                        <img src="@pd.Author.AuthorImage" class="" alt="@pd.Author.AuthorName" width="80" height="80">
+                                    </a>
+                                    <p class="user-name big text">
+                                        <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })">@pd.Author.AuthorName</a>
+                                    </p>
+                                    <p class="user-level">
+                                        <a href="" class="rg-label small level" style="background-color: #63A9ED;">朝代</a>
+                                        <a href="#" class="rg-label small level" style="background-color: #3D6BE2;">@pd.Time.TimeName</a>
+                                    </p>
+                                </div>
+                                <div class="user-introduction">
+                                    <p class="text gray">@pd.CiYuying</p>
+                                </div>
+                                <div class="goto-write center" style="padding: 10px;">
+                                    <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = @pd.Author.Author_id })" class="ui fluid teal button" target="_blank">其他作品</a>
+                                </div>
+                                <div class="rg-board">
+                                    <div class="rg-board-head">
+                                        <p class="title">所属分类</p>
+                                    </div>
+                                    <div class="rg-board-body">
+                                        <div class="ui list">
+                                            <div class="item">
+                                                <a href="" class="ui tiny image">
+                                                    <img src="@pd.CiImage" data-original="" alt="浮生辞" style="display: block;">
+                                                </a>
+                                                <div class="top aligned content">
+                                                    <a href="" class="big title">@pd.CiPai.CiPaiName</a>
+                                                    <div class="content">
+                                                        <a href="" class="small gray text">@pd.CiTitle</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/JS/ShiCipush.js"></script>
+    <script src="~/Scripts/JS/ShiCianalytics.js"></script>
+    <script src="~/Scripts/JS/ShiCilib.js"></script>
+    <script src="~/Scripts/JS/ShiCihm.js"></script>
+    <div class="mm-menu-mask"></div>
+    <script>
+		(function () {
+			var bp          = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+		$(".yi").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".yi").css("color", "#c03f3c");
+		    $(".zheng").css("color", "darkgrey");
+		    $(".shang").css("color", "darkgrey");
+		    $(".bei").css("color", "darkgrey");
+		    $(".yuanwen").hide();
+		    $(".shamgxi").hide();
+		    $(".beijing").hide();
+		    $(".fanyi").show();
+		});
+		$(".shang").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".shang").css("color", "#c03f3c");
+		    $(".zheng").css("color", "darkgrey");
+		    $(".yi").css("color", "darkgrey");
+		    $(".bei").css("color", "darkgrey");
+		    $(".yuanwen").hide();
+		    $(".shamgxi").show();
+		    $(".beijing").hide();
+		    $(".fanyi").hide();
+		});
+		$(".zheng").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".zheng").css("color", "#c03f3c");
+		    $(".shang").css("color", "darkgrey");
+		    $(".yi").css("color", "darkgrey");
+		    $(".bei").css("color", "darkgrey");
+		    $(".yuanwen").show();
+		    $(".shamgxi").hide();
+		    $(".beijing").hide();
+		    $(".fanyi").hide();
+		});
+		$(".bei").click(function () {
+		    //var a = $(this).children().children().attr("src");
+		    $(".bei").css("color", "#c03f3c");
+		    $(".zheng").css("color", "darkgrey");
+		    $(".yi").css("color", "darkgrey");
+		    $(".shang").css("color", "darkgrey");
+		    $(".yuanwen").hide();
+		    $(".beijing").show();
+		    $(".shangxi").hide();
+		    $(".fanyi").hide();
+		});
+    </script>
+</body>
+
+
+
+

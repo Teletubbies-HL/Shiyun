@@ -12,7 +12,7 @@ namespace IDAL
 
         IEnumerable<CiReply> GetCiReply();
         CiReply GetCiReplyById(int? id);
-
+        void AddCiReply(CiReply cireply);
         void RemoveCiReply(CiReply cipai);
     }
 }

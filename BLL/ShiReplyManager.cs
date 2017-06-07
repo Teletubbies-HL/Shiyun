@@ -17,6 +17,11 @@ namespace BLL
             var shireply = ishireply.GetShiReply();
             return shireply;
         }
+        public void AddShiReply(ShiReply shireply)
+        {
+            ishireply.AddShiReply(shireply);
+
+        }
         public ShiReply GetShiReplyById(int? id)
         {
             ShiReply shireply = ishireply.GetShiReplyById(id);

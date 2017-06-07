@@ -1,0 +1,72 @@
+﻿@model Models.Manager
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>诗韵-后台登录</title>
+    <link rel="shortcut icon" href="~/Images/Home/shiyunlogo.ico" type="image/x-icon" /><!--icon-->
+    <link href="~/Content/css/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <header>
+            <div class="content">
+                <div class="headerbar">
+                    <a id="hlkLogo" href="@Url.Action("Index","Home")">
+                        <img id="imgLogo" src="~/Images/Home/shiyunlogo.png" style="width: 70px;height: 70px" />
+                    </a>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="text2">
+                <img id="textimg2" src="~/Images/RegisterLogin/dlzc2.png" />
+            </div>
+            <div class="text1">
+                <img id="textimg1" src="~/Images/RegisterLogin/dlzc1.png" />
+            </div>
+            <div class="content">
+                <div class="content_bg">
+                    @using (Html.BeginForm("Login", "ManagerAdd", FormMethod.Post, new { @id = "mainform" }))
+                    {
+                        <div class="formheader">
+                            <label id="hlkNormalLogin" style="color: #32A5E7">后台管理员登录</label>
+                        </div>
+                        <div class="normalInput normaluser">
+                            @Html.TextBoxFor(m => m.Manager_id, new { @id = "txtUser", placeholder = "用户名", style = "height: 46px;width: 80%;", maxlength = "32" })
+                            <div class="usertip"></div>
+                        </div>
+                            <div class="normalInput normalpassword">
+                                @Html.TextBoxFor(m => m.ManagerPass, new { @id = "txtPassword", placeholder = "密码", type = "password", style = "height: 46px;width: 80%;float: left;", maxlength = "20" })
+                                <span class="iconfont showpassword" style="display: none;font-size: 40px;">&#xe80b;</span>
+                                <span class="iconfont hidepassword" style="display: block;font-size: 40px;">&#xe6a2;</span>
+                                <div class="passtip"></div>
+                            </div>
+                            <input type="submit" value="登录" class="cssbtnRegister" style="color: white;font-size: 14px; background-color: #32A5E7; height: 46px; width: 300px;" />
+                    }
+                    <br />
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/JS/Login.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $(".text1").css("padding-left", "221px");
+        $(".text1").fadeIn(2000);
+        $(".text1").css("margin", "40px 0px 0px 0px");
+        setTimeout(function() {
+            $(".text2").fadeIn(2000);
+            $(".text1").css("padding-left", "0px");
+            $(".text2").css("margin", "88px 0px 0px 0px");
+        }, 2000);
+
+    });
+    </script>
+</body>
+</html>

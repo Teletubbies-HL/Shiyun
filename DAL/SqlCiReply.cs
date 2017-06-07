@@ -23,7 +23,11 @@ namespace DAL
             return cireply;
         }
 
-
+        public void AddCiReply(CiReply cireply)
+        {
+            db.CiReply.Add(cireply);
+            db.SaveChanges();
+        }
         public void RemoveCiReply(CiReply cireply)
         {
             db.CiReply.Remove(cireply);

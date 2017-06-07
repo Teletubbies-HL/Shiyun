@@ -11,9 +11,11 @@ namespace IDAL
     {
         IEnumerable<Shi> GetShi();
         Shi GetShiById(int? id);
+        IEnumerable<ShiComment> GetShiCommentByShiId(int id);
         IEnumerable<Shi> IEGetShiById(int id);
         IQueryable<ShiComment> GetShiCommentByShiId(int id);
         IQueryable<Shi> Search(string search);
+
         IQueryable<Shi> whereShiById(int id);
         IQueryable<Shi> GetShibyTop(int top);
         IQueryable<Shi> GetShibyLast(int last);

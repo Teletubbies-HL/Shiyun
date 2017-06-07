@@ -1,7 +1,7 @@
 ﻿$(window).scroll(function () {
     //底部logo动画
     var this_scrollTop = $(window).scrollTop(); //当前滚动的位置值
-    var all_scrollTop = $(document).height() - 800;
+    var all_scrollTop = $(document).height() - 1000;
     if ((this_scrollTop) > all_scrollTop) {
         $(".moon").fadeIn(1000); //一秒渐入动画  
         $(".moon").css("top", "0");

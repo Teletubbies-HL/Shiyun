@@ -54,12 +54,12 @@ namespace BLL
             return userInfo;
         }
 
-        public IEnumerable<UserGuanzhu> CountUserGuanzhu1ById(string uid)  //关注人数
+        public IEnumerable<View_UserInfo> CountUserGuanzhu1ById(string uid)  //关注人数
         {
             var u1 = iuserinfo.CountUserGuanzhu1ById(uid);
             return u1;
         }
-        public IEnumerable<UserGuanzhu> CountUserGuanzhu2ById(string uid)  //被关注人数
+        public IEnumerable<View_UserInfo> CountUserGuanzhu2ById(string uid)  //被关注人数
         {
             var u2 = iuserinfo.CountUserGuanzhu2ById(uid);
             return u2;

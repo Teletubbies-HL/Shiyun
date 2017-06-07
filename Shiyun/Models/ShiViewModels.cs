@@ -33,7 +33,7 @@ namespace Shiyun.Models
         public IEnumerable<Author> CiAuthor4 { get; set; }
         public IEnumerable<Author> CiAuthor5 { get; set; }
         public IEnumerable<Author> CiAuthor6 { get; set; }
-        public IEnumerable<View_Authorsc> GetAuthorById { get; set; }
+        public IEnumerable<Author> GetAuthorById { get; set; }
 
         public IEnumerable<CiPai> CiPai1 { get; set; }
         public IEnumerable<CiPai> CiPai2 { get; set; }
@@ -52,6 +52,8 @@ namespace Shiyun.Models
 
         public IEnumerable<View_CiShow> CiShow { get; set; }
         public IEnumerable<View_Authorsc> Authorsc { get; set; }
+        public IEnumerable<View_AuthorShi> Authors { get; set; }
+        public IEnumerable<View_AuthorCi> Authorc { get; set; }
 
     }
 

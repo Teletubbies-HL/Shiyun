@@ -1,0 +1,59 @@
+﻿@using PagedList
+@model PagedList.IPagedList<Models.Shi>
+@using PagedList.Mvc
+@using Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Redid</title>
+</head>
+<body>
+    <section class="wrap wrap_gray" id="gengduo3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 projects">
+
+                    <div class="projects__row">
+                        @foreach (var a in Model)
+                        {
+                            <div class="special special_small">
+                                <img src="@a.ShiImage" style="height:311px;width:285px" alt="image" class="special__img">
+                                <div class="special__box">
+                                    <h5 class="special__category yel_line">
+                                        位于 @a.Author.AuthorName
+                                    </h5>
+                                    <a href="@Url.Action("Redid","ShiCi", new { id = a.ShiType_id})" class="special__link">@a.ShiTitle</a>
+                                    <p class="special__desc">@a.ShiType</p>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            @Html.PagedListPager(Model, page => Url.Action("Redid", "ShiCi", new { page, ViewBag.id }),
+             PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+                 new AjaxOptions
+                 {
+                     HttpMethod = "GET",
+                     InsertionMode = InsertionMode.Replace,
+                     UpdateTargetId = "gengduo3"
+
+                 }
+
+                 ))
+        </div>
+    </section>
+
+</body>
+</html>

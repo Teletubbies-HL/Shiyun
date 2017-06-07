@@ -1,0 +1,135 @@
+﻿@using Models
+@model Shiyun.Models.TypeViewModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="tp-banner-container container">
+    <!--全屏滚动-->
+   
+</div>
+<div class="page-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="flat-wrapper">
+                <div class="breadcrumbs">
+                    <h2 class="trail-browse">你现在在:</h2>
+                    <ul class="trail-items">
+                        <li class="trail-item"><a href="@Url.Action("index","Brave")">虎贲网</a></li>
+                        <li class="trail-item">红色景点</li>
+                        <li>优选景点</li>
+                    </ul>
+                </div>
+                <div class="sidebar-wrap">
+                    <div class="search d7">
+                        <div class="block-title form1">
+                            @using (Ajax.BeginForm("Redid", "ShiCi", new AjaxOptions() { UpdateTargetId = "gengduo3", HttpMethod = "Get" }))
+                            {
+                                @Html.TextBox("search")
+                                <input type="submit" value="搜索" style="width:auto" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flat-row flat-general sidebar-right " style="padding-top:40px;">
+    <div class="container">
+        <div class="row">
+            <div class="general" style="border-bottom: 1px solid #fff;
+
+    background: #fff;">
+                <div class="general-slider about-slider">
+                    <div class="conMain">
+                        <div class="module">
+                            <h3 class="title"><span><i>景点</i> - 筛选</span><a href="/RedSpots/index" class="resetSelect">重置筛选条件</a></h3><div class="select">
+                                <!-- 大分类 -->
+                                <ul>
+                                    <li>地区：</li>
+                                    <li>
+                                        @Ajax.ActionLink("不限", "Redid", "ShiCi", new { }, new AjaxOptions()
+                                       {
+                                           UpdateTargetId = "gengduo3",
+                                           HttpMethod = "Get"
+                                       })
+                                    </li>
+                                    @foreach (var a in Model.TypeShi)
+                                    {
+                                        <li>
+                                            @Ajax.ActionLink(a.Author.AuthorName, "Redid", "ShiCi", new { sectionid = a.Shi_id }, new AjaxOptions()
+                                   {
+                                       UpdateTargetId = "gengduo3",
+                                       HttpMethod = "Get"
+
+                                   })
+                                        </li>
+                                    }
+                                    <span class="more" style="display: block;">
+                                        <a href="javascript:;" class="down">更多</a>
+                                    </span>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="general-sidebars ">
+                <div class="sidebar-wrap bianbian ">
+
+                    <div class="block-title">
+                        <img src="~/img/taikong3.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<section class="wrap wrap_gray" id="gengduo3">
+    @{Html.RenderAction("Redid", "ShiCi");}
+  
+</section>
+
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/js/jquery.unobtrusive-ajax.js"></script>
+
+<script src="~/js/jquery-latest.min.js"></script>
+<script src="~/js/unslider.min.js"></script>
+<script type="text/javascript">
+            if(window.chrome) {
+                $('.banner li').css('background-size', '100% 100%');
+            }
+
+            $('.banner').unslider({
+                arrows: true,
+                fluid: true,
+                dots: true
+            });
+            //轮播参数
+            //  Find any element starting with a # in the URL
+            //  And listen to any click events it fires
+
+</script>
+<script type="text/javascript">
+        var _recommend=$('.select .more a');//获取span a
+        _recommend.click(function(e){
+var _r=$(this).parent().parent('ul');//获取该span父类ul
+            if($(this).hasClass("down")){//判断是否含有DOwn
+              $(this).removeClass('down');
+               _r.stop(true,false).animate({height:"100px"},"slow");
+             $(this).addClass('up');
+               $(this).text("收起");//值变为收起
+            }else{
+                $(this).addClass('down');
+                 $(this).removeClass('up')
+                $(this).text("更多");
+                  _r.stop(true,false).animate({height:"60px"},"slow");
+            }
+        });
+</script>
+

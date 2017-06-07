@@ -1,0 +1,126 @@
+﻿@model Models.VideoK
+
+@{
+    ViewBag.Title = "VideoKCreate";
+    Layout = "~/Views/Shared/HouTai.cshtml";
+}
+
+<script type="text/javascript">
+    var editorOption = {
+        initialFrameWidth: 784,
+        initialFrameHeight: 200
+    };
+    var editor = new baidu.editor.ui.Editor(editorOption);
+    editor.render('VideoDetails');
+</script>
+
+@using (Html.BeginForm("VideoKCreate", "ManagerAdd", FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="title_top">
+            <p>视频类型添加</p>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p class="text-left">请输入类型名</p>
+        <p>
+            @Html.EditorFor(model => model.VideoKName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VideoKName, "", new { @class = "text-danger" })
+        </p>
+        <p class="text-left">请选择上传的图片</p>
+        <p>
+
+            <input type="file" name="Cover" value="Cover" />
+
+        </p>
+        <p class="text-left">请输入来源</p>
+        <p>
+            @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Source, "", new { @class = "text-danger" })
+        </p>
+        <p class="text-left">请输入介绍</p>
+        <p>
+            @Html.EditorFor(model => model.VideoJianjie, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VideoJianjie, "", new { @class = "text-danger" })
+        </p>
+        <p class="text-left">请输入详情</p>
+        <p>
+
+            @Html.TextAreaFor(model => model.VideoDetails)
+        </p>
+
+
+        <p class="text-center">
+            <input type="submit" value="添加" class="btn btn-default" style="width:60px;margin-right:1200px;" />
+        </p>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "TypeIndex")
+</div>
+
+    
+    @*<div class="form-horizontal">
+        <h4>VideoK</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.VideoKName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VideoKName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VideoKName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cover, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cover, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cover, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VideoDetails, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VideoDetails, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VideoDetails, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VideoJianjie, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VideoJianjie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VideoJianjie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Source, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Source, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AddTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AddTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AddTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

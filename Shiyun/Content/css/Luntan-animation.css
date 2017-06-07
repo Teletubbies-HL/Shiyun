@@ -19,7 +19,7 @@ html body{
 .container{
 
 	margin:0px auto;
-	width:960px;	
+	/*width:960px;*/	
 	overflow:hidden;
 
 }

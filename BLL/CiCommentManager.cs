@@ -22,6 +22,15 @@ namespace BLL
             CiComment cicomment = icicomment.GetCiCommentById(id);
             return cicomment;
         }
+        public IEnumerable<CiComment> GetCiComment(int id)
+        {
+            var CiComment = icicomment.GetCiComment(id);
+            return CiComment;
+        }
+        public void AddCiComment(CiComment cicomment)
+        {
+            icicomment.AddCiComment(cicomment);
+        }
         public IQueryable<CiReply> GetCiReplyByCiCommentId(int id)
         {
             var CiReply = icicomment.GetCiReplyByCiCommentId(id);

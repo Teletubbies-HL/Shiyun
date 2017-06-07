@@ -280,6 +280,15 @@ namespace Shiyun.Controllers
             return View(vod.ToPagedList(pageNumber, pageSize));
         }
         #endregion
+        #region 订单列表
+        public ActionResult OrdersIndex(int? page)
+        {
+            var goods = ordersManager.GetOrders();
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(goods.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
 
         #region 个人中心订单页
         [Login]
