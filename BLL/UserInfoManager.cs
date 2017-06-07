@@ -17,6 +17,11 @@ namespace BLL
             iuserinfo.AddUserInfo(userInfo);
         }
 
+        public IEnumerable<UserInfo> Jifentop(int top)
+        {
+            var userInfo = iuserinfo.Jifentop(top);
+            return userInfo;
+        }
         public IEnumerable<UserInfo> Search(string search)
         {
             var userInfo = iuserinfo.Search(search);

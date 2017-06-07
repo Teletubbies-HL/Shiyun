@@ -19,5 +19,8 @@ namespace Shiyun.Models
         public IEnumerable<View_PostIndex> PostYuanChuang { get; set; }
         public IEnumerable<View_PostIndex> Post2 { get; set; }
         public IEnumerable<View_PostIndex> Post3 { get; set; }
+        public IEnumerable<View_PostIndex> Draft { get; set; }
+        //public IEnumerable<Us> postreply { get; set; }
+        //public IEnumerable<> 
     }
 }

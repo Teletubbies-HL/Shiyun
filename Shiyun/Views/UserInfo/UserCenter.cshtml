@@ -92,9 +92,13 @@
                     {
                         if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
                         {
-                            <a class="n_btn" href="@Url.Action("OrderDetails","Mall")">
+                            <a class="n_btn" href="@Url.Action("OrderDetails", "Mall")">
                                 <span class="n_icon n_icon_dd"></span>
                                 <span class="n_text">订单</span>
+                            </a>
+                            <a class="n_btn" href="javascript:void(0)">
+                                <span class="n_icon n_icon_cg cg"></span>
+                                <span class="n_text cg">草稿</span>
                             </a>
                         }
                     }
@@ -114,7 +118,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
@@ -255,8 +258,48 @@
             <div class="GuanZhu" style="display: none;">
                @Html.Partial("_Guanzhu")
             </div>
+            <div id="caogao" style="display: none;">
+               @{Html.RenderAction("_Caogao", "UserInfo");} 
+            </div>
+            <div class="liuyan">
+                 <div class="col_1">
+                    <div class="section">
+                        <h3 class="section_title">
+                            <a class="GuanZhu_gz" href="javascript:void(0)" style="font-weight: 700;">关注</a>  | <a class="GuanZhu_fs" href="javascript:void(0)">粉丝</a>
+                        </h3>
+                        <div class="content clearfix" style="margin-left: 80px;">
 
 
+                            @using (Html.BeginForm("", "UserInfo", FormMethod.Post, new {id = "pinglun"}))
+                            {
+                                <div class="PL-box">
+                                    <div class="PL-neirong">
+                                        <div class="box" style="border: 1px;"><textarea class="textarea" name="pingluntextarea"></textarea>
+                                        </div>
+                                        <div class="PL-btn">
+                                            <input type="submit" value="发表评论"/>
+                                            @*@if (Session["UserName"] != null)
+                                    {
+                                    <a href="javascript:document.getElementById('pinglun').submit()">发表评论</a>
+                                    }*@
+                                            @*else
+                                    {
+                                    <a onclick="confirm('请先登录')?location.href='@Url.Action(" Login","UserInfo")':''" href="javascript:;">发表评论</a>
+                                    }*@
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
 
 
             <div class="col_2">
@@ -289,71 +332,88 @@
                 $("._index").css("display", "block");
                 $(".geren1").css("display", "none");
             });
+            $(document).on('click', '.cg', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $(".GuanZhu").css("display", "none");
+                $("#caogao").css("display", "block");
+            });           
             $(document).on('click', '.zl', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
                 $(".GuanZhu").css("display", "none");
+                $("#caogao").css("display", "none");
                 if ($(".SessionUsers_id").val() != null) {
-                    if ($(".SessionUsers_id").val() == $(".Users_id").val())
-                    {
+                    if ($(".SessionUsers_id").val() == $(".Users_id").val()) {
                         $(".geren2").css("display", "block");
                         $(".geren1").css("display", "none");
-                    }
-                    else
-                    {
+                    } else {
                         $(".geren2").css("display", "none");
                         $(".geren1").css("display", "block");
                     }
-                }
-                else {
+                } else {
                     $(".geren2").css("display", "none");
                     $(".geren1").css("display", "block");
-                }               
+                }
             });
-
-
-            $(document).on('click', '.GuanZhu_gz', function () {
+            $(document).on('click', '.GuanZhu_gz', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
-                $(".GuanZhu").css("display", "block");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
+                $(".GuanZhu").css("display","block");
+                $(".GuanZhu_gz").css("color", "#dd3b44");
+                $(".GuanZhu_fs").css("color", "#000");
                 $(".gz").css("display", "block");
                 $(".fs").css("display", "none");
             });
-            $(document).on('click', '.GuanZhu_fs', function () {
+            $(document).on('click', '.GuanZhu_fs', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
-                
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
                 $(".GuanZhu").css("display", "block");
+                $(".GuanZhu_gz").css("color", "#000");
+                $(".GuanZhu_fs").css("color", "#dd3b44");
                 $(".gz").css("display", "none");
                 $(".fs").css("display", "block");
             });
 
-            $(document).on('click', '.n_gz', function () {
+            $(document).on('click', '.n_gz', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
                 $(".GuanZhu").css("display", "block");
+                $(".GuanZhu_gz").css("color", "#dd3b44");
+                $(".GuanZhu_fs").css("color", "#000");
                 $(".gz").css("display", "block");
                 $(".fs").css("display", "none");
             });
-            $(document).on('click', '.n_fs', function () {
+            $(document).on('click', '.n_fs', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
                 $(".GuanZhu").css("display", "block");
+                $(".GuanZhu_gz").css("color", "#000");
+                $(".GuanZhu_fs").css("color", "#dd3b44");
                 $(".gz").css("display", "none");
                 $(".fs").css("display", "block");
             });
-
-
 
 
             $(document).on('click', '.more_yc', function() {
@@ -374,7 +434,7 @@
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "block");
             });
-            
+
 
         });
 

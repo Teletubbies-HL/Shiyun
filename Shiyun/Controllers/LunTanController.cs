@@ -28,7 +28,7 @@ namespace Shiyun.Controllers
             LuntanIndex luntanIndex = new LuntanIndex();
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类
             luntanIndex.HotPost = ltm.GetHostPost();//热帖
-            luntanIndex.ZongheTaolun = ltm.GetZongheTaolun(); //综合讨论
+            luntanIndex.ZongheTaolun = ltm.GetZongheTaolun().Take(3); //综合讨论
             luntanIndex.PaiHang = ltm.GetPaiHang(); //排名
             return View(luntanIndex);
         }
@@ -58,12 +58,14 @@ namespace Shiyun.Controllers
         #endregion
         #region 发帖Get页面
         [Login]
-        public ActionResult PostSend(int luntanId)
+        public ActionResult PostSend(int luntanId ,int ? postid)
         {
             LuntanIndex luntanIndex = new LuntanIndex();
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类
+            Session["Draft"] = postid;
             //ViewBag.LunTan_id = new SelectList(db.LunTan, "LunTan_id", "LunTanName");
             luntanIndex.List1 = new SelectList(db.LunTan, "LunTan_id", "LunTanName");//下拉列表数据绑定
+            luntanIndex.Post = pm.GetPostById(postid);
             ViewBag.LunTan_id = luntanId;
             //luntanIndex.LuntanId = luntanId;
             return View(luntanIndex);
@@ -112,7 +114,16 @@ namespace Shiyun.Controllers
                     post.Post_click = 0;
                     post.Post_down = 0;
                     post.Post_upvote = 0;
-                    pm.AddPost(post);
+                    if (Session["Draft"] != null)
+                    {
+                        post.Post_id = (int)Session["Draft"];
+                        pm.EditPost(post);
+                    }
+                    else
+                    {
+                        pm.AddPost(post);
+                    }
+                    
                     //db.Post.Add(post);
                     //db.SaveChanges();
                     //return RedirectToAction("Index");
@@ -182,7 +193,7 @@ namespace Shiyun.Controllers
             }
 
             //ViewBag.LunTan_id = new SelectList(db.LunTan, "LunTan_id", "LunTanName", post.LunTan_id);
-            return View();
+            //return View();
         }
         #endregion
         #region  帖子详情页面
@@ -194,6 +205,7 @@ namespace Shiyun.Controllers
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类 
             luntanIndex.LuntanName = ltm.GetLuntanName(luntanId); //论坛名称       
             luntanIndex.PostDetails = pm.GetPostDetails(postId);//帖子详情
+            luntanIndex.ZongheTaolun = ltm.GetZongheTaolun().Take(3);
             luntanIndex.AllPostReply = pr.GetPostReply(postId);
             return View(luntanIndex);
         }

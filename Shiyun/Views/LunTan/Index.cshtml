@@ -41,47 +41,47 @@
                 <div id="mask">
                     <ul>
                         <li id="first" class="firstanimation">
-                            <a href="javascript:void(0)">
-                                <img src="~/Images/LunTan/gugong.jpg"/>
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 1, postId = 20})">
+                                <img src="/Images/LunTan/樱花.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>故宫</h1>
+                                <h1>樱花</h1>
                             </div>
                         </li><!--第一张图片结束--->
 
                         <li id="second" class="secondanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/matouqiang.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 3, postId = 73})">
+                                <img src="/Images/LunTan/诗有含蓄方有味.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>马头墙</h1>
+                                <h1> 诗有含蓄方有味</h1>
                             </div>
                         </li><!--第二张图片结束--->
 
                         <li id="third" class="thirdanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/menchaung.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 1, postId = 24})">
+                                <img src="/Images/LunTan/春意.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>门窗</h1>
+                                <h1>春意</h1>
                             </div>
                         </li><!--第三张图片结束--->
 
                         <li id="fourth" class="fourthanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/xiaoguaishou.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 2, postId = 76})">
+                                <img src="/Images/LunTan/芙蓉.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>飞檐“小怪兽”</h1>
+                                <h1>涉江采芙蓉</h1>
                             </div>
                         </li><!--第四张图片结束--->
 
                         <li id="fifth" class="fifthanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/xian.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 3, postId = 69})">
+                                <img src="/Images/LunTan/谈“以议论为诗”.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>西安</h1>
+                                <h1> 谈“以议论为诗”</h1>
                             </div>
                         </li><!--第五张图片结束--->
                     </ul>
@@ -99,12 +99,14 @@
                     {
                         <div class="postbox">
                             <div class="user_image">
-                                <img id="imgUser" class="imgcssUser" src="@post.UserImage" style="width: 100%; height: 100%;" />
+                                <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @post.Users_id})">
+                                    <img id="imgUser" class="imgcssUser" src="@post.UserImage" style="width: 100%; height: 100%;"/>
+                                </a>
                             </div>
                             <div class="hotpost_title">
                                 <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @post.LunTan_id, postId = @post.Post_id})" style="text-decoration: none;">@post.PostTitle</a>
                             </div>
-                            <span class="user_name">@post.UserName</span>
+                            <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @post.Users_id})"><span class="user_name">@post.UserName</span></a>
                             <span class="addtime">@post.AddTime.Value.ToString("yyyy-MM-dd")</span>
                         </div>
                     }
@@ -162,7 +164,7 @@
                         </div>
                         <span class="rightfenqu">综合讨论</span><!--右部分综合讨论-->
                         <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @zonghe.LunTan_id, postId = @zonghe.Post_id})" style="text-decoration: none;"><label class="cssrighttitle">@zonghe.PostTitle</label></a> <!--帖子标题-->
-                        <label class="cssrightusername">@zonghe.UserName</label> <!--用户名-->
+                        <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @zonghe.Users_id})"><label class="cssrightusername">@zonghe.UserName</label> </a><!--用户名-->
                         <label class="cssrighttime"> @zonghe.AddTime.Value.ToString("yyyy-MM-dd")</label> <!--发布日期-->
                         <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @zonghe.LunTan_id, postId = @zonghe.Post_id})" style="text-decoration: none; color: rgb(221, 59, 68); font-size: 13px;"><span class="yueduquanwen">阅读全文</span></a>
                         <span class="rightdetails">@zonghe.PostJianjie</span>  <!--简介-->
@@ -220,7 +222,7 @@
                 <ul>
                     @foreach (var ph in Model.PaiHang)
                     {
-                        <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @ph.LunTan_id, postId = @ph.Post_id})"><span class="paihang_span2">@ph.PostTitle</span><span class="paihang_span3">@ph.UserName</span></a></li>
+                        <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @ph.LunTan_id, postId = @ph.Post_id})"><span class="paihang_span2">@ph.PostTitle</span></a><a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @ph.Users_id})"><span class="paihang_span3">@ph.UserName</span></a></li>
                     }
                     @*<li><a href="javascript:void(0)"><span class="paihang_span2">咏春</span><span class="paihang_span3">张三</span></a></li>
                     <li><a href="javascript:void(0)"><span class="paihang_span2">咏春</span><span class="paihang_span3">张三</span></a></li>
@@ -327,6 +329,9 @@
         $('.paihang ul').children(":eq(0)").children().append('<span class="paihang_span1">1</span>');
         $('.paihang ul').children(":eq(1)").children().append('<span class="paihang_span1">2</span>');
         $('.paihang ul').children(":eq(2)").children().append('<span class="paihang_span1">3</span>');
+    });
+    $(function() {
+        
     });
     $(function () {
         $(".play1").click(function() {

@@ -100,7 +100,6 @@ namespace Shiyun.Controllers
             return A;
         }
         #endregion
-
         #region 个人中心
         public ActionResult UserCenter(string Users_id)
         {
@@ -156,6 +155,8 @@ namespace Shiyun.Controllers
             uc.Post2 = postManager.GetPostByUser(Users_id, 2).Take(4);
             //讨论帖
             uc.Post3 = postManager.GetPostByUser(Users_id, 3).Take(4);
+            //草稿
+            uc.Draft = postManager.GetPostDraftByUser(Users_id);
             return View(uc);
         }
         #endregion
@@ -184,7 +185,6 @@ namespace Shiyun.Controllers
             return aa;
         }
         #endregion
-
         #region 分页数据获取
         public ActionResult _Yuanchuang(string Users_id, int? page)
         {
@@ -209,6 +209,14 @@ namespace Shiyun.Controllers
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(yuanchaung.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult _Caogao(string Users_id, int? page)
+        {
+            ViewBag.Users_id = Users_id;
+            var caogao = postManager.GetPostDraftByUser(Users_id);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(caogao.ToPagedList(pageNumber, pageSize));
         }
         #endregion
         #region 修改资料
@@ -259,7 +267,13 @@ namespace Shiyun.Controllers
                 return Content(ex.Message);
             }
             }
-        }
+
         #endregion
-    
+        #region
+            public ActionResult Pinglun()
+            {
+                return View();
+            }
+        #endregion
+    }
 }
