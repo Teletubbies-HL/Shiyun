@@ -231,6 +231,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChallengeViewModels.cs" />
+    <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LuntanIndex.cs" />
     <Compile Include="Models\OrderViewModels.cs" />
@@ -423,6 +424,7 @@
     <Content Include="Images\goods\wtyscx.jpg" />
     <Content Include="Images\goods\zbycx.jpg" />
     <Content Include="Images\goods\zmhsnlc.jpg" />
+    <Content Include="Images\Home\bofang.png" />
     <Content Include="Images\Home\tzph.jpg" />
     <Content Include="Images\Home\ycph.jpg" />
     <Content Include="Images\Mall\4.jpg" />
@@ -2123,7 +2125,6 @@
     <Content Include="Views\UserInfo\_Index.cshtml" />
     <Content Include="Views\UserInfo\_Taolun.cshtml" />
     <Content Include="Views\UserInfo\_Langsong.cshtml" />
-    <Content Include="Views\Mall\_ucOrderDetails.cshtml" />
     <Content Include="Views\UserInfo\_Gerenziliao1.cshtml" />
     <Content Include="Views\aaaa\Create.cshtml" />
     <Content Include="Views\aaaa\Delete.cshtml" />
@@ -2131,6 +2132,7 @@
     <Content Include="Views\aaaa\Edit.cshtml" />
     <Content Include="Views\aaaa\Index.cshtml" />
     <Content Include="Views\UserInfo\_Gerenziliao2.cshtml" />
+    <Content Include="Views\Mall\_OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

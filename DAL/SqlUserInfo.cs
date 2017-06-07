@@ -25,6 +25,11 @@ namespace DAL
                           select po;
             return userInfo.ToList();
         }
+        public IEnumerable<UserInfo> Jifentop(int top)
+        {
+            var userInfo = db.UserInfo.OrderByDescending(c => c.Jifen).Take(top);
+            return userInfo;
+        }
         public int CountUserInfoById(string uid)
         {
             var shopcar = db.UserInfo.Where(c => c.Users_id == uid).Select(c => c.Users_id).Count();

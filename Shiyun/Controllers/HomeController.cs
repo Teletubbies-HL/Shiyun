@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BLL;
 
 namespace Shiyun.Controllers
 {
     public class HomeController : Controller
     {
+        ShiManager shiManager = new ShiManager();
+        CiManager ciManager = new CiManager();
+        UserInfoManager userInfoManager = new UserInfoManager();
         public ActionResult Index()
         {
-            return View();
+            var shi1 = shiManager.IEGetShiById(4);
+            var shi2 = shiManager.IEGetShiById(5);
+            var ci1 = ciManager.IEGetCiById(1);
+            var ci2 = ciManager.IEGetCiById(24);
+            var userinfo1 = userInfoManager.Jifentop(7);
+            Models.HomeIndexViewModel homevm = new Models.HomeIndexViewModel();
+            homevm.Shi1 = shi1;
+            homevm.Shi2 = shi2;
+            homevm.Ci1 = ci1;
+            homevm.Ci2 = ci2;
+            homevm.UserInfo1 = userinfo1;
+            return View(homevm);
         }
 
         public ActionResult About()

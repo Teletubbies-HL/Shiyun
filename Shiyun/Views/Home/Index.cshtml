@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Shiyun.Models.HomeIndexViewModel
+@{
     ViewBag.Title = "诗韵-古诗词";
 }
 @section style{
@@ -49,11 +50,11 @@
         <div class="widget kopa-widget-features">
             <header class="widget-header style-01">
                 <img src="~/Images/Home/icon-header-1.png" alt="">
-                <h3 class="widget-title">AwESOME Features</h3>
-                <h4>We offer Students for better Learning</h4>
+                @*<h3 class="widget-title">诗韵</h3>*@
+                <h4 style="margin-top: 10px;">诗情词韵&nbsp;&nbsp;&nbsp;&nbsp;写意人文</h4>
             </header>
             <div class="widget-content module-features-01">
-                <div class="row">
+                <div class="row" style="margin-top: -65px;">
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <article class="entry-item">
                             <div class="custom">
@@ -62,13 +63,17 @@
                                         <img src="~/Images/Home/2.png" alt="">
                                     </div>
                                 </div>
-                                <div class="entry-content">
-                                    <h4 class="entry-title">
-                                        <a href="#">青玉案·元夕</a>
-                                    </h4>
-                                    <p>众里寻他千百度，蓦然回首，<br />那人却在，灯火阑珊处。</p>
-                                    <a href="#" class="button-01">查看详细</a>
-                                </div>
+                                @foreach (var item in Model.Ci2)
+                                {
+                                    <div class="entry-content">
+                                        <h4 class="entry-title">
+                                            <a href="#">@item.CiTitle</a>
+                                        </h4>
+                                        <p style="margin-bottom: 5px;">@Html.Raw(item.CiContent)
+                                        </p>
+                                        <a href="#" class="button-01">查看详细</a>
+                                    </div>
+                                }
                             </div>
                         </article>
                     </div>
@@ -79,13 +84,18 @@
                                     <img src="~/Images/Home/3.png" alt="">
                                 </div>
                             </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title">
-                                    <a href="#">诗经.卫风.淇奥</a>
-                                </h4>
-                                <p>如切如磋，<br />如琢如磨。</p>
+                            @foreach (var item in Model.Ci1)
+                            {
+                                <div class="entry-content">
+                                    <h4 class="entry-title">
+                                        <a href="#">@item.CiTitle</a>
+                                    </h4>
+                                    <p style="margin-bottom: 5px;">
+                                        @Html.Raw(item.CiContent)
+                                </p>
                                 <a href="#" class="button-01">查看详细</a>
                             </div>
+                            }
                         </article>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -95,13 +105,18 @@
                                     <img src="~/Images/Home/4.png" alt="">
                                 </div>
                             </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title">
-                                    <a href="#">陶渊明</a>
-                                </h4>
-                                <p>户庭无尘杂，虚室有余闲。<br />久在樊笼里，复得返自然。</p>
+                            @foreach (var item in Model.Shi1)
+                            {
+                                <div class="entry-content">
+                                    <h4 class="entry-title">
+                                        <a href="#">@item.ShiTitle</a>
+                                    </h4>
+                                    <p style="margin-bottom: 5px;">
+                                        @Html.Raw(item.ShiContent)
+                                </p>
                                 <a href="#" class="button-01">查看详细</a>
                             </div>
+                            }
                         </article>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -109,13 +124,18 @@
                             <div class="entry-thumb">
                                 <img src="~/Images/Home/5.png" alt="">
                             </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title">
-                                    <a href="#">辛弃疾</a>
-                                </h4>
-                                <p>明月别枝惊鹊，清风半夜鸣蝉。<br />稻花香里说丰年，听取蛙声一片。</p>
-                                <a href="#" class="button-01">查看详细</a>
-                            </div>
+                            @foreach (var item in Model.Shi2)
+                            {
+                                <div class="entry-content">
+                                    <h4 class="entry-title">
+                                        <a href="#">@item.ShiTitle</a>
+                                    </h4>
+                                    <p style="margin-bottom: 5px;">
+                                        @Html.Raw(item.ShiContent)
+                                    </p>
+                                    <a href="#" class="button-01">查看详细</a>
+                                </div>
+                            }
                         </article>
                     </div>
 
@@ -134,22 +154,25 @@
                     <article class="Paihang-item Paihang-item1">
                         <ul>
                             <li class="item-Title" style="text-align: center;">答题积分排行榜</li>
-                            <li class="item-Content item-Content1">
-                                <div class="Paihang_Name">
-                                    <span>1&nbsp;</span>
-                                    <a href="javascript:void(0)">黄小捷</a>
-                                    <div class="jifen">积分：15</div>
-                                </div>
-                                <div class="Paihang_Show">
-                                    <div class="touxiang">
-                                        <a href="javascript:void(0)"><img /></a>
+                            @foreach (var item in Model.UserInfo1)
+                            {
+                                <li class="item-Content item-Content1">
+                                    <div class="Paihang_Name">
+                                        <span>1&nbsp;</span>
+                                        <a href="javascript:void(0)">@item.UserName</a>
+                                        <div class="jifen">积分：@item.Jifen</div>
                                     </div>
-                                    <div class="jieshao">
-                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
+                                    <div class="Paihang_Show">
+                                        <div class="touxiang">
+                                            <a href="javascript:void(0)"><img src="..@item.UserImage" style="height: 100%; width: 100%;"/></a>
+                                        </div>
+                                        <div class="jieshao">
+                                            <span class="qianming">@item.UserSign</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="item-Content item-Content1">
+                                </li>
+                            }
+                            @*<li class="item-Content item-Content1">
                                 <div class="Paihang_Name">
                                     <span>2&nbsp;</span>
                                     <a href="javascript:void(0)">黄雷</a>
@@ -164,88 +187,8 @@
 
                                     </div>
                                 </div>
-                            </li>
-                            <li class="item-Content item-Content1">
-                                <div class="Paihang_Name">
-                                    <span>3&nbsp;</span>
-                                    <a href="javascript:void(0)">胡喆昊</a>
-                                    <div class="jifen">积分：15</div>
-                                </div>
-                                <div class="Paihang_Show">
-                                    <div class="touxiang">
-                                        <a href="javascript:void(0)"></a>
-                                    </div>
-                                    <div class="jieshao">
-                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
-
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item-Content item-Content1">
-                                <div class="Paihang_Name">
-                                    <span>4&nbsp;</span>
-                                    <a href="javascript:void(0)">王小明</a>
-                                    <div class="jifen">积分：10</div>
-                                </div>
-                                <div class="Paihang_Show">
-                                    <div class="touxiang">
-                                        <a href="javascript:void(0)"></a>
-                                    </div>
-                                    <div class="jieshao">
-                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
-
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item-Content item-Content1">
-                                <div class="Paihang_Name">
-                                    <span>5&nbsp;</span>
-                                    <a href="javascript:void(0)">王大明</a>
-                                    <div class="jifen">积分：9</div>
-                                </div>
-                                <div class="Paihang_Show">
-                                    <div class="touxiang">
-                                        <a href="javascript:void(0)"></a>
-                                    </div>
-                                    <div class="jieshao">
-                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
-
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item-Content item-Content1">
-                                <div class="Paihang_Name">
-                                    <span>6&nbsp;</span>
-                                    <a href="javascript:void(0)">胡喆昊</a>
-                                    <div class="jifen">积分：15</div>
-                                </div>
-                                <div class="Paihang_Show">
-                                    <div class="touxiang">
-                                        <a href="javascript:void(0)"></a>
-                                    </div>
-                                    <div class="jieshao">
-                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
-
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item-Content item-Content1">
-                                <div class="Paihang_Name">
-                                    <span>7&nbsp;</span>
-                                    <a href="javascript:void(0)">王小明</a>
-                                    <div class="jifen">积分：10</div>
-                                </div>
-                                <div class="Paihang_Show">
-                                    <div class="touxiang">
-                                        <a href="javascript:void(0)"></a>
-                                    </div>
-                                    <div class="jieshao">
-                                        <span class="qianming">这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名签名</span>
-
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item-End">查看全部></li>
+                            </li>*@
+                            <li class="item-End"><a href="@Url.Action("ChallengePaihang","Challenge")">查看全部></a></li>
                         </ul>
                     </article>
                 </div>

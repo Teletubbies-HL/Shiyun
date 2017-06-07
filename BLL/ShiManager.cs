@@ -17,6 +17,12 @@ namespace BLL
             var shis = ishi.GetShi();
             return shis;
         }
+
+        public IEnumerable<Shi> IEGetShiById(int id)
+       {
+            var shis = ishi.IEGetShiById(id);
+            return shis;
+        }
         public Shi GetShiById(int? id)
         {
             Shi shi = ishi.GetShiById(id);
