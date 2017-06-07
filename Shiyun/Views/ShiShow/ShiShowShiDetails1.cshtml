@@ -123,8 +123,14 @@
                                 </p>
                             </div>
                             <div class="user-introduction">
-                                <p class="text gray">@Model.ShiYuying</p>
-                            </div>
+                                <p class="text gray">
+                                   <center>
+                                       <audio controls="controls" class="music" style="display: block; width:100%;height:30px;">
+                                          <source src="@Model.ShiYuying" type="audio/mpeg" />
+                                       </audio> 
+                                    </center> 
+                                </p>
+                        </div>
 
                             <div class="goto-write center" style="padding: 10px;">
                                 <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" class="ui fluid teal button" target="_blank">其他作品</a>

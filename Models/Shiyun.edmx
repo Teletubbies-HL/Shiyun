@@ -61,6 +61,7 @@
           <Property Name="CiImage" Type="nvarchar(max)" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="CiJieSaho" Type="nvarchar(max)" />
+          <Property Name="Cizhixiang" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="CiComment">
           <Key>
@@ -217,6 +218,7 @@
           <Property Name="ShiImage" Type="nvarchar(max)" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="ShiJieShao" Type="nvarchar(max)" />
+          <Property Name="Shizhixiang" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="ShiComment">
           <Key>
@@ -1607,6 +1609,7 @@
           <Property Name="CiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="CiJieSaho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cizhixiang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Ci_Author" FromRole="Ci" ToRole="Author" />
           <NavigationProperty Name="Time" Relationship="Self.FK_Ci_Time" FromRole="Ci" ToRole="Time" />
           <NavigationProperty Name="CiPai" Relationship="Self.FK_Ci_Time1" FromRole="Ci" ToRole="CiPai" />
@@ -1790,6 +1793,7 @@
           <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="ShiJieShao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shizhixiang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Shi_Author" FromRole="Shi" ToRole="Author" />
           <NavigationProperty Name="ShiType" Relationship="Self.FK_Shi_ShiType" FromRole="Shi" ToRole="ShiType" />
           <NavigationProperty Name="Time" Relationship="Self.FK_Shi_Time" FromRole="Shi" ToRole="Time" />
@@ -2972,6 +2976,7 @@
                 <ScalarProperty Name="CiImage" ColumnName="CiImage" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="CiJieSaho" ColumnName="CiJieSaho" />
+                <ScalarProperty Name="Cizhixiang" ColumnName="Cizhixiang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3140,6 +3145,7 @@
                 <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="ShiJieShao" ColumnName="ShiJieShao" />
+                <ScalarProperty Name="Shizhixiang" ColumnName="Shizhixiang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

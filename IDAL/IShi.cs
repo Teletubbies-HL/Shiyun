@@ -16,6 +16,7 @@ namespace IDAL
 
         IQueryable<Shi> whereShiById(int id);
         IQueryable<Shi> GetShibyTop(int top);
+        IQueryable<Shi> GetShibyTopZx(int top);
         IQueryable<Shi> GetShibyLast(int last);
         //IEnumerable<Shi> GetbyTopandShikId(int top, string kid);
         void RemoveShi(Shi shi);

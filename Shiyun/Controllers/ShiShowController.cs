@@ -34,7 +34,8 @@ namespace Shiyun.Controllers
         #region 诗展示首页
         public ActionResult ShiIndex()
         {
-            var shitop8 = shimanager.GetShibyTop(8);
+            var shitopzhiding = shimanager.GetShibyTopZx(8);
+            var shitop8 = shimanager.GetShibyTop(9);
             var shi1 = shimanager.whereShiById(2);
             var shi2 = shimanager.whereShiById(4);
             var shi3 = shimanager.whereShiById(6);
@@ -48,6 +49,7 @@ namespace Shiyun.Controllers
             var shitypetop12 = shitypemanager.GetShiTypebyTop(12);
             var shitimtop11 = timemanager.GetTimebyTop(11);
             Models.ShiViewModels shivm = new Models.ShiViewModels();
+            shivm.Shitopzhiding = shitopzhiding;
             shivm.Shitop8 = shitop8;
             shivm.Shi1 = shi1;
             shivm.Shi2 = shi2;
@@ -193,7 +195,7 @@ namespace Shiyun.Controllers
 
         public ActionResult CiIndex()
         {
-            var citop7 = cimanager.GetCibyTop(7);
+            var citop7 = cimanager.GetCibyTopZx(7);
             var ciauthor1 = authormanager.whereAuthorById(36);
             var ciauthor2 = authormanager.whereAuthorById(37);
             var ciauthor3 = authormanager.whereAuthorById(38);

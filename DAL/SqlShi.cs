@@ -43,10 +43,16 @@ namespace DAL
         }
         public IQueryable<Shi> GetShibyTop(int top)
         {
-            //var shi = db.Shi.OrderBy(c => c.Shi_id).Take(top);
-            //return shi;
             var shi = from si in db.Shi
-                        orderby si.Shi_id ascending
+                        orderby si.Shi_id descending
+                      select si;
+            return shi.Take(top);
+        }
+        public IQueryable<Shi> GetShibyTopZx(int top)
+        {
+            var shi = from si in db.Shi
+                      where si.Shizhixiang =="1"
+                      orderby si.Shi_id descending
                       select si;
             return shi.Take(top);
         }
