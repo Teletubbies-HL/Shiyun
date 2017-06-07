@@ -22,7 +22,7 @@ namespace DAL
             Shi shi = db.Shi.Find(id);
             return shi;
         }
-        public IQueryable<ShiComment> GetShiCommentByShiId(int id)
+        public IEnumerable<ShiComment> GetShiCommentByShiId(int id)
         {
             var ShiComment = db.ShiComment.Include("Shi").Where(c => c.Shi_id == id);
             return ShiComment;

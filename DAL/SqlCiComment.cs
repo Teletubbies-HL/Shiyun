@@ -22,6 +22,17 @@ namespace DAL
             CiComment goods = db.CiComment.Find(id);
             return goods;
         }
+        public IEnumerable<CiComment> GetCiComment(int id)
+        {
+            var CiComment = db.CiComment.Include("Ci").Where(c => c.Ci_id == id);
+            return CiComment;
+        }
+        public void AddCiComment(CiComment cicomment)
+        {
+            db.CiComment.Add(cicomment);
+            db.SaveChanges();
+        }
+
         public IQueryable<CiReply> GetCiReplyByCiCommentId(int id)
         {
             var CiReply = db.CiReply.Include("CiComment").Where(c => c.CiComment_id == id);

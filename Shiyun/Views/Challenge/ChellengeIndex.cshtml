@@ -1,0 +1,49 @@
+﻿@model PagedList.IPagedList<Models.Challenge>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ChellengeIndex";
+    Layout = "~/Views/Shared/HouTai.cshtml";
+}
+
+<div class="container">
+    <div class="title_top">
+        <p style="color:darkgrey">
+            @Html.ActionLink("添加题库", "ChanllengeCreate")
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 6%">题目</th>
+                <th style="width: 12%">答案</th>
+                <th style="width: 10%">挑战类别</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnswerA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChallengeK.ChallengeKName)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row page-list">
+        <div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>
+
+        <div class="col-xs-6 col-sm-4 col-md-4 pagejiye">
+            @Html.PagedListPager(Model, page => Url.Action("ChellengeIndex", "Challenge", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 pageje">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </div>
+    </div>
+</div>

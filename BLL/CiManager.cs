@@ -22,7 +22,12 @@ namespace BLL
             Ci ci = ici.GetCiById(id);
             return ci;
         }
-        public IQueryable<CiComment> GetCiCommentByCiId(int id)
+        public IEnumerable<Ci> GetPostDetails(int postid)
+        {
+            var pstd = ici.GetPostDetails(postid);
+            return pstd;
+        }
+        public IEnumerable<CiComment> GetCiCommentByCiId(int id)
         {
             var CiComment = ici.GetCiCommentByCiId(id);
             return CiComment;

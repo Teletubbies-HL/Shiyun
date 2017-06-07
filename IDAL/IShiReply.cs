@@ -11,7 +11,7 @@ namespace IDAL
     {
         IEnumerable<ShiReply> GetShiReply();
         ShiReply GetShiReplyById(int? id);
-
+        void AddShiReply(ShiReply shireply);
 
         void RemoveShiReply(ShiReply shireply);
     }

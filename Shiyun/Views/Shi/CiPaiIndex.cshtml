@@ -1,0 +1,83 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList < Models.Ci>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CiIndex</title>
+    <style>
+        .pagination {
+            float: right;
+        }
+
+            .pagination > li > a, .pagination > li > span {
+                font-size: 14px;
+                text-decoration: none;
+                display: inline-block;
+                height: 36px;
+                line-height: 36px;
+                padding: 0 20px;
+                border: 1px solid #ddd;
+                color: #666;
+                background-color: #fff;
+                margin-left: 4px;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: all .2s;
+            }
+
+            .pagination li a:hover {
+                background: #5eb95e;
+                color: #fff;
+            }
+
+        .pagecout {
+            float: right;
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+
+        .page-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fashaoyou" id="Div1">
+        <div class="content1">
+            <div class="container">
+                <div class="rg-board collection-section one-section white section">
+                    <div class="rg-board-body">
+                        <div class="collection-list clearfix col-group">
+                            @foreach (var shi in Model)
+                            {
+                                <div class="col-2 col-mb-6">
+                                    <div class="collection-item">
+                                        <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new {ciid = shi.Ci_id})" class="collection-cover image" data-title="@shi.CiTitle">
+                                            <img src='..@shi.CiImage' class="cover" style="display: inline;" />
+                                            <p class="title one-line">
+                                                <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new {ciid = shi.Ci_id})">@shi.CiTitle</a>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-list">
+        <div class="pagecout">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</div>
+        @Html.PagedListPager(Model, page => Url.Action("CiPaiIndex", "ShiCi", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+
+</body>
+</html>

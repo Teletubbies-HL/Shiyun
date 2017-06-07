@@ -11,32 +11,41 @@ namespace BLL
 {
    public class ShiCommentManager
     {
-        IPostReply irpost = DataAccess.CreatePostReply();
-        public IEnumerable<PostReply> GetPostReply()
+        IShiComment isc = DataAccess.CreateShiComment();
+        public IEnumerable<ShiComment> GetShiComment()
         {
-            var rposts = irpost.GetPostReply();
-            return rposts;
+            var cicomment = isc.GetShiComment();
+            return cicomment;
         }
-        public PostReply GetPostReplyById(int? id)
+        public ShiComment GetShiCommentById(int? id)
         {
-            PostReply rpost = irpost.GetPostReplyById(id);
-            return rpost;
+            ShiComment cicomment = isc.GetShiCommentById(id);
+            return cicomment;
         }
-        public IQueryable<PostReply> GetPostReplyByPostReplyId(int id)
+        public IEnumerable<ShiComment> GetShiComment(int id)
         {
-            var PostReply = irpost.GetPostReplyByPostReplyId(id);
-            return PostReply;
+            var CiComment = isc.GetShiComment();
+            return CiComment;
+        }
+        public void AddShiComment(ShiComment shicomment)
+        {
+            isc.AddShiComment(shicomment);
+        }
+        public IQueryable<ShiReply> GetShiReplyByShiCommentId(int id)
+        {
+            var CiReply = isc.GetShiReplyByShiCommentId(id);
+            return CiReply;
         }
 
-        public void RemovePostReply(PostReply rpost)
+        public void RemoveCiComment(ShiComment shicomment)
         {
-            irpost.RemovePostReply(rpost);
+            isc.RemoveShiComment(shicomment);
 
         }
 
-        public void RemoveRangePostReply(IQueryable<PostReply> PostReply)
+        public void RemoveRangeCiReply(IQueryable<ShiReply> CiReply)
         {
-            irpost.RemoveRangePostReply(PostReply);
+            isc.RemoveRangeShiReply(CiReply);
         }
     }
 }

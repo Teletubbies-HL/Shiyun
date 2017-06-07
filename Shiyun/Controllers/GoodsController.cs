@@ -20,11 +20,6 @@ namespace Shiyun.Controllers
         GoodsManager goodsmanager = new GoodsManager();
 
         #region 商品列表
-        //public ActionResult Index()
-        //{
-        //    var goods = goodsmanager.GetGoods();
-        //    return View(goods);
-        //}
         public ActionResult Index(int? page)
         {
             var goods = goodsmanager.GetGoods();

@@ -1,0 +1,53 @@
+﻿@model PagedList.IPagedList<Models.Video>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "VideoIndex";
+    Layout = "~/Views/Shared/HouTai.cshtml";
+}
+
+<div class="container">
+    <div class="title_top">
+        <p style="color:darkgrey">
+            @Html.ActionLink("添加视频", "VideoCreate")
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 6%">视频名</th>
+                <th style="width: 12%">视频类别</th>
+                <th style="width: 10%">封面</th>
+                <th style="width: 10%">集数</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VideoName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VideoK.VideoKName)
+                </td>
+                <td>
+                    <img src="@item.Cover" style="width:60px;height:80px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VideoJishu)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row page-list">
+        <div class="col-xs-4 col-sm-6 col-md-6 pagejiye"></div>
+
+        <div class="col-xs-6 col-sm-4 col-md-4 pagejiye">
+            @Html.PagedListPager(Model, page => Url.Action("VideoIndex", "ManagerAdd", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 pageje">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </div>
+    </div>
+</div>
