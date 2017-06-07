@@ -36,7 +36,13 @@ namespace DAL
             var Author = db.Author.Include("Time").Where(c => c.Time_id == id);
             return Author;
         }
-       public IEnumerable<Author> WhereAuthorById(int id)
+        public IEnumerable<Author> Search(string search)
+        {
+            var author = db.Author.Where(c => c.AuthorName.Contains(search)).ToList();
+            return author;
+        }
+
+        public IEnumerable<Author> WhereAuthorById(int id)
         {
             var author = db.Author.Where(c => c.Author_id == id);
             return author;

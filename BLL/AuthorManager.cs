@@ -27,6 +27,11 @@ namespace BLL
             var ci = iauthor.GetbyTopandCiPaiId(top, authorid);
             return ci;
         }
+        public IEnumerable<Author> Search(string search)
+        {
+            var authors = iauthor.Search(search);
+            return authors;
+        }
         public Author GetAuthorById(int? id)
         {
             Author author = iauthor.GetAuthorById(id);

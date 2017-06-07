@@ -61,10 +61,10 @@ transition: all .2s;
                             {
                                 <div class="col-2 col-mb-6">
                                     <div class="collection-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})" class="collection-cover image" data-title="@shi.ShiTitle">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})" class="collection-cover image" data-title="@shi.ShiTitle">
                                             <img src='..@shi.ShiImage' class="cover" style="display: inline;" />
                                             <p class="title one-line">
-                                                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle</a>
+                                                <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                             </p>
                                         </a>
                                     </div>

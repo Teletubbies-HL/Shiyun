@@ -7,7 +7,6 @@
 <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
 <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
 <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
-
     <style>
         .recommend-list .recommend-item .active .title {
     border-bottom: 2px solid #CC7030;
@@ -30,8 +29,6 @@ else
 });
     </script>
 </head>
-
-
 <body class="" style="background-color: #F7F7F7!important;">
     <div class="message-container">
     </div>
@@ -82,11 +79,8 @@ else
                             </li>
                         }
                     </ul>
-
-
                 </div>
             </div>
-
             @*推荐显示部分*@
             <section class="nice-section container">
                 <div class="rg-board one-section white section">
@@ -94,20 +88,15 @@ else
                         <p class="title">古诗鉴赏</p>
                         <a href="@Url.Action("ShiIndex", "ShiCi")" class="more"> 更多 &gt;&gt;</a>
                     </div>
-
                     @*古诗鉴赏*@
-
                     <div class="rg-board-body">
-
                         @*古诗推荐*@
-
                         <div class="col-group">
-
                             @foreach (var shi in Model.Shi1)
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
@@ -126,16 +115,15 @@ else
                                     </div>
                                 </div>
                             }
-
                             @foreach (var shi in Model.Shi2)
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
-                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle</a>
+                                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                         </div>
                                         <p class="small text gray summary">
                                             北方有佳人。绝世而独立。
@@ -150,16 +138,15 @@ else
                                     </div>
                                 </div>
                             }
-
                             @foreach (var shi in Model.Shi3)
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
-                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle</a>
+                                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                         </div>
                                         <p class="small text gray summary">
                                             鸿鹄高飞，一举千里。
@@ -174,17 +161,15 @@ else
                                     </div>
                                 </div>
                             }
-
-
                             @foreach (var shi in Model.Shi4)
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
-                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle</a>
+                                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                         </div>
                                         <p class="small text gray summary">
                                             美连娟以修嫭兮，命樔绝而不长。
@@ -199,16 +184,15 @@ else
                                     </div>
                                 </div>
                             }
-
                             @foreach (var shi in Model.Shi5)
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
-                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle</a>
+                                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                         </div>
                                         <p class="small text gray summary">
                                             太一况，天马下，沾赤汗，沫流赭。
@@ -227,11 +211,11 @@ else
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nicewithpic-item">
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
-                                            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = shi.Shi_id})">@shi.ShiTitle</a>
+                                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                         </div>
                                         <p class="small text gray summary">
                                             秋木萋萋，其叶萎黄，有鸟处山，集于苞桑。
@@ -245,38 +229,25 @@ else
                                     </div>
                                 </div>
                             }
-
-
-
                         </div>
-
                         @*诗人推荐*@
-
                         <div class="nice-list col-group">
-
                             @foreach (var shi in Model.Shitop8)
-
                             {
                                 <div class="col-4 col-mb-12">
                                     <div class="nice-item text one-line">
 
                                         <a href=@Url.Action("ShiShowTypeDetails", "ShiShow", new { id = shi.ShiType_id }) class="gray">@shi.ShiType.ShiTypeName</a>
-                                        <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })" class="title"> @shi.ShiTitle </a>
+                                        <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = shi.Shi_id })" class="title"> @shi.ShiTitle </a>
                                         /
                                         <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = shi.Author_id })" class="gray"> @shi.Author.AuthorName</a>
                                     </div>
                                 </div>
                             }
                         </div>
-
                     </div>
-
-
-
                 </div>
             </section>
-
-
             @*诗韵推荐类型*@
             <div class="container">
                 <div class="rg-board collection-section one-section white section">
@@ -303,8 +274,6 @@ else
                     </div>
                 </div>
             </div>
-
-
             @*诗人专题*@
             <div class="container">
                 <section class="topic-section">
@@ -345,7 +314,6 @@ else
                     </div>
                 </section>
             </div>
-
             @*最新诗篇*@
             <section class="article-section container">
                 <div class="col-group">
@@ -363,7 +331,7 @@ else
                                             <div class="col-6 col-mb-12">
                                                 <li class="article-item text one-line">
                                                     <a href="@Url.Action("ShiShowTypeDetails", "ShiShow", new { id = shi.ShiType_id })" class="small text gray">[@shi.ShiType.ShiTypeName]</a>
-                                                    <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = shi.Shi_id })">@shi.ShiTitle  -</a>
+                                                    <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = shi.Shi_id })">@shi.ShiTitle  -</a>
                                                     <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new {id = shi.Author_id})" class="small text gray">@shi.Author.AuthorName</a>
                                                 </li>
                                             </div>
@@ -383,7 +351,6 @@ else
                                 <ul class="top-list">
                                     @foreach (var shi in Model.ShiTimetop11)
                                     {
-
                                         <li class="article-item text one-line">
                                             <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Time_id})">
                                                 <i class="article-no text gray">@shi.Time_id </i>&nbsp;&nbsp;
@@ -394,23 +361,15 @@ else
                                         </li>
                                     }
                                 </ul>
-
                             </div>
-
-
                         </div>
-
-
-
                     </div>
                 </div>
             </section>
-
             <section class="banner">
                 <div style="padding: 10px;"></div>
             </section>
         </div>
-
     </div>
 </body>
     @section scripts{

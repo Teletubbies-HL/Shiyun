@@ -164,10 +164,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci1.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci1.Ci_id })" class="big title">@ci1.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci1.Ci_id })" class="big title">@ci1.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci1.Ci_id })" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci1.Ci_id })" class="small gray title">
                                                 <img src="..@ci1.CiImage" data-original="..@ci1.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci1.Author.AuthorName</span>
                                             </a>
@@ -196,10 +196,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci.Ci_id })" class="big title">@ci.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci.Ci_id })" class="big title">@ci.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci.Ci_id })" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci.Ci_id })" class="small gray title">
                                                 <img src="..@ci.CiImage" data-original="..@ci.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci.Author.AuthorName</span>
                                             </a>
@@ -213,7 +213,7 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai3)
                             {
-                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails3", "ShiShow", new { ciid = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
@@ -228,10 +228,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
@@ -260,10 +260,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
@@ -292,10 +292,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>
@@ -324,10 +324,10 @@
                                     <div class="post-item">
                                         <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
                                         <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
                                         </p>
                                         <p>
-                                            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = ci2.Ci_id })" class="small gray title">
+                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="small gray title">
                                                 <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
                                                 <span>@ci2.Author.AuthorName</span>
                                             </a>

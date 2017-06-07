@@ -10,13 +10,13 @@
     <div class="col-dt-6 col-6 col-mb-12">
         <div class="collection-item">
             <div class="collection-cover">
-                <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = aus.Shi_id })" class="image">
+                <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = aus.Shi_id })" class="image">
                     <img src="@aus.ShiImage" data-original="@aus.ShiImage" width="120" height="160" style="display: inline;">
                 </a>
             </div>
             <div class="collection-detail">
                 <h3 class="big title one-line">
-                    <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new { id = aus.Shi_id })"> @aus.ShiTitle </a>
+                    <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = aus.Shi_id })"> @aus.ShiTitle </a>
                 </h3>
                 <p>
                     <span class="span-item  gray">作者:</span>
