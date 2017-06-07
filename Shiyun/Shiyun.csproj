@@ -2032,7 +2032,6 @@
     <Content Include="Video\3.mp4" />
     <Content Include="Video\4.mp4" />
     <Content Include="Views\Goods\GoodsCreate.cshtml" />
-    <Content Include="Views\UserInfo\_Liuyanban.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
