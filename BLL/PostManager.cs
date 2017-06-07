@@ -65,6 +65,12 @@ namespace BLL
             var pstd = ipost.GetPostByUser(uid,ltid);
             return pstd;
         }
+
+       public IEnumerable<View_PostIndex> GetPostDraftByUser(string uid)
+       {
+            var pstd = ipost.GetPostDraftByUser(uid);
+            return pstd;
+        }
        public IEnumerable<View_PostIndex> GetPostDetails(int postid)
        {
            var pstd = ipost.GetPostDetails(postid);

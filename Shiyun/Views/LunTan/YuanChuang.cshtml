@@ -55,7 +55,7 @@
                             <div class="hotpost_title">
                                 <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @item.LunTan_id, postId = @item.Post_id})" style="text-decoration: none; color: rgb(221, 59, 68);"><span class="iconfont">&#xe69e;&nbsp;</span>@item.PostTitle</a>
                             </div>
-                            <span class="user_name">@item.UserName</span>
+                            <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @item.Users_id})"><span class="user_name">@item.UserName</span></a>
                             <span class="addtime">@item.AddTime</span>
                         </div>
                     }
@@ -155,7 +155,7 @@
                 <ul>
                     @foreach (var ph in Model.PaiHang)
                     {
-                        <li><a href="javascript:void(0)"><span class="paihang_span2">@ph.PostTitle</span><span class="paihang_span3">@ph.UserName</span></a></li>
+                        <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = @ph.LunTan_id, postId = @ph.Post_id})"><span class="paihang_span2">@ph.PostTitle</span></a><a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @ph.Users_id})"><span class="paihang_span3">@ph.UserName</span></a></li>
                     }
                @*<li><a href="javascript:void(0)"><span class="paihang_span2">咏春</span><span class="paihang_span3">张三</span></a></li>
                 <li><a href="javascript:void(0)"><span class="paihang_span2">咏春</span><span class="paihang_span3">张三</span></a></li>

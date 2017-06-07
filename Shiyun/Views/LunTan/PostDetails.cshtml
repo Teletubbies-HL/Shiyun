@@ -40,10 +40,12 @@
                     {
                         <div id="ltvpostdetail">
                             <div class="userimage">
-                                <img id="imgUser" class="imgcssUser" src="@pd.UserImage" style="width: 100%; height: 100%;"/>
+                                <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @pd.Users_id})">
+                                    <img id="imgUser" class="imgcssUser" src="@pd.UserImage" style="width: 100%; height: 100%;" />
+                                </a>
                             </div>
                             <div class="posttitle">@pd.PostTitle</div>
-                            <div class="postname">@pd.UserName</div>
+                            <a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @pd.Users_id})"><div class="postname">@pd.UserName</div></a>
                             <div class="posttime">@pd.AddTime</div>
                             <div class="postcontent">@Html.Raw(pd.PostDetails)</div>
                             <audio controls="controls" class="music" style="display: none;">

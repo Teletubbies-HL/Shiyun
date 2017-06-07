@@ -51,8 +51,16 @@ namespace DAL
         public IEnumerable<View_PostIndex> GetPostByUser(string uid ,int ltid) //获取帖子
         {
             var pstd = from po in db.View_PostIndex
-                       where po.Users_id == uid && po.LunTan_id == ltid
+                       where po.Users_id == uid && po.LunTan_id == ltid && po.Post_draft !=1
                        orderby po.AddTime descending 
+                       select po;
+            return pstd;
+        }
+        public IEnumerable<View_PostIndex> GetPostDraftByUser(string uid) //获取草稿
+        {
+            var pstd = from po in db.View_PostIndex
+                       where po.Users_id == uid && po.Post_draft == 1
+                       orderby po.AddTime descending
                        select po;
             return pstd;
         }

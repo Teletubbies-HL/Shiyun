@@ -181,6 +181,9 @@ table {
 .n_tab_links .n_btn .n_icon_dd {
   background-position: -212px -85px;
 }
+.n_tab_links .n_btn .n_icon_cg {
+  background-position: -406px -1110px;
+}
 .n_tab_links .n_btn .n_text {
   vertical-align: middle;
   font-size: 14px;
@@ -349,7 +352,6 @@ table {
   width: 100%;
   padding: 0 100px 0 0;
   position: relative;
-  margin-left: 80px;
 }
 .col_1 .section .content .list-item {
   border-bottom: 1px solid #eee;
@@ -462,7 +464,7 @@ table {
 }
 .gerenziliao .ua .atext {
   float: left;
-  width: 200px;
+  width: 80px;
   text-align: right;
   color: #333333;
   line-height: 60px;
