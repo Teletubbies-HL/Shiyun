@@ -29,11 +29,7 @@ namespace DAL
                        select po;
             return pstd;
         }
-        public IQueryable<CiReReply> GetPostReplyByPostId(int id)
-        {
-            var post = db.CiReReply.Include("Ci").Where(o => o.Ci_id == id);
-            return post;
-        }
+      
         public IEnumerable<CiComment> GetCiCommentByCiId(int id)
         {
             var CiComment = db.CiComment.Include("Ci").Where(c => c.Ci_id == id);

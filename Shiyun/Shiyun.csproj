@@ -212,6 +212,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\LoginAttribute.cs" />
+    <Compile Include="Controllers\aaaa.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Controllers\MallController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagerAddController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShiCiController.cs" />
     <Compile Include="Controllers\ShiController.cs" />
     <Compile Include="Controllers\ShiShowController.cs" />
@@ -234,12 +236,14 @@
     <Compile Include="Models\LuntanIndex.cs" />
     <Compile Include="Models\OrderViewModels.cs" />
     <Compile Include="Models\CiPaiViewModels.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\TimeViewModels.cs" />
     <Compile Include="Models\TypeViewModels.cs" />
     <Compile Include="Models\ShiViewModels.cs" />
     <Compile Include="Models\MallViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShopCarViewModel.cs" />
+    <Compile Include="Models\UserCenterViewModel.cs" />
     <Compile Include="Models\VideoViewMode.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -2166,13 +2170,25 @@
     <Content Include="Views\ManagerAdd\Login.cshtml" />
     <Content Include="Views\ManagerAdd\menu.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowCiDetails1.cshtml" />
     <Content Include="Views\ShiShow\GetAllPostReply.cshtml" />
     <Content Include="Views\ShiShow\ShiShowCiDetails2.cshtml" />
     <Content Include="Views\ShiShow\CiComments.cshtml" />
     <Content Include="Views\ShiShow\ShiShowCiDetails3.cshtml" />
     <Content Include="Views\ShiShow\ShiComments.cshtml" />
     <Content Include="Views\ShiShow\ShiShowShiDetails1.cshtml" />
+    <Content Include="Views\aaaa\Create.cshtml" />
+    <Content Include="Views\aaaa\Delete.cshtml" />
+    <Content Include="Views\aaaa\Details.cshtml" />
+    <Content Include="Views\aaaa\Edit.cshtml" />
+    <Content Include="Views\aaaa\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\UserInfo\_Gerenziliao1.cshtml" />
+    <Content Include="Views\UserInfo\_Gerenziliao2.cshtml" />
+    <Content Include="Views\UserInfo\_Guanzhu.cshtml" />
+    <Content Include="Views\UserInfo\_Index.cshtml" />
+    <Content Include="Views\UserInfo\_Langsong.cshtml" />
+    <Content Include="Views\UserInfo\_Taolun.cshtml" />
+    <Content Include="Views\UserInfo\_Yuanchuang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

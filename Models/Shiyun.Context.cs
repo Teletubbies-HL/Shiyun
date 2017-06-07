@@ -34,7 +34,6 @@ namespace Models
         public virtual DbSet<CiComment> CiComment { get; set; }
         public virtual DbSet<CiPai> CiPai { get; set; }
         public virtual DbSet<CiReply> CiReply { get; set; }
-        public virtual DbSet<CiReReply> CiReReply { get; set; }
         public virtual DbSet<Goods> Goods { get; set; }
         public virtual DbSet<GoodsK> GoodsK { get; set; }
         public virtual DbSet<LunTan> LunTan { get; set; }
@@ -47,7 +46,6 @@ namespace Models
         public virtual DbSet<Shi> Shi { get; set; }
         public virtual DbSet<ShiComment> ShiComment { get; set; }
         public virtual DbSet<ShiReply> ShiReply { get; set; }
-        public virtual DbSet<ShiReReply> ShiReReply { get; set; }
         public virtual DbSet<ShiType> ShiType { get; set; }
         public virtual DbSet<ShopCar> ShopCar { get; set; }
         public virtual DbSet<Time> Time { get; set; }
@@ -62,15 +60,14 @@ namespace Models
         public virtual DbSet<View_Authorsc> View_Authorsc { get; set; }
         public virtual DbSet<View_AuthorShi> View_AuthorShi { get; set; }
         public virtual DbSet<View_CiPaiCi> View_CiPaiCi { get; set; }
-        public virtual DbSet<View_CiReply> View_CiReply { get; set; }
         public virtual DbSet<View_CiShow> View_CiShow { get; set; }
         public virtual DbSet<View_OrderDetails> View_OrderDetails { get; set; }
         public virtual DbSet<View_PostDetails> View_PostDetails { get; set; }
         public virtual DbSet<View_PostIndex> View_PostIndex { get; set; }
         public virtual DbSet<View_PostReply> View_PostReply { get; set; }
-        public virtual DbSet<View_ShiReply> View_ShiReply { get; set; }
         public virtual DbSet<View_ShitypeA> View_ShitypeA { get; set; }
         public virtual DbSet<View_ShopCar> View_ShopCar { get; set; }
+        public virtual DbSet<View_UserInfo> View_UserInfo { get; set; }
     
         public virtual int ShopCar_Orders(string users_id, string userName, string userPhone, string address, string note)
         {

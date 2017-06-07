@@ -77,7 +77,6 @@
     <Compile Include="SqlOrderDetails.cs" />
     <Compile Include="SqlOrders.cs" />
     <Compile Include="SqlPost.cs" />
-    <Compile Include="SqlCiReReply.cs" />
     <Compile Include="SqlPostReply.cs" />
     <Compile Include="SqlShi.cs" />
     <Compile Include="SqlShiComment.cs" />

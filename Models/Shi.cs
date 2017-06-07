@@ -18,7 +18,6 @@ namespace Models
         public Shi()
         {
             this.ShiComment = new HashSet<ShiComment>();
-            this.ShiReReply = new HashSet<ShiReReply>();
         }
     
         public int Shi_id { get; set; }
@@ -40,7 +39,5 @@ namespace Models
         public virtual Time Time { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShiComment> ShiComment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShiReReply> ShiReReply { get; set; }
     }
 }

@@ -23,7 +23,6 @@ namespace Shiyun.Controllers
         ShiTypeManager shitypemanager = new ShiTypeManager();
         CiManager cimanager = new CiManager();
         CiPaiManager cipaimanager = new CiPaiManager();
-        CiReReplyManager pr = new CiReReplyManager();
         CiCommentManager cc = new CiCommentManager();
         CiReplyManager cr = new CiReplyManager();
         ShiCommentManager sc=new ShiCommentManager();
@@ -266,14 +265,7 @@ namespace Shiyun.Controllers
             }
             return View(cis);
         }
-        public ActionResult ShiShowCiDetails1(int id)
-        {
-            CiPaiViewModels cidetails = new CiPaiViewModels();
-            ViewBag.Ci_id = id;          
-            cidetails.CiDetails = cimanager.GetPostDetails(id);
-            cidetails.AllCiReply = pr.GetPostReply(id);
-            return View(cidetails);          
-        }
+       
         public ActionResult ShiShowCiDetails2(int id)
         {
             CiPaiViewModels cidetails = new CiPaiViewModels();
@@ -377,42 +369,7 @@ namespace Shiyun.Controllers
         }
         #endregion
 
-        #region 评论分页数据获取
-        public ActionResult GetAllPostReply(int id, int? page)
-        {
-            ViewBag.Ci_id = id;
-            var postreply = pr.GetPostReply(id);
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
-            return View(postreply.ToPagedList(pageNumber, pageSize));
-        }
-        #endregion
-
-        #region  保存评论
-        [HttpPost]
-        [ValidateInput(false)]  //富文本编辑器使用
-        [ValidateAntiForgeryToken]
-        [Login]
-        public string Pinglun([Bind(Include = "Reply_id,Users_id,ReplyContent,ReplyTime,ReReply_id,Ci_id")]CiReReply postReply)
-        {
-
-            if (ModelState.IsValid)
-            {
-                postReply.Ci_id = ViewBag.Ci_id;
-                postReply.ReplyTime = System.DateTime.Now;
-                postReply.Users_id = Session["Users_id"].ToString();
-                                
-                pr.AddPostReply(postReply);
-                return "aa";
-                //Content("<script>;alert('发布成功！');window.history.go(-1);</script>");
-            }
-            else
-            {
-                return "bb";
-                //Content("<script>;alert('发布失败！');history.go(-1)</script>");
-            }
-        }
-        #endregion
+       
 
         #region 诗类型页面
         public ActionResult ShiShowTypeDetails(int id)

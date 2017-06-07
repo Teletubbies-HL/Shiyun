@@ -55,7 +55,6 @@
     <Compile Include="OrdersDetailsManager.cs" />
     <Compile Include="OrdersManager.cs" />
     <Compile Include="PostManager.cs" />
-    <Compile Include="CiReReplyManager.cs" />
     <Compile Include="PostReplyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />

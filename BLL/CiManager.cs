@@ -27,11 +27,6 @@ namespace BLL
             var pstd = ici.GetPostDetails(postid);
             return pstd;
         }
-        public IQueryable<CiReReply> GetPostReplyByPostId(int id)
-        {
-            var CiReReply = ici.GetPostReplyByPostId(id);
-            return CiReReply;
-        }
         public IEnumerable<CiComment> GetCiCommentByCiId(int id)
         {
             var CiComment = ici.GetCiCommentByCiId(id);

@@ -18,7 +18,6 @@ namespace Models
         public Ci()
         {
             this.CiComment = new HashSet<CiComment>();
-            this.CiReReply = new HashSet<CiReReply>();
         }
     
         public int Ci_id { get; set; }
@@ -40,7 +39,5 @@ namespace Models
         public virtual CiPai CiPai { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CiComment> CiComment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CiReReply> CiReReply { get; set; }
     }
 }

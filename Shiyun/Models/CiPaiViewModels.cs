@@ -15,8 +15,6 @@ namespace Shiyun.Models
         public IEnumerable<CiPai> CiPai { get; set; }
         public IEnumerable<View_CiPaiCi> AllCi { get; set; }
         public Ci Ci { get; set; }
-        public IEnumerable<View_CiReply> AllCiReply { get; set; }
-        public CiReReply CiReReply { get; set; }
         //public CiComment CiComment { get; set; }
 
     }
