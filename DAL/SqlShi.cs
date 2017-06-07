@@ -17,6 +17,11 @@ namespace DAL
             var shi = db.Shi.ToList();
             return shi;
         }
+        public IEnumerable<Shi> IEGetShiById(int id)
+        {
+            var shi = db.Shi.Where(c => c.Shi_id == id);
+            return shi;
+        }
         public Shi GetShiById(int? id)
         {
             Shi shi = db.Shi.Find(id);

@@ -19,6 +19,7 @@ namespace IDAL
 
         IEnumerable<View_UserInfo> CountUserGuanzhu1ById(string uid);
         IEnumerable<View_UserInfo> CountUserGuanzhu2ById(string uid);
+        IEnumerable<UserInfo> Jifentop(int top);
         void GuanZhu(UserGuanzhu us);
         void QuXiaoGuanZhu(string userA, string userB);
     }

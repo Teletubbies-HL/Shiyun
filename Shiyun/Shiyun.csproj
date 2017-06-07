@@ -232,6 +232,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChallengeViewModels.cs" />
+    <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LuntanIndex.cs" />
     <Compile Include="Models\OrderViewModels.cs" />
@@ -456,6 +457,19 @@
     <Content Include="Images\LunTan\诗有含蓄方有味.jpg" />
     <Content Include="Images\LunTan\谈“以议论为诗”.jpg" />
     <Content Include="Images\Mall\clist.png" />
+    <Content Include="Images\goods\hfpcx.jpg" />
+    <Content Include="Images\goods\lycx.jpg" />
+    <Content Include="Images\goods\mxsx.jpg" />
+    <Content Include="Images\goods\rjch.jpg" />
+    <Content Include="Images\goods\sc.jpg" />
+    <Content Include="Images\goods\tssbs.jpg" />
+    <Content Include="Images\goods\wtyscx.jpg" />
+    <Content Include="Images\goods\zbycx.jpg" />
+    <Content Include="Images\goods\zmhsnlc.jpg" />
+    <Content Include="Images\Home\bofang.png" />
+    <Content Include="Images\Home\tzph.jpg" />
+    <Content Include="Images\Home\ycph.jpg" />
+    <Content Include="Images\Mall\4.jpg" />
     <Content Include="Images\face\0_微笑.gif" />
     <Content Include="Images\face\10_尴尬.gif" />
     <Content Include="Images\face\11_发怒.gif" />
@@ -617,6 +631,7 @@
     <Content Include="Images\Mall\902.jpg" />
     <Content Include="Images\Mall\903.jpg" />
     <Content Include="Images\Mall\bi.png" />
+    <Content Include="Images\Mall\clist.png" />
     <Content Include="Images\Mall\clist1.jpg" />
     <Content Include="Images\Mall\clist2.jpg" />
     <Content Include="Images\Mall\clist3.jpg" />
@@ -638,6 +653,7 @@
     <Content Include="Images\shi\shi陆游.png" />
     <Content Include="Images\Time\53609-106.jpg" />
     <Content Include="Images\userInfo\1.jpg" />
+    <Content Include="Images\userInfo\h_a.jpg" />
     <Content Include="Images\userInfo\2.jpg" />
     <Content Include="Images\userInfo\20170503823.jpg" />
     <Content Include="Images\userInfo\20170503824.jpg" />
@@ -652,12 +668,31 @@
     <Content Include="Images\userInfo\20170503833.jpg" />
     <Content Include="Images\userInfo\3.jpg" />
     <Content Include="Images\userInfo\4.jpg" />
+    <Content Include="Images\userInfo\h_gradient.png" />
+    <Content Include="Images\userInfo\icons.png" />
     <Content Include="Images\Video\1.jpg" />
     <Content Include="Images\Video\3.jpg" />
     <Content Include="Images\Video\4.jpg" />
     <Content Include="Images\Video\5.jpg" />
     <Content Include="Images\Video\zhankai.png" />
+    <Content Include="Images\Video\下江南.jpg" />
+    <Content Include="Images\Video\云之南.jpg" />
+    <Content Include="Images\Video\南宋.jpg" />
+    <Content Include="Images\Video\叶剑英.jpg" />
+    <Content Include="Images\Video\唐诗.jpg" />
+    <Content Include="Images\Video\山水记.jpg" />
+    <Content Include="Images\Video\山水雅集.jpg" />
     <Content Include="Images\Video\我在故宫修文物大图.png" />
+    <Content Include="Images\Video\月亮.jpg" />
+    <Content Include="Images\Video\杜甫.jpg" />
+    <Content Include="Images\Video\白居易.jpg" />
+    <Content Include="Images\Video\白居易2.jpg" />
+    <Content Include="Images\Video\诗经.jpg" />
+    <Content Include="Images\Video\诗行天下.jpg" />
+    <Content Include="Images\Video\诗词中国.jpg" />
+    <Content Include="Images\Video\边塞行.jpeg" />
+    <Content Include="Images\Video\镇江.jpg" />
+    <Content Include="Images\Video\陆放翁.jpg" />
     <Content Include="Manager\css\animate.css" />
     <Content Include="Manager\css\bootstrap-fileupload.min.css" />
     <Content Include="Manager\css\bootstrap-reset.css" />
@@ -1314,6 +1349,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\Video\classie.js" />
+    <Content Include="Scripts\Video\demo.js" />
+    <Content Include="Scripts\Video\jquery-2.1.1.js" />
+    <Content Include="Scripts\Video\owl.carousel.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ueditor\dialogs\anchor\anchor.html" />
     <Content Include="ueditor\dialogs\attachment\attachment.css" />
@@ -2171,6 +2210,14 @@
     <Content Include="Views\ShiShow\ShiShowCiDetails3.cshtml" />
     <Content Include="Views\ShiShow\ShiComments.cshtml" />
     <Content Include="Views\ShiShow\ShiShowShiDetails1.cshtml" />
+    <Content Include="Views\LunTan\PostPaihang.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\UserInfo\UserCenter.cshtml" />
+    <Content Include="Views\UserInfo\_Yuanchuang.cshtml" />
+    <Content Include="Views\UserInfo\_Index.cshtml" />
+    <Content Include="Views\UserInfo\_Taolun.cshtml" />
+    <Content Include="Views\UserInfo\_Langsong.cshtml" />
+    <Content Include="Views\UserInfo\_Gerenziliao1.cshtml" />
     <Content Include="Views\aaaa\Create.cshtml" />
     <Content Include="Views\aaaa\Delete.cshtml" />
     <Content Include="Views\aaaa\Details.cshtml" />
@@ -2187,6 +2234,7 @@
     <Content Include="Views\UserInfo\_Caogao.cshtml" />
     <Content Include="Views\UserInfo\UserCenter.cshtml" />
     <Content Include="Views\LunTan\PostPaihang.cshtml" />
+    <Content Include="Views\Mall\_OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

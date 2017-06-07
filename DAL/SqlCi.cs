@@ -17,6 +17,11 @@ namespace DAL
             var cis = db.Ci.ToList();
             return cis;
         }
+        public IEnumerable<Ci> IEGetCiById(int id)
+        {
+            var cis = db.Ci.Where(c=>c.Ci_id==id);
+            return cis;
+        }
         public Ci GetCiById(int? id)
         {
             Ci ci = db.Ci.Find(id);

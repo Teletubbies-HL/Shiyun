@@ -17,6 +17,12 @@ namespace BLL
             var cis = ici.GetCi();
             return cis;
         }
+
+       public IEnumerable<Ci> IEGetCiById(int id)
+       {
+            var cis = ici.IEGetCiById(id);
+            return cis;
+        }
         public Ci GetCisById(int? id)
         {
             Ci ci = ici.GetCiById(id);
