@@ -99,13 +99,16 @@
     <div class="rightbox">
         <div class="tuijian">
             <span style="width: 100%; display: block; font-size: 17px; color: rgb(221, 59, 68); padding-bottom: 15px; border-bottom: 1px solid #E6E6E6;">推荐阅读</span>
-            <div id="ltvtuijian">
-
-                <div>
-                    <a class="tuijiantitle" href='javascript:void(0)' style="text-decoration: none; color: #515151; line-height: 44px;">
-                    </a>
+            @foreach (var item in Model.ZongheTaolun)
+            {
+                <div id="ltvtuijian">
+                    <div>
+                        <a class="tuijiantitle" href='javascript:void(0)' style="text-decoration: none; color: #515151; line-height: 44px;">
+                            @item.PostTitle
+                        </a>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </section>

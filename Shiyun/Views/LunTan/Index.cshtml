@@ -41,47 +41,47 @@
                 <div id="mask">
                     <ul>
                         <li id="first" class="firstanimation">
-                            <a href="javascript:void(0)">
-                                <img src="~/Images/LunTan/gugong.jpg"/>
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 1, postId = 20})">
+                                <img src="/Images/LunTan/樱花.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>故宫</h1>
+                                <h1>樱花</h1>
                             </div>
                         </li><!--第一张图片结束--->
 
                         <li id="second" class="secondanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/matouqiang.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 3, postId = 73})">
+                                <img src="/Images/LunTan/诗有含蓄方有味.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>马头墙</h1>
+                                <h1> 诗有含蓄方有味</h1>
                             </div>
                         </li><!--第二张图片结束--->
 
                         <li id="third" class="thirdanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/menchaung.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 1, postId = 24})">
+                                <img src="/Images/LunTan/春意.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>门窗</h1>
+                                <h1>春意</h1>
                             </div>
                         </li><!--第三张图片结束--->
 
                         <li id="fourth" class="fourthanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/xiaoguaishou.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 2, postId = 76})">
+                                <img src="/Images/LunTan/芙蓉.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>飞檐“小怪兽”</h1>
+                                <h1>涉江采芙蓉</h1>
                             </div>
                         </li><!--第四张图片结束--->
 
                         <li id="fifth" class="fifthanimation">
-                            <a href="javascript:void(0)">
-                                <img src="/Images/LunTan/xian.jpg" />
+                            <a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 3, postId = 69})">
+                                <img src="/Images/LunTan/谈“以议论为诗”.jpg" />
                             </a>
                             <div class="tooltip">
-                                <h1>西安</h1>
+                                <h1> 谈“以议论为诗”</h1>
                             </div>
                         </li><!--第五张图片结束--->
                     </ul>
@@ -329,6 +329,9 @@
         $('.paihang ul').children(":eq(0)").children().append('<span class="paihang_span1">1</span>');
         $('.paihang ul').children(":eq(1)").children().append('<span class="paihang_span1">2</span>');
         $('.paihang ul').children(":eq(2)").children().append('<span class="paihang_span1">3</span>');
+    });
+    $(function() {
+        
     });
     $(function () {
         $(".play1").click(function() {

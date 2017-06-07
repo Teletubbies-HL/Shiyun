@@ -42,7 +42,7 @@ namespace DAL
                           where po.Post_recommend == 1 && po.Post_draft != 1
                           orderby po.AddTime descending 
                           select po;
-            return zonghe.Take(3);
+            return zonghe;
         }
 
        public IEnumerable<View_PostIndex> GetPaiHang() //获取前三排行

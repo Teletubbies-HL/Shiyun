@@ -28,7 +28,7 @@ namespace Shiyun.Controllers
             LuntanIndex luntanIndex = new LuntanIndex();
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类
             luntanIndex.HotPost = ltm.GetHostPost();//热帖
-            luntanIndex.ZongheTaolun = ltm.GetZongheTaolun(); //综合讨论
+            luntanIndex.ZongheTaolun = ltm.GetZongheTaolun().Take(3); //综合讨论
             luntanIndex.PaiHang = ltm.GetPaiHang(); //排名
             return View(luntanIndex);
         }
@@ -205,6 +205,7 @@ namespace Shiyun.Controllers
             luntanIndex.FenLei = ltm.GetFenlei(); //导航分类 
             luntanIndex.LuntanName = ltm.GetLuntanName(luntanId); //论坛名称       
             luntanIndex.PostDetails = pm.GetPostDetails(postId);//帖子详情
+            luntanIndex.ZongheTaolun = ltm.GetZongheTaolun().Take(3);
             luntanIndex.AllPostReply = pr.GetPostReply(postId);
             return View(luntanIndex);
         }

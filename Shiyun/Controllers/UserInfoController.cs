@@ -100,7 +100,6 @@ namespace Shiyun.Controllers
             return A;
         }
         #endregion
-
         #region 个人中心
         public ActionResult UserCenter(string Users_id)
         {
@@ -268,7 +267,13 @@ namespace Shiyun.Controllers
                 return Content(ex.Message);
             }
             }
-        }
+
         #endregion
-    
+        #region
+            public ActionResult Pinglun()
+            {
+                return View();
+            }
+        #endregion
+    }
 }

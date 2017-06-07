@@ -152,7 +152,7 @@
     <div class="rightbox">
         <div class="bankuai">
             <div class="paihang">
-                <span class="paihang_title">原创排行</span>
+                <a href="@Url.Action("PostPaihang","LunTan",new {choose_id = 1})"><span class="paihang_title">原创排行</span></a>
                 <ul>
                     @foreach (var ph in Model.PaiHang)
                     {

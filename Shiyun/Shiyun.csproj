@@ -450,6 +450,11 @@
     <Content Include="Images\images\photos\user-avatar.png" />
     <Content Include="Images\images\plus-white.png" />
     <Content Include="Images\images\plus.png" />
+    <Content Include="Images\LunTan\春意.jpg" />
+    <Content Include="Images\LunTan\樱花.jpg" />
+    <Content Include="Images\LunTan\芙蓉.jpg" />
+    <Content Include="Images\LunTan\诗有含蓄方有味.jpg" />
+    <Content Include="Images\LunTan\谈“以议论为诗”.jpg" />
     <Content Include="Images\Mall\clist.png" />
     <Content Include="Images\face\0_微笑.gif" />
     <Content Include="Images\face\10_尴尬.gif" />
@@ -590,15 +595,7 @@
     <Content Include="Images\LunTan\1.jpg" />
     <Content Include="Images\LunTan\2.jpg" />
     <Content Include="Images\LunTan\bg.png" />
-    <Content Include="Images\LunTan\gugong.jpg" />
     <Content Include="Images\LunTan\guide.jpg" />
-    <Content Include="Images\LunTan\img_1.jpg" />
-    <Content Include="Images\LunTan\img_2.jpg" />
-    <Content Include="Images\LunTan\img_3.jpg" />
-    <Content Include="Images\LunTan\img_4.jpg" />
-    <Content Include="Images\LunTan\img_5.jpg" />
-    <Content Include="Images\LunTan\matouqiang.jpg" />
-    <Content Include="Images\LunTan\menchaung.jpg" />
     <Content Include="Images\LunTan\pailou.jpg" />
     <Content Include="Images\LunTan\queti.jpg" />
     <Content Include="Images\LunTan\shizi.jpg" />
@@ -606,8 +603,6 @@
     <Content Include="Images\LunTan\t2.jpg" />
     <Content Include="Images\LunTan\t3.jpg" />
     <Content Include="Images\LunTan\weibo.jpg" />
-    <Content Include="Images\LunTan\xian.jpg" />
-    <Content Include="Images\LunTan\xiaoguaishou.jpg" />
     <Content Include="Images\LunTan\yingzao.jpg" />
     <Content Include="Images\LunTan\二手交易.jpg" />
     <Content Include="Images\LunTan\家具社区.jpg" />
@@ -2037,6 +2032,7 @@
     <Content Include="Video\3.mp4" />
     <Content Include="Video\4.mp4" />
     <Content Include="Views\Goods\GoodsCreate.cshtml" />
+    <Content Include="Views\UserInfo\_Liuyanban.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2190,6 +2186,8 @@
     <Content Include="Views\UserInfo\_Taolun.cshtml" />
     <Content Include="Views\UserInfo\_Yuanchuang.cshtml" />
     <Content Include="Views\UserInfo\_Caogao.cshtml" />
+    <Content Include="Views\UserInfo\UserCenter.cshtml" />
+    <Content Include="Views\LunTan\PostPaihang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
