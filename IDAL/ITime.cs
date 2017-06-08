@@ -20,5 +20,7 @@ namespace IDAL
         IEnumerable<Time> Search(string search);
         void RemoveRangeAuthor(IQueryable<Author> Author);
         void RemoveRangeShi(IQueryable<Shi> Shi);
+        IEnumerable<View_TimeShi> GetAllShi(int TimeId);
+        IEnumerable<Time> WhereTimeById(int id);
     }
 }

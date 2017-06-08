@@ -33,6 +33,7 @@ namespace Models
         public string CiImage { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
         public string CiJieSaho { get; set; }
+        public string Cizhixiang { get; set; }
     
         public virtual Author Author { get; set; }
         public virtual Time Time { get; set; }

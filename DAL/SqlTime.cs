@@ -69,5 +69,18 @@ namespace DAL
         {
             db.Shi.RemoveRange(shi);
         }
+        public IEnumerable<View_TimeShi> GetAllShi(int TimeId)  //获取所有诗
+        {
+            var Time = from ac in db.View_TimeShi
+                          where ac.Time_id == TimeId
+                       orderby ac.Shi_id descending
+                          select ac;
+            return Time;
+        }
+        public IEnumerable<Time> WhereTimeById(int id)
+        {
+            var time = db.Time.Where(c => c.Time_id == id);
+            return time;
+        }
     }
 }

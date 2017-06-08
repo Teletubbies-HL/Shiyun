@@ -27,14 +27,14 @@ namespace Shiyun.Controllers
         CiReplyManager cr = new CiReplyManager();
         ShiCommentManager sc=new ShiCommentManager();
         ShiReplyManager sr=new ShiReplyManager();
-        // GET: ShiShow
 
         #region 诗展示
 
         #region 诗展示首页
         public ActionResult ShiIndex()
         {
-            var shitop8 = shimanager.GetShibyTop(8);
+            var shitopzhiding = shimanager.GetShibyTopZx(8);
+            var shitop8 = shimanager.GetShibyTop(9);
             var shi1 = shimanager.whereShiById(2);
             var shi2 = shimanager.whereShiById(4);
             var shi3 = shimanager.whereShiById(6);
@@ -48,6 +48,7 @@ namespace Shiyun.Controllers
             var shitypetop12 = shitypemanager.GetShiTypebyTop(12);
             var shitimtop11 = timemanager.GetTimebyTop(11);
             Models.ShiViewModels shivm = new Models.ShiViewModels();
+            shivm.Shitopzhiding = shitopzhiding;
             shivm.Shitop8 = shitop8;
             shivm.Shi1 = shi1;
             shivm.Shi2 = shi2;
@@ -98,22 +99,6 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 诗详情页
-
-        public ActionResult ShiShowShiDetails(int id)
-        {
-            Session["Shi_id"] = id;
-            if (Session["Shi_id"] == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var shis = shimanager.GetShiById(id);
-            if (shis == null)
-            {
-                return HttpNotFound();
-            }
-            return View(shis);
-        }
-
         public ActionResult ShiShowShiDetails1(int shiid)
         {
             Session["shiid"] = shiid;
@@ -187,13 +172,11 @@ namespace Shiyun.Controllers
 
         #endregion
 
-        #region 词展示
-
         #region 词展示首页
 
         public ActionResult CiIndex()
         {
-            var citop7 = cimanager.GetCibyTop(7);
+            var citop7 = cimanager.GetCibyTopZx(7);
             var ciauthor1 = authormanager.whereAuthorById(36);
             var ciauthor2 = authormanager.whereAuthorById(37);
             var ciauthor3 = authormanager.whereAuthorById(38);
@@ -242,38 +225,8 @@ namespace Shiyun.Controllers
         #endregion
 
         #endregion
-
-        #region 词具体分类展示
-        #endregion
-        #endregion
-
-        #region 词选择
-        #endregion
-
-        #region 词详情
-        public ActionResult ShiShowCiDetails(int id)
-        {
-            Session["Ci_id"] = id;
-            if (Session["Ci_id"] == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var cis = cimanager.GetCisById(id);
-            if (cis == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cis);
-        }
        
-        public ActionResult ShiShowCiDetails2(int id)
-        {
-            CiPaiViewModels cidetails = new CiPaiViewModels();
-            ViewBag.Ci_id = id;
-            cidetails.CiDetails = cimanager.GetPostDetails(id);
-            cidetails.CiComment = cimanager.GetCiCommentByCiId(id);
-            return View(cidetails);
-        }
+        #region 词详情     
         public ActionResult ShiShowCiDetails3(int ciid)
         {
             Session["ciid"] = ciid;
@@ -345,32 +298,7 @@ namespace Shiyun.Controllers
             }
         }
         #endregion
-
-        #region 词评论
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult CiComment(CiComment cicomment)
-        {
-            string pingluntextarea = Request["pingluntextarea"];
-            int Ci_id = Convert.ToInt32(Session["Ci_id"]);
-            
-
-            if (ModelState.IsValid)
-            {
-                cicomment.Ci_id = Convert.ToInt32(Session["Ci_id"]);
-                cicomment.Users_id = Session["Users_id"].ToString();
-                cicomment.ComContent = pingluntextarea;
-                cicomment.ComTime = System.DateTime.Now;
-                db.CiComment.Add(cicomment);
-                db.SaveChanges();
-                return Content("<script>;alert('评论成功!');history.go(-1)</script>");
-            }
-            return RedirectToAction("ShiShowCiDetails2", "ShiShow");
-        }
-        #endregion
-
        
-
         #region 诗类型页面
         public ActionResult ShiShowTypeDetails(int id)
         {
@@ -393,6 +321,28 @@ namespace Shiyun.Controllers
         }
         #endregion
 
+        #region 年代详情和分页
+        #region 作者页面
+        public ActionResult ShiShowTimeDetails(int TimeId)
+        {
+          
+            TimeViewModels times = new TimeViewModels();
+            ViewBag.Time_id = TimeId;
+            times.Time = timemanager.whereTimeById(TimeId);
+            times.Times = timemanager.GetAllShi(TimeId);
+            return View(times);
+    }
+        #endregion
+        public ActionResult GetTimeShi(int TimeId, int? page)
+        {
+            ViewBag.Time_id = TimeId;
+            var stps = timemanager.GetAllShi(TimeId);
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(stps.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
         #region 作者页面
         public ActionResult ShiShowAuthorDetails(int id)
         {
@@ -402,16 +352,6 @@ namespace Shiyun.Controllers
             authorsc.Authors = authormanager.GetAllShi(id);
             authorsc.Authorc = authormanager.GetAllCi(id);
             return View(authorsc);
-            //var aus = authormanager.whereAuthorById(AuthorId);
-            //if (aus == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //var shici = authormanager.GetbyTopandCiPaiId(40, AuthorId);
-            //Models.ShiViewModels shivm = new Models.ShiViewModels();
-            //shivm.GetAuthorById = aus;
-            //shivm.Authorsc = shici;
-            //return View(shivm);
         }
         #endregion
 

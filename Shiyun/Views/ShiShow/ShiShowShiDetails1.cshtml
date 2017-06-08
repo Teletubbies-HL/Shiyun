@@ -21,6 +21,25 @@
                 color: #c03f3c;
                 font-size: 25px;
             }
+    .rightdetails .icomments{padding:10px 20px;margin-top:50px;}
+    .rightdetails .textarea{margin:10px auto; height:70px;width:800px; border:1px solid rgba(0, 0, 0,0.5);border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;}
+    .text2{margin:0 45px;}
+    .rightdetails .btnpl{margin-left:20px; width:500px;height:25px; display:inline-block;     margin-top: 5px;}
+    .rightdetails .btnpl2{border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+    .rightdetails .showpl{width:760px;margin:10px auto;}
+    .showhf{width:230px; float:right;margin-right:30px;display:inline-block;}
+    .listbody {margin:20px auto;width:645px; }
+    .commentpages{margin:20px auto;width:760px;}
+    .leftside{position:fixed;top:150px;/*list-style:none;color: rgba(0, 0, 0,0.7);*/font-size:16px;z-index:500;}
+    .leftside .ZMenu-left-nav-a{color:rgba(51, 51, 51,1);text-decoration:none;}
+    .leftside .ZMenu-left-nav-a:hover{text-decoration:none;color:#c03f3c;}
+     .btn {background:rgba(0,0,0,0);border:none;outline:none;font-size:16px;display:inline-block;}
+     .btn2{background:rgba(0,0,0,0);border:none;outline:none;font-size:16px;display:inline-block;width:200px;line-height:40px;}
+     .btn:hover{color:#c03f3c;text-decoration:none;}
+     .btn2:hover{color:#c03f3c;text-decoration:none;}
+    .pages{margin:20px auto;text-align:center;text-decoration:none;}
+    .pages .button{background-color:white;}
+    .btn_reply{float: right;margin-right: 115px;}
     </style>
 </head>
 <body class="" style="background-color: #F7F7F7!important;">
@@ -90,16 +109,18 @@
 
                         <section class="as-article-section one-section white section">
                             <div class="article-reply reply">
-                                <div class="reply-header gray text"><img src="@Session["UserImage"]" style="width: 30px; height: 30px;" />评论</div>
-                                <div class="reply-area">
+                                <div class="reply-header gray text">评论</div>
+                                
+                            <div class="icomments">
+                                <div class="icomments_box">
                                     @{ Html.RenderAction("ShiComments", "ShiShow");}
                                 </div>
                             </div>
+                                </div>
                         </section>
                     </div>
                     <div class="col-3 col-mb-12">
                         <section class="as-sidebar-section sidebar one-section white section">
-
                             <div class="user-block ui tint blur" data-image="..@Model.ShiImage" style="position: relative; z-index: 1;">
                                 <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);">
                                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="273" height="240" id="blurred_e56ciec5r" class="tint-bg-blur" viewBox="0 0 273 240" preserveAspectRatio="none" style="opacity: 1;">
@@ -123,9 +144,14 @@
                                 </p>
                             </div>
                             <div class="user-introduction">
-                                <p class="text gray">@Model.ShiYuying</p>
-                            </div>
-
+                                <p class="text gray">
+                                   <center>
+                                       <audio controls="controls" class="music" style="display: block; width:100%;height:30px;">
+                                          <source src="@Model.ShiYuying" type="audio/mpeg" />
+                                       </audio> 
+                                    </center> 
+                                </p>
+                        </div>
                             <div class="goto-write center" style="padding: 10px;">
                                 <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })" class="ui fluid teal button" target="_blank">其他作品</a>
                             </div>
@@ -154,9 +180,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <script src="~/Scripts/JS/ShiCipush.js"></script>
     <script src="~/Scripts/JS/ShiCianalytics.js"></script>
     <script src="~/Scripts/JS/ShiCilib.js"></script>
@@ -178,8 +202,6 @@
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(bp, s);
 		})();
-
-
 
 		$(".yi").click(function () {
 		    //var a = $(this).children().children().attr("src");

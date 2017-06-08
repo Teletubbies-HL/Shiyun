@@ -54,6 +54,11 @@ namespace BLL
             var ci = ici.GetCibyTop(top);
             return ci;
         }
+        public IQueryable<Ci> GetCibyTopZx(int top)
+        {
+            var ci = ici.GetCibyTopZx(top);
+            return ci;
+        }
         public IQueryable<Ci> GetCibyLast(int last)
         {
             var ci = ici.GetCibyLast(last);

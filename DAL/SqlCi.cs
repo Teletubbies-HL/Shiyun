@@ -101,8 +101,18 @@ namespace DAL
         {
             
             var ci = from c in db.Ci
-                      orderby c.Ci_id ascending
+                     where c.Cizhixiang == "1"
+                     orderby c.Ci_id ascending
                       select c;
+            return ci.Take(top);
+        }
+        public IQueryable<Ci> GetCibyTopZx(int top)
+        {
+
+            var ci = from c in db.Ci
+
+                     orderby c.Ci_id ascending
+                     select c;
             return ci.Take(top);
         }
         public IQueryable<Ci> GetCibyLast(int last)

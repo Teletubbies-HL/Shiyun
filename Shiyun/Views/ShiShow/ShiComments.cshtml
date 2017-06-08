@@ -2,98 +2,94 @@
 @{
     Layout = null;
 }
-
 <body>
     @using (Html.BeginForm("ShiComments", "ShiShow", FormMethod.Post, new { id = "pinglun" }))
-    {
-        <div class="PL-box">
-            <div class="PL-neirong">
-                <div class="box" style="border: 1px;"><textarea class="textarea" name="pingluntextarea"></textarea>  </div>
-                <div class="PL-btn">
-                    <input type="submit" value="发表评论" />
-                    @*@if (Session["UserName"] != null)
-                        {
-                            <a href="javascript:document.getElementById('pinglun').submit()">发表评论</a>
-                        }*@
-                    @*else
-                        {
-                            <a onclick="confirm('请先登录')?location.href='@Url.Action("Login","UserInfo")':''" href="javascript:;">发表评论</a>
-                        }*@
+    {                  
+                <div class="textarea_box">
+                    <div class="textarea">
+                        <textarea name="pingluntextarea" style="resize:none;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;height:68px;width:798px;display:block;border:1px solid #c03f3c;"></textarea>
+                    </div>
+                    <p></p>
+                    <div class="btnpl">
+                        <input type="submit" value="发表评论" class="btnpl2" style="border:none;height:25px;width:70px;background-color:#c03f3c;color:white;"/>
+                    </div>
                 </div>
-            </div>
-        </div>
     }
     <div class="comments">全部评论</div>
     <hr style="width:96%;margin:10px auto;" />
-    <ul class="out-ul">
+    <div class="showpl">
         @{ string tempid; }
+        @*</div>*@
         @foreach (var p in Model)
         {
             tempid = "dev" + p.ShiComment_id;
-            <li class="out-li">
-                <div class="user-icon">
-                    <img src="@Session["UserImage"]" style="width: 30px; height: 30px;" />
-                </div>
-                <input type="hidden" value="@p.ShiComment_id" name="ShiCommentid" />
-                <div class="PL-content">
-                    <p>@p.UserInfo.UserName</p>
-                    <p>@p.ComContent</p>
-                    <div class="huifu">
-                        <p>
-                            <span>@p.ComTime</span>
-                            <span><button class="btn btn-xs btn-default" onclick="document.getElementById('@tempid').style.display = document.getElementById('@tempid').style.display == '' ? 'none' : ''">回复</button></span>
-                        </p>
-                    </div>
-                </div>
-                <div id="@tempid" style="display:none;" class="ReplyBox">
-                    <div class="ReplyToPost">
-                        @using (Html.BeginForm("ReplyShiComments", "ShiShow", new { ShiCommentid = p.ShiComment_id }, FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
-                {
-                            <div class="PostRly01">
-                                <textarea style="resize:none;" class="form-control" rows="3" name="textarea1" placeholder="我也要简单说两句"></textarea>
-                            </div>
-                            <div class="PostRly02">
-                                <div class="Rly02-A">
-                                    @*<p>此处放错误信息</p>*@
+            <input type="hidden" value="@p.ShiComment_id" name="ShiCommentid" />
+            <div class="ireplybox">
+                <dl class="ireply">
+                    <dt class="ireply_l"></dt>
+                    <dd class="ireply_2">
+                        <div class="ireplybody">
+                            <img src="@p.UserInfo.UserImage" style="height:50px;width:50px;border-radius:50%; overflow:hidden;"/>
+                            <a class="author js_user">@p.UserInfo.UserName:</a> &nbsp;&nbsp;@p.ComContent
+                        </div>
+                        <div class="hfbox">
+                            <div class="showhf">
+                                <div class="c_time" style="color:rgba(0, 0, 0,0.5);display:inline-block;float:left;">
+                                    @p.ComTime
                                 </div>
-                                <div class="Rly02-B">
-                                    <input type="submit" value="提交" class="btn btn-xs btn-default" />
-                                    @*@if (Session["Users_id"] != null)
-                                        {
-                                            <input type="submit" value="提交" class="btn btn-xs btn-default" />
-                                        }
-                                        else
-                                        {
-
-                                            <input onclick="confirm('请先登录')?location.href='@Url.Action("Login","User")':''" href="javascript:;" type="button" value="提交">
-                                        }*@
+                                <div class="hf" style="float:right;margin-right: 30px;">
+                                    <button class="btn btn-xs btn-default" onclick="document.getElementById('@tempid').style.display = document.getElementById('@tempid').style.display == '' ? 'none' : ''">回复</button>
                                 </div>
                             </div>
-                        }
-                    </div>
-                </div>
-            </li>
+                        </div>
+                        <div class="js_replycontainer">
+                            <div class="e_comment_r_expand js_replyroot">
+                                <div class="q_comment_box js_q_comment_box">
+                                    <div class="textarea2">
+                                        <div class="text2">
+                                            <div id="@tempid" style="display:none;" class="ReplyBox">
+                                                <div class="ReplyToPost">
+                                                    @using (Html.BeginForm("ReplyShiComments", "ShiShow", new { ShiCommentid = p.ShiComment_id }, FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
+                                                    {
+                                                        <textarea class="form-control" rows="3" name="textarea1" placeholder="我也要简单说两句" style="resize:none;margin:10px auto;border-radius:4px;height:70px; width:600px;-webkit-border-radius:4px;-moz-border-radius:4px;border:1px solid rgba(0, 0, 0,0.5);"></textarea>
+                                                            <div class="PostRly02">
+                                                                <div class="Rly02-A">
+                                                                </div>
+                                                                <div class="q_comment_box_btn">
+                                                                    <input type="submit" value="提交" class="btn_reply" style="border-style:none;height:25px;width:70px;background-color:#c03f3c;" />
+                                                                </div>
+                                                            </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                    </dd>
+                </dl>
+            </div>
             foreach (Models.ShiReply B in p.ShiReply.Where(c => c.ShiComment_id == p.ShiComment_id).ToList().AsReadOnly())
             {
-                <li class="in-li">
-                    <div class="huifu-icon">
-                        <p>
-                            <img src="@Session["UserImage"]" style="width: 30px; height: 30px;" />
-                            <div class="names">
-                                <span>@B.UserInfo.UserName</span> 回复
-                                <span>@B.ShiComment.UserInfo.UserName</span>
+                <div class="replylistbox">
+                    <dl class="replylist">
+                        <dt class="e_ct_l2"></dt>
+                        <dd class="listbody">
+                            <div class="listbody1">
+                                <a class="author js_user">@B.UserInfo.UserName</a> 回复 <a class="author js_user">@B.ShiComment.UserInfo.UserName:</a><p>&nbsp;&nbsp;@B.ReplyContent</p>
                             </div>
-                        </p>
-                    </div>
-                    <div class="HF-content">
-                        <div class="HF-comment">@B.ReplyContent</div>
-                        <div class="HF-time">@B.ReplyTime</div>
-                    </div>
-                </li>
+                            <div class="opts meta_bottom clrfix">
+                                <div class="opts_l clrfix">
+                                    <div class="c_time">@B.ReplyTime</div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
             }
-
         }
-    </ul>
+    </div>     
 
 </body>

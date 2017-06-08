@@ -2172,16 +2172,12 @@
     <Content Include="Views\Mall\GoodsFenlei.cshtml" />
     <Content Include="Views\Mall\GetAllPost.cshtml" />
     <Content Include="Views\ShiShow\ShiShowAuthorDetails.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowCiDetails.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowShiDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowTypeDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowCiPaiDetails.cshtml" />
     <Content Include="Views\ShiShow\GetAuthorShi.cshtml" />
     <Content Include="Views\ShiShow\GetAuthorCi.cshtml" />
     <Content Include="Views\ShiShow\GetShiTypeShi.cshtml" />
     <Content Include="Views\ShiShow\GetCiPaiCi.cshtml" />
-    <Content Include="Views\ShiCi\Redid.cshtml" />
-    <Content Include="Views\ShiCi\Index.cshtml" />
     <Content Include="Views\ShiCi\ShiIndex.cshtml" />
     <Content Include="Views\Shi\ShiIndex.cshtml" />
     <Content Include="Views\Shi\TimeIndex.cshtml" />
@@ -2205,7 +2201,6 @@
     <Content Include="Views\ManagerAdd\menu.cshtml" />
     <Content Include="Views\LunTan\GetAllPostPaihang.cshtml" />
     <Content Include="Views\ShiShow\GetAllPostReply.cshtml" />
-    <Content Include="Views\ShiShow\ShiShowCiDetails2.cshtml" />
     <Content Include="Views\ShiShow\CiComments.cshtml" />
     <Content Include="Views\ShiShow\ShiShowCiDetails3.cshtml" />
     <Content Include="Views\ShiShow\ShiComments.cshtml" />
@@ -2230,6 +2225,8 @@
     <Content Include="Views\UserInfo\UserCenter.cshtml" />
     <Content Include="Views\LunTan\PostPaihang.cshtml" />
     <Content Include="Views\Mall\_OrderDetails.cshtml" />
+    <Content Include="Views\ShiShow\ShiShowTimeDetails.cshtml" />
+    <Content Include="Views\ShiShow\GetTimeShi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

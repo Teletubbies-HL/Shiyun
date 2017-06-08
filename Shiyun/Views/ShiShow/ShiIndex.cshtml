@@ -46,7 +46,7 @@ else
                     </svg>
                 </div>
                 <div class="container recommend-container">
-                    @foreach (var shi in Model.Shitop8)
+                    @foreach (var shi in Model.Shitopzhiding)
                     {
                         <div class="recommend-detail">
                             <h2>
@@ -66,7 +66,7 @@ else
                     }
                     @*推荐诗句*@
                     <ul class="recommend-list">
-                        @foreach (var shi in Model.Shitop8)
+                        @foreach (var shi in Model.Shitopzhiding)
                         {
                             <li class="recommend-item">
                                 <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = shi.Shi_id })" class="image recommend-article" data-title="@shi.ShiTitle">
@@ -100,7 +100,7 @@ else
                                             <img class="cover" src="@shi.ShiImage" style="display: inline;width:90px;height:120px;float: left;margin-right: 8px;" />
                                         </a>
                                         <div class="big title one-line">
-                                            <a href="#">@shi.ShiTitle</a>
+                                            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = shi.Shi_id})">@shi.ShiTitle</a>
                                         </div>
                                         <p class="small text gray summary">
                                             我生之初尚无为，我生之后汉祚衰。
@@ -129,7 +129,6 @@ else
                                             北方有佳人。绝世而独立。
                                             一顾倾人城。再顾倾人国。
                                             宁不知倾城与倾国。佳人难再得。
-
                                         </p>
                                         <p class="author" style="margin-top: -10px;width: 71%;float: left;">
                                             作者:
@@ -206,7 +205,6 @@ else
                                     </div>
                                 </div>
                             }
-
                             @foreach (var shi in Model.Shi6)
                             {
                                 <div class="col-4 col-mb-12">
@@ -354,9 +352,10 @@ else
                                         <li class="article-item text one-line">
                                             <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Time_id})">
                                                 <i class="article-no text gray">@shi.Time_id </i>&nbsp;&nbsp;
-                                                <a href="#">@shi.TimeName</a>-
+                                                <a href="@Url.Action("ShiShowTimeDetails", "ShiShow", new {TimeId = shi.Time_id})">@shi.TimeName</a>-
                                                 <a href="#" class="small text gray">
                                                     @shi.TimeJieshao
+                                                </a>
                                                 </a>
                                         </li>
                                     }

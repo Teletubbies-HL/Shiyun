@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8821725e988d4f7c8baa6753f03dadf9" Name="Diagram1">
+      <Diagram DiagramId="b5000810d1d742fcbc5a1e6a73be5c74" Name="Diagram1">
         <EntityTypeShape EntityType="ShiyunModel.Author" Width="1.5" PointX="1.5" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.Challenge" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.ChallengeK" Width="1.5" PointX="4.5" PointY="4.25" IsExpanded="true" />
@@ -45,7 +45,8 @@
         <EntityTypeShape EntityType="ShiyunModel.View_PostReply" Width="1.5" PointX="14.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_ShitypeA" Width="1.5" PointX="15.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_ShopCar" Width="1.5" PointX="15.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_UserInfo" Width="1.5" PointX="16.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_TimeShi" Width="1.5" PointX="16.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_UserInfo" Width="1.5" PointX="15.75" PointY="19.125" IsExpanded="true" />
         <AssociationConnector Association="ShiyunModel.FK_Author_Time" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_Ci_Author" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_Shi_Author" ManuallyRouted="false" />

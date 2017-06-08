@@ -33,6 +33,7 @@ namespace Models
         public string ShiImage { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
         public string ShiJieShao { get; set; }
+        public string Shizhixiang { get; set; }
     
         public virtual Author Author { get; set; }
         public virtual ShiType ShiType { get; set; }

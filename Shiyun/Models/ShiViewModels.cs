@@ -9,6 +9,7 @@ namespace Shiyun.Models
     public class ShiViewModels
     {
         #region ShiShow展示
+        public IEnumerable<Shi> Shitopzhiding { get; set; }
         public IEnumerable<Shi> Shitop8 { get; set; }
         public IEnumerable<Shi> Shi1 { get; set; }
         public IEnumerable<Shi> Shi2 { get; set; }
@@ -27,6 +28,7 @@ namespace Shiyun.Models
 
         #region CiShow展示
         public IEnumerable<Ci> Citop7 { get; set; }
+        public IEnumerable<Ci> Citopzhiding { get; set; }
         public IEnumerable<Author> CiAuthor1 { get; set; }
         public IEnumerable<Author> CiAuthor2 { get; set; }
         public IEnumerable<Author> CiAuthor3 { get; set; }

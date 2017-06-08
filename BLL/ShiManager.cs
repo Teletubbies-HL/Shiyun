@@ -49,6 +49,11 @@ namespace BLL
             var shi = ishi.GetShibyTop(top);
             return shi;
         }
+        public IQueryable<Shi> GetShibyTopZx(int top)
+        {
+            var shi = ishi.GetShibyTopZx(top);
+            return shi;
+        }
         public IQueryable<Shi> GetShibyLast(int last)
         {
             var shi = ishi.GetShibyLast(last);

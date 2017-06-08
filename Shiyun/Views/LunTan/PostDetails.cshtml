@@ -6,7 +6,6 @@
     <link href="~/Content/css/PostDetails.css" rel="stylesheet" />
     <style>
     </style>
-
 }
 <div class="Tribune-choose">
     <div class="cotenter">
@@ -25,15 +24,12 @@
             <div class="leftbox_1">
                 <div class="cssdltnowluntan" id="dltnowluntan"><!--当前位置-->
                     <a href="javascript:void(0)"><span class="nowluntan">互动论坛 ></span></a>
-
                     @foreach (var ln in Model.LuntanName)
                     {
                         <a href="@Url.Action("YuanChuang", "LunTan", new {luntanId = @ln.LunTan_id})" style="text-decoration: none">
                             <span class="nowluntan2">@ln.LunTanName</span>
                         </a>
                     }
-
-
                 </div>
                 <div class="postdetail">
                     @foreach (var pd in Model.PostDetails)

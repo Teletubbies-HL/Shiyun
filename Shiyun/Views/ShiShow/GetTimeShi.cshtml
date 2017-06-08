@@ -1,0 +1,39 @@
+﻿@using PagedList.Mvc;
+@using PagedList
+@model PagedList.IPagedList < Models.View_TimeShi>
+@{
+    Layout = null;
+}
+
+@foreach (var auc in Model)
+{
+    <div class="col-dt-6 col-6 col-mb-12">
+        <div class="collection-item">
+            <div class="collection-cover">
+                <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = auc.Shi_id })" class="image">
+                    <img src="@auc.ShiImage" data-original="@auc.ShiImage" width="120" height="160" style="display: inline;">
+                </a>
+            </div>
+            <div class="collection-detail">
+                <h3 class="big title one-line">
+                    <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new { shiid = auc.Shi_id })"> @auc.ShiTitle </a>
+                </h3>
+                <p>
+                    <span class="span-item  gray">作者:</span>
+                    <span class="span-item gray small text"><a href="" class="gray">@auc.AuthorName</a></span>
+                </p>
+                <p class="description">人间凄凉荒谬事，此集尽数入囊中。</p>
+
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row page-list">
+    <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
+        @Html.PagedListPager(Model, page => Url.Action("GetTimeShi", "ShiShow", new { page, sortOrder = ViewBag.CurrentSort, TimeId = @ViewBag.Time_id, id = @ViewBag.Time_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 10 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "GetAllCi" }))
+    </div>
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 pageje">
+
+</div>
