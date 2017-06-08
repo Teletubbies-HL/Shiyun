@@ -19,14 +19,14 @@ $("#mainform .normalInput #txtUser").focus(function () {
         left: "285px",
         top: "30px"
     });
-    $("#mainform .tip1").text("长度为4-32个字符，支持数字、字母、下划线，字母开头");
+    $("#mainform .tip1").text("长度为4-30个字符，支持数字、字母、下划线，字母开头");
 
 });
 $("#mainform .normalInput #txtUser").blur(function() {
     
         $("#mainform .tip").hide();
             //  验证用户名
-            var reg = /^[a-zA-Z]{1}([a-zA-Z0-9_]*)[a-zA-Z0-9]{3,31}$/;
+            var reg = /^[a-zA-Z]{1}([a-zA-Z0-9_]*)[a-zA-Z0-9]{3,29}$/;
             //alert($("#mainform .normalInput #txtUser").val()); 获取输入的内容
             if (!reg.test($("#mainform .normalInput #txtUser").val())) {
                 $("#mainform .normaluser").css({
