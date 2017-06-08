@@ -84,10 +84,7 @@ namespace Shiyun.Controllers
         public PartialViewResult CiPaiIndex(String genreInfoFrom, string currentFilter, int? page)
         {
             var sort1 = db.CiPai.ToList();
-
             var foods = ci.GetCi();
-
-
             if (genreInfoFrom != null)
             {
                 page = 1;
@@ -96,33 +93,19 @@ namespace Shiyun.Controllers
             {
                 genreInfoFrom = currentFilter;
             }
-
             ViewBag.CurrentFilter = genreInfoFrom;
-
-
             if (!String.IsNullOrEmpty(genreInfoFrom))
             {
-
                 foods = foods.Where(x => x.CiPai.CiPaiName == genreInfoFrom);
-
             }
-
-
-
             int pageSize = 9;
             int pageNumber = (page ?? 1);
-
             var menu = new CiPaiViewModels()
             {
-
                 CiPai = sort1,
                 CiPaiCi = foods.ToPagedList(pageNumber, pageSize),
             };
-
-
-            //return View(menu);
             return PartialView("CiPaiIndex", menu);
-
         }
         #endregion
     }

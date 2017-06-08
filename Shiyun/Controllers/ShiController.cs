@@ -85,7 +85,7 @@ namespace Shiyun.Controllers
         #region//添加诗的Get方法
         public ActionResult ShiCreate()
         {
-            //存储在ViewBag.CategoryId属性中的分类数据是为了让视图中的DropDownList辅助方法检索
+            //存储在ViewBag.Id属性中的分类数据是为了让视图中的DropDownList辅助方法检索
             //SelectList类用于表示构建下拉列表需要的数据，构造函数的第1个参数指定了将要放在列表中的项，
             //第2个参数是一个属性名称，该属性包含当用户选择一个指定项时使用的键值，
             //第3个参数是每一项要显示的文本，第4个参数包含了最初选定项的值。
@@ -424,8 +424,6 @@ namespace Shiyun.Controllers
         public ActionResult CiPaiIndex(String genreInfoFrom, string currentFilter, int? page)
         {
             var foods = cimanager.GetCi();
-
-
             if (genreInfoFrom != null)
             {
                 page = 1;
@@ -434,24 +432,13 @@ namespace Shiyun.Controllers
             {
                 genreInfoFrom = currentFilter;
             }
-
             ViewBag.CurrentFilter = genreInfoFrom;
-
-
-
-
             if (!String.IsNullOrEmpty(genreInfoFrom))
             {
-
                 foods = foods.Where(x => x.CiPai.CiPaiName == genreInfoFrom);
-
             }
-
-
-
             int pageSize = 18;
             int pageNumber = (page ?? 1);
-
             return View(foods.ToPagedList(pageNumber, pageSize));
         }
         #endregion

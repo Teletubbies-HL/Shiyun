@@ -351,9 +351,9 @@ else
                                     @foreach (var shi in Model.ShiTimetop11)
                                     {
                                         <li class="article-item text one-line">
-                                            <a href="@Url.Action("ShiShowDetails", "ShiShow", new {id = shi.Time_id})">
+                                            <a href="@Url.Action("ShiShowTimeDetails", "ShiShow", new {id = shi.Time_id})">
                                                 <i class="article-no text gray">@shi.Time_id </i>&nbsp;&nbsp;
-                                                <a href="@Url.Action("ShiShowTimeDetails", "ShiShow", new {TimeId = shi.Time_id})">@shi.TimeName</a>-
+                                                <a href="@Url.Action("ShiShowTimeDetails", "ShiShow", new {id = shi.Time_id})">@shi.TimeName</a>-
                                                 <a href="#" class="small text gray">
                                                     @shi.TimeJieshao
                                                 </a>
