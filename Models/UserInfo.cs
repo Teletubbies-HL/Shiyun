@@ -36,7 +36,12 @@ namespace Models
             this.VideoComment = new HashSet<VideoComment>();
             this.VideoReply = new HashSet<VideoReply>();
         }
+        [Required]
+        [StringLength(32, MinimumLength = 4)]
+        [RegularExpression(@"[a-zA-Z]{1}([a-zA-Z0-9_]*)[a-zA-Z0-9]{3,29}")]
         public string Users_id { get; set; }
+        [Required]
+        [StringLength(30)]
         public string UserName { get; set; }
         public string UserPass { get; set; }
         public string UserPhone { get; set; }
