@@ -14,6 +14,7 @@ namespace Shiyun.Models
         public IEnumerable<View_Authorsc> Authorsc { get; set; }
         public IEnumerable<Time> Time { get; set; }
         public IEnumerable<Author> TimeAuthor { get; set; }
+        public IEnumerable<View_TimeShi> Times { get; set; }
 
     }
 

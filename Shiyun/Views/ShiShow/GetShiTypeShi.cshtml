@@ -27,16 +27,10 @@
         </div>
     </div>
 }
-
-
-@*<div class="page-list">
-    <div class="pagecout">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</div>
-    @Html.PagedListPager(Model, page => Url.Action("ShiShowTypeDetails", "ShiShow", new { page, sortOrder = ViewBag.CurrentSort, ShiTypeId = ViewBag.CurrentFilter }))
-</div>*@
 <div class="row page-list">
     <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
    
-        @Html.PagedListPager(Model, page => Url.Action("ShiShowTypeDetails", "ShiShow", new { page, sortOrder = ViewBag.CurrentSort, ShiTypeId = ViewBag.ShiType_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 10 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "GetAllShi" }))      
+        @Html.PagedListPager(Model, page => Url.Action("GetShiTypeShi", "ShiShow", new { page, sortOrder = ViewBag.CurrentSort, ShiTypeId = ViewBag.ShiType_id,id=ViewBag.ShiType_id }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 10 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "GetAllShi" }))      
     </div>
 </div>
 <div class="col-xs-2 col-sm-2 col-md-2 pageje">

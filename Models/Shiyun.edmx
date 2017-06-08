@@ -629,6 +629,27 @@
           <Property Name="FinalPrice" Type="decimal" Precision="29" Scale="2" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“Shiyun.dbo.View_TimeShi”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_TimeShi">
+          <Key>
+            <PropertyRef Name="Time_id" />
+            <PropertyRef Name="TimeName" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="Time_id" Type="int" Nullable="false" />
+          <Property Name="TimeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TimeJieshao" Type="nvarchar(max)" />
+          <Property Name="TimeImage" Type="text" />
+          <Property Name="Shi_id" Type="int" Nullable="false" />
+          <Property Name="ShiTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShiImage" Type="nvarchar(max)" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" />
+          <Property Name="ShiJieShao" Type="nvarchar(max)" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“Shiyun.dbo.View_UserInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="View_UserInfo">
           <Key>
@@ -1361,6 +1382,20 @@
     [View_ShopCar].[Address] AS [Address], 
     [View_ShopCar].[FinalPrice] AS [FinalPrice]
     FROM [dbo].[View_ShopCar] AS [View_ShopCar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_TimeShi" EntityType="Self.View_TimeShi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_TimeShi].[Time_id] AS [Time_id], 
+    [View_TimeShi].[TimeName] AS [TimeName], 
+    [View_TimeShi].[TimeJieshao] AS [TimeJieshao], 
+    [View_TimeShi].[TimeImage] AS [TimeImage], 
+    [View_TimeShi].[Shi_id] AS [Shi_id], 
+    [View_TimeShi].[ShiTitle] AS [ShiTitle], 
+    [View_TimeShi].[ShiImage] AS [ShiImage], 
+    [View_TimeShi].[AuthorName] AS [AuthorName], 
+    [View_TimeShi].[AuthorImage] AS [AuthorImage], 
+    [View_TimeShi].[ShiJieShao] AS [ShiJieShao]
+    FROM [dbo].[View_TimeShi] AS [View_TimeShi]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_UserInfo" EntityType="Self.View_UserInfo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2224,6 +2259,25 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FinalPrice" Type="Decimal" Precision="29" Scale="2" />
         </EntityType>
+        <EntityType Name="View_TimeShi">
+          <Key>
+            <PropertyRef Name="Time_id" />
+            <PropertyRef Name="TimeName" />
+            <PropertyRef Name="Shi_id" />
+            <PropertyRef Name="ShiTitle" />
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="Time_id" Type="Int32" Nullable="false" />
+          <Property Name="TimeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeJieshao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TimeImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Shi_id" Type="Int32" Nullable="false" />
+          <Property Name="ShiTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShiImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJieShao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="View_UserInfo">
           <Key>
             <PropertyRef Name="Guanzhu_id" />
@@ -2751,6 +2805,7 @@
           <EntitySet Name="View_PostReply" EntityType="Self.View_PostReply" />
           <EntitySet Name="View_ShitypeA" EntityType="Self.View_ShitypeA" />
           <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" />
+          <EntitySet Name="View_TimeShi" EntityType="Self.View_TimeShi" />
           <EntitySet Name="View_UserInfo" EntityType="Self.View_UserInfo" />
           <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
             <End Role="Time" EntitySet="Time" />
@@ -3520,6 +3575,22 @@
                 <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_TimeShi">
+            <EntityTypeMapping TypeName="ShiyunModel.View_TimeShi">
+              <MappingFragment StoreEntitySet="View_TimeShi">
+                <ScalarProperty Name="Time_id" ColumnName="Time_id" />
+                <ScalarProperty Name="TimeName" ColumnName="TimeName" />
+                <ScalarProperty Name="TimeJieshao" ColumnName="TimeJieshao" />
+                <ScalarProperty Name="TimeImage" ColumnName="TimeImage" />
+                <ScalarProperty Name="Shi_id" ColumnName="Shi_id" />
+                <ScalarProperty Name="ShiTitle" ColumnName="ShiTitle" />
+                <ScalarProperty Name="ShiImage" ColumnName="ShiImage" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="ShiJieShao" ColumnName="ShiJieShao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

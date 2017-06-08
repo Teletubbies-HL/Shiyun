@@ -66,5 +66,15 @@ namespace BLL
         {
             itime.RemoveRangeShi(Shi);
         }
+        public IEnumerable<View_TimeShi> GetAllShi(int TimeId)
+        {
+            var allshi = itime.GetAllShi(TimeId);
+            return allshi;
+        }
+        public IEnumerable<Time> whereTimeById(int id)
+        {
+            var time = itime.WhereTimeById(id);
+            return time;
+        }
     }
 }
