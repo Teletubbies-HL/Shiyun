@@ -1,0 +1,87 @@
+﻿@model Shiyun.Models.CiPaiViewModels
+
+@{
+    ViewBag.Title = "诗韵词牌页";
+}
+
+@section style{
+    <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCihome.css" rel="stylesheet" />
+    
+}
+
+<body class="" style="background-color: #F7F7F7!important;">
+    <div class="message-container">
+    </div>
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            @foreach (var au in Model.CiPai)
+            {
+                <section class="home-header-section ui tint blur" data-image="@au.CiPaiImage" style="position: relative; z-index: 1;">
+                    <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1583" height="320" id="blurred_vdd3x4seq" class="tint-bg-blur" viewBox="0 0 1583 320" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_vdd3x4seq"><fegaussianblur in="SourceGraphic" stdDeviation="20"></fegaussianblur></filter><image x="0" y="0" width="1583" height="320" externalResourcesRequired="true" href="@au.CiPaiImage" style="filter:url(#blur_vdd3x4seq)" preserveAspectRatio="none"></image></svg></div>
+                    <div class="user-detail container">
+                        <div class="avatar-block">
+                            <img class="avatar-big" src="@au.CiPaiImage" data-original="@au.CiPaiImage" width="160" height="160" alt="@au.CiPaiName" style="display: inline;">
+                        </div>
+                        <div class="info-block">
+                            <div class="info">
+                                <span class="name title white extra">@au.CiPaiName</span>
+                                <a href="" class="rg-label small level" style="background-color: #3D6BE2;">类型</a>
+                                <a href="" class="rg-label small level" style="background-color: #803DE2;">选择</a>
+                                <span class="span-item gender white text">
+                                    <i class="ri ri-transgender">诗韵</i>
+                                </span>
+                            </div>
+                            <p class="signature text white">
+                                @Html.Raw(@au.CiPaiJieshao)
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            }
+
+            <section class="home-section one-section container">
+                <div class="col-group">
+                    <div class="col-dt-9 col-9 col-mb-12">
+                        <section class="home-content-section one-section white section">
+                            <div class="tab-panel">
+                                <div class="tab-content">
+                                    <div class="col-group collection-list">
+                                        <div id="GetAllShi">
+                                            @{Html.RenderAction("GetCiPaiCi", "ShiShow", new { CiPaiId = @ViewBag.CiPai_id });}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <div class="col-dt-3 col-3 col-mb-12">
+                        <section class="home-side-section">
+                            <div class="intro-block one-section white section">
+                                <div class="rg-board">
+                                    <div class="rg-board-head">
+                                        <p class="title">简介</p>
+
+                                    </div>
+                                    @foreach (var au in Model.CiPai)
+                                    {
+                                        <div class="rg-board-body text">
+                                            @Html.Raw(@au.CiPaiJieshao)
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    }
