@@ -360,7 +360,7 @@ namespace Shiyun.Controllers
         {
             ViewBag.Author_id = AuthorId;
             var aus = authormanager.GetAllShi(AuthorId);
-            int pageSize = 9;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(aus.ToPagedList(pageNumber, pageSize));
         }
@@ -368,7 +368,7 @@ namespace Shiyun.Controllers
         {
             ViewBag.Author_id = AuthorId;
             var auc = authormanager.GetAllCi(AuthorId);
-            int pageSize = 9;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(auc.ToPagedList(pageNumber, pageSize));
         }
