@@ -11,6 +11,7 @@ namespace Shiyun.Controllers
     {
         ShiManager shiManager = new ShiManager();
         CiManager ciManager = new CiManager();
+        PostManager postManager = new PostManager();
         UserInfoManager userInfoManager = new UserInfoManager();
         public ActionResult Index()
         {
@@ -25,6 +26,7 @@ namespace Shiyun.Controllers
             homevm.Ci1 = ci1;
             homevm.Ci2 = ci2;
             homevm.UserInfo1 = userinfo1;
+            homevm.PostPaihang = postManager.GetAllPostByZan().Take(7);
             return View(homevm);
         }
 

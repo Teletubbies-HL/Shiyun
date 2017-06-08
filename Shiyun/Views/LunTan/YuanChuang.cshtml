@@ -171,16 +171,39 @@
             @*<hr style="width: 100%; height: 1px; border: none; border-top: 1px solid #E6E6E6; display: block;"/>*@
             <span class="banzhu">版主：黄小捷</span>
             <ul>
-                <li><a href="javascript:void(0)">-【社区用户手册】 </a></li>
-                <li><a href="javascript:void(0)">-【原创区版规】 </a></li>
-            </ul>
-            @*<asp:Image ID="right_image" runat="server" CssClass="cssright_image" ImageUrl="~/images/post/建筑社区.jpg"/>*@
-            <img id="right_image" class="cssright_image" src="~/Images/LunTan/建筑社区.jpg"/>
+                <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 3, postId = 84})">-【社区用户手册】 </a></li>
+                @if (@ViewBag.LunTan_id == 1)
+                {
+                    <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 1, postId = 77})">-【原创区版规】 </a></li>
+                }
+                else if (@ViewBag.LunTan_id == 2)
+                {
+                    <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 2, postId = 76})">-【朗诵区版规】 </a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("PostDetails", "LunTan", new {luntanId = 3, postId = 78})">-【讨论区版规】 </a></li>
+                }
+
+            </ul>          
+            @if (@ViewBag.LunTan_id == 1)
+            {
+                <img id="right_image" class="cssright_image" src="/Images/LunTan/原创区.jpg" />
+            }
+            else if (@ViewBag.LunTan_id == 2)
+            {
+                <img id="right_image" class="cssright_image" src="/Images/LunTan/朗诵区.jpg" />
+            }
+            else
+            {
+                <img id="right_image" class="cssright_image" src="/Images/LunTan/讨论区.jpg" />
+            }          
         </div>
     </div>
     <input class="LunTan_id" type="hidden" value="@ViewBag.LunTan_id"/>
 </section>
 @section scripts{
+
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
     $(function () {

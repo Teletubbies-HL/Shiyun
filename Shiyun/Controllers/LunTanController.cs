@@ -138,8 +138,8 @@ namespace Shiyun.Controllers
             {
                 return Content(ex.Message);
             }
-            ViewBag.LunTan_id = new SelectList(db.LunTan, "LunTan_id", "LunTanName", post.LunTan_id);
-            return View();
+            //ViewBag.LunTan_id = new SelectList(db.LunTan, "LunTan_id", "LunTanName", post.LunTan_id);
+            //return View();
         }
         #endregion
         #region 发帖Save页面

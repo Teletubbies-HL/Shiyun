@@ -8,11 +8,11 @@
                 @foreach (var item in Model.UsesAa)
                 {
                     <div class="list-item clearfix">
-                        <a target="_blank" class="cover" href="javascript:void(0)">
+                        <a target="_blank" class="cover" href="@Url.Action("UserCenter","UserInfo" , new {Users_id = @item.UserB})">
                             <img src="@item.UserImage2" alt="@item.UserName2">
                         </a>
-                        <div class="content">
-                            <a target="_blank" class="title" href="javascript:void(0)"> <span class="vip-name-check fans-name">@item.UserName2</span> </a>
+                        <div class="content"> 
+                            <a target="_blank" class="title" href="@Url.Action("UserCenter","UserInfo" , new {Users_id = @item.UserB})"> <span class="vip-name-check fans-name">@item.UserName2</span> </a>
                             <div class="desc" title="@item.UserSign2">@item.UserSign2</div>
                         </div>
                     </div>
@@ -22,11 +22,11 @@
                 @foreach (var item in Model.UsesBb)
                 {
                     <div class="list-item clearfix">
-                        <a target="_blank" class="cover" href="javascript:void(0)">
+                        <a target="_blank" class="cover" href="@Url.Action("UserCenter","UserInfo" , new {Users_id = @item.UserA})">
                             <img src="@item.UserImage" alt="@item.UserName">
                         </a>
                         <div class="content">
-                            <a target="_blank" class="title" href="javascript:void(0)"> <span class="vip-name-check fans-name">@item.UserName</span> </a>
+                            <a target="_blank" class="title" href="@Url.Action("UserCenter","UserInfo" , new {Users_id = @item.UserA})"> <span class="vip-name-check fans-name">@item.UserName</span> </a>
                             <div class="desc" title="@item.UserSign">@item.UserSign</div>
                         </div>
                     </div>

@@ -13,5 +13,6 @@ namespace Shiyun.Models
         public IEnumerable<Ci> Ci1 { get; set; }
         public IEnumerable<Ci> Ci2 { get; set; }
         public IEnumerable<UserInfo> UserInfo1 { get; set; }
+        public IEnumerable<View_PostIndex> PostPaihang { get; set; }
     }
 }

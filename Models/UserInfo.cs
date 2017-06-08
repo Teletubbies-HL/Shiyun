@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Models
 {
     using System;
@@ -34,7 +36,6 @@ namespace Models
             this.VideoComment = new HashSet<VideoComment>();
             this.VideoReply = new HashSet<VideoReply>();
         }
-    
         public string Users_id { get; set; }
         public string UserName { get; set; }
         public string UserPass { get; set; }

@@ -198,6 +198,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Shiyun.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Scripts\jquery-3.1.1.slim.min.map" />
     <None Include="Shiyun.edmx.diagram">
       <DependentUpon>Shiyun.edmx</DependentUpon>
     </None>
@@ -206,6 +208,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Shiyun.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Shiyun.edmx</DependentUpon>

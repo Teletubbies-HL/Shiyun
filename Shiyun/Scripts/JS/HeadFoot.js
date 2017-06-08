@@ -136,14 +136,25 @@ $(function () {
 
 $(".normalInput .showpassword").click(function () {
     $(this).hide();
-    $('.normalInput #txtPassword').prop("type", 'password');
+    $('.normalInput #UserPass').attr("type", 'password');
     $(".normalInput .hidepassword").show();
 });
 $(".normalInput .hidepassword").click(function () {
     $(this).hide();
-    $('.normalInput #txtPassword').prop("type", 'text');
+    $('.normalInput #UserPass').attr("type", 'text');
     $(".normalInput .showpassword").show();
 });
+
+//$(".normalInput .showpassword").click(function () {
+//    $(this).hide();
+//    $('.normalInput #txtPassword').prop("type", 'password');
+//    $(".normalInput .hidepassword").show();
+//});
+//$(".normalInput .hidepassword").click(function () {
+//    $(this).hide();
+//    $('.normalInput #txtPassword').prop("type", 'text');
+//    $(".normalInput .showpassword").show();
+//});
 $(".userinfobox1").click(function () {
     $(".denglubox").css("display", "block");
 });

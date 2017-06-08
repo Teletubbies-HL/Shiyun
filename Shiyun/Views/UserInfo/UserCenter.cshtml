@@ -261,47 +261,7 @@
             <div id="caogao" style="display: none;">
                @{Html.RenderAction("_Caogao", "UserInfo");} 
             </div>
-            <div class="liuyan">
-                 <div class="col_1">
-                    <div class="section">
-                        <h3 class="section_title">
-                            <a class="GuanZhu_gz" href="javascript:void(0)" style="font-weight: 700;">关注</a>  | <a class="GuanZhu_fs" href="javascript:void(0)">粉丝</a>
-                        </h3>
-                        <div class="content clearfix" style="margin-left: 80px;">
-
-
-                            @using (Html.BeginForm("", "UserInfo", FormMethod.Post, new {id = "pinglun"}))
-                            {
-                                <div class="PL-box">
-                                    <div class="PL-neirong">
-                                        <div class="box" style="border: 1px;"><textarea class="textarea" name="pingluntextarea"></textarea>
-                                        </div>
-                                        <div class="PL-btn">
-                                            <input type="submit" value="发表评论"/>
-                                            @*@if (Session["UserName"] != null)
-                                    {
-                                    <a href="javascript:document.getElementById('pinglun').submit()">发表评论</a>
-                                    }*@
-                                            @*else
-                                    {
-                                    <a onclick="confirm('请先登录')?location.href='@Url.Action(" Login","UserInfo")':''" href="javascript:;">发表评论</a>
-                                    }*@
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-
-
+          
             <div class="col_2">
                 <div class="section user">
                     <div class="meta">
@@ -323,8 +283,8 @@
                 </div>
             </div>
         </div>
-@section scripts{
-    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+@section scripts{ 
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
         $(function() {

@@ -192,14 +192,14 @@
   background-color: #e5e5e5;
 }
 .kopa-widget-features .module-features-01 .entry-item .entry-content .button-01 {
-  background-color: #428bca;
+  background-color: #c03f3c;
   color: white;
 }
 .kopa-widget-features .module-features-01 .entry-item .entry-content .button-01:hover {
   text-decoration: none;
-  color: #428bca;
+  color: #c03f3c;
   background: rgba(224, 216, 205, 0.5);
-  border: 2px solid #428bca;
+  border: 2px solid #c03f3c;
 }
 .kopa-widget-features .module-features-01 .entry-item .entry-content p {
   margin-bottom: 25px;
@@ -230,7 +230,7 @@
 .Paihang-item ul .item-Title {
   font-size: 20px;
   line-height: 90px;
-  color: #f39c12;
+  color: #c03f3c;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-weight: 700;
@@ -246,7 +246,7 @@
 .Paihang-item ul .item-Content {
   padding-left: 10%;
   padding-right: 10%;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+  /*border-bottom:1px dashed rgba(0,0,0,0.2);*/
   overflow: hidden;
   height: 31px;
   transition: height 0.3s linear  ;
@@ -358,12 +358,13 @@
   width: 90%;
   margin: 0 auto;
   height: 140px;
-  border: 1px solid red;
+  margin-bottom: 20px;
+  /*border:1px solid red;*/
 }
 .Paihang-rukou .shiji {
   width: 90%;
   margin: 0 auto;
   height: 140px;
-  border: 1px solid red;
+  /*border:1px solid red;*/
 }
 /*section2 结束*/
