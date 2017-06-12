@@ -133,6 +133,9 @@
     <Compile Include="Time.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserAddress.cs">
+      <DependentUpon>Shiyun.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserDati.cs">
       <DependentUpon>Shiyun.tt</DependentUpon>
     </Compile>

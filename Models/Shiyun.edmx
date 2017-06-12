@@ -271,6 +271,14 @@
           <Property Name="TimeJieshao" Type="nvarchar(max)" />
           <Property Name="TimeImage" Type="text" />
         </EntityType>
+        <EntityType Name="UserAddress">
+          <Key>
+            <PropertyRef Name="UserAddress_id" />
+          </Key>
+          <Property Name="UserAddress_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Users_id" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="UserDati">
           <Key>
             <PropertyRef Name="Dati_id" />
@@ -1029,6 +1037,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserAddress_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserAddress">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserDati_Challenge">
           <End Role="Challenge" Type="Self.Challenge" Multiplicity="1" />
           <End Role="UserDati" Type="Self.UserDati" Multiplicity="*" />
@@ -1167,6 +1187,7 @@
           <EntitySet Name="ShiType" EntityType="Self.ShiType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShopCar" EntityType="Self.ShopCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Time" EntityType="Self.Time" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAddress" EntityType="Self.UserAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDati" EntityType="Self.UserDati" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGuanzhu" EntityType="Self.UserGuanzhu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
@@ -1540,6 +1561,10 @@
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="ShopCar" EntitySet="ShopCar" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserAddress_UserInfo" Association="Self.FK_UserAddress_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserAddress" EntitySet="UserAddress" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserDati_Challenge" Association="Self.FK_UserDati_Challenge">
             <End Role="Challenge" EntitySet="Challenge" />
             <End Role="UserDati" EntitySet="UserDati" />
@@ -1896,6 +1921,15 @@
           <NavigationProperty Name="Ci" Relationship="Self.FK_Ci_Time" FromRole="Time" ToRole="Ci" />
           <NavigationProperty Name="Shi" Relationship="Self.FK_Shi_Time" FromRole="Time" ToRole="Shi" />
         </EntityType>
+        <EntityType Name="UserAddress">
+          <Key>
+            <PropertyRef Name="UserAddress_id" />
+          </Key>
+          <Property Name="UserAddress_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserAddress_UserInfo" FromRole="UserAddress" ToRole="UserInfo" />
+        </EntityType>
         <EntityType Name="UserDati">
           <Key>
             <PropertyRef Name="Dati_id" />
@@ -1945,6 +1979,7 @@
           <NavigationProperty Name="ShiComment" Relationship="Self.FK_ShiComment_UserInfo" FromRole="UserInfo" ToRole="ShiComment" />
           <NavigationProperty Name="ShiReply" Relationship="Self.FK_ShiReply_UserInfo" FromRole="UserInfo" ToRole="ShiReply" />
           <NavigationProperty Name="ShopCar" Relationship="Self.FK_ShopCar_UserInfo" FromRole="UserInfo" ToRole="ShopCar" />
+          <NavigationProperty Name="UserAddress" Relationship="Self.FK_UserAddress_UserInfo" FromRole="UserInfo" ToRole="UserAddress" />
           <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_UserInfo" FromRole="UserInfo" ToRole="UserDati" />
           <NavigationProperty Name="UserGuanzhu" Relationship="Self.FK_UserGuanzhu_UserInfo" FromRole="UserInfo" ToRole="UserGuanzhu" />
           <NavigationProperty Name="UserGuanzhu1" Relationship="Self.FK_UserGuanzhu_UserInfo1" FromRole="UserInfo" ToRole="UserGuanzhu" />
@@ -2668,6 +2703,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserAddress_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserAddress">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserDati_UserInfo">
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
           <End Role="UserDati" Type="Self.UserDati" Multiplicity="*" />
@@ -2787,6 +2834,7 @@
           <EntitySet Name="ShiType" EntityType="Self.ShiType" />
           <EntitySet Name="ShopCar" EntityType="Self.ShopCar" />
           <EntitySet Name="Time" EntityType="Self.Time" />
+          <EntitySet Name="UserAddress" EntityType="Self.UserAddress" />
           <EntitySet Name="UserDati" EntityType="Self.UserDati" />
           <EntitySet Name="UserGuanzhu" EntityType="Self.UserGuanzhu" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
@@ -2926,6 +2974,10 @@
           <AssociationSet Name="FK_ShopCar_UserInfo" Association="Self.FK_ShopCar_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="ShopCar" EntitySet="ShopCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAddress_UserInfo" Association="Self.FK_UserAddress_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserAddress" EntitySet="UserAddress" />
           </AssociationSet>
           <AssociationSet Name="FK_UserDati_UserInfo" Association="Self.FK_UserDati_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
@@ -3257,6 +3309,15 @@
                 <ScalarProperty Name="TimeName" ColumnName="TimeName" />
                 <ScalarProperty Name="TimeJieshao" ColumnName="TimeJieshao" />
                 <ScalarProperty Name="TimeImage" ColumnName="TimeImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAddress">
+            <EntityTypeMapping TypeName="ShiyunModel.UserAddress">
+              <MappingFragment StoreEntitySet="UserAddress">
+                <ScalarProperty Name="UserAddress_id" ColumnName="UserAddress_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -17,6 +17,7 @@ namespace Shiyun.Controllers
     {
         // GET: Mall
         public double Ordersum;
+        ShiyunEntities db = new ShiyunEntities();
         GoodsManager goodsmanager = new GoodsManager();
         ShopCarManager shopcarmanager = new ShopCarManager();
         UserInfoManager userInfoManager=new UserInfoManager();
@@ -250,7 +251,9 @@ namespace Shiyun.Controllers
             string uid = Session["Users_id"].ToString();
             var user1 = userInfoManager.IEGetUsersById(uid);
             var viewshopcar1 = shopcarmanager.FindviewShopcarByIdflag1(uid);
+
             Models.OrderViewModels ordervm = new Models.OrderViewModels();
+            ordervm.List1 = new SelectList(db.UserAddress.Where(c=>c.Users_id==uid), "Address", "Address");//下拉列表数据绑定
             ordervm.ViewShopCar1 = viewshopcar1;
             ordervm.UserInfo1 = user1;
             return View(ordervm);

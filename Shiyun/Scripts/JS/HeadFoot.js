@@ -170,6 +170,8 @@ $("#dl").click(function () {
             $(".denglubox").css("display", "none");
             if (data == "登录成功") {
                 location.reload();
+            } else {
+                alert("用户名或密码错误");
             }
         }
     });
