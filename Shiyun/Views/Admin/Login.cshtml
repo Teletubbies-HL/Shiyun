@@ -1,0 +1,55 @@
+﻿@model Models.Manager
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>管理员登录</title>
+    <link href="~/Manager/css/adminlogin.css" rel="stylesheet" type="text/css" media="all"/>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <!-- contact-form -->
+    <div class="message warning">
+        <div class="inset">
+            <div class="login-head">
+                <h1>管理员登录</h1>
+                <div class="alert-close"> </div>
+            </div>
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @id = "mainform" }))
+            {
+                <li>
+                    @Html.TextBoxFor(m => m.ManagerName, new { @class = "text", @id = "txtUser", placeholder = "管理员名", type="text" })<a href="#" class="icon user"></a>
+                </li>
+                <div class="clear"> </div>
+                <li>
+                    @Html.TextBoxFor(m => m.ManagerPass, new { @id = "txtPassword", placeholder = "密码", type = "password", })
+                    <a href="#" class="icon lock"></a>
+                </li>
+                <div class="clear"> </div>
+                <div class="submit">
+                    <input type="submit" onclick="" value="登录">
+                    <h4><a href="@Url.Action("Index","Home")">回到主页</a></h4>
+                    <div class="clear">  </div>
+                </div>
+
+
+            }
+        </div>
+    </div>
+   
+    <div class="clear"> </div>
+    <!--- footer --->
+    <div class="footer">
+        
+    </div>
+    <div style="display:none">
+   </div>
+</body>
+</html>
