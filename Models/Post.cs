@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace Models
 {
     using System;
@@ -23,8 +21,6 @@ namespace Models
         }
     
         public int Post_id { get; set; }
-        [Required]
-        [StringLength(50, ErrorMessage = "最大长度为50")]
         public string PostTitle { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
         public string Users_id { get; set; }
