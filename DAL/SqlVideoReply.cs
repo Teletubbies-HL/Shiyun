@@ -30,5 +30,10 @@ namespace DAL
             db.VideoReply.Remove(videoreply);
             db.SaveChanges();
         }
+        public void AddReply(VideoReply videoReply)
+        {
+            db.VideoReply.Add(videoReply);
+            db.SaveChanges();
+        }
     }
 }

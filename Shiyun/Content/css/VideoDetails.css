@@ -1,0 +1,19 @@
+﻿    .rightdetails .icomments{padding:10px 20px;margin-top:50px;}
+    .rightdetails .textarea{margin:10px auto; height:70px;width:800px; border:1px solid rgba(0, 0, 0,0.5);border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;}
+    .text2{margin:0 45px;}
+    .rightdetails .btnpl{margin-left:20px; width:500px;height:25px; display:inline-block;     margin-top: 5px;}
+    .rightdetails .btnpl2{border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+    .rightdetails .showpl{width:760px;margin:10px auto;}
+    .showhf{width:230px; float:right;margin-right:30px;display:inline-block;}
+    .listbody {margin:20px auto;width:645px; }
+    .commentpages{margin:20px auto;width:760px;}
+    .leftside{position:fixed;top:150px;/*list-style:none;color: rgba(0, 0, 0,0.7);*/font-size:16px;z-index:500;}
+    .leftside .ZMenu-left-nav-a{color:rgba(51, 51, 51,1);text-decoration:none;}
+    .leftside .ZMenu-left-nav-a:hover{text-decoration:none;color:#c03f3c;}
+     .btn {background:rgba(0,0,0,0);border:none;outline:none;font-size:16px;display:inline-block;}
+     .btn2{background:rgba(0,0,0,0);border:none;outline:none;font-size:16px;display:inline-block;width:200px;line-height:40px;}
+     .btn:hover{color:#c03f3c;text-decoration:none;}
+     .btn2:hover{color:#c03f3c;text-decoration:none;}
+    .pages{margin:20px auto;text-align:center;text-decoration:none;}
+    .pages .button{background-color:white;}
+    .btn_reply{float: right;margin-right: 115px;}
