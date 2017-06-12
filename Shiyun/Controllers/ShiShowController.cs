@@ -323,13 +323,13 @@ namespace Shiyun.Controllers
 
         #region 年代详情和分页
         #region 作者页面
-        public ActionResult ShiShowTimeDetails(int TimeId)
+        public ActionResult ShiShowTimeDetails(int id)
         {
           
             TimeViewModels times = new TimeViewModels();
-            ViewBag.Time_id = TimeId;
-            times.Time = timemanager.whereTimeById(TimeId);
-            times.Times = timemanager.GetAllShi(TimeId);
+            ViewBag.Time_id = id;
+            times.Time = timemanager.whereTimeById(id);
+            times.Times = timemanager.GetAllShi(id);
             return View(times);
     }
         #endregion
