@@ -27,5 +27,10 @@ namespace BLL
             ivideoreply.RemoveVideoReply(videoreply);
 
         }
+
+       public void AddReply(VideoReply videoReply)
+       {
+           ivideoreply.AddReply(videoReply);
+       }
     }
 }

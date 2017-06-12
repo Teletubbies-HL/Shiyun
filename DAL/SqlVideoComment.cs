@@ -40,5 +40,10 @@ namespace DAL
         {
             db.VideoReply.RemoveRange(VideoReply);
         }
+        public void AddComment(VideoComment comment)
+        {
+            db.VideoComment.Add(comment);
+            db.SaveChanges();
+        }
     }
 }

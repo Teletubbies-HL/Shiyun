@@ -38,5 +38,10 @@ namespace BLL
         {
             ivideoc.RemoveRangeVideoReply(VideoReply);
         }
+
+       public void AddComment(VideoComment comment)
+       {
+           ivideoc.AddComment(comment);
+       }
     }
 }

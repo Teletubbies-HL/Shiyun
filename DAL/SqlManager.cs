@@ -14,15 +14,15 @@ namespace DAL
         ShiyunEntities db = DbContextFactory.CreateDbContext();
        
 
-        public Manager Denglu(string Manager_id, string ManagerPass)
+        public Manager Denglu(string Managername, string ManagerPass)
         {
-            var manager = db.Manager.Where(u => u.Manager_id == Manager_id)
+            var manager = db.Manager.Where(u => u.ManagerName == Managername)
                 .Where(u => u.ManagerPass == ManagerPass).FirstOrDefault();
             return manager;
         }
-        public Manager GetManagersById(string Manager_id)
+        public Manager GetManagersById(string Managername)
         {
-            Manager manager = db.Manager.Find(Manager_id);
+            Manager manager = db.Manager.Find(Managername);
             return manager;
         }
     }

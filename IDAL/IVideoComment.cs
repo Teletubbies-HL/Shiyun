@@ -15,5 +15,6 @@ namespace IDAL
         void RemoveVideoComment(VideoComment videocomment);
        
         void RemoveRangeVideoReply(IQueryable<VideoReply> VideoReply);
+        void AddComment(VideoComment comment);
     }
 }

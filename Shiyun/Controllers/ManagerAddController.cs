@@ -411,19 +411,18 @@ namespace Shiyun.Controllers
         #endregion      
 
         #region 后台主页
-        [Login]
         public ActionResult menu()
         {
             string uid = Session["Manager_id"].ToString();
             if (uid != null)
             {
-
+                return View();
             }
             else
-            {  
-                          
+            {
+                return Content("<script>alert('您尚未登陆，请登陆');history.go(-1);</script>");
             }
-            return View();
+            
         }
         #endregion
 

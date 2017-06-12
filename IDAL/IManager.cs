@@ -9,7 +9,9 @@ namespace IDAL
 {
     public interface  IManager
     {
-        Manager Denglu(string Manager_id, string ManagerPass);
-        Manager GetManagersById(string Manager_id);
+        Manager Denglu(string Managername, string ManagerPass);
+
+        Manager GetManagersById(string Managername);
+
     }
 }

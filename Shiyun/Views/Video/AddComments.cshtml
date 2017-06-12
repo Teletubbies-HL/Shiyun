@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Models.VideoComment>
+@{
+    Layout = null;
+}
+
+    @using (Html.BeginForm("AddComments", "Video", FormMethod.Post, new { id = "pinglun" }))
+    {
+        <div class="textarea_box">
+            <div class="textarea">
+                <textarea name="pingluntextarea" style="resize:none;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;height:68px;width:798px;display:block;border:1px solid #c03f3c;"></textarea>
+            </div>
+            <p></p>
+            <div class="btnpl">
+                <input type="submit" value="发表评论" class="btnpl2" style="border:none;height:25px;width:70px;background-color:#c03f3c;color:white;" />
+            </div>
+        </div>
+    }
+    <div class="comments">全部评论</div>
+    <hr style="width:96%;margin:10px auto;" />
+    <div class="showpl">
+        @{ string tempid; }
+        @*</div>*@
+        @foreach (var p in Model)
+        {
+            tempid = "dev" + p.VideoComment_id;
+            <input type="hidden" value="@p.VideoComment_id" name="VideoComment_id" />
+            <div class="ireplybox">
+                <dl class="ireply">
+                    <dt class="ireply_l"></dt>
+                    <dd class="ireply_2">
+                        <div class="ireplybody">
+                            <img src="@p.UserInfo.UserImage" style="height:50px;width:50px;border-radius:50%; overflow:hidden;" />
+                            <a class="author js_user">@p.UserInfo.UserName:</a> &nbsp;&nbsp;@p.ComContent
+                        </div>
+                        <div class="hfbox">
+                            <div class="showhf">
+                                <div class="c_time" style="color:rgba(0, 0, 0,0.5);display:inline-block;float:left;">
+                                    @p.ComTime
+                                </div>
+                                <div class="hf" style="float:right;margin-right: 30px;">
+                                    <button class="btn btn-xs btn-default" onclick="document.getElementById('@tempid').style.display = document.getElementById('@tempid').style.display == '' ? 'none' : ''">回复</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js_replycontainer">
+                            <div class="e_comment_r_expand js_replyroot">
+                                <div class="q_comment_box js_q_comment_box">
+                                    <div class="textarea2">
+                                        <div class="text2">
+                                            <div id="@tempid" style="display:none;" class="ReplyBox">
+                                                <div class="ReplyToPost">
+                                                    @using (Html.BeginForm("ReplyComments", "Video", new { videoCommentId = p.VideoComment_id }, FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
+                                                    {
+                                                        <textarea class="form-control" rows="3" name="textarea1" placeholder="我也要简单说两句" style="resize:none;margin:10px auto;border-radius:4px;height:70px; width:600px;-webkit-border-radius:4px;-moz-border-radius:4px;border:1px solid rgba(0, 0, 0,0.5);"></textarea>
+                                                        <div class="PostRly02">
+                                                            <div class="Rly02-A">
+                                                            </div>
+                                                            <div class="q_comment_box_btn">
+                                                                <input type="submit" value="提交" class="btn_reply" style="border-style:none;height:25px;width:70px;background-color:#c03f3c;" />
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </dd>
+                </dl>
+            </div>
+            foreach (Models.VideoReply B in p.VideoReply.Where(c => c.VideoComment_id == p.VideoComment_id).ToList().AsReadOnly())
+            {
+                <div class="replylistbox">
+                    <dl class="replylist">
+                        <dt class="e_ct_l2"></dt>
+                        <dd class="listbody">
+                            <div class="listbody1">
+                                <a class="author js_user">@B.UserInfo.UserName</a> 回复 <a class="author js_user">@B.VideoComment.UserInfo.UserName:</a><p>&nbsp;&nbsp;@B.ReplyContent</p>
+                            </div>
+                            <div class="opts meta_bottom clrfix">
+                                <div class="opts_l clrfix">
+                                    <div class="c_time">@B.ReplyTim</div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            }
+        }
+    </div>
+
+
