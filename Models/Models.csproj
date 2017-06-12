@@ -197,12 +197,12 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <None Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Scripts\jquery-3.1.1.slim.min.map" />
     <EntityDeploy Include="Shiyun.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Shiyun.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Scripts\jquery-3.1.1.min.map" />
-    <None Include="Scripts\jquery-3.1.1.slim.min.map" />
     <None Include="Shiyun.edmx.diagram">
       <DependentUpon>Shiyun.edmx</DependentUpon>
     </None>
