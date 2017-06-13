@@ -17,6 +17,10 @@ namespace BLL
             iuserinfo.AddUserInfo(userInfo);
         }
 
+        public void AddUserAddress(UserAddress userAddress)
+        {
+            iuserinfo.AddUserAddress(userAddress);
+        }
         public IEnumerable<UserInfo> Jifentop(int top)
         {
             var userInfo = iuserinfo.Jifentop(top);

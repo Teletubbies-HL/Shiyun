@@ -18,6 +18,11 @@ namespace DAL
             db.UserInfo.Add(userInfo);
             db.SaveChanges();
         }
+        public void AddUserAddress(UserAddress userAddress)
+        {
+            db.UserAddress.Add(userAddress);
+            db.SaveChanges();
+        }
         public IEnumerable<UserInfo> Search(string search)
         {
             var userInfo =from po in db.UserInfo

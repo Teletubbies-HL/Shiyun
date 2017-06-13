@@ -272,6 +272,18 @@ namespace Shiyun.Controllers
         }
         #endregion
 
+        //#region 确认购买
+
+        //[HttpPost]
+        //public string UserAddress(string address)
+        //{
+        //    string uid = Session["Users_id"].ToString();
+        //    userInfoManager.AddUserAddress(uid, address);
+        //    string data = "修改成功";
+        //    return data;
+        //}
+        //#endregion
+
         #region 我的订单页
         [Login]
         public ActionResult OrderDetails(int? page)

@@ -10,6 +10,7 @@ namespace IDAL
     public interface IUserInfo
     {
         void AddUserInfo(UserInfo userInfo);
+        void AddUserAddress(UserAddress userAddress);
         UserInfo Denglu(string Users_id, string UserPass);
         UserInfo GetUsersById(string Users_id);
         void UpdateUserInfo(UserInfo userInfo);
