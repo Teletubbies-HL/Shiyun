@@ -18,7 +18,7 @@ namespace Shiyun.Controllers
             var shi1 = shiManager.IEGetShiById(4);
             var shi2 = shiManager.IEGetShiById(5);
             var ci1 = ciManager.IEGetCiById(1);
-            var ci2 = ciManager.IEGetCiById(24);
+            var ci2 = ciManager.IEGetCiById(28);
             var userinfo1 = userInfoManager.Jifentop(7);
             Models.HomeIndexViewModel homevm = new Models.HomeIndexViewModel();
             homevm.Shi1 = shi1;

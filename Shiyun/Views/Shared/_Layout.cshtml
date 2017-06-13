@@ -21,7 +21,7 @@
                     <ul style="position: relative;">
                         @if (Session["Users_id"] != null)
                         {
-                            <li class="usercenterbox" style="display: none;"><a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @Session["Users_id"]})"><span class="iconfont usercenter"> &#xe648;</span></a></li>
+                            <li class="usercenterbox" style="display: none;"><a href="@Url.Action("Shopcar","Mall",new {Users_id = @Session["Users_id"]})"><span class="iconfont usercenter"> &#xe640;</span></a></li>
                             <li class="zhuxiaobox" style="display: none;"><span class="iconfont zhuxiao">&#xe610;</span></li>
                             <li class="userinfobox" style="margin-left: 0px;"><span class="iconfont userinfo" aria-hidden="true"><a href="@Url.Action("UserCenter","UserInfo",new {Users_id = @Session["Users_id"]})"><img class="userinfo sessionimage" src="@Session["UserImage"]" /></a></span></li>
                         }
@@ -168,7 +168,7 @@
             <ul>
                 <li>管理员信箱：1561259920@qq.com</li>
                 <li>地址：江西省南昌市瑶湖江西师范大学</li>
-                <li><a class="foot-bottom-3" href="@Url.Action("menu","ManagerAdd")">后台入口</a></li>
+                <li><a class="foot-bottom-3" href="@Url.Action("Login","Admin")">后台入口</a></li>
                 <li>指导老师：曾雅琳</li>
                 <li><br />版权所有&nbsp;&copy;江西师范大学软件学院</li>
             </ul>

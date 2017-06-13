@@ -36,7 +36,7 @@ namespace DAL
                         select vi;
             return video;
         }
-        public IQueryable<VideoComment> GetVideoCommentByVideoId(int id)
+        public IQueryable<VideoComment> GetVideoCommentByVideoId(int ?id)
         {
             var VideoComment = db.VideoComment.Include("Video").Where(c => c.Video_id == id);
             return VideoComment;

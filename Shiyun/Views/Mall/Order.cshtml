@@ -6,7 +6,14 @@
 @section style
 {
     <link href="~/Content/css/ShopCar.css" rel="stylesheet"/>
-
+    <style>
+         .cssDropDownList1 {
+             outline: none;
+             border: 1px solid rgba(0, 0, 0, 0.2);
+             width: 390px;
+             height: 50px;
+         }
+    </style>
 }
 <section>
     <div class="showshopcar">
@@ -25,7 +32,11 @@
             </tr>
             <tr>
                 <td style="width: 10%; margin: 0 auto; line-height: 100px;"><span style="font-size: 20px;">详细地址：</span></td>
-                <td style="width: 15%; margin: 0 auto; line-height: 100px;">@Html.TextBoxFor(modelItem => item.Address, new {@class = "textbox", id = "address" })</td>
+                <td style="width: 15%; margin: 0 auto; line-height: 100px;">
+                    @Html.DropDownListFor(model => model.UserAddress.Address, Model.List1,"使用新地址", htmlAttributes: new { @class = "cssDropDownList1",id="address1"})
+                    @*@Html.TextBoxFor(modelItem => item.Address, new {@class = "textbox", id = "address"})*@
+                    <input type="text" class="textbox" id="address2"/>
+                </td>
             </tr>
                 <tr>
                     <td style="width: 10%; margin: 0 auto; line-height: 100px;"><span style="font-size: 20px;">备注：</span></td>
@@ -95,13 +106,28 @@
 @section scripts
 {
     <script type="text/javascript">
-        $("#qrfk").click(function () {
+        var finaladdress;
+        $("#address1").click(function() {
+            var a = $('#address1').val();
+            if (a == "") {
+                $("#address2").show();
+                finaladdress = $('#address2').val();
+
+            } else {
+                $("#address2").hide();
+                finaladdress = a;
+            }
+        });
+        $("#address2").blur(function () {
+            finaladdress = $('#address2').val();
+        });
+        $("#qrfk").click(function() {
             $.ajax({
                 url: "/Mall/Querengoumai",
                 type: "post",
                 async: false,
-                data: { uname: $("#name").val(), address: $("#address").val(), note: $("#note").val(), userphone: $("#phone").val() },
-                success: function (data) {
+                data: { uname: $("#name").val(), address: finaladdress, note: $("#note").val(), userphone: $("#phone").val() },
+                success: function(data) {
                     location.href = "/Mall/OrderDetails";
                 }
             });

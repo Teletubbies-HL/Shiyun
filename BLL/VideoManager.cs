@@ -34,7 +34,7 @@ namespace BLL
             return video;
         }
 
-        public IQueryable<VideoComment> GetVideoCommentByVideoId(int id)
+        public IQueryable<VideoComment> GetVideoCommentByVideoId(int ?id)
         {
             var VideoComment = ivideo.GetVideoCommentByVideoId(id);
             return VideoComment;

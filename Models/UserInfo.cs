@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace Models
 {
     using System;
@@ -30,18 +28,15 @@ namespace Models
             this.ShiComment = new HashSet<ShiComment>();
             this.ShiReply = new HashSet<ShiReply>();
             this.ShopCar = new HashSet<ShopCar>();
+            this.UserAddress = new HashSet<UserAddress>();
             this.UserDati = new HashSet<UserDati>();
             this.UserGuanzhu = new HashSet<UserGuanzhu>();
             this.UserGuanzhu1 = new HashSet<UserGuanzhu>();
             this.VideoComment = new HashSet<VideoComment>();
             this.VideoReply = new HashSet<VideoReply>();
         }
-        [Required]
-        [StringLength(32, MinimumLength = 4)]
-        [RegularExpression(@"[a-zA-Z]{1}([a-zA-Z0-9_]*)[a-zA-Z0-9]{3,29}")]
+    
         public string Users_id { get; set; }
-        [Required]
-        [StringLength(30)]
         public string UserName { get; set; }
         public string UserPass { get; set; }
         public string UserPhone { get; set; }
@@ -78,6 +73,8 @@ namespace Models
         public virtual ICollection<ShiReply> ShiReply { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShopCar> ShopCar { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserAddress> UserAddress { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserDati> UserDati { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

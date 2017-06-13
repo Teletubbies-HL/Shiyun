@@ -13,16 +13,17 @@ namespace BLL
     {
         IManager imanager = DataAccess.CreateManager();
       
-        public Manager Denglu(string Manager_id, string ManagerPass)
+        public Manager Denglu(string Managername, string ManagerPass)
         {
-            var manager = imanager.Denglu(Manager_id, ManagerPass);
+            var manager = imanager.Denglu(Managername, ManagerPass);
             return manager;
         }
 
-        public Manager GetManagersById(string Manager_id)
+        public Manager GetManagersById(string Managername)
         {
-            var manager = imanager.GetManagersById(Manager_id);
+            var manager = imanager.GetManagersById(Managername);
             return manager;
         }
+
     }
 }

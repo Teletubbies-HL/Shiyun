@@ -3,6 +3,7 @@
     ViewBag.Title = "纪录片详情";
 }
 @section style{
+<link href="~/Content/css/VideoDetails.css" rel="stylesheet" />
 <style type="text/css">
     section {
         width: 100%; /*border:1px solid red;*/
@@ -393,9 +394,9 @@
             @foreach (var item in Model.GetNewVideo)
             {
 
-                <a id="hlkzuijinsp" class="csshlkzuijinsp" href="@Url.Action("VideoDetails","Video",new { VideoK_id = @item.VideoK_id , Video_id =@item.Video_id})">
+                <a id="hlkzuijinsp" class="csshlkzuijinsp" href="@Url.Action("VideoDetails", "Video", new {VideoK_id = @item.VideoK_id, Video_id = @item.Video_id})">
                     <div class="zuijinspshow">
-                        <img id="zuijinspImage" class="zuijinspImage" src="@item.Cover" />
+                        <img id="zuijinspImage" class="zuijinspImage" src="@item.Cover"/>
                         <span class="zuijinspTime"> @item.AddTime</span>
                         <span class="zuijinspTitle">@item.VideoName</span>
                     </div>
@@ -403,8 +404,16 @@
 
             }
         </div>
+        
     </div>
+
 </div>
+    <div class="icomments">
+        <h2 class="icomments_title">评论</h2>
+        <div class="icomments_box">
+            @{ Html.RenderAction("AddComments", "Video");}
+        </div>
+    </div>
 
 
 </section>

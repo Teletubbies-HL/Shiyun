@@ -49,6 +49,7 @@ namespace Models
         public virtual DbSet<ShiType> ShiType { get; set; }
         public virtual DbSet<ShopCar> ShopCar { get; set; }
         public virtual DbSet<Time> Time { get; set; }
+        public virtual DbSet<UserAddress> UserAddress { get; set; }
         public virtual DbSet<UserDati> UserDati { get; set; }
         public virtual DbSet<UserGuanzhu> UserGuanzhu { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }

@@ -52,6 +52,9 @@
                             <input type="hidden" class="luntanid" value="@pd.LunTan_id"/>
                             <input type="hidden" class="userid" value="@pd.Users_id"/>
                         </div>
+                    
+                        <div class="zan"><span class="iconfont zan1">&#xe871;</span><span class="iconfont zan2" style="display: none;">&#xe870;</span><span class="zannum">@pd.Post_upvote</span></div>
+                        <div class="cai"><span class="iconfont cai1">&#xe873;</span><span class="iconfont cai2" style="display: none;">&#xe872;</span><span class="cainum">@pd.Post_down</span></div>
                     }
                     <input id="btnpinglun" class="csspinglun" value="评论" readonly="readonly" type="submit"/>
                     <input id="btndelete" class="cssShanchu" value="删除" readonly="readonly" style="display: none"/>
@@ -113,10 +116,56 @@
 @section scripts{
     <script src="~/Scripts/ckeditor-face/ckeditor.js"></script>
     <script src="~/Scripts/ckeditor-face/config.js"></script> 
-    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
-        
+        $(function () {
+
+            $(document).on('click', '.zan1', function () {   //赞 
+                //$(".zan1").click(function () {   
+                var postId = $(".postid").val();
+                var zannum = $(this).next().next();
+               
+                //$(this).next().css("display", "block");
+                //$(this).css("display", "none");
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/Zan",
+                    data: { postId: postId },
+                    success: function (data) {
+                        zannum.html(data);
+                    }
+                });
+            });
+            //$(".zan2").click(function () {   //赞2
+            //    var a = $(this).parent().next().next().next().next().val();
+            //    alert(a);
+            //    $(this).prev().css("display", "block");
+            //    $(this).css("display", "none");
+            //});
+            $(document).on('click', '.cai1', function () { //踩1
+                var postId = $(".postid").val();
+                var cainum = $(this).next().next();
+                //$(this).next().css("display", "block");
+                //$(this).css("display", "none");
+                $.ajax({
+                    type: "post",
+                    url: "/LunTan/Cai",
+                    data: { postId: postId },
+                    success: function (data) {
+                        cainum.html(data);
+                    }
+                });
+
+            });
+            //$(".cai2").click(function () {   //踩2
+            //    var a = $(this).parent().next().next().next().val();
+            //    alert(a);
+            //    $(this).prev().css("display", "block");
+            //    $(this).css("display", "none");
+            //});
+
+
+        });
         $(function() {
             $(".Tribune-choose .cotenter ul").children(":eq(1)").children().click(function() {
                 $.ajax({

@@ -13,5 +13,6 @@ namespace IDAL
         VideoReply GetVideoReplyById(int? id);
 
         void RemoveVideoReply(VideoReply videoreply);
+        void AddReply(VideoReply videoReply);
     }
 }
