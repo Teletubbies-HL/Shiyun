@@ -479,6 +479,36 @@ namespace Shiyun.Controllers
         }
         #endregion
 
+        #region 删除诗回复
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ShiComment book = db.ShiComment.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+
+        // POST: StoreManager/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
+        //对数据进行增删改时要防止csrf攻击！
+        //该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
+        public ActionResult DeleteConfirmed(int id)
+        {
+            ShiComment book = db.ShiComment.Find(id);
+            db.ShiComment.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("ScIndex");
+        }
+        #endregion
+
         #region 词回复列表
         public ActionResult CcIndex(int? page)
         {
@@ -488,7 +518,6 @@ namespace Shiyun.Controllers
             return View(goods.ToPagedList(pageNumber, pageSize));
         }
         #endregion
-
        
 
     }
