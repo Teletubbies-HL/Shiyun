@@ -106,6 +106,7 @@ namespace Shiyun.Controllers
             UserCenterViewModel uc = new UserCenterViewModel();
             uc.Uses1 = userinfomanager.IEGetUsersById(Users_id);
             ViewBag.Users_id = Users_id;
+            uc.List1 = new SelectList(db.UserAddress.Where(c => c.Users_id == Users_id), "Address", "Address");//下拉列表数据绑定
             uc.UserInfo = db.UserInfo.Find(Users_id);
             Session["Guanzhu"] = 0; //未关注
             #region foreach 获取人数

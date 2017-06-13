@@ -120,6 +120,14 @@
         });
         $("#address2").blur(function () {
             finaladdress = $('#address2').val();
+            $.ajax({
+                url: "/Mall/UserAddress",
+                type: "post",
+                async: false,
+                data: { address: finaladdress },
+                success: function (data) {
+                }
+            });
         });
         $("#qrfk").click(function() {
             $.ajax({
@@ -127,7 +135,15 @@
                 type: "post",
                 async: false,
                 data: { uname: $("#name").val(), address: finaladdress, note: $("#note").val(), userphone: $("#phone").val() },
-                success: function(data) {
+                success: function (data) {
+                    //$.ajax({
+                    //    url: "/Mall/UserAddress",
+                    //    type: "post",
+                    //    async: false,
+                    //    data: { address: finaladdress },
+                    //    success: function (data) {
+                    //    }
+                    //});
                     location.href = "/Mall/OrderDetails";
                 }
             });
