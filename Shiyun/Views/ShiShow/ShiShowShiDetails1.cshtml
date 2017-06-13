@@ -54,10 +54,10 @@
                             <div class="article-head">
                                 <h2>@Model.ShiTitle</h2>
                                 <div class="dianji">
-                                    <i class="iconfont zheng" style="color:#c03f3c;">&#xe628;</i>
-                                    <i class="iconfont yi">&#xe60e;</i>
-                                    <i class="iconfont shang">&#xe60c;</i>
-                                    <i class="iconfont bei">&#xe629;</i>
+                                    <i class="iconfont zheng" style="cursor:pointer;">&#xe628;</i>
+                                    <i class="iconfont yi" style="cursor:pointer;">&#xe60e;</i>
+                                    <i class="iconfont shang" style="cursor:pointer;">&#xe60c;</i>
+                                    <i class="iconfont bei" style="cursor:pointer;">&#xe629;</i>
                                 </div>
 
                             </div>
@@ -139,14 +139,14 @@
                                     <a href="@Url.Action("ShiShowAuthorDetails", "ShiShow", new { id = Model.Author_id })">@Model.Author.AuthorName</a>
                                 </p>
                                 <p class="user-level">
-                                    <a href="" class="rg-label small level" style="background-color: #63A9ED;">朝代</a>
-                                    <a href="#" class="rg-label small level" style="background-color: #3D6BE2;">@Model.Time.TimeName</a>
+                                    <span class="rg-label small level" style="background-color: #63A9ED;cursor:default;">朝代:</span>
+                                    <a href="@Url.Action("ShiShowTimeDetails", "ShiShow", new { id = Model.Time_id })" class="rg-label small level" style="background-color: #3D6BE2;">@Model.Time.TimeName</a>
                                 </p>
                             </div>
                             <div class="user-introduction">
                                 <p class="text gray">
                                    <center>
-                                       <audio controls="controls" class="music" style="display: block; width:100%;height:30px;">
+                                       <audio controls="controls" class="music" style="display: block; width:100%;height:30px;cursor:pointer;">
                                           <source src="@Model.ShiYuying" type="audio/mpeg" />
                                        </audio> 
                                     </center> 
@@ -185,10 +185,7 @@
     <script src="~/Scripts/JS/ShiCianalytics.js"></script>
     <script src="~/Scripts/JS/ShiCilib.js"></script>
     <script src="~/Scripts/JS/ShiCihm.js"></script>
-
     <div class="mm-menu-mask"></div>
-
-
     <script>
 		(function () {
 			var bp          = document.createElement('script');
@@ -248,8 +245,6 @@
 		    $(".fanyi").hide();
 		});
     </script>
-
-
 
 </body>
 

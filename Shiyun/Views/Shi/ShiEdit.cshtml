@@ -15,8 +15,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
+    @Html.AntiForgeryToken()   
     <div class="form-horizontal">
         <h4>Shi</h4>
         <hr />
@@ -30,7 +29,6 @@
                 @Html.ValidationMessageFor(model => model.ShiTitle, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ShiContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,7 +36,6 @@
                 @Html.ValidationMessageFor(model => model.ShiContent, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ShiFanyi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -46,7 +43,6 @@
                 @Html.ValidationMessageFor(model => model.ShiFanyi, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ShiShangxi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -54,7 +50,6 @@
                 @Html.ValidationMessageFor(model => model.ShiShangxi, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Shibeijing, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

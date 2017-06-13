@@ -213,7 +213,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\LoginAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -375,8 +374,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\VideoDetails.css" />
-    <Content Include="Manager\css\adminlogin.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\Challenge.css" />
     <Content Include="Content\css\Common.css" />
@@ -749,13 +746,10 @@
     <Content Include="Manager\images\404-error.png" />
     <Content Include="Manager\images\500-error.png" />
     <Content Include="Manager\images\alert.png" />
-    <Content Include="Manager\images\bg.jpg" />
     <Content Include="Manager\images\details_close.png" />
     <Content Include="Manager\images\details_open.png" />
     <Content Include="Manager\images\error.png" />
-    <Content Include="Manager\images\icons.png" />
     <Content Include="Manager\images\input-spinner.gif" />
-    <Content Include="Manager\images\into.png" />
     <Content Include="Manager\images\invoice-logo.jpg" />
     <Content Include="Manager\images\login-logo.png" />
     <Content Include="Manager\images\logo.png" />
@@ -2259,8 +2253,10 @@
     <Content Include="Views\Mall\_OrderDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowTimeDetails.cshtml" />
     <Content Include="Views\ShiShow\GetTimeShi.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Video\AddComments.cshtml" />
+    <Content Include="Views\ManagerAdd\ScIndex.cshtml" />
+    <Content Include="Views\ManagerAdd\CcIndex.cshtml" />
+    <Content Include="Views\Shi\Delete.cshtml" />
+    <Content Include="Views\Shi\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

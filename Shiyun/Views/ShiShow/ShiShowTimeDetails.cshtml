@@ -1,6 +1,6 @@
 ﻿@model Shiyun.Models.TimeViewModels
 @{
-    ViewBag.Title = "ShiShowTimeDetails";
+    ViewBag.Title = "年代详情";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -24,8 +24,8 @@
                         <div class="info-block">
                             <div class="info">
                                 <span class="name title white extra">@au.TimeName</span>
-                                <a href="" class="rg-label small level" style="background-color: #3D6BE2;">年代</a>
-                                <a href="" class="rg-label small level" style="background-color: #803DE2;">选择</a>
+                                <a  class="rg-label small level" style="background-color: #3D6BE2;cursor:default;">年代</a>
+                                <a href="@Url.Action("TimeIndex", "ShiCi")" class="rg-label small level" style="background-color: #803DE2;">选择</a>
                                 <span class="span-item gender white text">
                                     <i class="ri ri-transgender">诗韵</i>
                                 </span>
@@ -44,7 +44,7 @@
                             <div class="tab-panel">
                                 <div class="tab-content">
                                     <div class="col-group collection-list">
-                                        <div id="GetAllShi">
+                                        <div id="GetAllCi">
                                             @{Html.RenderAction("GetTimeShi", "ShiShow", new { TimeId = @ViewBag.Time_id });}
                                         </div>
                                     </div>

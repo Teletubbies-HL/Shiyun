@@ -49,16 +49,13 @@
             <p style="color:darkgrey">
                 @Html.ActionLink("诗集列表", "Index")
             </p>
-        </div>
-      
+        </div>    
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <p class="text-left">请输入诗名</p>
         <p>
             @Html.EditorFor(model => model.ShiTitle, new { htmlAttributes = new { @class = "form-control" ,style = "width:50%;" } })
             @Html.ValidationMessageFor(model => model.ShiTitle, "", new { @class = "text-danger" })
         </p>
-        @*<p><select id="t"></select></p>
-        <p><select id="a"></select></p>*@
         <p class="text-left" >请选择诗集类别</p>
         <p>
             <table>

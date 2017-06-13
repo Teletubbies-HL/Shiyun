@@ -10,6 +10,7 @@ using System.Net;
 using System.IO;
 using System.Web.Helpers;
 using Shiyun.Attributes;
+using System.Data.Entity;
 
 namespace Shiyun.Controllers
 {
@@ -23,6 +24,8 @@ namespace Shiyun.Controllers
         VideoKManager vk = new VideoKManager();
         VideoManager video = new VideoManager();
         ManagerManager mm = new ManagerManager();
+        ShiCommentManager sc = new ShiCommentManager();
+        CiCommentManager cc = new CiCommentManager();
 
         
         #region ----年代表Time后台----
@@ -465,6 +468,28 @@ namespace Shiyun.Controllers
             return A;
         }
         #endregion
+
+        #region 诗回复列表
+        public ActionResult ScIndex(int? page)
+        {
+            var goods = sc.GetShiComment();
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(goods.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
+        #region 词回复列表
+        public ActionResult CcIndex(int? page)
+        {
+            var goods = cc.GetCiComment();
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(goods.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
+       
 
     }
 }
