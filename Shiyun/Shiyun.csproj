@@ -213,6 +213,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\LoginAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2172,7 +2173,6 @@
     <Content Include="Views\Shi\ShiDelete.cshtml" />
     <Content Include="Views\Shi\ShiEdit.cshtml" />
     <Content Include="Views\Shi\ShiyuyinCreate.cshtml" />
-    <Content Include="Views\Goods\GoodsDelete.cshtml" />
     <Content Include="Views\Goods\GoodsEdit.cshtml" />
     <Content Include="Views\Mall\Shopcar.cshtml" />
     <Content Include="Views\ManagerAdd\TimeIndex.cshtml" />
@@ -2257,6 +2257,8 @@
     <Content Include="Views\ManagerAdd\CcIndex.cshtml" />
     <Content Include="Views\Shi\Delete.cshtml" />
     <Content Include="Views\Shi\Edit.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Goods\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

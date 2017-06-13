@@ -144,42 +144,46 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 删除商品
-        public ActionResult GoodsDelete(int? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Goods goods = goodsmanager.GetGoodsById(id);
-            if (goods == null)
+            Goods book = db.Goods.Find(id);
+            if (book == null)
             {
                 return HttpNotFound();
             }
-            return View(goods);
+            return View(book);
         }
+
         // POST: StoreManager/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        ////[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
-        ////对数据进行增删改时要防止csrf攻击！
-        ////该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
+        //[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
+        //对数据进行增删改时要防止csrf攻击！
+        //该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
         public ActionResult DeleteConfirmed(int id)
         {
-            Goods goods = goodsmanager.GetGoodsById(id);
-            int goodsid = goods.Goods_id;
-            var shopcar = goodsmanager.GetShopCarByGoodsId(goodsid);
-            if (shopcar.Count() > 0)
-            {
-                goodsmanager.RemoveRangeShopCar(shopcar);
-            }
-            var orderdetail = goodsmanager.GetOrdersByGoodsId(goodsid);
-            if (orderdetail.Count() > 0)
-            {
-                goodsmanager.RemoveRangeOrders(orderdetail);
-            }
-            goodsmanager.RemoveGoods(goods);
+            Goods book = db.Goods.Find(id);
+            db.Goods.Remove(book);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Shi book = db.Shi.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }       
         #endregion
        
     }
