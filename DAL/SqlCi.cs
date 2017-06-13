@@ -55,8 +55,6 @@ namespace DAL
         }
         public IEnumerable<Ci> Search(string search)
         {
-            //var ci = db.Ci.Where(c => c.CiTitle.Contains(search)).ToList();
-            //return ci;
             var ci = from po in db.Ci
                      where po.CiTitle.Contains(search) || po.CiContent.Contains(search)
                            select po;
