@@ -1,0 +1,129 @@
+﻿@model Models.Shi
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/HouTai.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Shi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiFanyi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiFanyi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiShangxi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiShangxi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shibeijing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shibeijing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiYuying)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiYuying)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiJieShao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiJieShao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shizhixiang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shizhixiang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiType.ShiTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiType.ShiTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time.TimeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time.TimeName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -2253,6 +2253,10 @@
     <Content Include="Views\Mall\_OrderDetails.cshtml" />
     <Content Include="Views\ShiShow\ShiShowTimeDetails.cshtml" />
     <Content Include="Views\ShiShow\GetTimeShi.cshtml" />
+    <Content Include="Views\ManagerAdd\ScIndex.cshtml" />
+    <Content Include="Views\ManagerAdd\CcIndex.cshtml" />
+    <Content Include="Views\Shi\Delete.cshtml" />
+    <Content Include="Views\Shi\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

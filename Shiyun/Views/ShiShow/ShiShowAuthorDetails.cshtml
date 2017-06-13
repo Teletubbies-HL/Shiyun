@@ -1,6 +1,7 @@
 ﻿@model Shiyun.Models.ShiViewModels
 @{
     ViewBag.Title = "诗韵作者";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
   @section style{
@@ -8,27 +9,22 @@
         <link href="~/Content/css/ShiCihome.css" rel="stylesheet" />
         
       <style>
-*{margin:0;padding:0;list-style:none;}
-body{font-size:12px;color:#666;text-align:left;}
-h1{text-align:center;}
+.pagination-container {
+  margin: 0 auto;
+  text-align: center;
+        
+}  
+         .dianji i {
+            font-size: 25px;
+            color: darkgrey;
+        }
 
-.tabbox{width:100%;height:100%;margin:0px auto;font-family:'微软雅黑';}
-.tabbox .tab{overflow:hidden;background:#ccc;}
-.tabbox .tab a{display:block;padding:10px 20px;float:left;text-decoration:none;color:#333;}
-.tabbox .tab a:hover{background:#E64E3F;color:#fff;text-decoration:none;}
-.tabbox .tab a.on{background:#E64E3F;color:#fff;text-decoration:none;}
-.tabbox .content{overflow:hidden;width:840px;height:600px;position:relative;}
-.tabbox .content ul{position:absolute;left:0;top:0;height:100px;}
-.tabbox .content li{width:840px;float:left;}
-.tabbox .content li p{padding:10px;}
-       .pagination-container {
-        margin: 0 auto;
-        text-align: center;
-    }
+            .dianji i:hover {
+                color: #c03f3c;
+                font-size: 25px;
+            } 
 </style>
-
-   }
-
+}
     <body class="" style="background-color: #F7F7F7!important;">
         <div class="message-container">
         </div>
@@ -45,8 +41,8 @@ h1{text-align:center;}
                             <div class="info-block">
                                 <div class="info">
                                     <span class="name title white extra">@au.AuthorName</span>
-                                    <a href="" class="rg-label small level" style="background-color: #3D6BE2;">朝代</a>
-                                    <a href="" class="rg-label small level" style="background-color: #803DE2;">@au.Time.TimeName</a>
+                                    <a  class="rg-label small level" style="background-color: #3D6BE2;cursor:default;">朝代</a>
+                                    <a href="@Url.Action("ShiShowTimeDetails", "ShiShow", new {id = au.Time_id})" class="rg-label small level" style="background-color: #803DE2;">@au.Time.TimeName</a>
                                     <span class="span-item gender white text">
                                         <i class="ri ri-transgender">诗韵</i>
                                     </span>
@@ -57,37 +53,54 @@ h1{text-align:center;}
                             </div>
                         </div>
                     </section>
-                }
-               
+                }              
                 <section class="home-section one-section container">
                     <div class="col-group">
                         <div class="col-dt-9 col-9 col-mb-12">
                             <section class="home-content-section one-section white section">
                                 <div class="tab-panel">
                                     <div class="tab-content">
-                                        <div class="col-group collection-list" style="height:660px;">
-
-
-                                            <div class="tab post-tab">
-                                                <div class="tabbox">
-                                                    <div class="tab">
-                                                        <a href="javascript:;" class="on">诗集</a>
-                                                        <a href="javascript:;">词集</a>
-                                                    </div>
-                                                    <div class="content">
-
-                                                        <ul>
-                                                            <li id="GetAllShi">@{Html.RenderAction("GetAuthorShi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}</li>
-                                                            <li id="GetAllCi">@{Html.RenderAction("GetAuthorCi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}</p></li>
-                                                           
-                                                        </ul>
-                                                    </div>
+                                        <div class="tab-panel">
+                                            <div class="tab">
+                                                <div class="dianji">
+                                                    <ul>
+                                                    <li class="tab-item ">
+                                                     <span class="shi" style="cursor:pointer;">诗集</span>
+                                                    </li>
+                                                    <li class="tab-item ">
+                                                    <span class="ci" style="cursor:pointer;">词集</span>
+                                                    </li>
+                                                    </ul>
                                                 </div>
-                                                    </div>
-
-
-                                    </div>
-                                </div>
+                                            </div>
+                                            </div>                                            
+                                            <div class="col-group collection-list shiji">
+                                                <div id="GetAllShi">                                                  
+                                                    @{Html.RenderAction("GetAuthorShi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}
+                                                </div>
+                                            </div>
+                                            <div class="col-group collection-list ciji" style="display:none;">
+                                            <div id="GetAllCi">
+                                                @{Html.RenderAction("GetAuthorCi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}
+                                            </div>
+                                           </div>
+                                            @*<div class="col-group collection-list" style="height:680px;">
+                    <div class="tab post-tab">
+                        <div class="tabbox">
+                            <div class="tab">
+                                <a href="javascript:;" class="on">诗集</a>
+                                <a href="javascript:;">词集</a>
+                            </div>
+                            <div class="content">
+                                <ul>
+                                    <li id="GetAllShi">@{Html.RenderAction("GetAuthorShi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}</li>
+                                    <li id="GetAllCi">@{Html.RenderAction("GetAuthorCi", "ShiShow", new { AuthorId = @ViewBag.Author_id });}</li>
+                                </ul>
+                            </div>
+                        </div>
+                            </div>
+            </div>*@
+                                        </div>
                                     </div>
                             </section>
 
@@ -115,7 +128,8 @@ h1{text-align:center;}
                     </div>
                 </section>
             </div>
-        </div>      
+        </div>   
+        
     </body>
 @*}*@
 @section scripts{
@@ -123,39 +137,33 @@ h1{text-align:center;}
 <script src="~/Scripts/jquery-1.9.1.min.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script>
-$(function(){
-	$('.tabbox .content ul').width(840*$('.tabbox .content li').length+'px');
-	$(".tabbox .tab a").mouseover(function(){
-		$(this).addClass('on').siblings().removeClass('on');
-		var index = $(this).index();
-		number = index;
-		var distance = -840*index;
-		$('.tabbox .content ul').stop().animate({
-			left:distance
-		});
-	});
-	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
-	if(auto ==1){
-		var number = 0;
-		var maxNumber = $('.tabbox .tab a').length;
-		function autotab(){
-			number++;
-			number == maxNumber? number = 0 : number;
-			$('.tabbox .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
-			var distance = -840*number;
-			$('.tabbox .content ul').stop().animate({
-				left:distance
-			});
-		}
-		var tabChange = setInterval(autotab,30000);
-		//鼠标悬停暂停切换
-		$('.tabbox').mouseover(function(){
-			clearInterval(tabChange);
-		});
-		$('.tabbox').mouseout(function(){
-			tabChange = setInterval(autotab,30000);
-		});
-	  }
-});
-</script>
+    $(".shi").click(function () {
+        $(".shi").css("color", "#c03f3c");
+        $(".ci").css("color", "darkgrey");
+        $(".shiji").show();
+        $(".ciji").hide();
+    });
+    $(".ci").click(function () {
+        $(".ci").css("color", "#c03f3c");
+        $(".shi").css("color", "darkgrey");
+        $(".shiji").hide();
+        $(".ciji").show();
+    });
+    //        $(".shi").click(function () {
+    //            alert("1");
+    //    var a = $(this).children().children().attr("src");
+    //    $(".shi").css("color", "#c03f3c");
+    //    $(".ci").css("color", "darkgrey");
+    //    $(".shiji").show();
+    //    $(".ciji").hide();
+    //});
+    //        $(".ci").click(function () {
+    //            alert("132");
+    //    //var a = $(this).children().children().attr("src");
+    //    $(".ci").css("color", "#c03f3c");
+    //    $(".shi").css("color", "darkgrey");
+    //    $(".shiji").hide();
+    //    $(".ciji").show();
+    //});
+</script>   
     }

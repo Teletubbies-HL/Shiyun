@@ -10,6 +10,7 @@ using System.IO;
 using System.Web.Helpers;
 using PagedList;
 using System.Web.UI;
+using System.Data.Entity;
 
 namespace Shiyun.Controllers
 {
@@ -222,41 +223,50 @@ namespace Shiyun.Controllers
         #endregion
 
         #region 删除诗
-        //删除给定的id的诗
-        public ActionResult ShiDelete(int? id)
+        // GET: StoreManager/Delete/5
+        //删除给定id的书籍
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shi  shi = shimanager.GetShiById(id);
-            if (shi == null)
+            Shi book = db.Shi.Find(id);
+            if (book == null)
             {
                 return HttpNotFound();
             }
-            return View(shi);
+            return View(book);
         }
+
         // POST: StoreManager/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        ////[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
-        ////对数据进行增删改时要防止csrf攻击！
-        ////该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Shi shi = shimanager.GetShiById(id);
-        //    int shiid = shi.Shi_id;
-        //    var shicomment = shimanager.GetShiCommentByShiId(shiid);
-        //    if (shicomment.Count() > 0)
-        //    {
-        //        shimanager.RemoveRangeShiComment(shicomment);
-        //    }
-           
-        //    shimanager.RemoveShi(shi);
-        //    return RedirectToAction("Index");
-        //}
+        //[ValidateAntiForgeryToken]特性用来防止伪造的跨站请求，配合表单中的@Html.AntiForgeryToken()使用
+        //对数据进行增删改时要防止csrf攻击！
+        //该特性表示检测服务器请求是否被篡改。注意：该特性只能用于post请求，get请求无效。
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Shi book = db.Shi.Find(id);
+            db.Shi.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Shi book = db.Shi.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+
         #endregion
-       
 
         #region 词列表
         public ActionResult CiIndex(int? page)
@@ -440,6 +450,65 @@ namespace Shiyun.Controllers
             int pageSize = 18;
             int pageNumber = (page ?? 1);
             return View(foods.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+
+        #region 诗编辑
+        //public ActionResult Edit(Shi shi)
+        //{
+        //    return View
+        //}
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Shi shi)
+        {
+            HttpPostedFileBase Image = Request.Files["ShiImage"];
+            try
+            {
+                if (Image.FileName != "")
+                {
+                    string filePath = Image.FileName;
+                    string filename = DateTime.Now.ToString("yyyyMMddHHmmssfffffff") +
+                                      filePath.Substring(filePath.LastIndexOf("\\") + 1);
+                    string serverpath = Server.MapPath(@"\Images\shi\") + filename;
+                    string relativepath = @"/Images/shi/" + filename;
+                    Image.SaveAs(serverpath);
+                    shi.ShiImage= relativepath;
+                }
+                else
+                {
+                    shi.ShiImage = db.Shi.Find(shi.Shi_id).ShiImage;
+                }
+                if (ModelState.IsValid)
+                {
+                    shi.ShiContent = db.Shi.Find(shi.Shi_id).ShiContent;
+                    shi.ShiFanyi = db.Shi.Find(shi.Shi_id).ShiFanyi;
+                    shi.ShiShangxi = db.Shi.Find(shi.Shi_id).ShiShangxi;
+                    shi.Shibeijing = db.Shi.Find(shi.Shi_id).Shibeijing;
+                    shi.ShiType_id = db.Shi.Find(shi.Shi_id).ShiType_id;
+                    shi.AddTime = db.Shi.Find(shi.Shi_id).AddTime;
+                    shi.ShiJieShao = db.Shi.Find(shi.Shi_id).ShiJieShao;
+                    shi.Shizhixiang = db.Shi.Find(shi.Shi_id).Shizhixiang;
+                    shi.ShiYuying = db.Shi.Find(shi.Shi_id).ShiYuying;
+                    shimanager.EditShi(shi);
+                    
+                    return RedirectToAction("Index");
+                   
+                }
+                else
+                {
+                   
+                    return Content("<script>;alert('修改失败！');window.history.go(-1);window.location.reload();</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                return Content(ex.Message);
+            }
+            ViewBag.Author_id = new SelectList(db.Author, "Author_id", "AuthorName", shi.Author_id);
+            ViewBag.Time_id = new SelectList(db.Time, "Time_id", "TimeName", shi.Time_id);
         }
         #endregion
     }
