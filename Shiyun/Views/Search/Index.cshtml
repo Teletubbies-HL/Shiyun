@@ -77,7 +77,7 @@
     @foreach (var item in Model.Shi1)
     {
         <div class="leftbox_1 lshi" style="width: 750px;">
-            <a href="@Url.Action("ShiShowShiDetails", "ShiShow", new {id = item.Shi_id})">
+            <a href="@Url.Action("ShiShowShiDetails1", "ShiShow", new {shiid = item.Shi_id})">
                 <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[诗]</span>@item.ShiTitle</div>
                 <div style="color: rgba(1, 1, 1, 0.7); margin: 10px 0; height: 135px; overflow: hidden;">@Html.Raw(@item.ShiContent)</div>
             </a>
@@ -86,7 +86,7 @@
     @foreach (var item in Model.Ci1)
     {
         <div class="leftbox_1 lci" style="width: 750px;">
-            <a href="@Url.Action("ShiShowCiDetails", "ShiShow", new { id = item.Ci_id })">
+            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = item.Ci_id })">
                 <div class="ltitle"><span style="color: rgba(1, 1, 1, 0.5); margin: 0 10px;">[词]</span>@item.CiTitle</div>
                 <div style="color: rgba(1, 1, 1, 0.7); margin: 10px 0; height: 135px; overflow: hidden;">@Html.Raw(@item.CiContent)</div>
             </a>
