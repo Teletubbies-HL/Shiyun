@@ -27,6 +27,11 @@ namespace DAL
             var goods = db.Goods.Where(c=>c.Goods_id==id);
             return goods;
         }
+        public IQueryable<Goods> whereGoodsByflag()
+        {
+            var goods = db.Goods.Where(c => c.flag == 1);
+            return goods.Take(10);
+        }
         public IEnumerable<Goods> whereGoodsBykId(string id)
         {
             var goods = db.Goods.Where(c => c.GoodsK_id == id).ToList();

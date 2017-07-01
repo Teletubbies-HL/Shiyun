@@ -30,6 +30,7 @@ namespace Models
         public Nullable<decimal> Price { get; set; }
         public Nullable<int> Count { get; set; }
         public string GoodsK_id { get; set; }
+        public Nullable<int> flag { get; set; }
     
         public virtual GoodsK GoodsK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

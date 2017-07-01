@@ -32,7 +32,7 @@ namespace Shiyun.Controllers
             var goodses5 = goodsmanager.whereGoodsById(10);
             var goodses6 = goodsmanager.whereGoodsById(5);
             var goodses7 = goodsmanager.whereGoodsById(8);
-            var goodstop10 = goodsmanager.GetGoodsbyTop(10);
+            var goodstop10 = goodsmanager.whereGoodsByflag();
             var goodskind1top9 = goodsmanager.GetbyTopandGoodskId(9, "1")/*goodsmanager.GetbyTopandGoodskId(9, "1")*/;
             var goodskind2top9 = goodsmanager.GetbyTopandGoodskId(9, "2");
             var goodskind3top9 = goodsmanager.GetbyTopandGoodskId(9, "3");
@@ -79,7 +79,7 @@ namespace Shiyun.Controllers
             Models.MallViewModels mallvm = new Models.MallViewModels();
             ViewBag.GoodsK_id= GoodsK_id;
             var goodses1 = goodsmanager.whereGoodsBykId(GoodsK_id);
-            var goodstop10 = goodsmanager.GetGoodsbyTop(10);
+            var goodstop10 = goodsmanager.whereGoodsByflag();
             mallvm.Goodses1 = goodses1;
             mallvm.Goodstop10 = goodstop10;
             return View(mallvm);

@@ -13,7 +13,7 @@
         $(this).data("mask", "false");
     }
     $.fn.mask2 = function () {
-        var divHtml = '<div class="divMask2" style="position: absolute; width: 360px; height:60px; left: 0px; top: -20px; background: #fff; opacity: 0; filter: alpha(opacity=0)"> </div>';
+        var divHtml = '<div class="divMask2" style="position: absolute; width: 440px; height:60px; left: 146px; top: -75px; background: #fff; opacity: 0; filter: alpha(opacity=0)"> </div>';
         $(this).wrap('<span style="position: relative"></span>');
         $(this).parent().append(divHtml);
         $(this).data("mask2", "true");

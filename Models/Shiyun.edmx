@@ -105,6 +105,7 @@
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Count" Type="int" />
           <Property Name="GoodsK_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="flag" Type="int" />
         </EntityType>
         <EntityType Name="GoodsK">
           <Key>
@@ -1723,6 +1724,7 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Count" Type="Int32" />
           <Property Name="GoodsK_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flag" Type="Int32" />
           <NavigationProperty Name="GoodsK" Relationship="Self.FK_Goods_GoodsK" FromRole="Goods" ToRole="GoodsK" />
           <NavigationProperty Name="OrdersDetails" Relationship="Self.FK_OrdersDetails_Goods" FromRole="Goods" ToRole="OrdersDetails" />
           <NavigationProperty Name="ShopCar" Relationship="Self.FK_ShopCar_Goods" FromRole="Goods" ToRole="ShopCar" />
@@ -3131,6 +3133,7 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="GoodsK_id" ColumnName="GoodsK_id" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

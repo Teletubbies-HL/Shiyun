@@ -23,7 +23,7 @@
 }
 <section style="width: 100%; margin: 30px auto; ">
     <div style="margin: 30px auto; width: 100%;">
-        <img src="~/Images/Challenge/wuyan.png"/>
+        <img src="~/Images/Challenge/wuyan.png" style="width:100%;"/>
         <img src="~/Images/Challenge/zhuzi.png" style="float: left;margin-left: 80px;"/>
         <img src="~/Images/Challenge/zhuzi.png" style="float: right;margin-right: 80px;"/>
         @*<hr style="border-top: 3px solid #DD3B44; width: 100%; margin-top: 30px; margin-bottom: 60px;" />*@
@@ -34,8 +34,10 @@
         <div class="movie">
             <div class="movie__card">
                 <div class="layer-1" style="display: none;"></div>
-                <div class="layer-2" style="background-image: url(@item.UserImage); width: 100px; height: 100px; background-size: cover;"></div>
-                <div class="layer-3">
+                <a href="@Url.Action("UserCenter", "Userinfo", new {Users_id = @item.Users_id})">
+                    <div class="layer-2" style="background-image: url(@item.UserImage); width: 100px; height: 100px; background-size: cover;"></div>
+                </a>
+                    <div class="layer-3">
                     <span>@item.UserName</span>
                     <span style="margin-top: 10px; display: block;">@item.UserSign</span>
                     <span style="position: absolute; top: 15px; right: 80px;">积分:&nbsp;&nbsp;@item.Jifen</span>
@@ -43,9 +45,9 @@
             </div>
         </div>
     }
-    <div class="buttonarea">
-        <a href="@Url.Action("Index","Home")"><div class="tijiaobutton" style="display: inline-block; margin-left: 200px;">主&nbsp;&nbsp;页</div></a>
-        <a href="@Url.Action("Index","Challenge")"><div class="tijiaobutton" style="display: inline-block; float: right; margin-right: 200px;">挑&nbsp;&nbsp;战</div></a>
+    <div class="buttonarea" style="width:100%;">
+        <a href="@Url.Action("Index","Home")"><div class="tijiaobutton" style="display: inline-block; margin-left: 10%;">主&nbsp;&nbsp;页</div></a>
+        <a href="@Url.Action("Index","Challenge")"><div class="tijiaobutton" style="display: inline-block; float: right; margin-right:10%;">挑&nbsp;&nbsp;战</div></a>
     </div>
 </section>
 @section scripts

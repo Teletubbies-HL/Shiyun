@@ -22,7 +22,11 @@ namespace BLL
             Goods goods = igoods.GetGoodsById(id);
             return goods;
         }
-
+        public IQueryable<Goods> whereGoodsByflag()
+        {
+            var goods = igoods.whereGoodsByflag();
+            return goods;
+        }
        public IEnumerable<Goods> Search(string search)
        {
             var goodss = igoods.Search(search);

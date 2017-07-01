@@ -16,6 +16,7 @@ namespace IDAL
         IQueryable<Goods> GetGoodsbyTop(int top);
         IEnumerable<Goods> GetbyTopandGoodskId(int top, string kid);
         //IEnumerable<Goods> GetbyTopandGoodskId();
+        IQueryable<Goods> whereGoodsByflag();
         IQueryable<ShopCar> GetShopCarByGoodsId(int id);
         IQueryable<OrdersDetails> GetOrdersByGoodsId(int id);
         void RemoveGoods(Goods goods);
