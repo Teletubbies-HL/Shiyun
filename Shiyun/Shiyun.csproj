@@ -679,6 +679,8 @@
     <Content Include="Images\shi\shi陆游.png" />
     <Content Include="Images\Time\53609-106.jpg" />
     <Content Include="Images\userInfo\1.jpg" />
+    <Content Include="Images\userInfo\201706051529279657731666.jpg" />
+    <Content Include="Images\userInfo\201706051644360019208666.jpg" />
     <Content Include="Images\userInfo\h_a.jpg" />
     <Content Include="Images\userInfo\2.jpg" />
     <Content Include="Images\userInfo\20170503823.jpg" />
@@ -1239,6 +1241,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\less\UserCenter.less" />
+    <Content Include="Images\userInfo\201706051636442378695" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
