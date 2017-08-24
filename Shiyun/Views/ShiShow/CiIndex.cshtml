@@ -213,33 +213,33 @@
                         <div class="school-card white">
                             @foreach (var cipai in Model.CiPai3)
                             {
-                                <a href="@Url.Action("ShiShowCiPaiDetails3", "ShiShow", new { ciid = cipai.CiPai_id })" class="school-header image">
+                                <a href="@Url.Action("ShiShowCiPaiDetails", "ShiShow", new { id = cipai.CiPai_id })" class="school-header image">
                                     <img src="..@cipai.CiPaiImage" data-original="..@cipai.CiPaiImage" width="100%" style="display: inline;">
                                     <div class="overlay"></div>
                                     <div class="detail">
                                         <h3 class="name large title">@cipai.CiPaiName</h3>
                                     </div>
                                 </a>
-                            }
-
-                            <div class="school-post-list">
-                                @foreach (var ci2 in Model.Ci3)
-                                {
-                                    <div class="post-item">
-                                        <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
-                                        <p class="one-line text">
-                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
-                                        </p>
-                                        <p>
-                                            <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="small gray title">
-                                                <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
-                                                <span>@ci2.Author.AuthorName</span>
-                                            </a>
-                                        </p>
-                                    </div>
                                 }
-                            </div>
-                        </div>
+
+                                <div class="school-post-list">
+                                    @foreach (var ci2 in Model.Ci3)
+                                {
+                                        <div class="post-item">
+                                            <div class="reply-label ui right pointing basic orange label">@ci2.Ci_id</div>
+                                            <p class="one-line text">
+                                                <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="big title">@ci2.CiTitle</a>
+                                            </p>
+                                            <p>
+                                                <a href="@Url.Action("ShiShowCiDetails3", "ShiShow", new { ciid = ci2.Ci_id })" class="small gray title">
+                                                    <img src="..@ci2.CiImage" data-original="..@ci2.CiImage" class="ui avatar image" style="display: inline-block;">
+                                                    <span>@ci2.Author.AuthorName</span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                }
+                                </div>
+</div>
                     </div>
                     <div class="col-4 col-mb-12">
                         <div class="school-card white">
