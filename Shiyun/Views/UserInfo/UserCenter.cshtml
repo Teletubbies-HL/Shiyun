@@ -15,7 +15,19 @@
 <div class="space-body">
     <div class="h">
         <div class="wrapper">
-            <div class="but"></div>
+            @if (@Session["Users_id"] != null)
+            {
+                if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+                {
+                    <div class="but"></div>
+                }
+                else
+                {
+                    <div class="but"  style="display: none;"></div>
+                }
+            }
+           
+
             <div class="h_a">
                 <div class="h_gradient">
 
@@ -30,6 +42,7 @@
                             <div class="h_basic">
                                 <span class="h_name">@item.UserName</span> 
                                 <input type="hidden" value="@ViewBag.Users_id" class="Users_id"/>
+                                <input type="hidden" value="@item.Pifu" class="Pifu"/>
                                 <input type="hidden" value='@Session["Users_id"]' class="SessionUsers_id"/>
                                 @if (@item.Sex == "女 ")
                                 {
@@ -78,19 +91,19 @@
                 <div class="Huanfu_wrapper">
                     <ul>
                         <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_a.jpg" datasrc="../../Images/userInfo/h_a.jpg"/></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_a.jpg" datasrc="../../Images/userInfo/h_a.jpg" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_a.jpg" datasrc="../../Images/userInfo/h_a.jpg" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_a.jpg" datasrc="../../Images/userInfo/h_a.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.jpg" datasrc="../../Images/userInfo/h_b.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_c.jpg" datasrc="../../Images/userInfo/h_c.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_d.jpg" datasrc="../../Images/userInfo/h_d.jpg" /></li>
 
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_e.jpg" datasrc="../../Images/userInfo/h_e.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_f.jpg" datasrc="../../Images/userInfo/h_f.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_g.jpg" datasrc="../../Images/userInfo/h_g.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_h.jpg" datasrc="../../Images/userInfo/h_h.jpg" /></li>
 
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
-                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_b.png" datasrc="../../Images/userInfo/h_b.png" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_i.jpg" datasrc="../../Images/userInfo/h_i.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_j.jpg" datasrc="../../Images/userInfo/h_j.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_k.jpg" datasrc="../../Images/userInfo/h_k.jpg" /></li>
+                        <li><span class="change_button">换肤</span><img alt="" src="~/Images/userInfo/h_l.jpg" datasrc="../../Images/userInfo/h_l.jpg" /></li>
                     </ul>   
                 </div>
             </div>
@@ -110,9 +123,9 @@
                         <span class="n_icon n_icon_zl zl"></span>
                         <span class="n_text zl">资料</span>
                     </a>
-                    <a class="n_btn" href="javascript:void(0)" style="display: none;">
+                    <a class="n_btn" href="javascript:void(0)">
                         <span class="n_icon n_icon_ly"></span>
-                        <span class="n_text">留言</span>
+                        <span class="n_text ly">留言</span>
                     </a>
                     @if (@Session["Users_id"] != null)
                     {
@@ -147,124 +160,165 @@
     </div>
     <div class="s_space" style="margin-top: 10px;">
         <div class="wrapper">
-            <div class="_index" style="display: block;">
-                @Html.Partial("_Index")
-            </div>
-            <div id="yuanchuang" style="display: none;">
-                @{Html.RenderAction("_Yuanchuang", "UserInfo");}
-            </div>
-            <div id="langsong" style="display: none;">
-                @{Html.RenderAction("_Langsong", "UserInfo");}
-            </div>
-            <div id="taolun" style="display: none;">
-                @{Html.RenderAction("_Taolun", "UserInfo");}
-            </div>
-            <div class="geren">
-                @if (@Session["Users_id"] != null)
-                {
-                    if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
-                    {
-                        <div class="geren2" style="display: none;">
-                            <div class="col_1">
-                                <div class="section">
-                                    <h3 class="section_title">
-                                        <a class="t" href="javascript:void(0)">个人资料</a>
-                                    </h3>
-                                    <div class="content clearfix">
-                                        <div class="gerenziliao">
-                                            @using (Html.BeginForm("Ziliao", "UserInfo", FormMethod.Post, new {@class = "ZiliaoSend", enctype = "multipart/form-data"}))
-                                            {
-                                                @Html.AntiForgeryToken()
-                                                <div class="form-horizontal">
-                                                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.Users_id, "账号", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.Users_id, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly", style = "color:rgb(171, 171, 171);"}})
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.UserName, "用户名", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.UserName, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserName, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.UserImage, "头像", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            <input type="file" name="UserImage" value="UserImage" class="file_a_a"/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.UserPhone, "手机", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.UserPhone, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserPhone, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.UserMail, "邮箱", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.UserMail, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserMail, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.Sex, "性别", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.Sex, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.Sex, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.UserSign, "个性签名", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.UserSign, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.UserSign, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.SafeQues, "安全问题", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.SafeQues, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.SafeQues, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.Answer, "答案", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.Answer, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.Answer, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group ua">
-                                                        @Html.LabelFor(model => model.UserInfo.Address, "地址", htmlAttributes: new {@class = "control-label col-md-2"})
-                                                        <div class="col-md-10">
-                                                            @Html.EditorFor(model => model.UserInfo.Address, new {htmlAttributes = new {@class = "form-control"}})
-                                                            @Html.ValidationMessageFor(model => model.UserInfo.Address, "", new {@class = "text-danger"})
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <div class="col-md-offset-2 col-md-10">
-                                                            <input type="submit" value="保存" class="btn btn-default tijiao"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            }
+            <div class="liuyan1" style="display: none;">
+                <div class="col_1">
+                    <div class="section">
+                        <h3 class="section_title" style="line-height: 0px; padding: 0 0 0px;">
+                            <a class="t" href="javascript:void(0)">留言板</a>
+                            <input id="btnpinglun" class="csspinglun" value="评论" readonly="readonly" type="submit"/>
+                        </h3>
+                        <div class="content clearfix">
+                            <div id="liuyan" style="display: block;">
+                                @{Html.RenderAction("_GetAllUserReply", "UserInfo");}
+                            </div>
+                            <lable id="PLhidden" style="display: none;"></lable>
+                            @using (Ajax.BeginForm("Pinglun", "UserInfo", new AjaxOptions {HttpMethod = "post", UpdateTargetId = "PLhidden"}))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                                <div class="huifu">
+                                    <div class="huifu_1">
+                                        @Html.HiddenFor(model => model.UserReply.U_id, new {@Value = @ViewBag.Users_id})
+                                        @Html.HiddenFor(model => model.UserReply.ReReply_id, new {@Value = "", @class = "rereid"})
+                                        <div class="Main">
+                                            @Html.TextAreaFor(model => model.UserReply.ReplyContent, htmlAttributes: new {@class = "ckeditor form-control Input_text con", id = "TextBox1", style = "width: 100%; height: 100px;"})
+                                            @Html.ValidationMessageFor(model => model.UserReply.ReplyContent, "", new {@class = "text-danger"})
+                                            <input value="确定" class="queding" type="submit"/>
+                                            <input type="hidden" class="Hidden1" id="hfdpinglun" value=""/>
                                         </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
 
+                </div>
+             </div>
+                <div class="_index" style="display: block;">
+                    @Html.Partial("_Index")
+                </div>
+                <div id="yuanchuang" style="display: none;">
+                    @{Html.RenderAction("_Yuanchuang", "UserInfo");}
+                </div>
+                <div id="langsong" style="display: none;">
+                    @{Html.RenderAction("_Langsong", "UserInfo");}
+                </div>
+                <div id="taolun" style="display: none;">
+                    @{Html.RenderAction("_Taolun", "UserInfo");}
+                </div>
+                <div class="geren">
+                    @if (@Session["Users_id"] != null)
+                    {
+                        if (@Session["Users_id"].ToString() == @ViewBag.Users_id)
+                        {
+                            <div class="geren2" style="display: none;">
+                                <div class="col_1">
+                                    <div class="section">
+                                        <h3 class="section_title">
+                                            <a class="t" href="javascript:void(0)">个人资料</a>
+                                        </h3>
+                                        <div class="content clearfix">
+                                            <div class="gerenziliao">
+                                                @using (Html.BeginForm("Ziliao", "UserInfo", FormMethod.Post, new { @class = "ZiliaoSend", enctype = "multipart/form-data" }))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    <div class="form-horizontal">
+                                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.Users_id, "账号", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.Users_id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", style = "color:rgb(171, 171, 171);" } })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.UserName, "用户名", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.UserName, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.UserImage, "头像", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                <input type="file" name="UserImage" value="UserImage" class="file_a_a" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.UserPhone, "手机", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.UserPhone, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.UserPhone, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.UserMail, "邮箱", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.UserMail, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.UserMail, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.Sex, "性别", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.Sex, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.Sex, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.UserSign, "个性签名", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.UserSign, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.UserSign, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.SafeQues, "安全问题", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.SafeQues, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.SafeQues, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.Answer, "答案", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.Answer, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group ua">
+                                                            @Html.LabelFor(model => model.UserInfo.Address, "地址", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.EditorFor(model => model.UserInfo.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.UserInfo.Address, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-md-offset-2 col-md-10">
+                                                                <input type="submit" value="保存" class="btn btn-default tijiao" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="geren1" style="display: none;">
+                                @Html.Partial("_Gerenziliao1")
+                            </div>
+                        }
                     }
                     else
                     {
@@ -272,48 +326,48 @@
                             @Html.Partial("_Gerenziliao1")
                         </div>
                     }
-                }
-                else
-                {
-                    <div class="geren1" style="display: none;">
-                        @Html.Partial("_Gerenziliao1")
-                    </div>
-                }
-            </div>
+                </div>
 
-            <div class="GuanZhu" style="display: none;">
-               @Html.Partial("_Guanzhu")
-            </div>
-            <div id="caogao" style="display: none;">
-               @{Html.RenderAction("_Caogao", "UserInfo");} 
-            </div>
-          
-            <div class="col_2">
-                <div class="section user">
-                    <div class="meta">
-                        @foreach (var item in Model.Uses1)
-                        {
-                            <div class="row">
-                                <div class="item uid"> <span class="icon"></span> <span class="text">@item.Users_id</span> </div>
-                                <div class="item regtime" style="padding-left: 0px;"> <span class="icon"></span> <span class="text">注册于 @item.Addtime.Value.ToString("yyyy-MM-dd")</span> </div>
-                            </div>
-                            <div class="row">
-                                <div class="item birthday"> <span class="icon"></span> <span class="text">积分 @item.Jifen</span>  </div>
-                                <div class="item geo" style="padding-left: 0px;"> <span class="icon"></span> <span class="text">@item.UserMail</span>  </div>
-                            </div>
-                        }
-                        
+                <div class="GuanZhu" style="display: none;">
+                    @Html.Partial("_Guanzhu")
+                </div>
+                <div id="caogao" style="display: none;">
+                    @{Html.RenderAction("_Caogao", "UserInfo");}
+                </div>
+
+
+                <div class="col_2">
+                    <div class="section user">
+                        <div class="meta">
+                            @foreach (var item in Model.Uses1)
+                            {
+                                <div class="row">
+                                    <div class="item uid"> <span class="icon"></span> <span class="text">@item.Users_id</span> </div>
+                                    <div class="item regtime" style="padding-left: 0px;"> <span class="icon"></span> <span class="text">注册于 @item.Addtime.Value.ToString("yyyy-MM-dd")</span> </div>
+                                </div>
+                                        <div class="row">
+                                            <div class="item birthday"> <span class="icon"></span> <span class="text">积分 @item.Jifen</span>  </div>
+                                            <div class="item geo" style="padding-left: 0px;"> <span class="icon"></span> <span class="text">@item.UserMail</span>  </div>
+                                        </div>
+                            }
+
+                        </div>
                     </div>
-                       </div>
-                    </div>             
                 </div>
             </div>
-        </div>
+
+                </div>
+            </div>
 @section scripts{
+    <script src="~/Scripts/ckeditor-face/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor-face/config.js"></script>
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
+
         $(function() {
+            
+
             $(document).on('click', '.n_icon_home', function() {
                 $("._index").css("display", "block");
                 $(".geren1").css("display", "none");
@@ -325,7 +379,8 @@
                 $("#taolun").css("display", "none");
                 $(".geren").css("display", "none");
                 $(".GuanZhu").css("display", "none");
-                $("#caogao").css("display", "block");
+                $(".liuyan1").css("display", "none");
+                $("#caogao").css("display", "block"); 
             });
             $(document).on('click', '.zl', function() {
                 $("._index").css("display", "none");
@@ -334,6 +389,7 @@
                 $("#taolun").css("display", "none");
                 $(".GuanZhu").css("display", "none");
                 $("#caogao").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 if ($(".SessionUsers_id").val() != null) {
                     if ($(".SessionUsers_id").val() == $(".Users_id").val()) {
                         $(".geren2").css("display", "block");
@@ -354,10 +410,23 @@
                 $("#taolun").css("display", "none");
                 $(".geren").css("display", "none");
                 $("#caogao").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 $(".GuanZhu").css("display", "block");
                 $(".GuanZhu_gz").css("color", "#dd3b44");
                 $(".GuanZhu_fs").css("color", "#000");
                 $(".gz").css("display", "block");
+                $(".fs").css("display", "none");
+            });
+            $(document).on('click', '.ly', function () {
+                $("._index").css("display", "none");
+                $("#yuanchuang").css("display", "none");
+                $("#langsong").css("display", "none");
+                $("#taolun").css("display", "none");
+                $(".geren").css("display", "none");
+                $("#caogao").css("display", "none");
+                $(".liuyan1").css("display", "block");
+                $(".GuanZhu").css("display", "none");
+                $(".gz").css("display", "none");
                 $(".fs").css("display", "none");
             });
             $(document).on('click', '.GuanZhu_fs', function() {
@@ -368,6 +437,7 @@
                 $(".geren").css("display", "none");
                 $("#caogao").css("display", "none");
                 $(".GuanZhu").css("display", "block");
+                $(".liuyan1").css("display", "none");
                 $(".GuanZhu_gz").css("color", "#000");
                 $(".GuanZhu_fs").css("color", "#dd3b44");
                 $(".gz").css("display", "none");
@@ -381,6 +451,7 @@
                 $("#taolun").css("display", "none");
                 $(".geren").css("display", "none");
                 $("#caogao").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 $(".GuanZhu").css("display", "block");
                 $(".GuanZhu_gz").css("color", "#dd3b44");
                 $(".GuanZhu_fs").css("color", "#000");
@@ -394,6 +465,7 @@
                 $("#taolun").css("display", "none");
                 $(".geren").css("display", "none");
                 $("#caogao").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 $(".GuanZhu").css("display", "block");
                 $(".GuanZhu_gz").css("color", "#000");
                 $(".GuanZhu_fs").css("color", "#dd3b44");
@@ -406,17 +478,20 @@
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "block");
                 $("#langsong").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 $("#taolun").css("display", "none");
             });
             $(document).on('click', '.more_ls', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 $("#langsong").css("display", "block");
                 $("#taolun").css("display", "none");
             });
             $(document).on('click', '.more_tl', function() {
                 $("._index").css("display", "none");
                 $("#yuanchuang").css("display", "none");
+                $(".liuyan1").css("display", "none");
                 $("#langsong").css("display", "none");
                 $("#taolun").css("display", "block");
             });
@@ -463,13 +538,9 @@
             }
         });
         $(function() {
-            $(".but").click(function () {
+            $(".but").click(function() {
                 $(".Huanfu").css("bottom", "0px");
             });
-            $(".Huanfu_close").click(function () {
-                $(".Huanfu").css("bottom", "-600px");
-            });
-
             $(".Huanfu_wrapper ul li").hover(function() {
 
                 $(this).css("border", "3px solid #ffffff");
@@ -479,11 +550,51 @@
                 $(this).css("border", "3px solid #555");
                 $(this).children(":eq(0)").css("opacity", "0");
             });
-
+            var pifu = $(".Pifu").val();
+            if (pifu == "") {
+                $(".h_a").css("background-image", "url(../../Images/userInfo/h_a.jpg)");
+            } else {
+                $(".h_a").css("background-image", "url(" + pifu + ")");
+            }
+            var readypifu;
             $(".Huanfu_wrapper ul li").click(function() {
                 var bigSrc = $(this).find("img").attr("datasrc");
                 //alert(bigSrc);
                 $(".h_a").css("background-image", "url(" + bigSrc + ")");
+                readypifu = bigSrc;
+            });
+            $(".Huanfu_close").click(function() {
+
+                var pifu = $(".Pifu").val();
+                if (pifu == readypifu) {
+                    $(".Huanfu").css("bottom", "-600px");
+                } else {
+                    if (confirm("皮肤未保存，是否关闭")) {
+                        $(".h_a").css("background-image", "url(" + pifu + ")");
+                        $(".Huanfu").css("bottom", "-600px");
+                    } else {
+                        //alert("否");
+                        //$(".Huanfu").css("bottom", "-600px");
+                    }
+
+
+                }
+            });
+            $(".change_button").click(function() {
+                var pifu = $(this).next().attr("datasrc");
+                $.ajax({
+                    type: "post",
+                    url: "/UserInfo/ChangePifu",
+                    data: { Users_id: $(".Users_id").val(), Pifu: pifu },
+                    success: function(data) {
+                        if (data == "aa") {
+                            $(".Pifu").val(pifu);
+                            $(".Huanfu").css("bottom", "-600px");
+                        } else {
+                            alert("修改失败");
+                        }
+                    }
+                });
             });
         });
         //$(function() {
@@ -495,6 +606,52 @@
 
         //    });
         //});
+        $(function() {
+            $(".csspinglun").click(function() { //点击评论
+                //给rereply改变值
+                var b = "";
+                $(".Hidden1").val(null);
+                var re = $(".Hidden1").val();
+                $(".rereid").val(re);
+                //alert($(".rereid").val());
+                //跳转到底部
+                var webheight = document.body.scrollHeight; //网页高度
+                $('body,html').animate({ scrollTop: webheight - 1150 }, 1000);
+                $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制             
+            });
+            $(document).on('click', '.cssbtnReply', function() {
+                //给rereply改变值
+                var replyid = $(this).next().val();              
+                $(".Hidden1").val(replyid);
+                var re = $(".Hidden1").val();
+                $(".rereid").val(re);
+                //跳转到底部        
+                var webheight = document.body.scrollHeight; //网页高度
+                $('body,html').animate({ scrollTop: webheight - 1150 }, 1000);
+                $('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
+            });
+            $(".queding").click(function() { //提交评论                   
+    
+                setTimeout(function() {
+                    var plHidden = $("#PLhidden").text();
+                    if (plHidden == "aa") {
+                        $.ajax({
+                            type: "post",
+                            url: "/UserInfo/_GetAllUserReply",
+                            data: { Users_id: $(".Users_id").val() },
+                            success: function(data) {
+                                $("#liuyan").html(data);
+                                //回到顶部
+                                //$('body,html').animate({ scrollTop: 200 }, 1000);
+                                //$('body,html').off("mousewheel", preventScroll); //去除scrollTop=0对滚动的限制
+                                //$(".plcg").show().delay(2000).hide(300);
+                            }
+                        });
+                    } else {
+                    }
+                }, 1000);
+            });
+        });
     </script>
 
 }

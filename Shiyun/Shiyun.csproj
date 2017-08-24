@@ -696,8 +696,19 @@
     <Content Include="Images\userInfo\20170503833.jpg" />
     <Content Include="Images\userInfo\3.jpg" />
     <Content Include="Images\userInfo\4.jpg" />
+    <Content Include="Images\userInfo\h_b.jpg" />
     <Content Include="Images\userInfo\h_b.png" />
+    <Content Include="Images\userInfo\h_c.jpg" />
+    <Content Include="Images\userInfo\h_d.jpg" />
+    <Content Include="Images\userInfo\h_e.jpg" />
+    <Content Include="Images\userInfo\h_f.jpg" />
+    <Content Include="Images\userInfo\h_g.jpg" />
     <Content Include="Images\userInfo\h_gradient.png" />
+    <Content Include="Images\userInfo\h_h.jpg" />
+    <Content Include="Images\userInfo\h_i.jpg" />
+    <Content Include="Images\userInfo\h_j.jpg" />
+    <Content Include="Images\userInfo\h_k.jpg" />
+    <Content Include="Images\userInfo\h_l.jpg" />
     <Content Include="Images\userInfo\icons.png" />
     <Content Include="Images\userInfo\upseek.png" />
     <Content Include="Images\Video\1.jpg" />
@@ -2264,6 +2275,7 @@
     <Content Include="Views\Shi\Edit.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Goods\Delete.cshtml" />
+    <Content Include="Views\UserInfo\_GetAllUserReply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

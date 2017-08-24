@@ -76,6 +76,7 @@
     <Compile Include="IUserDati.cs" />
     <Compile Include="IUserGuanZhu.cs" />
     <Compile Include="IUserInfo.cs" />
+    <Compile Include="IUserReply.cs" />
     <Compile Include="IVideo.cs" />
     <Compile Include="IVideoComment.cs" />
     <Compile Include="IVideoK.cs" />

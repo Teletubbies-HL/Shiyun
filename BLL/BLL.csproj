@@ -67,6 +67,7 @@
     <Compile Include="UserDatiManager.cs" />
     <Compile Include="UserGuanzhuManager.cs" />
     <Compile Include="UserInfoManager.cs" />
+    <Compile Include="UserReplyManager.cs" />
     <Compile Include="VideoCommentManager.cs" />
     <Compile Include="VideoKManager.cs" />
     <Compile Include="VideoManager.cs" />

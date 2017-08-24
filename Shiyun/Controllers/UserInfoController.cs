@@ -16,6 +16,7 @@ namespace Shiyun.Controllers
     {
         ShiyunEntities db = new ShiyunEntities();
         UserInfoManager userinfomanager = new UserInfoManager();
+        UserReplyManager userreplymanager = new UserReplyManager();
         PostManager postManager = new PostManager();
         // GET: UserInfo
         public ActionResult Index()
@@ -33,6 +34,7 @@ namespace Shiyun.Controllers
             if (ModelState.IsValid)
             {
                 userInfo.Jifen = 0;
+                userInfo.Pifu = "../../Images/userInfo/h_a.png";
                 userInfo.Addtime = System.DateTime.Now;
                 userinfomanager.AddUserInfo(userInfo);
                 return Content("<script>;alert('注册成功!');window.history.go(-2); window.location.reload(); </script>");
@@ -158,6 +160,8 @@ namespace Shiyun.Controllers
             uc.Post3 = postManager.GetPostByUser(Users_id, 3).Take(4);
             //草稿
             uc.Draft = postManager.GetPostDraftByUser(Users_id);
+            //留言
+            uc.AllUserReply = userreplymanager.GetUserReply(Users_id);
             return View(uc);
         }
         #endregion
@@ -181,7 +185,6 @@ namespace Shiyun.Controllers
 
             string UserA = Session["Users_id"].ToString();
             userinfomanager.QuXiaoGuanZhu(UserA ,UserB);
-
             string aa = userinfomanager.CountUserGuanzhu2ById(UserB).Count().ToString();
             return aa;
         }
@@ -219,6 +222,36 @@ namespace Shiyun.Controllers
             int pageNumber = (page ?? 1);
             return View(caogao.ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult _GetAllUserReply(string Users_id, int? page)
+        {
+            ViewBag.Users_id = Users_id;
+            var userreply = userreplymanager.GetUserReply(Users_id);
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            return View(userreply.ToPagedList(pageNumber, pageSize));
+        }
+        #endregion
+        #region  保存评论
+        [HttpPost]
+        [ValidateInput(false)]  //富文本编辑器使用
+        [ValidateAntiForgeryToken]
+        [Login]
+        public string Pinglun(UserReply userReply)
+        {
+            if (ModelState.IsValid)
+            {
+                userReply.ReplyTime = System.DateTime.Now;
+                userReply.Users_id = Session["Users_id"].ToString();
+                userreplymanager.AddUserReply(userReply);
+                return "aa";
+                //Content("<script>;alert('发布成功！');window.history.go(-1);</script>");
+            }
+            else
+            {
+                return "bb";
+                //Content("<script>;alert('发布失败！');history.go(-1)</script>");
+            }
+        }
         #endregion
         #region 修改资料
         [HttpPost]
@@ -244,10 +277,12 @@ namespace Shiyun.Controllers
                 }
                 if (ModelState.IsValid)
                 {
+                    userInfo.UserImage = db.UserInfo.Find(userInfo.Users_id).UserImage;
                     userInfo.UserPass = db.UserInfo.Find(userInfo.Users_id).UserPass;
                     userInfo.Addtime = db.UserInfo.Find(userInfo.Users_id).Addtime;
                     userInfo.Jingyan = db.UserInfo.Find(userInfo.Users_id).Jingyan;
                     userInfo.Jifen = db.UserInfo.Find(userInfo.Users_id).Jifen;
+                    userInfo.Pifu = db.UserInfo.Find(userInfo.Users_id).Pifu;
                     userinfomanager.UpdateUserInfo(userInfo);
                     //db.Post.Add(post);
                     //db.SaveChanges();
@@ -270,8 +305,41 @@ namespace Shiyun.Controllers
             }
 
         #endregion
+        #region 修改皮肤
+        public string ChangePifu(UserInfo userInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                userInfo.UserName = db.UserInfo.Find(userInfo.Users_id).UserName;
+                userInfo.UserPhone = db.UserInfo.Find(userInfo.Users_id).UserPhone;
+                userInfo.UserMail = db.UserInfo.Find(userInfo.Users_id).UserMail;
+                userInfo.Sex = db.UserInfo.Find(userInfo.Users_id).Sex;
+                userInfo.UserSign = db.UserInfo.Find(userInfo.Users_id).UserSign;
+                userInfo.UserImage = db.UserInfo.Find(userInfo.Users_id).UserImage;
+                userInfo.SafeQues = db.UserInfo.Find(userInfo.Users_id).SafeQues;
+                userInfo.Answer = db.UserInfo.Find(userInfo.Users_id).Answer;
+                userInfo.Address = db.UserInfo.Find(userInfo.Users_id).Address;
+                userInfo.UserPass = db.UserInfo.Find(userInfo.Users_id).UserPass;
+                userInfo.Addtime = db.UserInfo.Find(userInfo.Users_id).Addtime;
+                userInfo.Jingyan = db.UserInfo.Find(userInfo.Users_id).Jingyan;
+                userInfo.Jifen = db.UserInfo.Find(userInfo.Users_id).Jifen;
+                userinfomanager.UpdateUserInfo(userInfo);
+                //db.Post.Add(post);
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
+                return "aa";
+                //return RedirectToAction("UserCenter", "UserInfo", new { Users_id = userInfo.Users_id });
+                //return Content("<script>;alert('修改成功！');</script>");
+            }
+            else
+            {
+                return "bb";
+            }
+            
+        }
+        #endregion
         #region
-            public ActionResult Pinglun()
+        public ActionResult Pinglun()
             {
                 return View();
             }

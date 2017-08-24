@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="37c8726ed57e4b0faf73be95e58bf606" Name="Diagram1">
+      <Diagram DiagramId="7e53a1cc741b4e9eabc73ec27ac14767" Name="Diagram1">
         <EntityTypeShape EntityType="ShiyunModel.Author" Width="1.5" PointX="1.5" PointY="27.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.Challenge" Width="1.5" PointX="0.75" PointY="34.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.ChallengeK" Width="1.5" PointX="1.5" PointY="48.125" IsExpanded="true" />
@@ -30,7 +30,7 @@
         <EntityTypeShape EntityType="ShiyunModel.UserAddress" Width="1.5" PointX="3" PointY="36" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.UserDati" Width="1.5" PointX="3" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.UserGuanzhu" Width="1.5" PointX="3" PointY="41.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.UserInfo" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.UserInfo" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.Video" Width="1.5" PointX="6.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.VideoComment" Width="1.5" PointX="9" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.VideoK" Width="1.5" PointX="4.5" PointY="6.75" IsExpanded="true" />
@@ -87,6 +87,11 @@
         <AssociationConnector Association="ShiyunModel.FK_Video_VideoK" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_VideoComment_Video" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_VideoReply_VideoComment" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShiyunModel.UserReply" Width="1.5" PointX="3" PointY="54.75" />
+        <EntityTypeShape EntityType="ShiyunModel.View_UserReply" Width="1.5" PointX="16.375" PointY="14.75" />
+        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserInfo" />
+        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserInfo1" />
+        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserReply" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

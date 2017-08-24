@@ -87,6 +87,7 @@
     <Compile Include="SqlUserDati.cs" />
     <Compile Include="SqlUserGuanZhu.cs" />
     <Compile Include="SqlUserInfo.cs" />
+    <Compile Include="SqlUserReply.cs" />
     <Compile Include="SqlVideo.cs" />
     <Compile Include="SqlVideoComment.cs" />
     <Compile Include="SqlVideoK.cs" />

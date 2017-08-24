@@ -24,5 +24,7 @@ namespace Shiyun.Models
         public IEnumerable<SelectListItem> List1 { get; set; }
         //public IEnumerable<Us> postreply { get; set; }
         //public IEnumerable<> 
+        public UserReply UserReply { get; set; }
+        public IEnumerable<View_UserReply> AllUserReply { get; set; }
     }
 }

@@ -70,6 +70,8 @@ namespace Models
         public virtual DbSet<View_ShopCar> View_ShopCar { get; set; }
         public virtual DbSet<View_TimeShi> View_TimeShi { get; set; }
         public virtual DbSet<View_UserInfo> View_UserInfo { get; set; }
+        public virtual DbSet<UserReply> UserReply { get; set; }
+        public virtual DbSet<View_UserReply> View_UserReply { get; set; }
     
         public virtual int ShopCar_Orders(string users_id, string userName, string userPhone, string address, string note)
         {
