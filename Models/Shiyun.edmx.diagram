@@ -4,41 +4,42 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7e53a1cc741b4e9eabc73ec27ac14767" Name="Diagram1">
+      <Diagram DiagramId="054c88c1ac5e472fae18f92bef0866cb" Name="Diagram1">
         <EntityTypeShape EntityType="ShiyunModel.Author" Width="1.5" PointX="1.5" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Challenge" Width="1.5" PointX="0.75" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.ChallengeK" Width="1.5" PointX="1.5" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Challenge" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.ChallengeK" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.Ci" Width="1.5" PointX="3.75" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.CiComment" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.CiPai" Width="1.5" PointX="1.5" PointY="44.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.CiReply" Width="1.5" PointX="11.25" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Goods" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.GoodsK" Width="1.5" PointX="1.5" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.LunTan" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Manager" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Message" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Orders" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.OrdersDetails" Width="1.5" PointX="3" PointY="50.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Post" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.PostReply" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Shi" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.ShiComment" Width="1.5" PointX="6" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.ShiReply" Width="1.5" PointX="8.25" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.ShiType" Width="1.5" PointX="1.5" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.ShopCar" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.CiComment" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.CiPai" Width="1.5" PointX="1.5" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.CiReply" Width="1.5" PointX="11.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Goods" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.GoodsK" Width="1.5" PointX="1.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.LunTan" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Manager" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Message" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Orders" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.OrdersDetails" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Post" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.PostReply" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Shi" Width="1.5" PointX="0.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.ShiComment" Width="1.5" PointX="3" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.ShiReply" Width="1.5" PointX="8.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.ShiType" Width="1.5" PointX="1.5" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.ShopCar" Width="1.5" PointX="6" PointY="23.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.Time" Width="1.5" PointX="1.5" PointY="31.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.UserAddress" Width="1.5" PointX="3" PointY="36" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.UserDati" Width="1.5" PointX="3" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.UserGuanzhu" Width="1.5" PointX="3" PointY="41.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.UserInfo" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.Video" Width="1.5" PointX="6.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.VideoComment" Width="1.5" PointX="9" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.VideoK" Width="1.5" PointX="4.5" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.VideoReply" Width="1.5" PointX="14.25" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_AuthorCi" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_Authorsc" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_AuthorShi" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_CiPaiCi" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.UserAddress" Width="1.5" PointX="3" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.UserDati" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.UserGuanzhu" Width="1.5" PointX="3" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.UserInfo" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.UserReply" Width="1.5" PointX="3" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.Video" Width="1.5" PointX="6.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.VideoComment" Width="1.5" PointX="9" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.VideoK" Width="1.5" PointX="4.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.VideoReply" Width="1.5" PointX="14.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_AuthorCi" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_Authorsc" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_AuthorShi" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_CiPaiCi" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_CiShow" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_OrderDetails" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_PostDetails" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
@@ -46,8 +47,9 @@
         <EntityTypeShape EntityType="ShiyunModel.View_PostReply" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_ShitypeA" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShiyunModel.View_ShopCar" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_TimeShi" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShiyunModel.View_UserInfo" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_TimeShi" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_UserInfo" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShiyunModel.View_UserReply" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
         <AssociationConnector Association="ShiyunModel.FK_Author_Time" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_Ci_Author" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_Shi_Author" ManuallyRouted="false" />
@@ -82,16 +84,14 @@
         <AssociationConnector Association="ShiyunModel.FK_UserDati_UserInfo" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_UserGuanzhu_UserInfo" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_UserGuanzhu_UserInfo1" ManuallyRouted="false" />
+        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserInfo1" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_VideoComment_UserInfo" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_VideoReply_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserReply" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_Video_VideoK" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_VideoComment_Video" ManuallyRouted="false" />
         <AssociationConnector Association="ShiyunModel.FK_VideoReply_VideoComment" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ShiyunModel.UserReply" Width="1.5" PointX="3" PointY="54.75" />
-        <EntityTypeShape EntityType="ShiyunModel.View_UserReply" Width="1.5" PointX="16.375" PointY="14.75" />
-        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserInfo" />
-        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserInfo1" />
-        <AssociationConnector Association="ShiyunModel.FK_UserReply_UserReply" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

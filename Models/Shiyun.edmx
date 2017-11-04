@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ShiyunModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ShiyunModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="Author_id" />
@@ -1708,7 +1708,8 @@
             <End Role="VideoReply" EntitySet="VideoReply" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ShiyunModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2090,10 +2091,25 @@
           <NavigationProperty Name="UserDati" Relationship="Self.FK_UserDati_UserInfo" FromRole="UserInfo" ToRole="UserDati" />
           <NavigationProperty Name="UserGuanzhu" Relationship="Self.FK_UserGuanzhu_UserInfo" FromRole="UserInfo" ToRole="UserGuanzhu" />
           <NavigationProperty Name="UserGuanzhu1" Relationship="Self.FK_UserGuanzhu_UserInfo1" FromRole="UserInfo" ToRole="UserGuanzhu" />
+          <NavigationProperty Name="UserReply" Relationship="Self.FK_UserReply_UserInfo" FromRole="UserInfo" ToRole="UserReply" />
+          <NavigationProperty Name="UserReply1" Relationship="Self.FK_UserReply_UserInfo1" FromRole="UserInfo" ToRole="UserReply" />
           <NavigationProperty Name="VideoComment" Relationship="Self.FK_VideoComment_UserInfo" FromRole="UserInfo" ToRole="VideoComment" />
           <NavigationProperty Name="VideoReply" Relationship="Self.FK_VideoReply_UserInfo" FromRole="UserInfo" ToRole="VideoReply" />
-          <NavigationProperty Name="UserReply" Relationship="ShiyunModel.FK_UserReply_UserInfo" FromRole="UserInfo" ToRole="UserReply" />
-          <NavigationProperty Name="UserReply1" Relationship="ShiyunModel.FK_UserReply_UserInfo1" FromRole="UserInfo" ToRole="UserReply" />
+        </EntityType>
+        <EntityType Name="UserReply">
+          <Key>
+            <PropertyRef Name="Reply_id" />
+          </Key>
+          <Property Name="Reply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id" Type="Int32" />
+          <Property Name="U_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserReply_UserInfo" FromRole="UserReply" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="Self.FK_UserReply_UserInfo1" FromRole="UserReply" ToRole="UserInfo" />
+          <NavigationProperty Name="UserReply1" Relationship="Self.FK_UserReply_UserReply" FromRole="UserReply" ToRole="UserReply1" />
+          <NavigationProperty Name="UserReply2" Relationship="Self.FK_UserReply_UserReply" FromRole="UserReply1" ToRole="UserReply" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -2451,6 +2467,28 @@
           <Property Name="Jifen2" Type="Int32" />
           <Property Name="Jingyan" Type="Int32" />
           <Property Name="Jingyan2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_UserReply">
+          <Key>
+            <PropertyRef Name="Reply_id1" />
+            <PropertyRef Name="Users_id1" />
+          </Key>
+          <Property Name="Reply_id1" Type="Int32" Nullable="false" />
+          <Property Name="ReplyContent1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime1" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id1" Type="Int32" />
+          <Property Name="U_id1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Users_id1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Users_id2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reply_id2" Type="Int32" />
+          <Property Name="ReplyContent2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime2" Type="DateTime" Precision="3" />
+          <Property Name="ReReply_id2" Type="Int32" />
+          <Property Name="U_id2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Author_Time">
           <End Role="Time" Type="Self.Time" Multiplicity="0..1" />
@@ -2860,6 +2898,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserReply_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="UserReply" Type="Self.UserReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserReply">
+              <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReply_UserInfo1">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="UserReply" Type="Self.UserReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Users_id" />
+            </Principal>
+            <Dependent Role="UserReply">
+              <PropertyRef Name="U_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VideoComment_UserInfo">
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
           <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
@@ -2881,6 +2943,18 @@
             </Principal>
             <Dependent Role="VideoReply">
               <PropertyRef Name="Users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReply_UserReply">
+          <End Role="UserReply" Type="Self.UserReply" Multiplicity="0..1" />
+          <End Role="UserReply1" Type="Self.UserReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserReply">
+              <PropertyRef Name="Reply_id" />
+            </Principal>
+            <Dependent Role="UserReply1">
+              <PropertyRef Name="ReReply_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2947,6 +3021,7 @@
           <EntitySet Name="UserDati" EntityType="Self.UserDati" />
           <EntitySet Name="UserGuanzhu" EntityType="Self.UserGuanzhu" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="UserReply" EntityType="Self.UserReply" />
           <EntitySet Name="Video" EntityType="Self.Video" />
           <EntitySet Name="VideoComment" EntityType="Self.VideoComment" />
           <EntitySet Name="VideoK" EntityType="Self.VideoK" />
@@ -2964,6 +3039,7 @@
           <EntitySet Name="View_ShopCar" EntityType="Self.View_ShopCar" />
           <EntitySet Name="View_TimeShi" EntityType="Self.View_TimeShi" />
           <EntitySet Name="View_UserInfo" EntityType="Self.View_UserInfo" />
+          <EntitySet Name="View_UserReply" EntityType="Self.View_UserReply" />
           <AssociationSet Name="FK_Author_Time" Association="Self.FK_Author_Time">
             <End Role="Time" EntitySet="Time" />
             <End Role="Author" EntitySet="Author" />
@@ -3100,6 +3176,14 @@
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="UserGuanzhu" EntitySet="UserGuanzhu" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserReply_UserInfo" Association="Self.FK_UserReply_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserReply" EntitySet="UserReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReply_UserInfo1" Association="Self.FK_UserReply_UserInfo1">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserReply" EntitySet="UserReply" />
+          </AssociationSet>
           <AssociationSet Name="FK_VideoComment_UserInfo" Association="Self.FK_VideoComment_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="VideoComment" EntitySet="VideoComment" />
@@ -3107,6 +3191,10 @@
           <AssociationSet Name="FK_VideoReply_UserInfo" Association="Self.FK_VideoReply_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="VideoReply" EntitySet="VideoReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReply_UserReply" Association="Self.FK_UserReply_UserReply">
+            <End Role="UserReply" EntitySet="UserReply" />
+            <End Role="UserReply1" EntitySet="UserReply" />
           </AssociationSet>
           <AssociationSet Name="FK_Video_VideoK" Association="Self.FK_Video_VideoK">
             <End Role="VideoK" EntitySet="VideoK" />
@@ -3127,94 +3215,7 @@
             <Parameter Name="Address" Mode="In" Type="String" />
             <Parameter Name="note" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="UserReply" EntityType="ShiyunModel.UserReply" />
-          <EntitySet Name="View_UserReply" EntityType="ShiyunModel.View_UserReply" />
-          <AssociationSet Name="FK_UserReply_UserInfo" Association="ShiyunModel.FK_UserReply_UserInfo">
-            <End Role="UserInfo" EntitySet="UserInfo" />
-            <End Role="UserReply" EntitySet="UserReply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserReply_UserInfo1" Association="ShiyunModel.FK_UserReply_UserInfo1">
-            <End Role="UserInfo" EntitySet="UserInfo" />
-            <End Role="UserReply" EntitySet="UserReply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserReply_UserReply" Association="ShiyunModel.FK_UserReply_UserReply">
-            <End Role="UserReply" EntitySet="UserReply" />
-            <End Role="UserReply1" EntitySet="UserReply" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="UserReply">
-          <Key>
-            <PropertyRef Name="Reply_id" />
-          </Key>
-          <Property Name="Reply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Users_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ReplyContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
-          <Property Name="ReReply_id" Type="Int32" />
-          <Property Name="U_id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="UserInfo" Relationship="ShiyunModel.FK_UserReply_UserInfo" FromRole="UserReply" ToRole="UserInfo" />
-          <NavigationProperty Name="UserInfo1" Relationship="ShiyunModel.FK_UserReply_UserInfo1" FromRole="UserReply" ToRole="UserInfo" />
-          <NavigationProperty Name="UserReply1" Relationship="ShiyunModel.FK_UserReply_UserReply" FromRole="UserReply" ToRole="UserReply1" />
-          <NavigationProperty Name="UserReply2" Relationship="ShiyunModel.FK_UserReply_UserReply" FromRole="UserReply1" ToRole="UserReply" />
-        </EntityType>
-        <EntityType Name="View_UserReply">
-          <Key>
-            <PropertyRef Name="Reply_id1" />
-            <PropertyRef Name="Users_id1" />
-          </Key>
-          <Property Name="Reply_id1" Type="Int32" Nullable="false" />
-          <Property Name="ReplyContent1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ReplyTime1" Type="DateTime" Precision="3" />
-          <Property Name="ReReply_id1" Type="Int32" />
-          <Property Name="U_id1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Users_id1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="UserName1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="UserImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Users_id2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="UserName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="UserImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Reply_id2" Type="Int32" />
-          <Property Name="ReplyContent2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ReplyTime2" Type="DateTime" Precision="3" />
-          <Property Name="ReReply_id2" Type="Int32" />
-          <Property Name="U_id2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_UserReply_UserInfo">
-          <End Type="ShiyunModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
-          <End Type="ShiyunModel.UserReply" Role="UserReply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="Users_id" />
-            </Principal>
-            <Dependent Role="UserReply">
-              <PropertyRef Name="Users_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserReply_UserInfo1">
-          <End Type="ShiyunModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
-          <End Type="ShiyunModel.UserReply" Role="UserReply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="Users_id" />
-            </Principal>
-            <Dependent Role="UserReply">
-              <PropertyRef Name="U_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserReply_UserReply">
-          <End Type="ShiyunModel.UserReply" Role="UserReply" Multiplicity="0..1" />
-          <End Type="ShiyunModel.UserReply" Role="UserReply1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserReply">
-              <PropertyRef Name="Reply_id" />
-            </Principal>
-            <Dependent Role="UserReply1">
-              <PropertyRef Name="ReReply_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3557,6 +3558,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserReply">
+            <EntityTypeMapping TypeName="ShiyunModel.UserReply">
+              <MappingFragment StoreEntitySet="UserReply">
+                <ScalarProperty Name="Reply_id" ColumnName="Reply_id" />
+                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
+                <ScalarProperty Name="U_id" ColumnName="U_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Video">
             <EntityTypeMapping TypeName="ShiyunModel.Video">
               <MappingFragment StoreEntitySet="Video">
@@ -3882,41 +3895,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ShopCar_Orders" FunctionName="ShiyunModel.Store.ShopCar_Orders" />
-          <EntitySetMapping Name="UserReply">
-            <EntityTypeMapping TypeName="ShiyunModel.UserReply">
-              <MappingFragment StoreEntitySet="UserReply">
-                <ScalarProperty Name="U_id" ColumnName="U_id" />
-                <ScalarProperty Name="ReReply_id" ColumnName="ReReply_id" />
-                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
-                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
-                <ScalarProperty Name="Users_id" ColumnName="Users_id" />
-                <ScalarProperty Name="Reply_id" ColumnName="Reply_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="View_UserReply">
             <EntityTypeMapping TypeName="ShiyunModel.View_UserReply">
               <MappingFragment StoreEntitySet="View_UserReply">
-                <ScalarProperty Name="U_id2" ColumnName="U_id2" />
-                <ScalarProperty Name="ReReply_id2" ColumnName="ReReply_id2" />
-                <ScalarProperty Name="ReplyTime2" ColumnName="ReplyTime2" />
-                <ScalarProperty Name="ReplyContent2" ColumnName="ReplyContent2" />
-                <ScalarProperty Name="Reply_id2" ColumnName="Reply_id2" />
-                <ScalarProperty Name="UserImage2" ColumnName="UserImage2" />
-                <ScalarProperty Name="UserName2" ColumnName="UserName2" />
-                <ScalarProperty Name="Users_id2" ColumnName="Users_id2" />
-                <ScalarProperty Name="UserImage1" ColumnName="UserImage1" />
-                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
-                <ScalarProperty Name="Users_id1" ColumnName="Users_id1" />
-                <ScalarProperty Name="U_id1" ColumnName="U_id1" />
-                <ScalarProperty Name="ReReply_id1" ColumnName="ReReply_id1" />
-                <ScalarProperty Name="ReplyTime1" ColumnName="ReplyTime1" />
-                <ScalarProperty Name="ReplyContent1" ColumnName="ReplyContent1" />
                 <ScalarProperty Name="Reply_id1" ColumnName="Reply_id1" />
+                <ScalarProperty Name="ReplyContent1" ColumnName="ReplyContent1" />
+                <ScalarProperty Name="ReplyTime1" ColumnName="ReplyTime1" />
+                <ScalarProperty Name="ReReply_id1" ColumnName="ReReply_id1" />
+                <ScalarProperty Name="U_id1" ColumnName="U_id1" />
+                <ScalarProperty Name="Users_id1" ColumnName="Users_id1" />
+                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
+                <ScalarProperty Name="UserImage1" ColumnName="UserImage1" />
+                <ScalarProperty Name="Users_id2" ColumnName="Users_id2" />
+                <ScalarProperty Name="UserName2" ColumnName="UserName2" />
+                <ScalarProperty Name="UserImage2" ColumnName="UserImage2" />
+                <ScalarProperty Name="Reply_id2" ColumnName="Reply_id2" />
+                <ScalarProperty Name="ReplyContent2" ColumnName="ReplyContent2" />
+                <ScalarProperty Name="ReplyTime2" ColumnName="ReplyTime2" />
+                <ScalarProperty Name="ReReply_id2" ColumnName="ReReply_id2" />
+                <ScalarProperty Name="U_id2" ColumnName="U_id2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ShopCar_Orders" FunctionName="ShiyunModel.Store.ShopCar_Orders" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

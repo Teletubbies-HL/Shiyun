@@ -212,8 +212,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Shiyun.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Shiyun.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Shiyun.edmx</DependentUpon>
+      <LastGenOutput>Shiyun.Context.cs</LastGenOutput>
+    </None>
     <None Include="Shiyun.edmx.diagram">
       <DependentUpon>Shiyun.edmx</DependentUpon>
+    </None>
+    <None Include="Shiyun.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Shiyun.edmx</DependentUpon>
+      <LastGenOutput>Shiyun.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -227,16 +237,6 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Shiyun.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Shiyun.edmx</DependentUpon>
-      <LastGenOutput>Shiyun.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Shiyun.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Shiyun.edmx</DependentUpon>
-      <LastGenOutput>Shiyun.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

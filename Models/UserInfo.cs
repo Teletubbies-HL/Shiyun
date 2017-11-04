@@ -32,10 +32,10 @@ namespace Models
             this.UserDati = new HashSet<UserDati>();
             this.UserGuanzhu = new HashSet<UserGuanzhu>();
             this.UserGuanzhu1 = new HashSet<UserGuanzhu>();
-            this.VideoComment = new HashSet<VideoComment>();
-            this.VideoReply = new HashSet<VideoReply>();
             this.UserReply = new HashSet<UserReply>();
             this.UserReply1 = new HashSet<UserReply>();
+            this.VideoComment = new HashSet<VideoComment>();
+            this.VideoReply = new HashSet<VideoReply>();
         }
     
         public string Users_id { get; set; }
@@ -85,12 +85,12 @@ namespace Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserGuanzhu> UserGuanzhu1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VideoComment> VideoComment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VideoReply> VideoReply { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserReply> UserReply { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserReply> UserReply1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VideoComment> VideoComment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VideoReply> VideoReply { get; set; }
     }
 }

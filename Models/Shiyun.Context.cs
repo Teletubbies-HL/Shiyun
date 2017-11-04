@@ -53,6 +53,7 @@ namespace Models
         public virtual DbSet<UserDati> UserDati { get; set; }
         public virtual DbSet<UserGuanzhu> UserGuanzhu { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
+        public virtual DbSet<UserReply> UserReply { get; set; }
         public virtual DbSet<Video> Video { get; set; }
         public virtual DbSet<VideoComment> VideoComment { get; set; }
         public virtual DbSet<VideoK> VideoK { get; set; }
@@ -70,7 +71,6 @@ namespace Models
         public virtual DbSet<View_ShopCar> View_ShopCar { get; set; }
         public virtual DbSet<View_TimeShi> View_TimeShi { get; set; }
         public virtual DbSet<View_UserInfo> View_UserInfo { get; set; }
-        public virtual DbSet<UserReply> UserReply { get; set; }
         public virtual DbSet<View_UserReply> View_UserReply { get; set; }
     
         public virtual int ShopCar_Orders(string users_id, string userName, string userPhone, string address, string note)
